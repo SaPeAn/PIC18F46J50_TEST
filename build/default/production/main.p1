@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"18 ./system.h
-[; ;./system.h: 18: uint32_t gettimestamp(void);
+"20 ./system.h
+[; ;./system.h: 20: uint32_t gettimestamp(void);
 [v _gettimestamp `(ul ~T0 @X0 0 ef ]
 "7449 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 7449:     struct {
@@ -18,15 +18,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 7470: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
 [v _LATDbits `VS327 ~T0 @X0 0 e@3980 ]
 [p mainexit ]
-"14 ./system.h
-[; ;./system.h: 14: void Sys_init(void);
+"16 ./system.h
+[; ;./system.h: 16: void Sys_init(void);
 [v _Sys_init `(v ~T0 @X0 0 ef ]
 [v F6044 `(v ~T0 @X0 0 tf ]
-"16
-[; ;./system.h: 16: void SysMillisecTimestamp_init(void (*)(void));
-[v _SysMillisecTimestamp_init `(v ~T0 @X0 0 ef1`*F6044 ]
-"7 ./dbio.h
-[; ;./dbio.h: 7: void dbio_init(void);
+"18
+[; ;./system.h: 18: void Sys_msTimestamp_init(void (*)(void));
+[v _Sys_msTimestamp_init `(v ~T0 @X0 0 ef1`*F6044 ]
+"14 ./dbio.h
+[; ;./dbio.h: 14: void dbio_init(void);
 [v _dbio_init `(v ~T0 @X0 0 ef ]
 "7975 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 7975:     struct {
@@ -42,11 +42,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "121 C:\Program Files\Microchip\xc8\v4.00\pic\include\c99/stdio.h
 [; ;C:\Program Files\Microchip\xc8\v4.00\pic\include\c99/stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"9 ./dbio.h
-[; ;./dbio.h: 9: int16_t dbio_putstring(uint8_t* str, uint16_t Nmax);
+"16 ./dbio.h
+[; ;./dbio.h: 16: int16_t dbio_putstring(uint8_t* str, uint16_t Nmax);
 [v _dbio_putstring `(s ~T0 @X0 0 ef2`*uc`us ]
-"8
-[; ;./dbio.h: 8: int16_t dbio_getstring(uint8_t* ch, uint16_t Nmax, uint16_t timeout);
+"21 ./system.h
+[; ;./system.h: 21: void delay_ms(uint32_t del);
+[v _delay_ms `(v ~T0 @X0 0 ef1`ul ]
+"15 ./dbio.h
+[; ;./dbio.h: 15: int16_t dbio_getstring(uint8_t* ch, uint16_t Nmax, uint16_t timeout);
 [v _dbio_getstring `(s ~T0 @X0 0 ef3`*uc`us`us ]
 "9 ./config.h
 [p x WDTEN  =  OFF       ]
@@ -949,142 +952,130 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16434
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 16434: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"8 main.c
-[; ;main.c: 8: void blinky(void)
+"9 main.c
+[; ;main.c: 9: void blinky(void)
 [v _blinky `(v ~T0 @X0 1 ef ]
-"9
-[; ;main.c: 9: {
+"10
+[; ;main.c: 10: {
 {
 [e :U _blinky ]
 [f ]
-"10
-[; ;main.c: 10:   static uint32_t time;
-[v F6429 `ul ~T0 @X0 1 s time ]
 "11
-[; ;main.c: 11:   if(gettimestamp() - time > 10)
-[e $ ! > - ( _gettimestamp ..  F6429 -> -> -> 10 `i `l `ul 777  ]
+[; ;main.c: 11:   static uint32_t time;
+[v F6447 `ul ~T0 @X0 1 s time ]
 "12
-[; ;main.c: 12:   {
-{
+[; ;main.c: 12:   if(gettimestamp() - time > 10)
+[e $ ! > - ( _gettimestamp ..  F6447 -> -> -> 10 `i `l `ul 778  ]
 "13
-[; ;main.c: 13:     LATDbits.LATD4 = 0;
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-"14
-[; ;main.c: 14:     if(gettimestamp() - time > 1000)
-[e $ ! > - ( _gettimestamp ..  F6429 -> -> -> 1000 `i `l `ul 778  ]
-"15
-[; ;main.c: 15:     {
+[; ;main.c: 13:   {
 {
+"14
+[; ;main.c: 14:     LATDbits.LATD4 = 0;
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+"15
+[; ;main.c: 15:     if(gettimestamp() - time > 1000)
+[e $ ! > - ( _gettimestamp ..  F6447 -> -> -> 1000 `i `l `ul 779  ]
 "16
-[; ;main.c: 16:       LATDbits.LATD4 = 1;
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 16:     {
+{
 "17
-[; ;main.c: 17:       time = gettimestamp();
-[e = F6429 ( _gettimestamp ..  ]
+[; ;main.c: 17:       LATDbits.LATD4 = 1;
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
 "18
-[; ;main.c: 18:     }
+[; ;main.c: 18:       time = gettimestamp();
+[e = F6447 ( _gettimestamp ..  ]
+"19
+[; ;main.c: 19:     }
+}
+[e :U 779 ]
+"20
+[; ;main.c: 20:   }
 }
 [e :U 778 ]
-"19
-[; ;main.c: 19:   }
-}
-[e :U 777 ]
-"20
-[; ;main.c: 20: }
-[e :UE 776 ]
-}
-"22
-[; ;main.c: 22: void ms_call_func(void)
-[v _ms_call_func `(v ~T0 @X0 1 ef ]
-"23
-[; ;main.c: 23: {
-{
-[e :U _ms_call_func ]
-[f ]
-"24
-[; ;main.c: 24:   blinky();
-[e ( _blinky ..  ]
-"25
-[; ;main.c: 25: }
-[e :UE 779 ]
+"21
+[; ;main.c: 21: }
+[e :UE 777 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"27
-[; ;main.c: 27: void main(void)
+"23
+[; ;main.c: 23: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"28
-[; ;main.c: 28: {
+"24
+[; ;main.c: 24: {
 {
 [e :U _main ]
 [f ]
-"29
-[; ;main.c: 29:   Sys_init();
+"25
+[; ;main.c: 25:   Sys_init();
 [e ( _Sys_init ..  ]
-"30
-[; ;main.c: 30:   SysMillisecTimestamp_init(ms_call_func);
-[e ( _SysMillisecTimestamp_init (1 &U _ms_call_func ]
-"31
-[; ;main.c: 31:   dbio_init();
+"26
+[; ;main.c: 26:   Sys_msTimestamp_init(blinky);
+[e ( _Sys_msTimestamp_init (1 &U _blinky ]
+"27
+[; ;main.c: 27:   dbio_init();
 [e ( _dbio_init ..  ]
-"32
-[; ;main.c: 32:   TRISDbits.TRISD4 = 0;
+"28
+[; ;main.c: 28:   TRISDbits.TRISD4 = 0;
 [e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
-"34
-[; ;main.c: 34:   char strtx[100];
+"30
+[; ;main.c: 30:   char strtx[100];
 [v _strtx `uc ~T0 @X0 -> 100 `i a ]
-"35
-[; ;main.c: 35:   char strrx[100];
+"31
+[; ;main.c: 31:   char strrx[100];
 [v _strrx `uc ~T0 @X0 -> 100 `i a ]
-"37
-[; ;main.c: 37:   sprintf(strtx, "Hello!!!\n\rTime: %ld\n\rEnter string: \n\r", gettimestamp());
+"33
+[; ;main.c: 33:   sprintf(strtx, "Hello!!!\n\rTime: %ld\n\rEnter string: \n\r", gettimestamp());
 [e ( _sprintf (1 , (. , &U _strtx :s 1C ( _gettimestamp ..  ]
-"38
-[; ;main.c: 38:   dbio_putstring(strtx, 50);
+"34
+[; ;main.c: 34:   dbio_putstring(strtx, 50);
 [e ( _dbio_putstring (2 , -> &U _strtx `*uc -> -> 50 `i `us ]
-"39
-[; ;main.c: 39:   while(1)
+"35
+[; ;main.c: 35:   delay_ms(15);
+[e ( _delay_ms (1 -> -> -> 15 `i `l `ul ]
+"36
+[; ;main.c: 36:   while(1)
 [e :U 782 ]
-"40
-[; ;main.c: 40:   {
+"37
+[; ;main.c: 37:   {
 {
-"41
-[; ;main.c: 41:     if(dbio_getstring(strrx, 50, 5) > 0)
+"38
+[; ;main.c: 38:     if(dbio_getstring(strrx, 50, 5) > 0)
 [e $ ! > -> ( _dbio_getstring (3 , , -> &U _strrx `*uc -> -> 50 `i `us -> -> 5 `i `us `i -> 0 `i 784  ]
-"42
-[; ;main.c: 42:     {
+"39
+[; ;main.c: 39:     {
 {
-"43
-[; ;main.c: 43:       sprintf(strtx, "\n\rTime: %ld\n\rEntered string: %s\n\r", gettimestamp(), strrx);
+"40
+[; ;main.c: 40:       sprintf(strtx, "Time: %ld\n\rEntered string: %s\n\r", gettimestamp(), strrx);
 [e ( _sprintf (1 , , (. , &U _strtx :s 2C ( _gettimestamp ..  &U _strrx ]
-"44
-[; ;main.c: 44:       dbio_putstring(strtx, 50);
-[e ( _dbio_putstring (2 , -> &U _strtx `*uc -> -> 50 `i `us ]
-"45
-[; ;main.c: 45:       sprintf(strtx, "Hello!!!\n\rTime: %ld\n\rEnter string: \n\r", gettimestamp());
+"41
+[; ;main.c: 41:       dbio_putstring(strtx, 100);
+[e ( _dbio_putstring (2 , -> &U _strtx `*uc -> -> 100 `i `us ]
+"42
+[; ;main.c: 42:       sprintf(strtx, "\n\rHello!!!\n\rTime: %ld\n\rEnter string: \n\r\n\r", gettimestamp());
 [e ( _sprintf (1 , (. , &U _strtx :s 3C ( _gettimestamp ..  ]
-"46
-[; ;main.c: 46:       dbio_putstring(strtx, 50);
-[e ( _dbio_putstring (2 , -> &U _strtx `*uc -> -> 50 `i `us ]
-"47
-[; ;main.c: 47:     }
+"43
+[; ;main.c: 43:       dbio_putstring(strtx, 100);
+[e ( _dbio_putstring (2 , -> &U _strtx `*uc -> -> 100 `i `us ]
+"44
+[; ;main.c: 44:     }
 }
 [e :U 784 ]
-"48
-[; ;main.c: 48:   }
+"45
+[; ;main.c: 45:   }
 }
 [e :U 781 ]
-"39
-[; ;main.c: 39:   while(1)
+"36
+[; ;main.c: 36:   while(1)
 [e $U 782  ]
 [e :U 783 ]
-"50
-[; ;main.c: 50:   return;
+"47
+[; ;main.c: 47:   return;
 [e $UE 780  ]
-"51
-[; ;main.c: 51: }
+"48
+[; ;main.c: 48: }
 [e :UE 780 ]
 }
 [p f _sprintf 8650896 ]
-[a 2C 10 13 84 105 109 101 58 32 37 108 100 10 13 69 110 116 101 114 101 100 32 115 116 114 105 110 103 58 32 37 115 10 13 0 ]
+[a 2C 84 105 109 101 58 32 37 108 100 10 13 69 110 116 101 114 101 100 32 115 116 114 105 110 103 58 32 37 115 10 13 0 ]
 [a 1C 72 101 108 108 111 33 33 33 10 13 84 105 109 101 58 32 37 108 100 10 13 69 110 116 101 114 32 115 116 114 105 110 103 58 32 10 13 0 ]
-[a 3C 72 101 108 108 111 33 33 33 10 13 84 105 109 101 58 32 37 108 100 10 13 69 110 116 101 114 32 115 116 114 105 110 103 58 32 10 13 0 ]
+[a 3C 10 13 72 101 108 108 111 33 33 33 10 13 84 105 109 101 58 32 37 108 100 10 13 69 110 116 101 114 32 115 116 114 105 110 103 58 32 10 13 10 13 0 ]

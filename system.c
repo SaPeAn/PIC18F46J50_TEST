@@ -20,31 +20,10 @@ void (*U1TX_callback)(void);
     if(ms_callback != NULL) ms_callback();
     TMR0IF = 0;
   }
-  // UART1 RX interrupt
-  if (RC1IE && RC1IF)
-  {
-    RC1IF = 0;
-    if(U1RX_callback != NULL) U1RX_callback();
-  }
-  // UART1 TX interrupt
-  if (TX1IE && TX1IF)
-  {
-    TX1IF = 0;
-    if(U1TX_callback != NULL) U1TX_callback();
-  }
 }
  
-  void __interrupt(low_priority)  LowInterrupts_handler(void)
+  void __interrupt(low_priority)  Interrupts_handler(void)
 {
-  // Timer0 interrupt
-  if (TMR0IE && TMR0IF)
-  {
-    TMR0L += TMR0L_tmp;
-    TMR0H = TMR0H_tmp;
-    timestamp++;
-    if(ms_callback != NULL) ms_callback();
-    TMR0IF = 0;
-  }
   // UART1 RX interrupt
   if (RC1IE && RC1IF)
   {
@@ -54,18 +33,19 @@ void (*U1TX_callback)(void);
   // UART1 TX interrupt
   if (TX1IE && TX1IF)
   {
-    TX1IF = 0;
+    //TX1IF = 0;
     if(U1TX_callback != NULL) U1TX_callback();
+    //Nop();
   }
 }
 
 void Sys_init(void)
 {
   OSCTUNEbits.PLLEN = 1; // PLL enable  
-  RCONbits.IPEN = 1;
+  RCONbits.IPEN = 1; // interrupt priority EN/DIS
 }
 
-void SysMillisecTimestamp_init(void (*callback_func)(void))
+void Sys_msTimestamp_init(void (*callback_func)(void))
 {
   T0CONbits.TMR0ON = 0;
   T0CONbits.T08BIT = 0;   // Timer0 is configured as a 16-bit timer/counter
@@ -158,6 +138,12 @@ void UART1_Init(void (*rx_cbck)(void), void (*tx_cbck)(void))
 }
 
 void UART1_PutChar(char byte)
+{
+  while(!TXSTA1bits.TRMT);
+  TXREG1 = byte;
+}
+
+void putchar(char byte)
 {
   while(!TXSTA1bits.TRMT);
   TXREG1 = byte;

@@ -10123,10 +10123,10 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include/xc.h" 2 3
 # 5 "./system.h" 2
-# 14 "./system.h"
+# 16 "./system.h"
 void Sys_init(void);
 
-void SysMillisecTimestamp_init(void (*)(void));
+void Sys_msTimestamp_init(void (*)(void));
 
 uint32_t gettimestamp(void);
 void delay_ms(uint32_t del);
@@ -10158,31 +10158,10 @@ void (*U1TX_callback)(void);
     if(ms_callback != ((void*)0)) ms_callback();
     TMR0IF = 0;
   }
-
-  if (RC1IE && RC1IF)
-  {
-    RC1IF = 0;
-    if(U1RX_callback != ((void*)0)) U1RX_callback();
-  }
-
-  if (TX1IE && TX1IF)
-  {
-    TX1IF = 0;
-    if(U1TX_callback != ((void*)0)) U1TX_callback();
-  }
 }
 
-  void __attribute__((picinterrupt(("low_priority")))) LowInterrupts_handler(void)
+  void __attribute__((picinterrupt(("low_priority")))) Interrupts_handler(void)
 {
-
-  if (TMR0IE && TMR0IF)
-  {
-    TMR0L += TMR0L_tmp;
-    TMR0H = TMR0H_tmp;
-    timestamp++;
-    if(ms_callback != ((void*)0)) ms_callback();
-    TMR0IF = 0;
-  }
 
   if (RC1IE && RC1IF)
   {
@@ -10192,8 +10171,9 @@ void (*U1TX_callback)(void);
 
   if (TX1IE && TX1IF)
   {
-    TX1IF = 0;
+
     if(U1TX_callback != ((void*)0)) U1TX_callback();
+
   }
 }
 
@@ -10203,7 +10183,7 @@ void Sys_init(void)
   RCONbits.IPEN = 1;
 }
 
-void SysMillisecTimestamp_init(void (*callback_func)(void))
+void Sys_msTimestamp_init(void (*callback_func)(void))
 {
   T0CONbits.TMR0ON = 0;
   T0CONbits.T08BIT = 0;
@@ -10296,6 +10276,12 @@ void UART1_Init(void (*rx_cbck)(void), void (*tx_cbck)(void))
 }
 
 void UART1_PutChar(char byte)
+{
+  while(!TXSTA1bits.TRMT);
+  TXREG1 = byte;
+}
+
+void putchar(char byte)
 {
   while(!TXSTA1bits.TRMT);
   TXREG1 = byte;

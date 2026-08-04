@@ -1,6 +1,6 @@
 
 18F46J50 Memory Summary:
-    Program space        used  2A07h ( 10759) of  FFF8h bytes   ( 16.4%)
-    Data space           used   36Eh (   878) of   EC0h bytes   ( 23.3%)
+    Program space        used  1FE8h (  8168) of  FFF8h bytes   ( 12.5%)
+    Data space           used   338h (   824) of   EC0h bytes   ( 21.8%)
     Configuration bits   used     4h (     4) of     4h words   (100.0%)
 

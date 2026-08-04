@@ -11,6 +11,10 @@
 
 
 
+# 1 "./system.h" 1
+
+
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include/xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -10122,9 +10126,22 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include/xc.h" 2 3
+# 5 "./system.h" 2
+# 16 "./system.h"
+void Sys_init(void);
+
+void Sys_msTimestamp_init(void (*)(void));
+
+uint32_t gettimestamp(void);
+void delay_ms(uint32_t del);
+
+
+void UART1_Init(void (*rx_cbck)(void), void (*tx_cbck)(void));
+void UART1_PutChar(char byte);
+int16_t UART1_PutStr(char* byte, uint16_t N);
+char UART1_GetChar(void);
 # 5 "./dbio.h" 2
-
-
+# 14 "./dbio.h"
 void dbio_init(void);
 int16_t dbio_getstring(uint8_t* ch, uint16_t Nmax, uint16_t timeout);
 int16_t dbio_putstring(uint8_t* str, uint16_t Nmax);
@@ -10384,21 +10401,6 @@ RINGBUF_STATUS RingBuf_DataRead(void* data, uint16_t len, RINGBUF_t* rb);
 
 RINGBUF_STATUS RingBuf_DataWatch(void* data, uint16_t len, RINGBUF_t* rb);
 # 3 "dbio.c" 2
-# 1 "./system.h" 1
-# 14 "./system.h"
-void Sys_init(void);
-
-void SysMillisecTimestamp_init(void (*)(void));
-
-uint32_t gettimestamp(void);
-void delay_ms(uint32_t del);
-
-
-void UART1_Init(void (*rx_cbck)(void), void (*tx_cbck)(void));
-void UART1_PutChar(char byte);
-int16_t UART1_PutStr(char* byte, uint16_t N);
-char UART1_GetChar(void);
-# 4 "dbio.c" 2
 
 
 
@@ -10410,36 +10412,41 @@ uint8_t RXbuf[200] = {0};
 RINGBUF_t TXringbuf;
 uint8_t TXbuf[200] = {0};
 
-uint8_t txcpltfl = 1;
-
 void TXbyte_cbk(void)
 {
   uint16_t buf_len = 0;
+  uint8_t byte;
   RingBuf_Available(&buf_len, &TXringbuf);
-  if(buf_len) RingBuf_DataRead((uint8_t*)&TXREG, 1, &TXringbuf);
+  if(buf_len) {
+    RingBuf_DataRead((uint8_t*)&byte, 1, &TXringbuf);
+    TXREG = byte;
+  }
   else PIE1bits.TX1IE = 0;
 }
 
 void RXbyte_cbk(void)
 {
-  RingBuf_DataPut((uint8_t*)&RCREG, 1, &RXringbuf);
+  uint8_t byte;
+  byte = RCREG;
+  RingBuf_DataPut((uint8_t*)&byte, 1, &RXringbuf);
 }
 
 void dbio_init(void)
 {
   UART1_Init(RXbyte_cbk, TXbyte_cbk);
+  PIE1bits.RC1IE = 1;
   RingBuf_Init(RXbuf, 200, 1, &RXringbuf);
   RingBuf_Init(TXbuf, 200, 1, &TXringbuf);
 }
 
 int16_t dbio_getstring(uint8_t* str, uint16_t Nmax, uint16_t timeout)
 {
-  if((Nmax + 1) > 200) return -1;
   static uint32_t timetmp = 0;
   static uint16_t buf_len = 0;
   static uint16_t buf_len_prev = 0;
 
   RingBuf_Available(&buf_len, &RXringbuf);
+  if((Nmax + buf_len) > 200) return -1;
 
   if(buf_len)
   {
@@ -10450,7 +10457,7 @@ int16_t dbio_getstring(uint8_t* str, uint16_t Nmax, uint16_t timeout)
         RingBuf_DataRead(str, Nmax, &RXringbuf);
 
         buf_len_prev = 0;
-        str[Nmax+1] = '\0';
+        str[Nmax] = '\0';
         return Nmax;
       }
       buf_len_prev = buf_len;
@@ -10461,7 +10468,8 @@ int16_t dbio_getstring(uint8_t* str, uint16_t Nmax, uint16_t timeout)
     {
       buf_len = (buf_len > Nmax) ? Nmax : buf_len;
       RingBuf_DataRead(str, buf_len, &RXringbuf);
-      str[buf_len+1] = '\0';
+      str[buf_len] = '\0';
+      buf_len_prev = 0;
       return buf_len;
     }
   }
@@ -10482,13 +10490,17 @@ int16_t dbio_putstring(uint8_t* str, uint16_t Nmax)
 {
   static uint16_t buf_len = 0;
   uint16_t str_len;
+  uint8_t byte;
   RingBuf_Available(&buf_len, &TXringbuf);
   if((buf_len + Nmax + 1) > 200) return -1;
 
   str_len = dbio_strnlen(str, Nmax);
   RingBuf_DataPut(str, str_len, &TXringbuf);
-  RingBuf_DataRead(&TXREG, 1, &TXringbuf);
-  txcpltfl = 0;
-  PIE1bits.TX1IE = 1;
+  if(TX1IF)
+  {
+    RingBuf_DataRead(&byte, 1, &TXringbuf);
+    TXREG = byte;
+    PIE1bits.TX1IE = 1;
+  }
   return str_len;
 }

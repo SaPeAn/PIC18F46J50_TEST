@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include "ringbuf.h"
 #include "dbio.h"
+#include "RTC.h"
 
 void blinky(void)
 {
@@ -19,15 +20,10 @@ void blinky(void)
   }
 }
 
-void ms_call_func(void)
-{
-  blinky();
-}
-
 void main(void) 
 {
   Sys_init();
-  SysMillisecTimestamp_init(ms_call_func);
+  Sys_msTimestamp_init(blinky);
   dbio_init();
   TRISDbits.TRISD4 = 0;
   
@@ -35,21 +31,16 @@ void main(void)
   char strrx[100];
   
   sprintf(strtx, "Hello!!!\n\rTime: %ld\n\rEnter string: \n\r", gettimestamp());
-  //dbio_putstring(strtx, 50);
-  UART1_PutStr(strtx, 50);
+  dbio_putstring(strtx, 50);
   delay_ms(15);
   while(1)
   {
     if(dbio_getstring(strrx, 50, 5) > 0)
     {
       sprintf(strtx, "Time: %ld\n\rEntered string: %s\n\r", gettimestamp(), strrx);
-      //dbio_putstring(strtx, 50);
-  UART1_PutStr(strtx, 50);
-      delay_ms(15);
-      sprintf(strtx, "\n\rHello!!!\n\rTime: %ld\n\rEnter string: \n\r", gettimestamp());
-      //dbio_putstring(strtx, 50);
-  UART1_PutStr(strtx, 50);
-      delay_ms(15);
+      dbio_putstring(strtx, 100);
+      sprintf(strtx, "\n\rHello!!!\n\rTime: %ld\n\rEnter string: \n\r\n\r", gettimestamp());
+      dbio_putstring(strtx, 100);
     }
   }
   

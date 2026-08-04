@@ -8,6 +8,8 @@
       <itemPath>system.h</itemPath>
       <itemPath>ringbuf.h</itemPath>
       <itemPath>dbio.h</itemPath>
+      <itemPath>RTC.h</itemPath>
+      <itemPath>ADC.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -25,6 +27,8 @@
       <itemPath>system.c</itemPath>
       <itemPath>ringbuf.c</itemPath>
       <itemPath>dbio.c</itemPath>
+      <itemPath>RTC.c</itemPath>
+      <itemPath>ADC.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>

@@ -3,17 +3,19 @@
 
 #include <xc.h>
 
-#define      F_OSC                 48000000L
-#define      U1_BAUDRATE           230400L
-#define      U1_TxIntEn()          PIE1bits.TX1IE = 1
-#define      U1_RxIntEn()          PIE1bits.RC1IE = 1
-#define      U1_TxIntDis()         PIE1bits.TX1IE = 0
-#define      U1_RxIntDis()         PIE1bits.RC1IE = 0
-
+#define      F_OSC                    48000000L
+#define      U1_BAUDRATE              230400L
+#define      U1_TxIntEn()             PIE1bits.TX1IE = 1
+#define      U1_RxIntEn()             PIE1bits.RC1IE = 1
+#define      U1_TxIntDis()            PIE1bits.TX1IE = 0
+#define      U1_RxIntDis()            PIE1bits.RC1IE = 0
+#define      U1_CheckTxPermission()   TX1IF
+#define      U1_SendByte(byte)        TXREG = byte
+#define      U1_GetByte()             RCREG
 
 void Sys_init(void);
 
-void SysMillisecTimestamp_init(void (*)(void));
+void Sys_msTimestamp_init(void (*)(void));
 
 uint32_t gettimestamp(void);
 void delay_ms(uint32_t del);

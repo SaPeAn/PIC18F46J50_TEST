@@ -10229,10 +10229,10 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 3 "main.c" 2
 # 1 "./system.h" 1
-# 14 "./system.h"
+# 16 "./system.h"
 void Sys_init(void);
 
-void SysMillisecTimestamp_init(void (*)(void));
+void Sys_msTimestamp_init(void (*)(void));
 
 uint32_t gettimestamp(void);
 void delay_ms(uint32_t del);
@@ -10443,16 +10443,31 @@ RINGBUF_STATUS RingBuf_DataRead(void* data, uint16_t len, RINGBUF_t* rb);
 RINGBUF_STATUS RingBuf_DataWatch(void* data, uint16_t len, RINGBUF_t* rb);
 # 6 "main.c" 2
 # 1 "./dbio.h" 1
-
-
-
-
-
-
+# 14 "./dbio.h"
 void dbio_init(void);
 int16_t dbio_getstring(uint8_t* ch, uint16_t Nmax, uint16_t timeout);
 int16_t dbio_putstring(uint8_t* str, uint16_t Nmax);
 # 7 "main.c" 2
+# 1 "./RTC.h" 1
+
+
+
+
+
+typedef struct{
+    uint8_t YEAR;
+    uint8_t MONTH;
+    uint8_t DAY;
+    uint8_t WEEKDAY;
+    uint8_t HOURS;
+    uint8_t MINUTES;
+    uint8_t SECONDS;
+    uint8_t unknown;
+} RTCC_VAL;
+
+void write_RTCC(RTCC_VAL * const me);
+void read_RTCC(RTCC_VAL * const me);
+# 8 "main.c" 2
 
 void blinky(void)
 {
@@ -10468,15 +10483,10 @@ void blinky(void)
   }
 }
 
-void ms_call_func(void)
-{
-  blinky();
-}
-
 void main(void)
 {
   Sys_init();
-  SysMillisecTimestamp_init(ms_call_func);
+  Sys_msTimestamp_init(blinky);
   dbio_init();
   TRISDbits.TRISD4 = 0;
 
@@ -10485,14 +10495,15 @@ void main(void)
 
   sprintf(strtx, "Hello!!!\n\rTime: %ld\n\rEnter string: \n\r", gettimestamp());
   dbio_putstring(strtx, 50);
+  delay_ms(15);
   while(1)
   {
     if(dbio_getstring(strrx, 50, 5) > 0)
     {
-      sprintf(strtx, "\n\rTime: %ld\n\rEntered string: %s\n\r", gettimestamp(), strrx);
-      dbio_putstring(strtx, 50);
-      sprintf(strtx, "Hello!!!\n\rTime: %ld\n\rEnter string: \n\r", gettimestamp());
-      dbio_putstring(strtx, 50);
+      sprintf(strtx, "Time: %ld\n\rEntered string: %s\n\r", gettimestamp(), strrx);
+      dbio_putstring(strtx, 100);
+      sprintf(strtx, "\n\rHello!!!\n\rTime: %ld\n\rEnter string: \n\r\n\r", gettimestamp());
+      dbio_putstring(strtx, 100);
     }
   }
 
