@@ -6,9 +6,12 @@
             <file>file:/D:/_Proj_MCU/Microchip/PIC18F46J50_TEST.X/main.c</file>
             <file>file:/D:/_Proj_MCU/Microchip/PIC18F46J50_TEST.X/ADC.h</file>
             <file>file:/D:/_Proj_MCU/Microchip/PIC18F46J50_TEST.X/system.c</file>
+            <file>file:/D:/_Proj_MCU/Microchip/PIC18F46J50_TEST.X/config.h</file>
             <file>file:/D:/_Proj_MCU/Microchip/PIC18F46J50_TEST.X/RTC.c</file>
+            <file>file:/D:/_Proj_MCU/Microchip/PIC18F46J50_TEST.X/dbio.c</file>
             <file>file:/D:/_Proj_MCU/Microchip/PIC18F46J50_TEST.X/RTC.h</file>
             <file>file:/D:/_Proj_MCU/Microchip/PIC18F46J50_TEST.X/system.h</file>
+            <file>file:/D:/_Proj_MCU/Microchip/PIC18F46J50_TEST.X/dbio.h</file>
             <file>file:/D:/_Proj_MCU/Microchip/PIC18F46J50_TEST.X/ADC.c</file>
         </group>
     </open-files>

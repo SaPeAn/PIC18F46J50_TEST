@@ -617,7 +617,7 @@ _RingBuf_DataRead 2990 0 CODE 0
 __Ljflash_buffer F800 0 CODE 0
 __smallconst 1000 0 SMALLCONST 0
 RingBuf_Available@len B8 0 BANK0 1
-__Hreset_vec 4 0 CODE 0
+__Hreset_vec 6 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 __end_ofi1_RingBuf_Available 2990 0 CODE 0
 __end_of_get_ms 3752 0 CODE 0
@@ -686,7 +686,7 @@ ___aldiv@dividend B8 0 BANK0 1
 i1RingBuf_Available@rb D 0 COMRAM 1
 ___lldiv@dividend B8 0 BANK0 1
 %segments
-reset_vec 0 3 CODE 0 0
+reset_vec 0 5 CODE 0 0
 intcode 8 D CODE 8 0
 intcodelo 18 14F CODE 18 0
 smallconst 1000 1095 SMALLCONST 1000 0
@@ -698,8 +698,8 @@ cstackBANK4 400 4C7 BANK4 400 1
 bssBANK1 100 145 BANK1 100 1
 text19 1096 378B CODE 1096 0
 %locals
-dist/default/production\PIC18F46J50_TEST.X.production.o
-C:\Users\Admin\AppData\Local\Temp\xcAsb8s.0\driver_tmp_1.s
+dist/default/debug\PIC18F46J50_TEST.X.debug.o
+C:\Users\Admin\AppData\Local\Temp\xcAs884.0\driver_tmp_1.s
 3343 3408 0 CODE 0
 3345 3408 0 CODE 0
 3348 3408 0 CODE 0
@@ -1295,7 +1295,7 @@ ADC.c
 19 370A 0 CODE 0
 21 370A 0 CODE 0
 22 3724 0 CODE 0
-C:\Users\Admin\AppData\Local\Temp\xcAsb8s.0\driver_tmp_1.s
+C:\Users\Admin\AppData\Local\Temp\xcAs884.0\driver_tmp_1.s
 12372 18 0 CODE 0
 system.c
 29 18 0 CODE 0
@@ -1405,7 +1405,7 @@ ADC.c
 15 3238 0 CODE 0
 16 323A 0 CODE 0
 17 323C 0 CODE 0
-C:\Users\Admin\AppData\Local\Temp\xcAsb8s.0\driver_tmp_1.s
+C:\Users\Admin\AppData\Local\Temp\xcAs884.0\driver_tmp_1.s
 14337 8 0 CODE 0
 system.c
 16 8 0 CODE 0

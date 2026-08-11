@@ -4,12 +4,12 @@ Linker command line:
 
 -W-3 \
   --edf=C:\Program Files\Microchip\xc8\v4.00\pic\dat\20260614213421_en.msgs \
-  -cn -h+dist/default/production\PIC18F46J50_TEST.X.production.sym \
-  --cmf=dist/default/production\PIC18F46J50_TEST.X.production.cmf -z \
-  -Q18F46J50 -oC:\Users\Admin\AppData\Local\Temp\xcAsb8s.0\driver_tmp_3.o \
+  -cn -h+dist/default/debug\PIC18F46J50_TEST.X.debug.sym \
+  --cmf=dist/default/debug\PIC18F46J50_TEST.X.debug.cmf -z -Q18F46J50 \
+  -oC:\Users\Admin\AppData\Local\Temp\xcAs884.0\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
-  -Mdist/default/production/PIC18F46J50_TEST.X.production.map \
-  --md=C:\Users\Admin\AppData\Local\Temp\xcAsb8s.0\driver_tmp_0.dat -E1 \
+  -Mdist/default/debug/PIC18F46J50_TEST.X.debug.map \
+  --md=C:\Users\Admin\AppData\Local\Temp\xcAs884.0\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler -ACODE=00h-0FFF7h -ACONST=00h-0FFF7h \
   -ASMALLCONST=01000h-010FFhx239,0FF00h-0FFF7h -AMEDIUMCONST=01000h-0FFF7h \
   -ACOMRAM=01h-05Fh -AABS1=00h-0EBFh -ABIGRAM=01h-0EBFh \
@@ -19,7 +19,7 @@ Linker command line:
   -ABANK7=0700h-07FFh -ABANK8=0800h-08FFh -ABANK9=0900h-09FFh \
   -ABANK10=0A00h-0AFFh -ABANK11=0B00h-0BFFh -ABANK12=0C00h-0CFFh \
   -ABANK13=0D00h-0DFFh -ABANK14=0E00h-0EBFh \
-  -ASFR=0EC0h-0EFFh,0F00h-0F5Fh,0F60h-0FFFh -ABIGSFR=0EC0h-0FFFh \
+  -ASFR=0EC0h-0EFFh,0F00h-0F5Fh,0F60h-0FFCh -ABIGSFR=0EC0h-0FFCh \
   -ACONFIG=0FFF8h-0FFFFh \
   -preset_vec=00h,intcode=8h,intcodelo=18h,sivt_lo,sivt_hi=CODE \
   -ppowerup=CODE,init -pramtop=01000h -psmallconst=SMALLCONST \
@@ -29,8 +29,8 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Admin\AppData\Local\Temp\xcAsb8s.0\driver_tmp_12.o \
-  dist/default/production\PIC18F46J50_TEST.X.production.o 
+  C:\Users\Admin\AppData\Local\Temp\xcAs884.0\driver_tmp_12.o \
+  dist/default/debug\PIC18F46J50_TEST.X.debug.o 
 
 Object code version is 3.11
 
@@ -39,11 +39,11 @@ Machine type is 18F46J50
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Admin\AppData\Local\Temp\xcAsb8s.0\driver_tmp_12.o
+C:\Users\Admin\AppData\Local\Temp\xcAs884.0\driver_tmp_12.o
                 config                             FFF8     FFF8        8        0       4
                 init                                14C      14C        4        C       0
-                reset_vec                             0        0        4        0       0
-dist/default/production\PIC18F46J50_TEST.X.production.o
+                reset_vec                             0        0        6        0       0
+dist/default/debug\PIC18F46J50_TEST.X.debug.o
                 intcodelo                            18       18      134        C       0
                 intcode                               8        8        6        4       0
                 config                             FFF8     FFF8        8        0       4
@@ -114,7 +114,7 @@ TOTAL           Name                               Link     Load   Length     Sp
                 intcodelo                            18       18      134         0
                 intcode                               8        8        6         0
                 init                                14C      14C        4         0
-                reset_vec                             0        0        4         0
+                reset_vec                             0        0        6         0
                 text50                             3752     3752       12         0
                 text49                             3136     3136       88         0
                 intcode_body                       323E     323E       72         0
@@ -241,7 +241,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                reset_vec                      000000  000004  000004         0       0  CODE    
+                reset_vec                      000000  000006  000006         0       0  CODE    
                 cstackCOMRAM                   000002  000051  000053         2       1  COMRAM  
                 intcode                        000008  000006  00000E         4       0  CODE    
                 intcodelo                      000018  000138  000150         C       0  CODE    
@@ -278,13 +278,13 @@ UNUSED ADDRESS RANGES
                          002C8-002FF              38
                          003C8-003FF              38
                          004C8-00EBF             9F8
-        BIGSFR           00EC0-00FFF             140
-        CODE             00004-00007               4
+        BIGSFR           00EC0-00FFC             13D
+        CODE             00006-00007               2
                          0000E-00017               A
                          00150-00FFF             EB0
                          0378C-0FFF7            C86C
         COMRAM           00053-0005F               D
-        CONST            00004-00007               4
+        CONST            00006-00007               2
                          0000E-00017               A
                          00150-00FFF             EB0
                          0378C-0FFF7            C86C
@@ -294,7 +294,7 @@ UNUSED ADDRESS RANGES
                          002C8-002FF              38
                          003C8-003FF              38
                          004C8-00EBF             100
-        SFR              00EC0-00FFF              60
+        SFR              00EC0-00FFC              60
         SMALLCONST       0378C-0FFF7             100
 
                                   Symbol Table
@@ -493,7 +493,7 @@ __Hramtop                          ramtop        01000
 __Hrbit                            rbit          00000
 __Hrbss                            rbss          00000
 __Hrdata                           rdata         00000
-__Hreset_vec                       reset_vec     00004
+__Hreset_vec                       reset_vec     00006
 __Hrparam                          rparam        00000
 __Hsfr                             sfr           00000
 __Hsivt_hi                         sivt_hi       00000

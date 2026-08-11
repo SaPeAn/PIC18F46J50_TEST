@@ -17,8 +17,8 @@
 
 // CONFIG2L
 #pragma config OSC = HSPLL      // Oscillator (HS, USB-HS)
-#pragma config T1DIG = OFF      // T1OSCEN Enforcement (Secondary Oscillator clock source may not be selected)
-#pragma config LPT1OSC = OFF    // Low-Power Timer1 Oscillator (High-power operation)
+#pragma config T1DIG = ON      // T1OSCEN Enforcement (Secondary Oscillator clock source may not be selected)
+#pragma config LPT1OSC = ON    // Low-Power Timer1 Oscillator (High-power operation)
 #pragma config FCMEN = ON       // Fail-Safe Clock Monitor (Enabled)
 #pragma config IESO = OFF       // Internal External Oscillator Switch Over Mode (Disabled)
 

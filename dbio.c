@@ -18,7 +18,7 @@ void TXbyte_cbk(void)
   RingBuf_Available(&buf_len, &TXringbuf);
   if(buf_len) {
     RingBuf_DataRead((uint8_t*)&byte, 1, &TXringbuf);
-    TxSendByte(byte);
+    SendByte(byte);
   }
   else TxIntDis();
 }
@@ -26,7 +26,7 @@ void TXbyte_cbk(void)
 void RXbyte_cbk(void)
 {
   uint8_t byte;
-  byte = RxGetByte();
+  byte = GetByte();
   RingBuf_DataPut((uint8_t*)&byte, 1, &RXringbuf);
 }
 
@@ -60,10 +60,10 @@ int16_t dbio_getstring(uint8_t* str, uint16_t Nmax, uint16_t timeout)
         return Nmax;
       }
       buf_len_prev = buf_len;
-      timetmp = gettimestamp();
+      timetmp = get_ms();
       return 0;
     }
-    if(((gettimestamp() - timetmp) > timeout))
+    if(((get_ms() - timetmp) > timeout))
     {
       buf_len = (buf_len > Nmax) ? Nmax : buf_len;
       RingBuf_DataRead(str, buf_len, &RXringbuf);
@@ -98,7 +98,7 @@ int16_t dbio_putstring(uint8_t* str, uint16_t Nmax)
   if(CheckTxPermission())
   {
     RingBuf_DataRead(&byte, 1, &TXringbuf);
-    TxSendByte(byte);
+    SendByte(byte);
     TxIntEn();
   }
   return str_len;

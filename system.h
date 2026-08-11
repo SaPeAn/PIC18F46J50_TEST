@@ -13,11 +13,19 @@
 #define      U1_SendByte(byte)        TXREG = byte
 #define      U1_GetByte()             RCREG
 
+#ifndef	InterruptEn
+#define	InterruptEn()	INTCONbits.GIE = 1 	// Interrupts of Hi/Lo Priority or Peripheral interrupts 
+#endif
+
+#ifndef	InterruptDis
+#define	InterruptDis()	INTCONbits.GIE = 0	// Interrupts of Hi/Lo Priority or Peripheral interrupts 
+#endif
+
 void Sys_init(void);
 
 void Sys_msTimestamp_init(void (*)(void));
 
-uint32_t gettimestamp(void);
+uint32_t get_ms(void);
 void delay_ms(uint32_t del);
 
 
@@ -25,6 +33,7 @@ void UART1_Init(void (*rx_cbck)(void), void (*tx_cbck)(void));
 void UART1_PutChar(char byte);
 int16_t UART1_PutStr(char* byte, uint16_t N);
 char UART1_GetChar(void);
+void ADC_set_cbk(void (*adc_cbk)(void));
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

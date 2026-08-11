@@ -1,21 +1,21 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\Admin\AppData\Local\Temp\xcAsb8s.0\driver_tmp_3.o
- -Odist/default/production\PIC18F46J50_TEST.X.production.hex
- -logfile=dist/default/production\PIC18F46J50_TEST.X.production.hxl
+ C:\Users\Admin\AppData\Local\Temp\xcAs884.0\driver_tmp_3.o
+ -Odist/default/debug\PIC18F46J50_TEST.X.debug.hex
+ -logfile=dist/default/debug\PIC18F46J50_TEST.X.debug.hxl
  -addressing=1
  -break=FFF8
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\Admin\AppData\Local\Temp\xcAsb8s.0\driver_tmp_3.o)
-  8h - Dh		(C:\Users\Admin\AppData\Local\Temp\xcAsb8s.0\driver_tmp_3.o)
-  18h - 14Fh		(C:\Users\Admin\AppData\Local\Temp\xcAsb8s.0\driver_tmp_3.o)
-  1000h - 378Bh		(C:\Users\Admin\AppData\Local\Temp\xcAsb8s.0\driver_tmp_3.o)
-  FFF8h - FFFFh		(C:\Users\Admin\AppData\Local\Temp\xcAsb8s.0\driver_tmp_3.o)
+  0h - 5h		(C:\Users\Admin\AppData\Local\Temp\xcAs884.0\driver_tmp_3.o)
+  8h - Dh		(C:\Users\Admin\AppData\Local\Temp\xcAs884.0\driver_tmp_3.o)
+  18h - 14Fh		(C:\Users\Admin\AppData\Local\Temp\xcAs884.0\driver_tmp_3.o)
+  1000h - 378Bh		(C:\Users\Admin\AppData\Local\Temp\xcAs884.0\driver_tmp_3.o)
+  FFF8h - FFFFh		(C:\Users\Admin\AppData\Local\Temp\xcAs884.0\driver_tmp_3.o)
  Unused ranges:
-  4h - 7h
+  6h - 7h
   Eh - 17h
   150h - FFFh
   378Ch - FFF7h
@@ -23,11 +23,11 @@
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\Admin\AppData\Local\Temp\xcAsb8s.0\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\Admin\AppData\Local\Temp\xcAs884.0\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
-00000000 | H1 H1 H1 H1 -- -- -- -- H1 H1 H1 H1 H1 H1 -- --
+00000000 | H1 H1 H1 H1 H1 H1 -- -- H1 H1 H1 H1 H1 H1 -- --
 00000010 | -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
 00000020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000030 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

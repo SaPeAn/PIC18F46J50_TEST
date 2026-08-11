@@ -8,6 +8,10 @@ volatile uint32_t timestamp = 0;
 void (*ms_callback)(void);
 void (*U1RX_callback)(void);
 void (*U1TX_callback)(void);
+void (*U1TX_callback)(void);
+void (*ADC_callback)(void);
+
+
 
  void __interrupt(high_priority)  HighInterrupts_handler(void)
 {
@@ -22,7 +26,7 @@ void (*U1TX_callback)(void);
   }
 }
  
-  void __interrupt(low_priority)  Interrupts_handler(void)
+void __interrupt(low_priority)  Interrupts_handler(void)
 {
   // UART1 RX interrupt
   if (RC1IE && RC1IF)
@@ -33,16 +37,29 @@ void (*U1TX_callback)(void);
   // UART1 TX interrupt
   if (TX1IE && TX1IF)
   {
-    //TX1IF = 0;
+    uint8_t dummy;
     if(U1TX_callback != NULL) U1TX_callback();
-    //Nop();
+  }
+  // ADC complete interrupt
+  if (ADIF && ADIE)
+  {
+    ADIF = 0;
+    if(ADC_callback != NULL) ADC_callback();
   }
 }
 
+void ADC_set_cbk(void (*adc_cbk)(void))
+{
+  ADC_callback = adc_cbk;
+}
+  
 void Sys_init(void)
 {
   OSCTUNEbits.PLLEN = 1; // PLL enable  
   RCONbits.IPEN = 1; // interrupt priority EN/DIS
+  
+  ANCON0 = 0xFF;   // all ports are digitall
+  ANCON1 = 0x1F;   // all ports are digitall
 }
 
 void Sys_msTimestamp_init(void (*callback_func)(void))
@@ -86,7 +103,7 @@ void delay_ms(uint32_t del)
   while((timestamp - temp_time) < del);
 }
 
-uint32_t gettimestamp(void)
+uint32_t get_ms(void)
 {
   return timestamp;
 }
@@ -138,12 +155,6 @@ void UART1_Init(void (*rx_cbck)(void), void (*tx_cbck)(void))
 }
 
 void UART1_PutChar(char byte)
-{
-  while(!TXSTA1bits.TRMT);
-  TXREG1 = byte;
-}
-
-void putchar(char byte)
 {
   while(!TXSTA1bits.TRMT);
   TXREG1 = byte;
