@@ -2,7 +2,6 @@
 #include <string.h>
 #include "system.h"
 #include <stdio.h>
-#include "ringbuf.h"
 #include "dbio.h"
 #include "RTC.h"
 #include "ADC.h"
@@ -52,12 +51,10 @@ void main(void)
     
     sprintf(strtx, "ADC: %d %d %d\n\r", ADC_getChan(0), ADC_getChan(1), ADC_getChan(2));
     dbio_putstring(strtx, 100);
-    sprintf(strtx, "Time: %.2d:%2.2d:%2.2d\n\rEntered string: %s\n\r", BCDtoDEC(DateTime.HOURS), BCDtoDEC(DateTime.MINUTES), BCDtoDEC(DateTime.SECONDS), strrx);
-    dbio_putstring(strtx, 100);
     
     if(dbio_getstring(strrx, 50, 5) > 0)
     {
-      sprintf(strtx, "\n\rHello!!!\n\rTime: %ld\n\rEnter string: \n\r\n\r", get_ms());
+      sprintf(strtx, "Time: %.2d:%2.2d:%2.2d\n\rEntered string: %s\n\r", BCDtoDEC(DateTime.HOURS), BCDtoDEC(DateTime.MINUTES), BCDtoDEC(DateTime.SECONDS), strrx);
       dbio_putstring(strtx, 100);
     }
     

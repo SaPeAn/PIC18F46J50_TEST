@@ -10229,7 +10229,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 3 "main.c" 2
 # 1 "./system.h" 1
-# 24 "./system.h"
+# 29 "./system.h"
 void Sys_init(void);
 
 void Sys_msTimestamp_init(void (*)(void));
@@ -10237,12 +10237,11 @@ void Sys_msTimestamp_init(void (*)(void));
 uint32_t get_ms(void);
 void delay_ms(uint32_t del);
 
-
-void UART1_Init(void (*rx_cbck)(void), void (*tx_cbck)(void));
+uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio);
+void UART1_Init(void);
 void UART1_PutChar(char byte);
 int16_t UART1_PutStr(char* byte, uint16_t N);
 char UART1_GetChar(void);
-void ADC_set_cbk(void (*adc_cbk)(void));
 # 4 "main.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdio.h" 3
@@ -10397,58 +10396,12 @@ char *ctermid(char *);
 
 char *tempnam(const char *, const char *);
 # 5 "main.c" 2
-# 1 "./ringbuf.h" 1
-
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdbool.h" 1 3
-# 9 "./ringbuf.h" 2
-
-
-
-
-
-
-
-typedef struct RINGBUF_t {
-    uint8_t* buf;
-    volatile size_t tail;
-    volatile size_t head;
-    volatile size_t size;
-    volatile size_t cell_size;
-} RINGBUF_t;
-# 31 "./ringbuf.h"
-typedef enum RINGBUF_STATUS {
-    RINGBUF_OK,
-    RINGBUF_ERR,
-    RINGBUF_PARAM_ERR,
-    RINGBUF_OVERFLOW,
-    RINGBUF_EMPTY,
-} RINGBUF_STATUS;
-
-RINGBUF_STATUS RingBuf_Init(void* buf, uint16_t size, size_t cellsize, RINGBUF_t* rb);
-RINGBUF_STATUS RingBuf_Clear(RINGBUF_t* rb);
-RINGBUF_STATUS RingBuf_Available(uint16_t* len, RINGBUF_t* rb);
-
-
-RINGBUF_STATUS RingBuf_DataPut(const void* data, uint16_t len, RINGBUF_t* rb);
-
-
-RINGBUF_STATUS RingBuf_DataRead(void* data, uint16_t len, RINGBUF_t* rb);
-
-
-RINGBUF_STATUS RingBuf_DataWatch(void* data, uint16_t len, RINGBUF_t* rb);
-# 6 "main.c" 2
 # 1 "./dbio.h" 1
 # 14 "./dbio.h"
 void dbio_init(void);
-int16_t dbio_getstring(uint8_t* ch, uint16_t Nmax, uint16_t timeout);
-int16_t dbio_putstring(uint8_t* str, uint16_t Nmax);
-# 7 "main.c" 2
+int16_t dbio_getstring(char* ch, uint16_t Nmax, uint16_t timeout);
+int16_t dbio_putstring(char* str, uint16_t Nmax);
+# 6 "main.c" 2
 # 1 "./RTC.h" 1
 
 
@@ -10472,7 +10425,7 @@ typedef struct{
 void write_RTCC(RTCC_VAL * const me);
 void read_RTCC(RTCC_VAL * const me);
 void RTC_init(void);
-# 8 "main.c" 2
+# 7 "main.c" 2
 # 1 "./ADC.h" 1
 # 27 "./ADC.h"
 int16_t ADC_getChan(uint8_t chan);
@@ -10482,7 +10435,7 @@ void ADC_start_IT(void);
 void ADC_stop_IT(void);
 
 void ADC_init(void);
-# 9 "main.c" 2
+# 8 "main.c" 2
 
 void blinky(void)
 {
@@ -10529,12 +10482,10 @@ void main(void)
 
     sprintf(strtx, "ADC: %d %d %d\n\r", ADC_getChan(0), ADC_getChan(1), ADC_getChan(2));
     dbio_putstring(strtx, 100);
-    sprintf(strtx, "Time: %.2d:%2.2d:%2.2d\n\rEntered string: %s\n\r", (((DateTime.HOURS & 0xF0) >> 4) * 10) + (DateTime.HOURS & 0x0F), (((DateTime.MINUTES & 0xF0) >> 4) * 10) + (DateTime.MINUTES & 0x0F), (((DateTime.SECONDS & 0xF0) >> 4) * 10) + (DateTime.SECONDS & 0x0F), strrx);
-    dbio_putstring(strtx, 100);
 
     if(dbio_getstring(strrx, 50, 5) > 0)
     {
-      sprintf(strtx, "\n\rHello!!!\n\rTime: %ld\n\rEnter string: \n\r\n\r", get_ms());
+      sprintf(strtx, "Time: %.2d:%2.2d:%2.2d\n\rEntered string: %s\n\r", (((DateTime.HOURS & 0xF0) >> 4) * 10) + (DateTime.HOURS & 0x0F), (((DateTime.MINUTES & 0xF0) >> 4) * 10) + (DateTime.MINUTES & 0x0F), (((DateTime.SECONDS & 0xF0) >> 4) * 10) + (DateTime.SECONDS & 0x0F), strrx);
       dbio_putstring(strtx, 100);
     }
 

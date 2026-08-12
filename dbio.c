@@ -13,38 +13,46 @@ uint8_t TXbuf[BUFLENGTH] = {0};
 
 void TXbyte_cbk(void)
 {
-  uint16_t buf_len = 0;
-  uint8_t byte;
-  RingBuf_Available(&buf_len, &TXringbuf);
-  if(buf_len) {
-    RingBuf_DataRead((uint8_t*)&byte, 1, &TXringbuf);
-    SendByte(byte);
+  if (TX1IE && TX1IF)
+  {
+    uint16_t buf_len = 0;
+    uint8_t byte;
+    RingBuf_Available(&buf_len, &TXringbuf);
+    if(buf_len) {
+      RingBuf_DataRead((uint8_t*)&byte, 1, &TXringbuf);
+      SendByte(byte);
+    }
+    else TxIntDis();
   }
-  else TxIntDis();
 }
 
 void RXbyte_cbk(void)
 {
-  uint8_t byte;
-  byte = GetByte();
-  RingBuf_DataPut((uint8_t*)&byte, 1, &RXringbuf);
+  if (RC1IE && RC1IF)
+  {
+    uint8_t byte;
+    byte = GetByte();
+    RingBuf_DataPut((uint8_t*)&byte, 1, &RXringbuf);
+  }
 }
 
 void dbio_init(void)
 {
-  UART1_Init(RXbyte_cbk, TXbyte_cbk);
+  UART1_Init();
+  Sys_regiter_IRQ(RXbyte_cbk, 0);
+  Sys_regiter_IRQ(TXbyte_cbk, 0);
   RxIntEn();
   RingBuf_Init(RXbuf, BUFLENGTH, 1, &RXringbuf);
   RingBuf_Init(TXbuf, BUFLENGTH, 1, &TXringbuf);
 }
 
-int16_t dbio_getstring(uint8_t* str, uint16_t Nmax, uint16_t timeout)
+int16_t dbio_getstring(char* str, uint16_t Nmax, uint16_t timeout)
 {
   static uint32_t timetmp = 0;
   static uint16_t buf_len = 0;
   static uint16_t buf_len_prev = 0;
   
-  RingBuf_Available(&buf_len, &RXringbuf);
+  RingBuf_Available((uint16_t*)&buf_len, &RXringbuf);
   if((Nmax + buf_len) > BUFLENGTH) return -1;
   
   if(buf_len)
@@ -57,7 +65,7 @@ int16_t dbio_getstring(uint8_t* str, uint16_t Nmax, uint16_t timeout)
         //RingBuf_Clear(&RXringbuf);
         buf_len_prev = 0;
         str[Nmax] = '\0';
-        return Nmax;
+        return (int)Nmax;
       }
       buf_len_prev = buf_len;
       timetmp = get_ms();
@@ -69,7 +77,7 @@ int16_t dbio_getstring(uint8_t* str, uint16_t Nmax, uint16_t timeout)
       RingBuf_DataRead(str, buf_len, &RXringbuf);
       str[buf_len] = '\0';
       buf_len_prev = 0;
-      return buf_len;
+      return (int)buf_len;
     }
   }
   return -2;
@@ -77,7 +85,7 @@ int16_t dbio_getstring(uint8_t* str, uint16_t Nmax, uint16_t timeout)
 
 uint16_t dbio_strnlen(const char* str, uint16_t N)
 {
-  for(int i = 0; i < N; i++)
+  for(uint16_t i = 0; i < N; i++)
   {
     if(str[i]) continue;
     return ++i;
@@ -85,7 +93,7 @@ uint16_t dbio_strnlen(const char* str, uint16_t N)
   return N;
 }
 
-int16_t dbio_putstring(uint8_t* str, uint16_t Nmax) 
+int16_t dbio_putstring(char* str, uint16_t Nmax) 
 {
   static uint16_t buf_len = 0;  
   uint16_t str_len;
@@ -101,7 +109,7 @@ int16_t dbio_putstring(uint8_t* str, uint16_t Nmax)
     SendByte(byte);
     TxIntEn();
   }
-  return str_len;
+  return (int16_t)str_len;
 }
 
 

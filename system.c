@@ -1,17 +1,36 @@
 #include "system.h"
 
+typedef void (*IRQ_cbk_t)(void);
+
+IRQ_cbk_t IRQ_cbl_lp[LOPRIO_INTMAX];
+IRQ_cbk_t IRQ_cbl_hp[HIPRIO_INTMAX];
+uint8_t IRQ_lpmax = 0;
+uint8_t IRQ_hpmax = 0;
 
 uint8_t TMR0L_tmp;
 uint8_t TMR0H_tmp;
 volatile uint32_t timestamp = 0;
 
 void (*ms_callback)(void);
-void (*U1RX_callback)(void);
-void (*U1TX_callback)(void);
-void (*U1TX_callback)(void);
-void (*ADC_callback)(void);
 
-
+uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio)
+{
+  if(IPrio == 0) //low priority interrupt
+  {
+    if(IRQ_lpmax >= LOPRIO_INTMAX) return 1;
+    IRQ_cbl_lp[IRQ_lpmax] = cbk;
+    IRQ_lpmax++;
+    return 0;
+  }
+  if(IPrio == 1) //high priority interrupt
+  {
+    if(IRQ_hpmax >= HIPRIO_INTMAX) return 2;
+    IRQ_cbl_hp[IRQ_hpmax] = cbk;
+    IRQ_hpmax++;  
+    return 0;  
+  }
+  return 3;
+}
 
  void __interrupt(high_priority)  HighInterrupts_handler(void)
 {
@@ -24,35 +43,22 @@ void (*ADC_callback)(void);
     if(ms_callback != NULL) ms_callback();
     TMR0IF = 0;
   }
+  // other hiprio registered interrupts handlers
+  for(int i = 0; i < IRQ_hpmax; i++)
+  {
+    IRQ_cbl_hp[i]();
+  }
 }
  
 void __interrupt(low_priority)  Interrupts_handler(void)
 {
-  // UART1 RX interrupt
-  if (RC1IE && RC1IF)
+  // other loprio registered interrupts handlers
+  for(int i = 0; i < IRQ_lpmax; i++)
   {
-    RC1IF = 0;
-    if(U1RX_callback != NULL) U1RX_callback();
-  }
-  // UART1 TX interrupt
-  if (TX1IE && TX1IF)
-  {
-    uint8_t dummy;
-    if(U1TX_callback != NULL) U1TX_callback();
-  }
-  // ADC complete interrupt
-  if (ADIF && ADIE)
-  {
-    ADIF = 0;
-    if(ADC_callback != NULL) ADC_callback();
+    IRQ_cbl_lp[i]();
   }
 }
 
-void ADC_set_cbk(void (*adc_cbk)(void))
-{
-  ADC_callback = adc_cbk;
-}
-  
 void Sys_init(void)
 {
   OSCTUNEbits.PLLEN = 1; // PLL enable  
@@ -108,7 +114,7 @@ uint32_t get_ms(void)
   return timestamp;
 }
 
-void UART1_Init(void (*rx_cbck)(void), void (*tx_cbck)(void))
+void UART1_Init(void)
 {
   
   RCSTA1bits.SPEN = 0;   // Serial port is disabled
@@ -138,8 +144,6 @@ void UART1_Init(void (*rx_cbck)(void), void (*tx_cbck)(void))
   TXSTA1bits.TXEN = 1;   // Transmit is enabled
   RCSTA1bits.CREN = 1;   // Enables receiver
   
-  U1RX_callback = rx_cbck;
-  U1TX_callback = tx_cbck;
   // Interrupt enable
   PIE1bits.TX1IE = 0;
   PIE1bits.RC1IE = 1;

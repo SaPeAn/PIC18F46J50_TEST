@@ -10123,7 +10123,7 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include/xc.h" 2 3
 # 5 "./system.h" 2
-# 24 "./system.h"
+# 29 "./system.h"
 void Sys_init(void);
 
 void Sys_msTimestamp_init(void (*)(void));
@@ -10131,26 +10131,44 @@ void Sys_msTimestamp_init(void (*)(void));
 uint32_t get_ms(void);
 void delay_ms(uint32_t del);
 
-
-void UART1_Init(void (*rx_cbck)(void), void (*tx_cbck)(void));
+uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio);
+void UART1_Init(void);
 void UART1_PutChar(char byte);
 int16_t UART1_PutStr(char* byte, uint16_t N);
 char UART1_GetChar(void);
-void ADC_set_cbk(void (*adc_cbk)(void));
 # 2 "system.c" 2
 
+typedef void (*IRQ_cbk_t)(void);
+
+IRQ_cbk_t IRQ_cbl_lp[10];
+IRQ_cbk_t IRQ_cbl_hp[10];
+uint8_t IRQ_lpmax = 0;
+uint8_t IRQ_hpmax = 0;
 
 uint8_t TMR0L_tmp;
 uint8_t TMR0H_tmp;
 volatile uint32_t timestamp = 0;
 
 void (*ms_callback)(void);
-void (*U1RX_callback)(void);
-void (*U1TX_callback)(void);
-void (*U1TX_callback)(void);
-void (*ADC_callback)(void);
 
-
+uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio)
+{
+  if(IPrio == 0)
+  {
+    if(IRQ_lpmax >= 10) return 1;
+    IRQ_cbl_lp[IRQ_lpmax] = cbk;
+    IRQ_lpmax++;
+    return 0;
+  }
+  if(IPrio == 1)
+  {
+    if(IRQ_hpmax >= 10) return 2;
+    IRQ_cbl_hp[IRQ_hpmax] = cbk;
+    IRQ_hpmax++;
+    return 0;
+  }
+  return 3;
+}
 
  void __attribute__((picinterrupt(("high_priority")))) HighInterrupts_handler(void)
 {
@@ -10163,33 +10181,20 @@ void (*ADC_callback)(void);
     if(ms_callback != ((void*)0)) ms_callback();
     TMR0IF = 0;
   }
+
+  for(int i = 0; i < IRQ_hpmax; i++)
+  {
+    IRQ_cbl_hp[i]();
+  }
 }
 
 void __attribute__((picinterrupt(("low_priority")))) Interrupts_handler(void)
 {
 
-  if (RC1IE && RC1IF)
+  for(int i = 0; i < IRQ_lpmax; i++)
   {
-    RC1IF = 0;
-    if(U1RX_callback != ((void*)0)) U1RX_callback();
+    IRQ_cbl_lp[i]();
   }
-
-  if (TX1IE && TX1IF)
-  {
-    uint8_t dummy;
-    if(U1TX_callback != ((void*)0)) U1TX_callback();
-  }
-
-  if (ADIF && ADIE)
-  {
-    ADIF = 0;
-    if(ADC_callback != ((void*)0)) ADC_callback();
-  }
-}
-
-void ADC_set_cbk(void (*adc_cbk)(void))
-{
-  ADC_callback = adc_cbk;
 }
 
 void Sys_init(void)
@@ -10247,7 +10252,7 @@ uint32_t get_ms(void)
   return timestamp;
 }
 
-void UART1_Init(void (*rx_cbck)(void), void (*tx_cbck)(void))
+void UART1_Init(void)
 {
 
   RCSTA1bits.SPEN = 0;
@@ -10277,8 +10282,6 @@ void UART1_Init(void (*rx_cbck)(void), void (*tx_cbck)(void))
   TXSTA1bits.TXEN = 1;
   RCSTA1bits.CREN = 1;
 
-  U1RX_callback = rx_cbck;
-  U1TX_callback = tx_cbck;
 
   PIE1bits.TX1IE = 0;
   PIE1bits.RC1IE = 1;

@@ -12,8 +12,8 @@
 #define     GetByte()          U1_GetByte()
 
 void dbio_init(void);
-int16_t dbio_getstring(uint8_t* ch, uint16_t Nmax, uint16_t timeout);
-int16_t dbio_putstring(uint8_t* str, uint16_t Nmax);
+int16_t dbio_getstring(char* ch, uint16_t Nmax, uint16_t timeout);
+int16_t dbio_putstring(char* str, uint16_t Nmax);
         
 #endif	/* DEBUGIO_UART1_H */
 

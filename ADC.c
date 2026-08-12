@@ -1,7 +1,7 @@
 #include "ADC.h"
 #include "system.h"
 
-int ChanNum[CHAN_MAX];
+uint8_t ChanNum[CHAN_MAX];
 int ChanIndx = 0;
 int16_t ChanValue[16];
 int8_t ADC_start_flag = 0;
@@ -9,10 +9,14 @@ int8_t ADC_start_flag = 0;
 void ADC_cplt_cbk(void)
 {
   Nop();
-  ChanValue[ChanNum[ChanIndx++]] = (((int16_t)ADRESH) << 8) | ADRESL;
-  if(ChanIndx >= CHAN_MAX) ChanIndx = 0;
-  ADCON0bits.CHS = ChanNum[ChanIndx];
-  ADCON0bits.GODONE = 1;
+  if(ADIE && ADIF)
+  {
+    ADIF = 0;
+    ChanValue[ChanNum[ChanIndx++]] = (((int16_t)ADRESH) << 8) | ADRESL;
+    if(ChanIndx >= CHAN_MAX) ChanIndx = 0;
+    ADCON0bits.CHS = ChanNum[ChanIndx];
+    ADCON0bits.GODONE = 1;
+  }
   Nop();
 } 
 
@@ -147,7 +151,7 @@ void ADC_init(void)
   
   IPR1bits.ADIP = 0;
   
-  ADC_set_cbk(ADC_cplt_cbk);
+  Sys_regiter_IRQ(ADC_cplt_cbk, 0);
   
   ADCON0bits.ADON = 1;
   

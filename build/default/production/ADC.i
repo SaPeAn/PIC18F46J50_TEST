@@ -10133,7 +10133,7 @@ void ADC_stop_IT(void);
 void ADC_init(void);
 # 2 "ADC.c" 2
 # 1 "./system.h" 1
-# 24 "./system.h"
+# 29 "./system.h"
 void Sys_init(void);
 
 void Sys_msTimestamp_init(void (*)(void));
@@ -10141,15 +10141,14 @@ void Sys_msTimestamp_init(void (*)(void));
 uint32_t get_ms(void);
 void delay_ms(uint32_t del);
 
-
-void UART1_Init(void (*rx_cbck)(void), void (*tx_cbck)(void));
+uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio);
+void UART1_Init(void);
 void UART1_PutChar(char byte);
 int16_t UART1_PutStr(char* byte, uint16_t N);
 char UART1_GetChar(void);
-void ADC_set_cbk(void (*adc_cbk)(void));
 # 3 "ADC.c" 2
 
-int ChanNum[(1 +1 +1 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0)];
+uint8_t ChanNum[(1 +1 +1 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0)];
 int ChanIndx = 0;
 int16_t ChanValue[16];
 int8_t ADC_start_flag = 0;
@@ -10157,10 +10156,14 @@ int8_t ADC_start_flag = 0;
 void ADC_cplt_cbk(void)
 {
   __nop();
-  ChanValue[ChanNum[ChanIndx++]] = (((int16_t)ADRESH) << 8) | ADRESL;
-  if(ChanIndx >= (1 +1 +1 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0)) ChanIndx = 0;
-  ADCON0bits.CHS = ChanNum[ChanIndx];
-  ADCON0bits.GODONE = 1;
+  if(ADIE && ADIF)
+  {
+    ADIF = 0;
+    ChanValue[ChanNum[ChanIndx++]] = (((int16_t)ADRESH) << 8) | ADRESL;
+    if(ChanIndx >= (1 +1 +1 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0)) ChanIndx = 0;
+    ADCON0bits.CHS = ChanNum[ChanIndx];
+    ADCON0bits.GODONE = 1;
+  }
   __nop();
 }
 
@@ -10209,7 +10212,7 @@ void ADC_init(void)
   ChanNum[chanmax++] = 2;
   TRISAbits.TRISA2 = 1;
   ANCON0bits.PCFG2 = 0;
-# 123 "ADC.c"
+# 127 "ADC.c"
   ADCON0bits.VCFG = 0b00;
 
 
@@ -10227,10 +10230,10 @@ void ADC_init(void)
 
 
   ADCON1bits.ACQT = 0b111;
-# 148 "ADC.c"
+# 152 "ADC.c"
   IPR1bits.ADIP = 0;
 
-  ADC_set_cbk(ADC_cplt_cbk);
+  Sys_regiter_IRQ(ADC_cplt_cbk, 0);
 
   ADCON0bits.ADON = 1;
 
