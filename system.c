@@ -1,35 +1,44 @@
 #include "system.h"
 
 typedef void (*IRQ_cbk_t)(void);
+typedef void (*ms_cllbk_t)(void);
 
-IRQ_cbk_t IRQ_cbl_lp[LOPRIO_INTMAX];
-IRQ_cbk_t IRQ_cbl_hp[HIPRIO_INTMAX];
+IRQ_cbk_t IRQ_clbk_lp[LOPRIO_INTMAX];
+IRQ_cbk_t IRQ_clbk_hp[HIPRIO_INTMAX];
 uint8_t IRQ_lpmax = 0;
 uint8_t IRQ_hpmax = 0;
+ms_cllbk_t ms_clbk[MS_CLBK_MAX];
+uint8_t ms_clbk_max = 0;
 
 uint8_t TMR0L_tmp;
 uint8_t TMR0H_tmp;
 volatile uint32_t timestamp = 0;
 
-void (*ms_callback)(void);
-
-uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio)
+uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio)
 {
   if(IPrio == 0) //low priority interrupt
   {
     if(IRQ_lpmax >= LOPRIO_INTMAX) return 1;
-    IRQ_cbl_lp[IRQ_lpmax] = cbk;
+    IRQ_clbk_lp[IRQ_lpmax] = cbk;
     IRQ_lpmax++;
     return 0;
   }
   if(IPrio == 1) //high priority interrupt
   {
     if(IRQ_hpmax >= HIPRIO_INTMAX) return 2;
-    IRQ_cbl_hp[IRQ_hpmax] = cbk;
+    IRQ_clbk_hp[IRQ_hpmax] = cbk;
     IRQ_hpmax++;  
     return 0;  
   }
   return 3;
+}
+
+uint8_t sys_regiter_ms_clbk(void (*clbk)(void))
+{
+  if(ms_clbk_max >= MS_CLBK_MAX) return 1;
+  ms_clbk[ms_clbk_max] = clbk;
+  ms_clbk_max++;
+  return 0;
 }
 
  void __interrupt(high_priority)  HighInterrupts_handler(void)
@@ -40,13 +49,13 @@ uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio)
     TMR0L += TMR0L_tmp;
     TMR0H = TMR0H_tmp;
     timestamp++;
-    if(ms_callback != NULL) ms_callback();
+    for(uint8_t i = 0; i < ms_clbk_max; i++) ms_clbk[i]();
     TMR0IF = 0;
   }
   // other hiprio registered interrupts handlers
   for(int i = 0; i < IRQ_hpmax; i++)
   {
-    IRQ_cbl_hp[i]();
+    IRQ_clbk_hp[i]();
   }
 }
  
@@ -55,20 +64,10 @@ void __interrupt(low_priority)  Interrupts_handler(void)
   // other loprio registered interrupts handlers
   for(int i = 0; i < IRQ_lpmax; i++)
   {
-    IRQ_cbl_lp[i]();
+    IRQ_clbk_lp[i]();
   }
 }
-
-void Sys_init(void)
-{
-  OSCTUNEbits.PLLEN = 1; // PLL enable  
-  RCONbits.IPEN = 1; // interrupt priority EN/DIS
-  
-  ANCON0 = 0xFF;   // all ports are digitall
-  ANCON1 = 0x1F;   // all ports are digitall
-}
-
-void Sys_msTimestamp_init(void (*callback_func)(void))
+void sys_mstimer_init(void)
 {
   T0CONbits.TMR0ON = 0;
   T0CONbits.T08BIT = 0;   // Timer0 is configured as a 16-bit timer/counter
@@ -93,14 +92,23 @@ void Sys_msTimestamp_init(void (*callback_func)(void))
   TMR0L = TMR0L_tmp;
   TMR0H = TMR0H_tmp;
   
-  ms_callback = callback_func;
-  
   INTCONbits.GIE = 1;
   INTCONbits.PEIE = 1;
   INTCONbits.T0IE = 1;
   TMR0IF = 0;
   
   T0CONbits.TMR0ON = 1;
+}
+
+void sys_init(void)
+{
+  OSCTUNEbits.PLLEN = 1; // PLL enable  
+  RCONbits.IPEN = 1; // interrupt priority EN/DIS
+  
+  ANCON0 = 0xFF;   // all ports are digitall
+  ANCON1 = 0x1F;   // all ports are digitall
+  sys_mstimer_init();
+  
 }
 
 void delay_ms(uint32_t del)

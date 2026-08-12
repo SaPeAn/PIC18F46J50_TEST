@@ -10127,15 +10127,15 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include/xc.h" 2 3
 # 5 "./system.h" 2
-# 29 "./system.h"
-void Sys_init(void);
-
-void Sys_msTimestamp_init(void (*)(void));
+# 31 "./system.h"
+void sys_init(void);
 
 uint32_t get_ms(void);
 void delay_ms(uint32_t del);
 
-uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio);
+uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
+uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
+
 void UART1_Init(void);
 void UART1_PutChar(char byte);
 int16_t UART1_PutStr(char* byte, uint16_t N);
@@ -10440,8 +10440,8 @@ void RXbyte_cbk(void)
 void dbio_init(void)
 {
   UART1_Init();
-  Sys_regiter_IRQ(RXbyte_cbk, 0);
-  Sys_regiter_IRQ(TXbyte_cbk, 0);
+  sys_regiter_IRQ_clbk(RXbyte_cbk, 0);
+  sys_regiter_IRQ_clbk(TXbyte_cbk, 0);
   PIE1bits.RC1IE = 1;
   RingBuf_Init(RXbuf, 200, 1, &RXringbuf);
   RingBuf_Init(TXbuf, 200, 1, &TXringbuf);

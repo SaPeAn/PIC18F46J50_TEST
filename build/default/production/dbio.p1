@@ -53,13 +53,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "44 ./ringbuf.h
 [; ;./ringbuf.h: 44: RINGBUF_STATUS RingBuf_DataPut(const void* data, uint16_t len, RINGBUF_t* rb);
 [v _RingBuf_DataPut `(E6398 ~T0 @X0 0 ef3`*Cv`us`*S775 ]
-"37 ./system.h
-[; ;./system.h: 37: void UART1_Init(void);
+"39 ./system.h
+[; ;./system.h: 39: void UART1_Init(void);
 [v _UART1_Init `(v ~T0 @X0 0 ef ]
 [v F5884 `(v ~T0 @X0 0 tf ]
-"36
-[; ;./system.h: 36: uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio);
-[v _Sys_regiter_IRQ `(uc ~T0 @X0 0 ef2`*F5884`uc ]
+"37
+[; ;./system.h: 37: uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
+[v _sys_regiter_IRQ_clbk `(uc ~T0 @X0 0 ef2`*F5884`uc ]
 "39 ./ringbuf.h
 [; ;./ringbuf.h: 39: RINGBUF_STATUS RingBuf_Init(void* buf, uint16_t size, size_t cellsize, RINGBUF_t* rb);
 [v _RingBuf_Init `(E6398 ~T0 @X0 0 ef4`*v`us`ui`*S775 ]
@@ -1037,11 +1037,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dbio.c: 41:   UART1_Init();
 [e ( _UART1_Init ..  ]
 "42
-[; ;dbio.c: 42:   Sys_regiter_IRQ(RXbyte_cbk, 0);
-[e ( _Sys_regiter_IRQ (2 , &U _RXbyte_cbk -> -> 0 `i `uc ]
+[; ;dbio.c: 42:   sys_regiter_IRQ_clbk(RXbyte_cbk, 0);
+[e ( _sys_regiter_IRQ_clbk (2 , &U _RXbyte_cbk -> -> 0 `i `uc ]
 "43
-[; ;dbio.c: 43:   Sys_regiter_IRQ(TXbyte_cbk, 0);
-[e ( _Sys_regiter_IRQ (2 , &U _TXbyte_cbk -> -> 0 `i `uc ]
+[; ;dbio.c: 43:   sys_regiter_IRQ_clbk(TXbyte_cbk, 0);
+[e ( _sys_regiter_IRQ_clbk (2 , &U _TXbyte_cbk -> -> 0 `i `uc ]
 "44
 [; ;dbio.c: 44:   PIE1bits.RC1IE = 1;
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]

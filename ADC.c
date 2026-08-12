@@ -4,20 +4,33 @@
 uint8_t ChanNum[CHAN_MAX];
 int ChanIndx = 0;
 int16_t ChanValue[16];
-int8_t ADC_start_flag = 0;
 
 void ADC_cplt_cbk(void)
 {
-  Nop();
   if(ADIE && ADIF)
   {
     ADIF = 0;
     ChanValue[ChanNum[ChanIndx++]] = (((int16_t)ADRESH) << 8) | ADRESL;
-    if(ChanIndx >= CHAN_MAX) ChanIndx = 0;
+    if(ChanIndx >= CHAN_MAX) {
+      ADIE = 0;
+      ChanIndx = 0;
+    }
+    else {
+      ADCON0bits.CHS = ChanNum[ChanIndx];
+      ADCON0bits.GODONE = 1;
+    }
+  }
+} 
+
+void ADC_ms_cbk(void)
+{
+  if(ChanIndx == 0)
+  {
     ADCON0bits.CHS = ChanNum[ChanIndx];
+    ADIF = 0;
+    ADIE = 1;
     ADCON0bits.GODONE = 1;
   }
-  Nop();
 } 
 
 int16_t ADC_getChan(uint8_t chan)
@@ -31,7 +44,6 @@ void ADC_start_IT(void)
   ADCON0bits.CHS = ChanNum[ChanIndx];
   ADIF = 0;
   ADIE = 1;
-  ADC_start_flag = 1;
   ADCON0bits.GODONE = 1;
 }
 
@@ -41,7 +53,6 @@ void ADC_stop_IT(void)
   ADCON0bits.ADON = 0;
   ADIF = 0;
   ADIE = 0;
-  ADC_start_flag = 0;
 }
 
 void ADC_init(void)
@@ -151,8 +162,8 @@ void ADC_init(void)
   
   IPR1bits.ADIP = 0;
   
-  Sys_regiter_IRQ(ADC_cplt_cbk, 0);
+  sys_regiter_IRQ_clbk(ADC_cplt_cbk, 0);
+  sys_regiter_ms_clbk(ADC_ms_cbk);
   
   ADCON0bits.ADON = 1;
-  
 }

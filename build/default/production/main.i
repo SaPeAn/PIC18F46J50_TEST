@@ -10229,15 +10229,15 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 3 "main.c" 2
 # 1 "./system.h" 1
-# 29 "./system.h"
-void Sys_init(void);
-
-void Sys_msTimestamp_init(void (*)(void));
+# 31 "./system.h"
+void sys_init(void);
 
 uint32_t get_ms(void);
 void delay_ms(uint32_t del);
 
-uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio);
+uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
+uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
+
 void UART1_Init(void);
 void UART1_PutChar(char byte);
 int16_t UART1_PutStr(char* byte, uint16_t N);
@@ -10455,8 +10455,8 @@ RTCC_VAL DateTime;
 
 void main(void)
 {
-  Sys_init();
-  Sys_msTimestamp_init(blinky);
+  sys_init();
+  sys_regiter_ms_clbk(blinky);
   dbio_init();
   RTC_init();
   DateTime.DAY = 1;

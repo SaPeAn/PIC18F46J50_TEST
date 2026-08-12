@@ -10133,15 +10133,15 @@ void ADC_stop_IT(void);
 void ADC_init(void);
 # 2 "ADC.c" 2
 # 1 "./system.h" 1
-# 29 "./system.h"
-void Sys_init(void);
-
-void Sys_msTimestamp_init(void (*)(void));
+# 31 "./system.h"
+void sys_init(void);
 
 uint32_t get_ms(void);
 void delay_ms(uint32_t del);
 
-uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio);
+uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
+uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
+
 void UART1_Init(void);
 void UART1_PutChar(char byte);
 int16_t UART1_PutStr(char* byte, uint16_t N);
@@ -10151,20 +10151,33 @@ char UART1_GetChar(void);
 uint8_t ChanNum[(1 +1 +1 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0)];
 int ChanIndx = 0;
 int16_t ChanValue[16];
-int8_t ADC_start_flag = 0;
 
 void ADC_cplt_cbk(void)
 {
-  __nop();
   if(ADIE && ADIF)
   {
     ADIF = 0;
     ChanValue[ChanNum[ChanIndx++]] = (((int16_t)ADRESH) << 8) | ADRESL;
-    if(ChanIndx >= (1 +1 +1 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0)) ChanIndx = 0;
+    if(ChanIndx >= (1 +1 +1 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0)) {
+      ADIE = 0;
+      ChanIndx = 0;
+    }
+    else {
+      ADCON0bits.CHS = ChanNum[ChanIndx];
+      ADCON0bits.GODONE = 1;
+    }
+  }
+}
+
+void ADC_ms_cbk(void)
+{
+  if(ChanIndx == 0)
+  {
     ADCON0bits.CHS = ChanNum[ChanIndx];
+    ADIF = 0;
+    ADIE = 1;
     ADCON0bits.GODONE = 1;
   }
-  __nop();
 }
 
 int16_t ADC_getChan(uint8_t chan)
@@ -10178,7 +10191,6 @@ void ADC_start_IT(void)
   ADCON0bits.CHS = ChanNum[ChanIndx];
   ADIF = 0;
   ADIE = 1;
-  ADC_start_flag = 1;
   ADCON0bits.GODONE = 1;
 }
 
@@ -10188,7 +10200,6 @@ void ADC_stop_IT(void)
   ADCON0bits.ADON = 0;
   ADIF = 0;
   ADIE = 0;
-  ADC_start_flag = 0;
 }
 
 void ADC_init(void)
@@ -10212,7 +10223,7 @@ void ADC_init(void)
   ChanNum[chanmax++] = 2;
   TRISAbits.TRISA2 = 1;
   ANCON0bits.PCFG2 = 0;
-# 127 "ADC.c"
+# 138 "ADC.c"
   ADCON0bits.VCFG = 0b00;
 
 
@@ -10230,11 +10241,11 @@ void ADC_init(void)
 
 
   ADCON1bits.ACQT = 0b111;
-# 152 "ADC.c"
+# 163 "ADC.c"
   IPR1bits.ADIP = 0;
 
-  Sys_regiter_IRQ(ADC_cplt_cbk, 0);
+  sys_regiter_IRQ_clbk(ADC_cplt_cbk, 0);
+  sys_regiter_ms_clbk(ADC_ms_cbk);
 
   ADCON0bits.ADON = 1;
-
 }

@@ -22,13 +22,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [s S775 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S775 . YEAR MONTH DAY WEEKDAY HOURS MINUTES SECONDS unknown ]
 [p mainexit ]
-"29 ./system.h
-[; ;./system.h: 29: void Sys_init(void);
-[v _Sys_init `(v ~T0 @X0 0 ef ]
-[v F6044 `(v ~T0 @X0 0 tf ]
-"31
-[; ;./system.h: 31: void Sys_msTimestamp_init(void (*)(void));
-[v _Sys_msTimestamp_init `(v ~T0 @X0 0 ef1`*F6044 ]
+"31 ./system.h
+[; ;./system.h: 31: void sys_init(void);
+[v _sys_init `(v ~T0 @X0 0 ef ]
+[v F6047 `(v ~T0 @X0 0 tf ]
+"36
+[; ;./system.h: 36: uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
+[v _sys_regiter_ms_clbk `(uc ~T0 @X0 0 ef1`*F6047 ]
 "14 ./dbio.h
 [; ;./dbio.h: 14: void dbio_init(void);
 [v _dbio_init `(v ~T0 @X0 0 ef ]
@@ -1033,11 +1033,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _main ]
 [f ]
 "27
-[; ;main.c: 27:   Sys_init();
-[e ( _Sys_init ..  ]
+[; ;main.c: 27:   sys_init();
+[e ( _sys_init ..  ]
 "28
-[; ;main.c: 28:   Sys_msTimestamp_init(blinky);
-[e ( _Sys_msTimestamp_init (1 &U _blinky ]
+[; ;main.c: 28:   sys_regiter_ms_clbk(blinky);
+[e ( _sys_regiter_ms_clbk (1 &U _blinky ]
 "29
 [; ;main.c: 29:   dbio_init();
 [e ( _dbio_init ..  ]

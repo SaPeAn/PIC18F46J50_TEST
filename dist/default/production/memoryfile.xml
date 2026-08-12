@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\PIC18F46J50_TEST.X.production.hex">
+  <executable name="dist/default/production\PIC18F46J50_common_project.X.production.hex">
     <memory name="program">
       <units>bytes</units>
       <length>65528</length>
-      <used>12930</used>
-      <free>52598</free>
+      <used>13062</used>
+      <free>52466</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>3776</length>
-      <used>998</used>
-      <free>2778</free>
+      <used>1017</used>
+      <free>2759</free>
     </memory>
   </executable>
 </project>

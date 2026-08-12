@@ -39,8 +39,8 @@ void RXbyte_cbk(void)
 void dbio_init(void)
 {
   UART1_Init();
-  Sys_regiter_IRQ(RXbyte_cbk, 0);
-  Sys_regiter_IRQ(TXbyte_cbk, 0);
+  sys_regiter_IRQ_clbk(RXbyte_cbk, 0);
+  sys_regiter_IRQ_clbk(TXbyte_cbk, 0);
   RxIntEn();
   RingBuf_Init(RXbuf, BUFLENGTH, 1, &RXringbuf);
   RingBuf_Init(TXbuf, BUFLENGTH, 1, &TXringbuf);

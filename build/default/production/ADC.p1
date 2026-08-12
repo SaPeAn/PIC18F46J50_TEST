@@ -1,7 +1,4 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"8 C:\Program Files\Microchip\xc8\v4.00\pic\include/builtins.h
-[v ___nop `(v ~T0 @X0 0 ef ]
-[p i ___nop ]
 "16557 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 16557: extern volatile __bit ADIE __attribute__((address(0x7CEE)));
 [v _ADIE `Vb ~T0 @X0 0 e@31982 ]
@@ -120,9 +117,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 8730: extern volatile IPR1bits_t IPR1bits __attribute__((address(0xF9F)));
 [v _IPR1bits `VS382 ~T0 @X0 0 e@3999 ]
 [v F5889 `(v ~T0 @X0 0 tf ]
-"36 ./system.h
-[; ;./system.h: 36: uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio);
-[v _Sys_regiter_IRQ `(uc ~T0 @X0 0 ef2`*F5889`uc ]
+"37 ./system.h
+[; ;./system.h: 37: uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
+[v _sys_regiter_IRQ_clbk `(uc ~T0 @X0 0 ef2`*F5889`uc ]
+[v F5885 `(v ~T0 @X0 0 tf ]
+"36
+[; ;./system.h: 36: uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
+[v _sys_regiter_ms_clbk `(uc ~T0 @X0 0 ef1`*F5885 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 54: __asm("RPOR0 equ 0EC6h");
 [; <" RPOR0 equ 0EC6h ;# ">
@@ -990,202 +991,238 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6
 [; ;ADC.c: 6: int16_t ChanValue[16];
 [v _ChanValue `s ~T0 @X0 -> 16 `i e ]
-"7
-[; ;ADC.c: 7: int8_t ADC_start_flag = 0;
-[v _ADC_start_flag `c ~T0 @X0 1 e ]
-[i _ADC_start_flag
--> -> 0 `i `c
-]
-"9
-[; ;ADC.c: 9: void ADC_cplt_cbk(void)
+"8
+[; ;ADC.c: 8: void ADC_cplt_cbk(void)
 [v _ADC_cplt_cbk `(v ~T0 @X0 1 ef ]
-"10
-[; ;ADC.c: 10: {
+"9
+[; ;ADC.c: 9: {
 {
 [e :U _ADC_cplt_cbk ]
 [f ]
-"11
-[; ;ADC.c: 11:   __nop();
-[e ( ___nop ..  ]
-"12
-[; ;ADC.c: 12:   if(ADIE && ADIF)
+"10
+[; ;ADC.c: 10:   if(ADIE && ADIF)
 [e $ ! && _ADIE _ADIF 773  ]
-"13
-[; ;ADC.c: 13:   {
+"11
+[; ;ADC.c: 11:   {
 {
-"14
-[; ;ADC.c: 14:     ADIF = 0;
+"12
+[; ;ADC.c: 12:     ADIF = 0;
 [e = _ADIF -> -> 0 `i `b ]
-"15
-[; ;ADC.c: 15:     ChanValue[ChanNum[ChanIndx++]] = (((int16_t)ADRESH) << 8) | ADRESL;
+"13
+[; ;ADC.c: 13:     ChanValue[ChanNum[ChanIndx++]] = (((int16_t)ADRESH) << 8) | ADRESL;
 [e = *U + &U _ChanValue * -> *U + &U _ChanNum * -> -> ++ _ChanIndx -> 1 `i `ui `ux -> -> # *U &U _ChanNum `ui `ux `ux -> -> # *U &U _ChanValue `ui `ux -> | << -> -> _ADRESH `s `i -> 8 `i -> _ADRESL `i `s ]
-"16
-[; ;ADC.c: 16:     if(ChanIndx >= (1 +1 +1 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0)) ChanIndx = 0;
+"14
+[; ;ADC.c: 14:     if(ChanIndx >= (1 +1 +1 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0)) {
 [e $ ! >= _ChanIndx + + + + + + + + + + + + + + -> 1 `i -> 1 `i -> 1 `i -> 0 `i -> 0 `i -> 0 `i -> 0 `i -> 0 `i -> 0 `i -> 0 `i -> 0 `i -> 0 `i -> 0 `i -> 0 `i -> 0 `i 774  ]
+{
+"15
+[; ;ADC.c: 15:       ADIE = 0;
+[e = _ADIE -> -> 0 `i `b ]
+"16
+[; ;ADC.c: 16:       ChanIndx = 0;
 [e = _ChanIndx -> 0 `i ]
-[e :U 774 ]
 "17
-[; ;ADC.c: 17:     ADCON0bits.CHS = ChanNum[ChanIndx];
-[e = . . _ADCON0bits 1 2 *U + &U _ChanNum * -> -> _ChanIndx `ui `ux -> -> # *U &U _ChanNum `ui `ux ]
+[; ;ADC.c: 17:     }
+}
+[e $U 775  ]
 "18
-[; ;ADC.c: 18:     ADCON0bits.GODONE = 1;
-[e = . . _ADCON0bits 7 1 -> -> 1 `i `uc ]
+[; ;ADC.c: 18:     else {
+[e :U 774 ]
+{
 "19
-[; ;ADC.c: 19:   }
+[; ;ADC.c: 19:       ADCON0bits.CHS = ChanNum[ChanIndx];
+[e = . . _ADCON0bits 1 2 *U + &U _ChanNum * -> -> _ChanIndx `ui `ux -> -> # *U &U _ChanNum `ui `ux ]
+"20
+[; ;ADC.c: 20:       ADCON0bits.GODONE = 1;
+[e = . . _ADCON0bits 7 1 -> -> 1 `i `uc ]
+"21
+[; ;ADC.c: 21:     }
+}
+[e :U 775 ]
+"22
+[; ;ADC.c: 22:   }
 }
 [e :U 773 ]
-"20
-[; ;ADC.c: 20:   __nop();
-[e ( ___nop ..  ]
-"21
-[; ;ADC.c: 21: }
+"23
+[; ;ADC.c: 23: }
 [e :UE 772 ]
 }
-"23
-[; ;ADC.c: 23: int16_t ADC_getChan(uint8_t chan)
+"25
+[; ;ADC.c: 25: void ADC_ms_cbk(void)
+[v _ADC_ms_cbk `(v ~T0 @X0 1 ef ]
+"26
+[; ;ADC.c: 26: {
+{
+[e :U _ADC_ms_cbk ]
+[f ]
+"27
+[; ;ADC.c: 27:   if(ChanIndx == 0)
+[e $ ! == _ChanIndx -> 0 `i 777  ]
+"28
+[; ;ADC.c: 28:   {
+{
+"29
+[; ;ADC.c: 29:     ADCON0bits.CHS = ChanNum[ChanIndx];
+[e = . . _ADCON0bits 1 2 *U + &U _ChanNum * -> -> _ChanIndx `ui `ux -> -> # *U &U _ChanNum `ui `ux ]
+"30
+[; ;ADC.c: 30:     ADIF = 0;
+[e = _ADIF -> -> 0 `i `b ]
+"31
+[; ;ADC.c: 31:     ADIE = 1;
+[e = _ADIE -> -> 1 `i `b ]
+"32
+[; ;ADC.c: 32:     ADCON0bits.GODONE = 1;
+[e = . . _ADCON0bits 7 1 -> -> 1 `i `uc ]
+"33
+[; ;ADC.c: 33:   }
+}
+[e :U 777 ]
+"34
+[; ;ADC.c: 34: }
+[e :UE 776 ]
+}
+"36
+[; ;ADC.c: 36: int16_t ADC_getChan(uint8_t chan)
 [v _ADC_getChan `(s ~T0 @X0 1 ef1`uc ]
-"24
-[; ;ADC.c: 24: {
+"37
+[; ;ADC.c: 37: {
 {
 [e :U _ADC_getChan ]
-"23
-[; ;ADC.c: 23: int16_t ADC_getChan(uint8_t chan)
+"36
+[; ;ADC.c: 36: int16_t ADC_getChan(uint8_t chan)
 [v _chan `uc ~T0 @X0 1 r1 ]
-"24
-[; ;ADC.c: 24: {
+"37
+[; ;ADC.c: 37: {
 [f ]
-"25
-[; ;ADC.c: 25:   return ChanValue[chan];
+"38
+[; ;ADC.c: 38:   return ChanValue[chan];
 [e ) *U + &U _ChanValue * -> _chan `ux -> -> # *U &U _ChanValue `ui `ux ]
-[e $UE 775  ]
-"26
-[; ;ADC.c: 26: }
-[e :UE 775 ]
+[e $UE 778  ]
+"39
+[; ;ADC.c: 39: }
+[e :UE 778 ]
 }
-"28
-[; ;ADC.c: 28: void ADC_start_IT(void)
+"41
+[; ;ADC.c: 41: void ADC_start_IT(void)
 [v _ADC_start_IT `(v ~T0 @X0 1 ef ]
-"29
-[; ;ADC.c: 29: {
+"42
+[; ;ADC.c: 42: {
 {
 [e :U _ADC_start_IT ]
 [f ]
-"30
-[; ;ADC.c: 30:   ChanIndx = 0;
+"43
+[; ;ADC.c: 43:   ChanIndx = 0;
 [e = _ChanIndx -> 0 `i ]
-"31
-[; ;ADC.c: 31:   ADCON0bits.CHS = ChanNum[ChanIndx];
+"44
+[; ;ADC.c: 44:   ADCON0bits.CHS = ChanNum[ChanIndx];
 [e = . . _ADCON0bits 1 2 *U + &U _ChanNum * -> -> _ChanIndx `ui `ux -> -> # *U &U _ChanNum `ui `ux ]
-"32
-[; ;ADC.c: 32:   ADIF = 0;
+"45
+[; ;ADC.c: 45:   ADIF = 0;
 [e = _ADIF -> -> 0 `i `b ]
-"33
-[; ;ADC.c: 33:   ADIE = 1;
+"46
+[; ;ADC.c: 46:   ADIE = 1;
 [e = _ADIE -> -> 1 `i `b ]
-"34
-[; ;ADC.c: 34:   ADC_start_flag = 1;
-[e = _ADC_start_flag -> -> 1 `i `c ]
-"35
-[; ;ADC.c: 35:   ADCON0bits.GODONE = 1;
+"47
+[; ;ADC.c: 47:   ADCON0bits.GODONE = 1;
 [e = . . _ADCON0bits 7 1 -> -> 1 `i `uc ]
-"36
-[; ;ADC.c: 36: }
-[e :UE 776 ]
+"48
+[; ;ADC.c: 48: }
+[e :UE 779 ]
 }
-"38
-[; ;ADC.c: 38: void ADC_stop_IT(void)
+"50
+[; ;ADC.c: 50: void ADC_stop_IT(void)
 [v _ADC_stop_IT `(v ~T0 @X0 1 ef ]
-"39
-[; ;ADC.c: 39: {
+"51
+[; ;ADC.c: 51: {
 {
 [e :U _ADC_stop_IT ]
 [f ]
-"40
-[; ;ADC.c: 40:   ChanIndx = 0;
+"52
+[; ;ADC.c: 52:   ChanIndx = 0;
 [e = _ChanIndx -> 0 `i ]
-"41
-[; ;ADC.c: 41:   ADCON0bits.ADON = 0;
+"53
+[; ;ADC.c: 53:   ADCON0bits.ADON = 0;
 [e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
-"42
-[; ;ADC.c: 42:   ADIF = 0;
+"54
+[; ;ADC.c: 54:   ADIF = 0;
 [e = _ADIF -> -> 0 `i `b ]
-"43
-[; ;ADC.c: 43:   ADIE = 0;
+"55
+[; ;ADC.c: 55:   ADIE = 0;
 [e = _ADIE -> -> 0 `i `b ]
-"44
-[; ;ADC.c: 44:   ADC_start_flag = 0;
-[e = _ADC_start_flag -> -> 0 `i `c ]
-"45
-[; ;ADC.c: 45: }
-[e :UE 777 ]
+"56
+[; ;ADC.c: 56: }
+[e :UE 780 ]
 }
-"47
-[; ;ADC.c: 47: void ADC_init(void)
+"58
+[; ;ADC.c: 58: void ADC_init(void)
 [v _ADC_init `(v ~T0 @X0 1 ef ]
-"48
-[; ;ADC.c: 48: {
+"59
+[; ;ADC.c: 59: {
 {
 [e :U _ADC_init ]
 [f ]
-"49
-[; ;ADC.c: 49:   int chanmax = 0;
+"60
+[; ;ADC.c: 60:   int chanmax = 0;
 [v _chanmax `i ~T0 @X0 1 a ]
 [e = _chanmax -> 0 `i ]
-"51
-[; ;ADC.c: 51:   ANCON0 = 0xFF;
-[e = _ANCON0 -> -> 255 `i `uc ]
-"52
-[; ;ADC.c: 52:   ANCON1 = 0x1F;
-[e = _ANCON1 -> -> 31 `i `uc ]
-"55
-[; ;ADC.c: 55:   ChanNum[chanmax++] = 0;
-[e = *U + &U _ChanNum * -> -> ++ _chanmax -> 1 `i `ui `ux -> -> # *U &U _ChanNum `ui `ux -> -> 0 `i `uc ]
-"56
-[; ;ADC.c: 56:   TRISAbits.TRISA0 = 1;
-[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
-"57
-[; ;ADC.c: 57:   ANCON0bits.PCFG0 = 0;
-[e = . . _ANCON0bits 0 0 -> -> 0 `i `uc ]
-"60
-[; ;ADC.c: 60:   ChanNum[chanmax++] = 1;
-[e = *U + &U _ChanNum * -> -> ++ _chanmax -> 1 `i `ui `ux -> -> # *U &U _ChanNum `ui `ux -> -> 1 `i `uc ]
-"61
-[; ;ADC.c: 61:   TRISAbits.TRISA1 = 1;
-[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
 "62
-[; ;ADC.c: 62:   ANCON0bits.PCFG1 = 0;
-[e = . . _ANCON0bits 0 1 -> -> 0 `i `uc ]
-"65
-[; ;ADC.c: 65:   ChanNum[chanmax++] = 2;
-[e = *U + &U _ChanNum * -> -> ++ _chanmax -> 1 `i `ui `ux -> -> # *U &U _ChanNum `ui `ux -> -> 2 `i `uc ]
+[; ;ADC.c: 62:   ANCON0 = 0xFF;
+[e = _ANCON0 -> -> 255 `i `uc ]
+"63
+[; ;ADC.c: 63:   ANCON1 = 0x1F;
+[e = _ANCON1 -> -> 31 `i `uc ]
 "66
-[; ;ADC.c: 66:   TRISAbits.TRISA2 = 1;
-[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+[; ;ADC.c: 66:   ChanNum[chanmax++] = 0;
+[e = *U + &U _ChanNum * -> -> ++ _chanmax -> 1 `i `ui `ux -> -> # *U &U _ChanNum `ui `ux -> -> 0 `i `uc ]
 "67
-[; ;ADC.c: 67:   ANCON0bits.PCFG2 = 0;
+[; ;ADC.c: 67:   TRISAbits.TRISA0 = 1;
+[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
+"68
+[; ;ADC.c: 68:   ANCON0bits.PCFG0 = 0;
+[e = . . _ANCON0bits 0 0 -> -> 0 `i `uc ]
+"71
+[; ;ADC.c: 71:   ChanNum[chanmax++] = 1;
+[e = *U + &U _ChanNum * -> -> ++ _chanmax -> 1 `i `ui `ux -> -> # *U &U _ChanNum `ui `ux -> -> 1 `i `uc ]
+"72
+[; ;ADC.c: 72:   TRISAbits.TRISA1 = 1;
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+"73
+[; ;ADC.c: 73:   ANCON0bits.PCFG1 = 0;
+[e = . . _ANCON0bits 0 1 -> -> 0 `i `uc ]
+"76
+[; ;ADC.c: 76:   ChanNum[chanmax++] = 2;
+[e = *U + &U _ChanNum * -> -> ++ _chanmax -> 1 `i `ui `ux -> -> # *U &U _ChanNum `ui `ux -> -> 2 `i `uc ]
+"77
+[; ;ADC.c: 77:   TRISAbits.TRISA2 = 1;
+[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+"78
+[; ;ADC.c: 78:   ANCON0bits.PCFG2 = 0;
 [e = . . _ANCON0bits 0 2 -> -> 0 `i `uc ]
-"127
-[; ;ADC.c: 127:   ADCON0bits.VCFG = 0b00;
+"138
+[; ;ADC.c: 138:   ADCON0bits.VCFG = 0b00;
 [e = . . _ADCON0bits 1 3 -> -> 0 `i `uc ]
-"133
-[; ;ADC.c: 133:   ADCON1bits.ADFM = 1;
+"144
+[; ;ADC.c: 144:   ADCON1bits.ADFM = 1;
 [e = . . _ADCON1bits 0 3 -> -> 1 `i `uc ]
-"135
-[; ;ADC.c: 135:   ADCON1bits.ADCS = 0b110;
+"146
+[; ;ADC.c: 146:   ADCON1bits.ADCS = 0b110;
 [e = . . _ADCON1bits 0 0 -> -> 6 `i `uc ]
-"143
-[; ;ADC.c: 143:   ADCON1bits.ACQT = 0b111;
-[e = . . _ADCON1bits 0 1 -> -> 7 `i `uc ]
-"152
-[; ;ADC.c: 152:   IPR1bits.ADIP = 0;
-[e = . . _IPR1bits 0 6 -> -> 0 `i `uc ]
 "154
-[; ;ADC.c: 154:   Sys_regiter_IRQ(ADC_cplt_cbk, 0);
-[e ( _Sys_regiter_IRQ (2 , &U _ADC_cplt_cbk -> -> 0 `i `uc ]
-"156
-[; ;ADC.c: 156:   ADCON0bits.ADON = 1;
+[; ;ADC.c: 154:   ADCON1bits.ACQT = 0b111;
+[e = . . _ADCON1bits 0 1 -> -> 7 `i `uc ]
+"163
+[; ;ADC.c: 163:   IPR1bits.ADIP = 0;
+[e = . . _IPR1bits 0 6 -> -> 0 `i `uc ]
+"165
+[; ;ADC.c: 165:   sys_regiter_IRQ_clbk(ADC_cplt_cbk, 0);
+[e ( _sys_regiter_IRQ_clbk (2 , &U _ADC_cplt_cbk -> -> 0 `i `uc ]
+"166
+[; ;ADC.c: 166:   sys_regiter_ms_clbk(ADC_ms_cbk);
+[e ( _sys_regiter_ms_clbk (1 &U _ADC_ms_cbk ]
+"168
+[; ;ADC.c: 168:   ADCON0bits.ADON = 1;
 [e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-"158
-[; ;ADC.c: 158: }
-[e :UE 778 ]
+"169
+[; ;ADC.c: 169: }
+[e :UE 781 ]
 }

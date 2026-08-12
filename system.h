@@ -8,6 +8,8 @@
 
 #define      LOPRIO_INTMAX            10
 #define      HIPRIO_INTMAX            10
+#define      MS_CLBK_MAX             10
+
 
 #define      U1_BAUDRATE              230400L
 #define      U1_TxIntEn()             PIE1bits.TX1IE = 1
@@ -26,14 +28,14 @@
 #define	InterruptDis()	INTCONbits.GIE = 0	// Interrupts of Hi/Lo Priority or Peripheral interrupts 
 #endif
 
-void Sys_init(void);
-
-void Sys_msTimestamp_init(void (*)(void));
+void sys_init(void);
 
 uint32_t get_ms(void);
 void delay_ms(uint32_t del);
 
-uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio);
+uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
+uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
+
 void UART1_Init(void);
 void UART1_PutChar(char byte);
 int16_t UART1_PutStr(char* byte, uint16_t N);

@@ -24,8 +24,8 @@ RTCC_VAL DateTime;
 
 void main(void) 
 {
-  Sys_init();
-  Sys_msTimestamp_init(blinky);
+  sys_init();
+  sys_regiter_ms_clbk(blinky);
   dbio_init();
   RTC_init();
   DateTime.DAY = 1;

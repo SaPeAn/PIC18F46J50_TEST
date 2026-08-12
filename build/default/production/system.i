@@ -10123,15 +10123,15 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include/xc.h" 2 3
 # 5 "./system.h" 2
-# 29 "./system.h"
-void Sys_init(void);
-
-void Sys_msTimestamp_init(void (*)(void));
+# 31 "./system.h"
+void sys_init(void);
 
 uint32_t get_ms(void);
 void delay_ms(uint32_t del);
 
-uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio);
+uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
+uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
+
 void UART1_Init(void);
 void UART1_PutChar(char byte);
 int16_t UART1_PutStr(char* byte, uint16_t N);
@@ -10139,35 +10139,44 @@ char UART1_GetChar(void);
 # 2 "system.c" 2
 
 typedef void (*IRQ_cbk_t)(void);
+typedef void (*ms_cllbk_t)(void);
 
-IRQ_cbk_t IRQ_cbl_lp[10];
-IRQ_cbk_t IRQ_cbl_hp[10];
+IRQ_cbk_t IRQ_clbk_lp[10];
+IRQ_cbk_t IRQ_clbk_hp[10];
 uint8_t IRQ_lpmax = 0;
 uint8_t IRQ_hpmax = 0;
+ms_cllbk_t ms_clbk[10];
+uint8_t ms_clbk_max = 0;
 
 uint8_t TMR0L_tmp;
 uint8_t TMR0H_tmp;
 volatile uint32_t timestamp = 0;
 
-void (*ms_callback)(void);
-
-uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio)
+uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio)
 {
   if(IPrio == 0)
   {
     if(IRQ_lpmax >= 10) return 1;
-    IRQ_cbl_lp[IRQ_lpmax] = cbk;
+    IRQ_clbk_lp[IRQ_lpmax] = cbk;
     IRQ_lpmax++;
     return 0;
   }
   if(IPrio == 1)
   {
     if(IRQ_hpmax >= 10) return 2;
-    IRQ_cbl_hp[IRQ_hpmax] = cbk;
+    IRQ_clbk_hp[IRQ_hpmax] = cbk;
     IRQ_hpmax++;
     return 0;
   }
   return 3;
+}
+
+uint8_t sys_regiter_ms_clbk(void (*clbk)(void))
+{
+  if(ms_clbk_max >= 10) return 1;
+  ms_clbk[ms_clbk_max] = clbk;
+  ms_clbk_max++;
+  return 0;
 }
 
  void __attribute__((picinterrupt(("high_priority")))) HighInterrupts_handler(void)
@@ -10178,13 +10187,13 @@ uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio)
     TMR0L += TMR0L_tmp;
     TMR0H = TMR0H_tmp;
     timestamp++;
-    if(ms_callback != ((void*)0)) ms_callback();
+    for(uint8_t i = 0; i < ms_clbk_max; i++) ms_clbk[i]();
     TMR0IF = 0;
   }
 
   for(int i = 0; i < IRQ_hpmax; i++)
   {
-    IRQ_cbl_hp[i]();
+    IRQ_clbk_hp[i]();
   }
 }
 
@@ -10193,20 +10202,10 @@ void __attribute__((picinterrupt(("low_priority")))) Interrupts_handler(void)
 
   for(int i = 0; i < IRQ_lpmax; i++)
   {
-    IRQ_cbl_lp[i]();
+    IRQ_clbk_lp[i]();
   }
 }
-
-void Sys_init(void)
-{
-  OSCTUNEbits.PLLEN = 1;
-  RCONbits.IPEN = 1;
-
-  ANCON0 = 0xFF;
-  ANCON1 = 0x1F;
-}
-
-void Sys_msTimestamp_init(void (*callback_func)(void))
+void sys_mstimer_init(void)
 {
   T0CONbits.TMR0ON = 0;
   T0CONbits.T08BIT = 0;
@@ -10231,14 +10230,23 @@ void Sys_msTimestamp_init(void (*callback_func)(void))
   TMR0L = TMR0L_tmp;
   TMR0H = TMR0H_tmp;
 
-  ms_callback = callback_func;
-
   INTCONbits.GIE = 1;
   INTCONbits.PEIE = 1;
   INTCONbits.T0IE = 1;
   TMR0IF = 0;
 
   T0CONbits.TMR0ON = 1;
+}
+
+void sys_init(void)
+{
+  OSCTUNEbits.PLLEN = 1;
+  RCONbits.IPEN = 1;
+
+  ANCON0 = 0xFF;
+  ANCON1 = 0x1F;
+  sys_mstimer_init();
+
 }
 
 void delay_ms(uint32_t del)

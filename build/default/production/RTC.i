@@ -10143,15 +10143,15 @@ void read_RTCC(RTCC_VAL * const me);
 void RTC_init(void);
 # 2 "RTC.c" 2
 # 1 "./system.h" 1
-# 29 "./system.h"
-void Sys_init(void);
-
-void Sys_msTimestamp_init(void (*)(void));
+# 31 "./system.h"
+void sys_init(void);
 
 uint32_t get_ms(void);
 void delay_ms(uint32_t del);
 
-uint8_t Sys_regiter_IRQ(void (*cbk)(void), uint8_t IPrio);
+uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
+uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
+
 void UART1_Init(void);
 void UART1_PutChar(char byte);
 int16_t UART1_PutStr(char* byte, uint16_t N);
