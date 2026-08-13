@@ -6,9 +6,9 @@
 #define      F_OSC                    48000000L
 #define      U1_BAUDRATE              230400L
 
-#define      LOPRIO_INTMAX            10
+#define      LOPRIO_INTMAX            10 
 #define      HIPRIO_INTMAX            10
-#define      MS_CLBK_MAX             10
+#define      MS_CLBK_MAX              10
 
 
 #define      U1_BAUDRATE              230400L

@@ -10142,9 +10142,11 @@ typedef void (*IRQ_cbk_t)(void);
 typedef void (*ms_cllbk_t)(void);
 
 IRQ_cbk_t IRQ_clbk_lp[10];
-IRQ_cbk_t IRQ_clbk_hp[10];
 uint8_t IRQ_lpmax = 0;
+
+IRQ_cbk_t IRQ_clbk_hp[10];
 uint8_t IRQ_hpmax = 0;
+
 ms_cllbk_t ms_clbk[10];
 uint8_t ms_clbk_max = 0;
 
@@ -10205,6 +10207,7 @@ void __attribute__((picinterrupt(("low_priority")))) Interrupts_handler(void)
     IRQ_clbk_lp[i]();
   }
 }
+
 void sys_mstimer_init(void)
 {
   T0CONbits.TMR0ON = 0;
@@ -10246,7 +10249,6 @@ void sys_init(void)
   ANCON0 = 0xFF;
   ANCON1 = 0x1F;
   sys_mstimer_init();
-
 }
 
 void delay_ms(uint32_t del)

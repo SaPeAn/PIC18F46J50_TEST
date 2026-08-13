@@ -4,9 +4,11 @@ typedef void (*IRQ_cbk_t)(void);
 typedef void (*ms_cllbk_t)(void);
 
 IRQ_cbk_t IRQ_clbk_lp[LOPRIO_INTMAX];
-IRQ_cbk_t IRQ_clbk_hp[HIPRIO_INTMAX];
 uint8_t IRQ_lpmax = 0;
+
+IRQ_cbk_t IRQ_clbk_hp[HIPRIO_INTMAX];
 uint8_t IRQ_hpmax = 0;
+
 ms_cllbk_t ms_clbk[MS_CLBK_MAX];
 uint8_t ms_clbk_max = 0;
 
@@ -18,7 +20,7 @@ uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio)
 {
   if(IPrio == 0) //low priority interrupt
   {
-    if(IRQ_lpmax >= LOPRIO_INTMAX) return 1;
+    if(IRQ_lpmax >= LOPRIO_INTMAX) return 1; 
     IRQ_clbk_lp[IRQ_lpmax] = cbk;
     IRQ_lpmax++;
     return 0;
@@ -67,6 +69,7 @@ void __interrupt(low_priority)  Interrupts_handler(void)
     IRQ_clbk_lp[i]();
   }
 }
+
 void sys_mstimer_init(void)
 {
   T0CONbits.TMR0ON = 0;
@@ -108,7 +111,6 @@ void sys_init(void)
   ANCON0 = 0xFF;   // all ports are digitall
   ANCON1 = 0x1F;   // all ports are digitall
   sys_mstimer_init();
-  
 }
 
 void delay_ms(uint32_t del)

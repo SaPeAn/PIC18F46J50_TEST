@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
+$D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
 init CODE 0 D0 D0 4 1 2
 reset_vec CODE 0 0 0 4 1 2
 config CONFIG 4 FFF8 FFF8 8 1 1
@@ -150,17 +150,17 @@ MEDIUMCONST 4240-FFF7 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\PIC18F46J50_common_project.X.production.o
-18 intcodelo CODE >12630:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-18 intcodelo CODE >62:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-46 intcodelo CODE >65:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-52 intcodelo CODE >67:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-76 intcodelo CODE >65:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-A0 intcodelo CODE >69:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-8 intcode CODE >14663:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-8 intcode CODE >44:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-421E text60 CODE >120:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+18 intcodelo CODE >12630:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+18 intcodelo CODE >64:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+46 intcodelo CODE >67:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+52 intcodelo CODE >69:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+76 intcodelo CODE >67:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+A0 intcodelo CODE >71:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+8 intcode CODE >14663:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+8 intcode CODE >46:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 421E text60 CODE >122:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-422E text60 CODE >123:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+421E text60 CODE >124:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+422E text60 CODE >125:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 3AA6 text59 CODE >9:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
 3AA6 text59 CODE >12:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
 3ADC text59 CODE >14:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
@@ -269,17 +269,17 @@ A0 intcodelo CODE >69:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project
 38CA text50 CODE >19:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
 38E4 text50 CODE >20:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
 38E6 text50 CODE >23:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
-2AF8 intcode_body CODE >44:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-2B18 intcode_body CODE >47:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-2B34 intcode_body CODE >49:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-2B3A intcode_body CODE >50:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-2B3E intcode_body CODE >51:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-2B4C intcode_body CODE >52:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-2B8E intcode_body CODE >53:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-2B90 intcode_body CODE >56:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-2B9A intcode_body CODE >58:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-2BBE intcode_body CODE >56:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-2BE6 intcode_body CODE >60:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+2AF8 intcode_body CODE >46:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+2B18 intcode_body CODE >49:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+2B34 intcode_body CODE >51:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+2B3A intcode_body CODE >52:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+2B3E intcode_body CODE >53:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+2B4C intcode_body CODE >54:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+2B8E intcode_body CODE >55:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+2B90 intcode_body CODE >58:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+2B9A intcode_body CODE >60:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+2BBE intcode_body CODE >58:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+2BE6 intcode_body CODE >62:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 2EEE text48 CODE >40:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
 2EEE text48 CODE >41:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
 2F0C text48 CODE >42:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
@@ -377,21 +377,21 @@ A0 intcodelo CODE >69:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project
 41BC text39 CODE >36:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
 41BC text39 CODE >38:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
 41DA text39 CODE >39:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
-3B2E text38 CODE >17:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 3B2E text38 CODE >19:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3B40 text38 CODE >21:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3B56 text38 CODE >22:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3B6A text38 CODE >23:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3B70 text38 CODE >26:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3B80 text38 CODE >28:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3B94 text38 CODE >29:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3BA8 text38 CODE >30:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3BAA text38 CODE >34:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-4162 text37 CODE >36:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3B2E text38 CODE >21:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3B40 text38 CODE >23:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3B56 text38 CODE >24:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3B6A text38 CODE >25:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3B70 text38 CODE >28:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3B80 text38 CODE >30:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3B94 text38 CODE >31:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3BA8 text38 CODE >32:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3BAA text38 CODE >36:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 4162 text37 CODE >38:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-4176 text37 CODE >39:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-418E text37 CODE >40:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-4190 text37 CODE >42:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+4162 text37 CODE >40:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+4176 text37 CODE >41:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+418E text37 CODE >42:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+4190 text37 CODE >44:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 3A1E text36 CODE >58:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
 3A1E text36 CODE >60:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
 3A26 text36 CODE >62:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
@@ -421,10 +421,10 @@ A0 intcodelo CODE >69:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project
 41B6 text35 CODE >46:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
 41B8 text35 CODE >47:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
 41BA text35 CODE >48:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
-3D46 text34 CODE >114:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 3D46 text34 CODE >116:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3D56 text34 CODE >117:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3D9E text34 CODE >118:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3D46 text34 CODE >118:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3D56 text34 CODE >119:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3D9E text34 CODE >120:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 41DC text33 CODE >18:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\RTC.c
 41DC text33 CODE >20:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\RTC.c
 41DE text33 CODE >21:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\RTC.c
@@ -477,9 +477,9 @@ A0 intcodelo CODE >69:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project
 315A text29 CODE >117:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
 3184 text29 CODE >118:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
 31A8 text29 CODE >120:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
-420C text28 CODE >120:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 420C text28 CODE >122:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-421C text28 CODE >123:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+420C text28 CODE >124:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+421C text28 CODE >125:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 2964 text27 CODE >49:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
 2964 text27 CODE >55:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
 2974 text27 CODE >56:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
@@ -513,34 +513,34 @@ A0 intcodelo CODE >69:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project
 3FF8 text25 CODE >16:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
 4000 text25 CODE >17:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
 4008 text25 CODE >18:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
-40C2 text24 CODE >125:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40C2 text24 CODE >128:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40C4 text24 CODE >129:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40C6 text24 CODE >131:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40C8 text24 CODE >132:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40CA text24 CODE >134:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40CC text24 CODE >135:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40CE text24 CODE >137:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40D0 text24 CODE >138:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40D2 text24 CODE >139:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40D4 text24 CODE >140:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40D6 text24 CODE >142:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40D8 text24 CODE >143:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40DA text24 CODE >144:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40DC text24 CODE >145:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40DE text24 CODE >147:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40C2 text24 CODE >127:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40C2 text24 CODE >130:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40C4 text24 CODE >131:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40C6 text24 CODE >133:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40C8 text24 CODE >134:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40CA text24 CODE >136:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40CC text24 CODE >137:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40CE text24 CODE >139:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40D0 text24 CODE >140:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40D2 text24 CODE >141:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40D4 text24 CODE >142:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40D6 text24 CODE >144:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40D8 text24 CODE >145:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40DA text24 CODE >146:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40DC text24 CODE >147:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 40DE text24 CODE >149:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40E0 text24 CODE >150:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40E4 text24 CODE >152:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40E6 text24 CODE >153:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40E8 text24 CODE >156:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40EA text24 CODE >157:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40EC text24 CODE >159:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40EE text24 CODE >160:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40F0 text24 CODE >162:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40F2 text24 CODE >163:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40F4 text24 CODE >165:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-40F6 text24 CODE >167:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40DE text24 CODE >151:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40E0 text24 CODE >152:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40E4 text24 CODE >154:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40E6 text24 CODE >155:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40E8 text24 CODE >158:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40EA text24 CODE >159:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40EC text24 CODE >161:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40EE text24 CODE >162:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40F0 text24 CODE >164:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40F2 text24 CODE >165:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40F4 text24 CODE >167:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+40F6 text24 CODE >169:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 3C1C text23 CODE >39:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
 3C1C text23 CODE >41:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
 3C20 text23 CODE >42:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
@@ -830,32 +830,32 @@ A0 intcodelo CODE >69:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project
 36EE text4 CODE >28:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\__lldiv.c
 36EE text4 CODE >29:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\__lldiv.c
 36FE text4 CODE >30:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\__lldiv.c
-34F4 text3 CODE >70:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-34F4 text3 CODE >72:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-34F6 text3 CODE >73:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-34F8 text3 CODE >74:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3500 text3 CODE >80:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3502 text3 CODE >81:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3504 text3 CODE >86:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3516 text3 CODE >87:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3554 text3 CODE >88:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3592 text3 CODE >89:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-3596 text3 CODE >90:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-359A text3 CODE >92:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-359E text3 CODE >93:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-35A2 text3 CODE >95:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-35A4 text3 CODE >96:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-35A6 text3 CODE >97:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-35A8 text3 CODE >98:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-35AA text3 CODE >100:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-35AC text3 CODE >101:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-41FA text2 CODE >103:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-41FA text2 CODE >105:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-41FC text2 CODE >106:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-41FE text2 CODE >108:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-4202 text2 CODE >109:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-4206 text2 CODE >110:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-420A text2 CODE >112:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+34F4 text3 CODE >73:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+34F4 text3 CODE >75:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+34F6 text3 CODE >76:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+34F8 text3 CODE >77:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3500 text3 CODE >83:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3502 text3 CODE >84:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3504 text3 CODE >89:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3516 text3 CODE >90:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3554 text3 CODE >91:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3592 text3 CODE >92:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+3596 text3 CODE >93:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+359A text3 CODE >95:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+359E text3 CODE >96:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+35A2 text3 CODE >98:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+35A4 text3 CODE >99:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+35A6 text3 CODE >100:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+35A8 text3 CODE >101:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+35AA text3 CODE >103:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+35AC text3 CODE >104:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+41FA text2 CODE >106:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+41FA text2 CODE >108:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+41FC text2 CODE >109:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+41FE text2 CODE >111:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+4202 text2 CODE >112:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+4206 text2 CODE >113:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+420A text2 CODE >114:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 3986 text1 CODE >26:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\RTC.c
 3986 text1 CODE >28:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\RTC.c
 3988 text1 CODE >29:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\RTC.c
@@ -878,74 +878,74 @@ A0 intcodelo CODE >69:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project
 2438 text0 CODE >25:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
 2438 text0 CODE >27:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
 243C text0 CODE >28:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-244A text0 CODE >29:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-244E text0 CODE >30:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-2452 text0 CODE >31:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-2458 text0 CODE >32:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-245A text0 CODE >33:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-245E text0 CODE >34:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-2460 text0 CODE >35:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-2462 text0 CODE >36:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-2464 text0 CODE >37:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-2472 text0 CODE >38:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-2476 text0 CODE >39:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-247A text0 CODE >40:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-247C text0 CODE >45:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-24A2 text0 CODE >46:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-24B6 text0 CODE >47:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-24CC text0 CODE >50:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-24DA text0 CODE >52:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-2516 text0 CODE >53:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-252A text0 CODE >55:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-2560 text0 CODE >57:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-25EA text0 CODE >58:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-25FE text0 CODE >61:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
-3DA0 cinit CODE >3316:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DA0 cinit CODE >3318:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DA0 cinit CODE >3321:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DA0 cinit CODE >3414:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DA4 cinit CODE >3415:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DA6 cinit CODE >3416:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DA6 cinit CODE >3417:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DA8 cinit CODE >3418:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DAA cinit CODE >3419:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DAC cinit CODE >3422:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DB0 cinit CODE >3423:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DB2 cinit CODE >3424:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DB2 cinit CODE >3425:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DB4 cinit CODE >3426:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DB6 cinit CODE >3427:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DB8 cinit CODE >3430:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DBC cinit CODE >3431:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DBE cinit CODE >3432:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DBE cinit CODE >3433:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DC0 cinit CODE >3434:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DC2 cinit CODE >3435:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DC4 cinit CODE >3438:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DC8 cinit CODE >3439:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DCA cinit CODE >3440:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DCA cinit CODE >3441:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DCC cinit CODE >3442:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DCE cinit CODE >3443:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DD0 cinit CODE >3446:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DD4 cinit CODE >3447:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DD6 cinit CODE >3448:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DD6 cinit CODE >3449:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DD8 cinit CODE >3450:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DDA cinit CODE >3451:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DDC cinit CODE >3454:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DE0 cinit CODE >3455:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DE2 cinit CODE >3456:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DE2 cinit CODE >3457:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DE4 cinit CODE >3458:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DE6 cinit CODE >3459:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DE8 cinit CODE >3465:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DE8 cinit CODE >3467:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DEA cinit CODE >3468:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DEC cinit CODE >3470:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DEE cinit CODE >3471:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DF0 cinit CODE >3472:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
-3DF2 cinit CODE >3473:D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_1.s
+2440 text0 CODE >30:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+2442 text0 CODE >31:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+2450 text0 CODE >33:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+2454 text0 CODE >34:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+245A text0 CODE >35:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+245C text0 CODE >36:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+2460 text0 CODE >37:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+2462 text0 CODE >38:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+2464 text0 CODE >39:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+2466 text0 CODE >40:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+2474 text0 CODE >42:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+2478 text0 CODE >43:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+247C text0 CODE >48:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+24A2 text0 CODE >49:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+24B6 text0 CODE >50:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+24CC text0 CODE >53:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+24DA text0 CODE >55:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+2516 text0 CODE >56:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+252A text0 CODE >58:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+2560 text0 CODE >60:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+25EA text0 CODE >61:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+25FE text0 CODE >64:C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
+3DA0 cinit CODE >3316:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DA0 cinit CODE >3318:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DA0 cinit CODE >3321:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DA0 cinit CODE >3414:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DA4 cinit CODE >3415:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DA6 cinit CODE >3416:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DA6 cinit CODE >3417:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DA8 cinit CODE >3418:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DAA cinit CODE >3419:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DAC cinit CODE >3422:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DB0 cinit CODE >3423:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DB2 cinit CODE >3424:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DB2 cinit CODE >3425:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DB4 cinit CODE >3426:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DB6 cinit CODE >3427:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DB8 cinit CODE >3430:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DBC cinit CODE >3431:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DBE cinit CODE >3432:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DBE cinit CODE >3433:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DC0 cinit CODE >3434:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DC2 cinit CODE >3435:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DC4 cinit CODE >3438:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DC8 cinit CODE >3439:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DCA cinit CODE >3440:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DCA cinit CODE >3441:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DCC cinit CODE >3442:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DCE cinit CODE >3443:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DD0 cinit CODE >3446:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DD4 cinit CODE >3447:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DD6 cinit CODE >3448:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DD6 cinit CODE >3449:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DD8 cinit CODE >3450:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DDA cinit CODE >3451:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DDC cinit CODE >3454:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DE0 cinit CODE >3455:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DE2 cinit CODE >3456:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DE2 cinit CODE >3457:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DE4 cinit CODE >3458:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DE6 cinit CODE >3459:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DE8 cinit CODE >3465:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DE8 cinit CODE >3467:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DEA cinit CODE >3468:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DEC cinit CODE >3470:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DEE cinit CODE >3471:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DF0 cinit CODE >3472:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
+3DF2 cinit CODE >3473:D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -983,7 +983,7 @@ __Lsmallconst 1000 0 SMALLCONST 0 smallconst dist/default/production\PIC18F46J50
 _RXbyte_cbk$intlevel1 4014 0 CODE 0 text42 dist/default/production\PIC18F46J50_common_project.X.production.o
 _ADIE 7CEE 0 ABS 0 - dist/default/production\PIC18F46J50_common_project.X.production.o
 _ADIF 7CF6 0 ABS 0 - dist/default/production\PIC18F46J50_common_project.X.production.o
-___sp 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
+___sp 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
 _dbuf 13B 0 BANK1 1 bssBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
 _dtoa 27C2 0 CODE 0 text10 dist/default/production\PIC18F46J50_common_project.X.production.o
 _main 2438 0 CODE 0 text0 dist/default/production\PIC18F46J50_common_project.X.production.o
@@ -992,14 +992,14 @@ _stoa 261C 0 CODE 0 text8 dist/default/production\PIC18F46J50_common_project.X.p
 abs@a 167 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
 btemp 1 0 ABS 0 - dist/default/production\PIC18F46J50_common_project.X.production.o
 i1RingBuf_DataWatch@s_addr 80 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_common_project.X.production.o
-___stack_hi 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
-___stack_lo 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
+___stack_hi 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
+___stack_lo 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
 read_prec_or_width@c 163 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
 read_prec_or_width@n 164 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
 pad@i 174 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
 pad@p 171 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
 _sys_regiter_IRQ_clbk 3B2E 0 CODE 0 text38 dist/default/production\PIC18F46J50_common_project.X.production.o
-start D0 0 CODE 0 init D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
+start D0 0 CODE 0 init D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
 __end_of_RingBuf_Init 400A 0 CODE 0 text25 dist/default/production\PIC18F46J50_common_project.X.production.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\PIC18F46J50_common_project.X.production.o
 Interrupts_handler@i A5 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_common_project.X.production.o
@@ -1023,11 +1023,11 @@ _T0CONbits FD5 0 ABS 0 - dist/default/production\PIC18F46J50_common_project.X.pr
 _timestamp CF 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46J50_common_project.X.production.o
 dbio_putstring@str_len 197 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
 __end_ofi2_RingBuf_DataPut 1D28 0 CODE 0 text55 dist/default/production\PIC18F46J50_common_project.X.production.o
-__accesstop 60 0 ABS 0 - D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
-intlevel0 0 0 CODE 0 text D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
-intlevel1 0 0 CODE 0 text D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
-intlevel2 0 0 CODE 0 text D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
-intlevel3 0 0 CODE 0 text D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
+__accesstop 60 0 ABS 0 - D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
+intlevel0 0 0 CODE 0 text D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
+intlevel1 0 0 CODE 0 text D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
+intlevel2 0 0 CODE 0 text D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
+intlevel3 0 0 CODE 0 text D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
 i2RingBuf_DataPut@input 26 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_common_project.X.production.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\PIC18F46J50_common_project.X.production.o
 i2RingBuf_DataPut@space 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_common_project.X.production.o
@@ -1062,8 +1062,8 @@ _ChanIndx 4F 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_common_pro
 _ANCON0 F48 0 ABS 0 - dist/default/production\PIC18F46J50_common_project.X.production.o
 _ANCON1 F49 0 ABS 0 - dist/default/production\PIC18F46J50_common_project.X.production.o
 sys_mstimer_init@T0_prescaler 16D 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
-___inthi_sp 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
-___intlo_sp 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
+___inthi_sp 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
+___intlo_sp 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
 __end_of_dbio_init 3C84 0 CODE 0 text23 dist/default/production\PIC18F46J50_common_project.X.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\PIC18F46J50_common_project.X.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\PIC18F46J50_common_project.X.production.o
@@ -1133,7 +1133,7 @@ _ChanValue 100 0 BANK1 1 bssBANK1 dist/default/production\PIC18F46J50_common_pro
 _TXREG1 FAE 0 ABS 0 - dist/default/production\PIC18F46J50_common_project.X.production.o
 _HighInterrupts_handler 8 0 CODE 0 intcode dist/default/production\PIC18F46J50_common_project.X.production.o
 i1RingBuf_DataPut@len 6F 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_common_project.X.production.o
-isa$xinst 0 0 ABS 0 - D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
+isa$xinst 0 0 ABS 0 - D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
 RingBuf_Available@len 15D 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
 dbio_getstring@buf_len_prev 51 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_common_project.X.production.o
 RingBuf_DataPut@data 16A 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
@@ -1458,19 +1458,19 @@ _TXbyte_cbk$intlevel1 3BB6 0 CODE 0 text43 dist/default/production\PIC18F46J50_c
 _RCSTA1bits FAC 0 ABS 0 - dist/default/production\PIC18F46J50_common_project.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\PIC18F46J50_common_project.X.production.o
 _RXbyte_cbk 400A 0 CODE 0 text42 dist/default/production\PIC18F46J50_common_project.X.production.o
-___inthi_stack_hi 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
-___inthi_stack_lo 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
+___inthi_stack_hi 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
+___inthi_stack_lo 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
 ?i2_get_ms 2 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_common_project.X.production.o
 main@strrx 200 0 BANK2 1 cstackBANK2 dist/default/production\PIC18F46J50_common_project.X.production.o
 main@strtx 264 0 BANK2 1 cstackBANK2 dist/default/production\PIC18F46J50_common_project.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\PIC18F46J50_common_project.X.production.o
-isa$std 1 0 ABS 0 - D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
+isa$std 1 0 ABS 0 - D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
 i1RingBuf_DataPut@len_tmp 82 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_common_project.X.production.o
 i2RingBuf_DataRead@aval_len 34 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_common_project.X.production.o
 dbio_strnlen@N 15F 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
 dbio_strnlen@i 161 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
-stackhi 0 0 ABS 0 - D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
-stacklo 0 0 ABS 0 - D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
+stackhi 0 0 ABS 0 - D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
+stacklo 0 0 ABS 0 - D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
 RingBuf_Clear@rb 15D 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
 stoa@cp 170 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
 stoa@fp 166 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
@@ -1601,7 +1601,7 @@ __Ltext57 0 0 ABS 0 text57 dist/default/production\PIC18F46J50_common_project.X.
 __Ltext58 0 0 ABS 0 text58 dist/default/production\PIC18F46J50_common_project.X.production.o
 __Ltext59 0 0 ABS 0 text59 dist/default/production\PIC18F46J50_common_project.X.production.o
 __Ltext60 0 0 ABS 0 text60 dist/default/production\PIC18F46J50_common_project.X.production.o
-__ramtop 1000 0 RAM 0 ramtop D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
+__ramtop 1000 0 RAM 0 ramtop D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
 ___aldiv@dividend 15D 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
 _sprintf 3F36 0 CODE 0 text5 dist/default/production\PIC18F46J50_common_project.X.production.o
 __end_of_RXbyte_cbk 404C 0 CODE 0 text42 dist/default/production\PIC18F46J50_common_project.X.production.o
@@ -1621,13 +1621,13 @@ __end_of_TXbyte_cbk 3C1C 0 CODE 0 text43 dist/default/production\PIC18F46J50_com
 __end_of_vfprintf 3F36 0 CODE 0 text6 dist/default/production\PIC18F46J50_common_project.X.production.o
 __end_of_RingBuf_DataRead 31AA 0 CODE 0 text29 dist/default/production\PIC18F46J50_common_project.X.production.o
 RingBuf_DataWatch@s_addr 17D 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_common_project.X.production.o
-___heap_hi 0 0 ABS 0 - D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
-___heap_lo 0 0 ABS 0 - D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
+___heap_hi 0 0 ABS 0 - D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
+___heap_lo 0 0 ABS 0 - D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
 i1RingBuf_DataRead@rb 8C 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_common_project.X.production.o
 i1RingBuf_DataRead@st 91 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_common_project.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\PIC18F46J50_common_project.X.production.o
-___intlo_stack_hi 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
-___intlo_stack_lo 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
+___intlo_stack_hi 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
+___intlo_stack_lo 0 0 STACK 2 stack D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\PIC18F46J50_common_project.X.production.o
 __end_of__initialization 3DE8 0 CODE 0 cinit dist/default/production\PIC18F46J50_common_project.X.production.o
 __end_of_read_RTCC 3848 0 CODE 0 text18 dist/default/production\PIC18F46J50_common_project.X.production.o

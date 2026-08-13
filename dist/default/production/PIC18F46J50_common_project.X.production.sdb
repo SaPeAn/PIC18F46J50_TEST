@@ -162,26 +162,26 @@ RINGBUF_EMPTY 4
 [v _write_RTCC write_RTCC `(v  1 e 1 0 ]
 "55
 [v _read_RTCC read_RTCC `(v  1 e 1 0 ]
-"17 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+"19 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v _sys_regiter_IRQ_clbk sys_regiter_IRQ_clbk `(uc  1 e 1 0 ]
-"36
+"38
 [v _sys_regiter_ms_clbk sys_regiter_ms_clbk `(uc  1 e 1 0 ]
-"44
+"46
 [v _HighInterrupts_handler HighInterrupts_handler `IIH(v  1 e 1 0 ]
-"62
+"64
 [v _Interrupts_handler Interrupts_handler `IIL(v  1 e 1 0 ]
-"70
+"73
 [v _sys_mstimer_init sys_mstimer_init `(v  1 e 1 0 ]
-"103
+"106
 [v _sys_init sys_init `(v  1 e 1 0 ]
-"114
+"116
 [v _delay_ms delay_ms `(v  1 e 1 0 ]
-"120
+"122
 [v _get_ms get_ms `(ul  1 e 4 0 ]
 [v i2_get_ms get_ms `(ul  1 e 4 0 ]
-"125
+"127
 [v _UART1_Init UART1_Init `(v  1 e 1 0 ]
-"169
+"171
 [v _UART1_PutChar UART1_PutChar `(v  1 e 1 0 ]
 "4 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
 [v _ChanNum ChanNum `[3]uc  1 e 3 0 ]
@@ -304,7 +304,7 @@ RINGBUF_EMPTY 4
 "7929
 [u S545 . 1 `S536 1 . 1 0 ]
 [v _TRISCbits TRISCbits `VES545  1 e 1 @3988 ]
-[s S109 . 1 `uc 1 TRISD0 1 0 :1:0 
+[s S85 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -314,8 +314,8 @@ RINGBUF_EMPTY 4
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "7986
-[u S118 . 1 `S109 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES118  1 e 1 @3989 ]
+[u S94 . 1 `S85 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES94  1 e 1 @3989 ]
 "8143
 [v _RTCVALL RTCVALL `VEuc  1 e 1 @3992 ]
 "8163
@@ -690,29 +690,29 @@ RINGBUF_EMPTY 4
 "6 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v _IRQ_clbk_lp IRQ_clbk_lp `[10]*.37(v  1 e 20 0 ]
 "7
-[v _IRQ_clbk_hp IRQ_clbk_hp `[10]*.37(v  1 e 20 0 ]
-"8
 [v _IRQ_lpmax IRQ_lpmax `uc  1 e 1 0 ]
 "9
-[v _IRQ_hpmax IRQ_hpmax `uc  1 e 1 0 ]
+[v _IRQ_clbk_hp IRQ_clbk_hp `[10]*.37(v  1 e 20 0 ]
 "10
+[v _IRQ_hpmax IRQ_hpmax `uc  1 e 1 0 ]
+"12
 [v _ms_clbk ms_clbk `[10]*.37(v  1 e 20 0 ]
-"11
-[v _ms_clbk_max ms_clbk_max `uc  1 e 1 0 ]
 "13
-[v _TMR0L_tmp TMR0L_tmp `uc  1 e 1 0 ]
-"14
-[v _TMR0H_tmp TMR0H_tmp `uc  1 e 1 0 ]
+[v _ms_clbk_max ms_clbk_max `uc  1 e 1 0 ]
 "15
+[v _TMR0L_tmp TMR0L_tmp `uc  1 e 1 0 ]
+"16
+[v _TMR0H_tmp TMR0H_tmp `uc  1 e 1 0 ]
+"17
 [v _timestamp timestamp `VEul  1 e 4 0 ]
 "25 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"42
+"45
 [v main@strtx strtx `[100]uc  1 a 100 100 ]
-"43
+"46
 [v main@strrx strrx `[100]uc  1 a 100 0 ]
-"65
+"68
 } 0
 "26 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\RTC.c
 [v _write_RTCC write_RTCC `(v  1 e 1 0 ]
@@ -721,23 +721,23 @@ RINGBUF_EMPTY 4
 [v write_RTCC@me me `C*.39S68  1 p 2 0 ]
 "52
 } 0
-"103 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+"106 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v _sys_init sys_init `(v  1 e 1 0 ]
 {
-"112
+"114
 } 0
-"70
+"73
 [v _sys_mstimer_init sys_mstimer_init `(v  1 e 1 0 ]
 {
-"85
+"88
 [v sys_mstimer_init@ms_cycles ms_cycles `ul  1 a 4 22 ]
-"86
+"89
 [v sys_mstimer_init@T0_prescaler T0_prescaler `ul  1 a 4 16 ]
-"87
+"90
 {
 [v sys_mstimer_init@i i `i  1 a 2 20 ]
 }
-"101
+"104
 } 0
 "7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
@@ -964,11 +964,11 @@ RINGBUF_EMPTY 4
 {
 "47
 } 0
-"125 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+"127 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v _UART1_Init UART1_Init `(v  1 e 1 0 ]
 {
-"147
-"167
+"149
+"169
 } 0
 "12 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
 [v _RingBuf_Init RingBuf_Init `(E691  1 e 1 0 ]
@@ -997,10 +997,10 @@ RINGBUF_EMPTY 4
 [v dbio_getstring@buf_len_prev buf_len_prev `us  1 s 2 buf_len_prev ]
 "84
 } 0
-"120 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+"122 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v _get_ms get_ms `(ul  1 e 4 0 ]
 {
-"123
+"125
 } 0
 "106 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
 [v _RingBuf_DataRead RingBuf_DataRead `(E691  1 e 1 0 ]
@@ -1059,13 +1059,13 @@ RINGBUF_EMPTY 4
 {
 "24
 } 0
-"114 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+"116 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v _delay_ms delay_ms `(v  1 e 1 0 ]
 {
 [v delay_ms@del del `ul  1 p 4 0 ]
-"116
-[v delay_ms@temp_time temp_time `VEul  1 a 4 8 ]
 "118
+[v delay_ms@temp_time temp_time `VEul  1 a 4 8 ]
+"120
 } 0
 "41 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
 [v _ADC_start_IT ADC_start_IT `(v  1 e 1 0 ]
@@ -1079,18 +1079,18 @@ RINGBUF_EMPTY 4
 [v ADC_init@chanmax chanmax `i  1 a 2 3 ]
 "169
 } 0
-"36 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+"38 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v _sys_regiter_ms_clbk sys_regiter_ms_clbk `(uc  1 e 1 0 ]
 {
 [v sys_regiter_ms_clbk@clbk clbk `*.37(v  1 p 2 0 ]
-"42
+"44
 } 0
-"17
+"19
 [v _sys_regiter_IRQ_clbk sys_regiter_IRQ_clbk `(uc  1 e 1 0 ]
 {
 [v sys_regiter_IRQ_clbk@cbk cbk `*.37(v  1 p 2 0 ]
 [v sys_regiter_IRQ_clbk@IPrio IPrio `uc  1 p 1 2 ]
-"34
+"36
 } 0
 "36 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
 [v _ADC_getChan ADC_getChan `(s  1 e 2 0 ]
@@ -1100,15 +1100,15 @@ RINGBUF_EMPTY 4
 [v ADC_getChan@chan chan `uc  1 p 1 2 ]
 "39
 } 1
-"62 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+"64 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v _Interrupts_handler Interrupts_handler `IIL(v  1 e 1 0 ]
 {
-"65
+"67
 {
 [v Interrupts_handler@i i `i  1 a 2 69 ]
-"68
+"70
 }
-"69
+"71
 } 0
 "8 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
 [v _ADC_cplt_cbk ADC_cplt_cbk `(v  1 e 1 0 ]
@@ -1210,19 +1210,19 @@ RINGBUF_EMPTY 4
 [v i1RingBuf_Available@rb rb `*.30VES978  1 p 1 2 ]
 "47
 } 0
-"44 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+"46 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v _HighInterrupts_handler HighInterrupts_handler `IIH(v  1 e 1 0 ]
 {
-"52
+"54
 {
 [v HighInterrupts_handler@i i `uc  1 a 1 68 ]
 }
-"56
+"58
 {
 [v HighInterrupts_handler@i_863 i `i  1 a 2 66 ]
-"59
+"61
 }
-"60
+"62
 } 0
 "8 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
 [v i2_ADC_cplt_cbk ADC_cplt_cbk `(v  1 e 1 0 ]
@@ -1336,8 +1336,8 @@ RINGBUF_EMPTY 4
 [v blinky@time time `ul  1 s 4 time ]
 "21
 } 0
-"120 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+"122 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v i2_get_ms get_ms `(ul  1 e 4 0 ]
 {
-"123
+"125
 } 0

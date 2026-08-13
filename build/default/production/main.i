@@ -10456,8 +10456,11 @@ RTCC_VAL DateTime;
 void main(void)
 {
   sys_init();
-  sys_regiter_ms_clbk(blinky);
   dbio_init();
+
+  TRISDbits.TRISD4 = 0;
+  sys_regiter_ms_clbk(blinky);
+
   RTC_init();
   DateTime.DAY = 1;
   DateTime.YEAR = 0;
@@ -10466,9 +10469,9 @@ void main(void)
   DateTime.MINUTES = 0;
   DateTime.SECONDS = 0;
   write_RTCC(&DateTime);
+
   ADC_init();
   ADC_start_IT();
-  TRISDbits.TRISD4 = 0;
 
   char strtx[100];
   char strrx[100];

@@ -25,13 +25,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31 ./system.h
 [; ;./system.h: 31: void sys_init(void);
 [v _sys_init `(v ~T0 @X0 0 ef ]
-[v F6047 `(v ~T0 @X0 0 tf ]
-"36
-[; ;./system.h: 36: uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
-[v _sys_regiter_ms_clbk `(uc ~T0 @X0 0 ef1`*F6047 ]
 "14 ./dbio.h
 [; ;./dbio.h: 14: void dbio_init(void);
 [v _dbio_init `(v ~T0 @X0 0 ef ]
+"7975 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 7975:     struct {
+[s S350 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S350 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"7974
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 7974: typedef union {
+[u S349 `S350 1 ]
+[n S349 . . ]
+"7986
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 7986: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
+[v _TRISDbits `VS349 ~T0 @X0 0 e@3989 ]
+[v F6047 `(v ~T0 @X0 0 tf ]
+"36 ./system.h
+[; ;./system.h: 36: uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
+[v _sys_regiter_ms_clbk `(uc ~T0 @X0 0 ef1`*F6047 ]
 "22 ./RTC.h
 [; ;./RTC.h: 22: void RTC_init(void);
 [v _RTC_init `(v ~T0 @X0 0 ef ]
@@ -45,17 +56,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29
 [; ;./ADC.h: 29: void ADC_start_IT(void);
 [v _ADC_start_IT `(v ~T0 @X0 0 ef ]
-"7975 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 7975:     struct {
-[s S350 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S350 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
-"7974
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 7974: typedef union {
-[u S349 `S350 1 ]
-[n S349 . . ]
-"7986
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 7986: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
-[v _TRISDbits `VS349 ~T0 @X0 0 e@3989 ]
 "121 C:\Program Files\Microchip\xc8\v4.00\pic\include\c99/stdio.h
 [; ;C:\Program Files\Microchip\xc8\v4.00\pic\include\c99/stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
@@ -1036,106 +1036,106 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 27:   sys_init();
 [e ( _sys_init ..  ]
 "28
-[; ;main.c: 28:   sys_regiter_ms_clbk(blinky);
-[e ( _sys_regiter_ms_clbk (1 &U _blinky ]
-"29
-[; ;main.c: 29:   dbio_init();
+[; ;main.c: 28:   dbio_init();
 [e ( _dbio_init ..  ]
 "30
-[; ;main.c: 30:   RTC_init();
-[e ( _RTC_init ..  ]
-"31
-[; ;main.c: 31:   DateTime.DAY = 1;
-[e = . _DateTime 2 -> -> 1 `i `uc ]
-"32
-[; ;main.c: 32:   DateTime.YEAR = 0;
-[e = . _DateTime 0 -> -> 0 `i `uc ]
-"33
-[; ;main.c: 33:   DateTime.MONTH = 1;
-[e = . _DateTime 1 -> -> 1 `i `uc ]
-"34
-[; ;main.c: 34:   DateTime.HOURS = 0;
-[e = . _DateTime 4 -> -> 0 `i `uc ]
-"35
-[; ;main.c: 35:   DateTime.MINUTES = 0;
-[e = . _DateTime 5 -> -> 0 `i `uc ]
-"36
-[; ;main.c: 36:   DateTime.SECONDS = 0;
-[e = . _DateTime 6 -> -> 0 `i `uc ]
-"37
-[; ;main.c: 37:   write_RTCC(&DateTime);
-[e ( _write_RTCC (1 &U _DateTime ]
-"38
-[; ;main.c: 38:   ADC_init();
-[e ( _ADC_init ..  ]
-"39
-[; ;main.c: 39:   ADC_start_IT();
-[e ( _ADC_start_IT ..  ]
-"40
-[; ;main.c: 40:   TRISDbits.TRISD4 = 0;
+[; ;main.c: 30:   TRISDbits.TRISD4 = 0;
 [e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
+"31
+[; ;main.c: 31:   sys_regiter_ms_clbk(blinky);
+[e ( _sys_regiter_ms_clbk (1 &U _blinky ]
+"33
+[; ;main.c: 33:   RTC_init();
+[e ( _RTC_init ..  ]
+"34
+[; ;main.c: 34:   DateTime.DAY = 1;
+[e = . _DateTime 2 -> -> 1 `i `uc ]
+"35
+[; ;main.c: 35:   DateTime.YEAR = 0;
+[e = . _DateTime 0 -> -> 0 `i `uc ]
+"36
+[; ;main.c: 36:   DateTime.MONTH = 1;
+[e = . _DateTime 1 -> -> 1 `i `uc ]
+"37
+[; ;main.c: 37:   DateTime.HOURS = 0;
+[e = . _DateTime 4 -> -> 0 `i `uc ]
+"38
+[; ;main.c: 38:   DateTime.MINUTES = 0;
+[e = . _DateTime 5 -> -> 0 `i `uc ]
+"39
+[; ;main.c: 39:   DateTime.SECONDS = 0;
+[e = . _DateTime 6 -> -> 0 `i `uc ]
+"40
+[; ;main.c: 40:   write_RTCC(&DateTime);
+[e ( _write_RTCC (1 &U _DateTime ]
 "42
-[; ;main.c: 42:   char strtx[100];
-[v _strtx `uc ~T0 @X0 -> 100 `i a ]
+[; ;main.c: 42:   ADC_init();
+[e ( _ADC_init ..  ]
 "43
-[; ;main.c: 43:   char strrx[100];
-[v _strrx `uc ~T0 @X0 -> 100 `i a ]
+[; ;main.c: 43:   ADC_start_IT();
+[e ( _ADC_start_IT ..  ]
 "45
-[; ;main.c: 45:   sprintf(strtx, "Hello!!!\n\rTime: %ld\n\rEnter string: \n\r", get_ms());
-[e ( _sprintf (1 , (. , &U _strtx :s 1C ( _get_ms ..  ]
+[; ;main.c: 45:   char strtx[100];
+[v _strtx `uc ~T0 @X0 -> 100 `i a ]
 "46
-[; ;main.c: 46:   dbio_putstring(strtx, 50);
-[e ( _dbio_putstring (2 , &U _strtx -> -> 50 `i `us ]
-"47
-[; ;main.c: 47:   delay_ms(15);
-[e ( _delay_ms (1 -> -> -> 15 `i `l `ul ]
+[; ;main.c: 46:   char strrx[100];
+[v _strrx `uc ~T0 @X0 -> 100 `i a ]
 "48
-[; ;main.c: 48:   while(1)
-[e :U 781 ]
+[; ;main.c: 48:   sprintf(strtx, "Hello!!!\n\rTime: %ld\n\rEnter string: \n\r", get_ms());
+[e ( _sprintf (1 , (. , &U _strtx :s 1C ( _get_ms ..  ]
 "49
-[; ;main.c: 49:   {
-{
+[; ;main.c: 49:   dbio_putstring(strtx, 50);
+[e ( _dbio_putstring (2 , &U _strtx -> -> 50 `i `us ]
 "50
-[; ;main.c: 50:     read_RTCC(&DateTime);
-[e ( _read_RTCC (1 &U _DateTime ]
+[; ;main.c: 50:   delay_ms(15);
+[e ( _delay_ms (1 -> -> -> 15 `i `l `ul ]
+"51
+[; ;main.c: 51:   while(1)
+[e :U 781 ]
 "52
-[; ;main.c: 52:     sprintf(strtx, "ADC: %d %d %d\n\r", ADC_getChan(0), ADC_getChan(1), ADC_getChan(2));
-[e ( _sprintf (1 , , , (. , &U _strtx :s 2C -> ( _ADC_getChan (1 -> -> 0 `i `uc `i -> ( _ADC_getChan (1 -> -> 1 `i `uc `i -> ( _ADC_getChan (1 -> -> 2 `i `uc `i ]
-"53
-[; ;main.c: 53:     dbio_putstring(strtx, 100);
-[e ( _dbio_putstring (2 , &U _strtx -> -> 100 `i `us ]
-"55
-[; ;main.c: 55:     if(dbio_getstring(strrx, 50, 5) > 0)
-[e $ ! > -> ( _dbio_getstring (3 , , &U _strrx -> -> 50 `i `us -> -> 5 `i `us `i -> 0 `i 783  ]
-"56
-[; ;main.c: 56:     {
+[; ;main.c: 52:   {
 {
-"57
-[; ;main.c: 57:       sprintf(strtx, "Time: %.2d:%2.2d:%2.2d\n\rEntered string: %s\n\r", (((DateTime.HOURS & 0xF0) >> 4) * 10) + (DateTime.HOURS & 0x0F), (((DateTime.MINUTES & 0xF0) >> 4) * 10) + (DateTime.MINUTES & 0x0F), (((DateTime.SECONDS & 0xF0) >> 4) * 10) + (DateTime.SECONDS & 0x0F), strrx);
-[e ( _sprintf (1 , , , , (. , &U _strtx :s 3C + * >> & -> . _DateTime 4 `i -> 240 `i -> 4 `i -> 10 `i & -> . _DateTime 4 `i -> 15 `i + * >> & -> . _DateTime 5 `i -> 240 `i -> 4 `i -> 10 `i & -> . _DateTime 5 `i -> 15 `i + * >> & -> . _DateTime 6 `i -> 240 `i -> 4 `i -> 10 `i & -> . _DateTime 6 `i -> 15 `i &U _strrx ]
-"58
-[; ;main.c: 58:       dbio_putstring(strtx, 100);
+"53
+[; ;main.c: 53:     read_RTCC(&DateTime);
+[e ( _read_RTCC (1 &U _DateTime ]
+"55
+[; ;main.c: 55:     sprintf(strtx, "ADC: %d %d %d\n\r", ADC_getChan(0), ADC_getChan(1), ADC_getChan(2));
+[e ( _sprintf (1 , , , (. , &U _strtx :s 2C -> ( _ADC_getChan (1 -> -> 0 `i `uc `i -> ( _ADC_getChan (1 -> -> 1 `i `uc `i -> ( _ADC_getChan (1 -> -> 2 `i `uc `i ]
+"56
+[; ;main.c: 56:     dbio_putstring(strtx, 100);
 [e ( _dbio_putstring (2 , &U _strtx -> -> 100 `i `us ]
+"58
+[; ;main.c: 58:     if(dbio_getstring(strrx, 50, 5) > 0)
+[e $ ! > -> ( _dbio_getstring (3 , , &U _strrx -> -> 50 `i `us -> -> 5 `i `us `i -> 0 `i 783  ]
 "59
-[; ;main.c: 59:     }
+[; ;main.c: 59:     {
+{
+"60
+[; ;main.c: 60:       sprintf(strtx, "Time: %.2d:%2.2d:%2.2d\n\rEntered string: %s\n\r", (((DateTime.HOURS & 0xF0) >> 4) * 10) + (DateTime.HOURS & 0x0F), (((DateTime.MINUTES & 0xF0) >> 4) * 10) + (DateTime.MINUTES & 0x0F), (((DateTime.SECONDS & 0xF0) >> 4) * 10) + (DateTime.SECONDS & 0x0F), strrx);
+[e ( _sprintf (1 , , , , (. , &U _strtx :s 3C + * >> & -> . _DateTime 4 `i -> 240 `i -> 4 `i -> 10 `i & -> . _DateTime 4 `i -> 15 `i + * >> & -> . _DateTime 5 `i -> 240 `i -> 4 `i -> 10 `i & -> . _DateTime 5 `i -> 15 `i + * >> & -> . _DateTime 6 `i -> 240 `i -> 4 `i -> 10 `i & -> . _DateTime 6 `i -> 15 `i &U _strrx ]
+"61
+[; ;main.c: 61:       dbio_putstring(strtx, 100);
+[e ( _dbio_putstring (2 , &U _strtx -> -> 100 `i `us ]
+"62
+[; ;main.c: 62:     }
 }
 [e :U 783 ]
-"61
-[; ;main.c: 61:     delay_ms(500);
+"64
+[; ;main.c: 64:     delay_ms(500);
 [e ( _delay_ms (1 -> -> -> 500 `i `l `ul ]
-"62
-[; ;main.c: 62:   }
+"65
+[; ;main.c: 65:   }
 }
 [e :U 780 ]
-"48
-[; ;main.c: 48:   while(1)
+"51
+[; ;main.c: 51:   while(1)
 [e $U 781  ]
 [e :U 782 ]
-"64
-[; ;main.c: 64:   return;
+"67
+[; ;main.c: 67:   return;
 [e $UE 779  ]
-"65
-[; ;main.c: 65: }
+"68
+[; ;main.c: 68: }
 [e :UE 779 ]
 }
 [p f _sprintf 8749200 ]

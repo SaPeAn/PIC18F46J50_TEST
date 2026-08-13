@@ -7,10 +7,10 @@ Linker command line:
   -cn \
   -h+dist/default/production\PIC18F46J50_common_project.X.production.sym \
   --cmf=dist/default/production\PIC18F46J50_common_project.X.production.cmf \
-  -z -Q18F46J50 -oD:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_3.o \
+  -z -Q18F46J50 -oD:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/PIC18F46J50_common_project.X.production.map \
-  --md=D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_0.dat -E1 \
+  --md=D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler -ACODE=00h-0FFF7h -ACONST=00h-0FFF7h \
   -ASMALLCONST=01000h-010FFhx239,0FF00h-0FFF7h -AMEDIUMCONST=01000h-0FFF7h \
   -ACOMRAM=01h-05Fh -AABS1=00h-0EBFh -ABIGRAM=01h-0EBFh \
@@ -30,7 +30,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o \
+  D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o \
   dist/default/production\PIC18F46J50_common_project.X.production.o 
 
 Object code version is 3.11
@@ -40,7 +40,7 @@ Machine type is 18F46J50
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-D:\Users\Samsonov_PA\TEMP\xcAsd5g.0\driver_tmp_12.o
+D:\Users\Samsonov_PA\TEMP\xcAs64o.0\driver_tmp_12.o
                 config                             FFF8     FFF8        8        0       4
                 init                                 D0       D0        4        C       0
                 reset_vec                             0        0        4        0       0
