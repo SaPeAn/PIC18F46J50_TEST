@@ -1,11 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
+[v F5894 `(v ~T0 @X0 0 tf ]
+[v F5897 `(v ~T0 @X0 0 tf ]
 [v F5900 `(v ~T0 @X0 0 tf ]
-[v F5903 `(v ~T0 @X0 0 tf ]
 [v F5906 `(v ~T0 @X0 0 tf ]
-[v F5912 `(v ~T0 @X0 0 tf ]
-[v F5914 `(v ~T0 @X0 0 tf ]
-[v F5925 `(v ~T0 @X0 0 tf ]
-[v F5927 `(v ~T0 @X0 0 tf ]
+[v F5908 `(v ~T0 @X0 0 tf ]
+[v F5919 `(v ~T0 @X0 0 tf ]
+[v F5921 `(v ~T0 @X0 0 tf ]
 [t ~ __interrupt . k ]
 [t T96 __interrupt high_priority ]
 "19857 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
@@ -14,12 +14,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19860
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 19860: extern volatile __bit TMR0IF __attribute__((address(0x7F92)));
 [v _TMR0IF `Vb ~T0 @X0 0 e@32658 ]
-"15263
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 15263: extern volatile unsigned char TMR0L __attribute__((address(0xFD6)));
-[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
 "15283
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 15283: extern volatile unsigned char TMR0H __attribute__((address(0xFD7)));
 [v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
+"15263
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 15263: extern volatile unsigned char TMR0L __attribute__((address(0xFD6)));
+[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
 [t T97 __interrupt low_priority ]
 "15192
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 15192:     struct {
@@ -115,7 +115,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2409
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 2409: extern volatile unsigned char ANCON1 __attribute__((address(0xF49)));
 [v _ANCON1 `Vuc ~T0 @X0 0 e@3913 ]
-"9564
+"36 ./system.h
+[; ;./system.h: 36: uint32_t get_ms(void);
+[v _get_ms `(ul ~T0 @X0 0 ef ]
+"9564 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9564:     struct {
 [s S423 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S423 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
@@ -267,66 +270,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8730
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 8730: extern volatile IPR1bits_t IPR1bits __attribute__((address(0xF9F)));
 [v _IPR1bits `VS382 ~T0 @X0 0 e@3999 ]
-"8617
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 8617:     struct {
-[s S379 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S379 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF PMPIF ]
-"8627
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 8627:     struct {
-[s S380 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S380 . . SSPIF TXIF RCIF ]
-"8633
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 8633:     struct {
-[s S381 :7 `uc 1 :1 `uc 1 ]
-[n S381 . . PSPIF ]
-"8616
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 8616: typedef union {
-[u S378 `S379 1 `S380 1 `S381 1 ]
-[n S378 . . . . ]
-"8638
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 8638: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
-[v _PIR1bits `VS378 ~T0 @X0 0 e@3998 ]
-"10179
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 10179: extern volatile unsigned char TXREG1 __attribute__((address(0xFAE)));
-[v _TXREG1 `Vuc ~T0 @X0 0 e@4014 ]
-"9727
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9727:     struct {
-[s S431 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S431 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
-"9737
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9737:     struct {
-[s S432 :1 `uc 1 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S432 . RCD8 . ADEN . RC9 ]
-"9744
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9744:     struct {
-[s S433 :6 `uc 1 :1 `uc 1 ]
-[n S433 . . NOT_RC8 ]
-"9748
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9748:     struct {
-[s S434 :6 `uc 1 :1 `uc 1 ]
-[n S434 . . nRC8 ]
-"9752
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9752:     struct {
-[s S435 :6 `uc 1 :1 `uc 1 ]
-[n S435 . . RC8_9 ]
-"9756
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9756:     struct {
-[s S436 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S436 . RX9D1 OERR1 FERR1 ADDEN1 CREN1 SREN1 RX91 SPEN1 ]
-"9766
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9766:     struct {
-[s S437 :5 `uc 1 :1 `uc 1 ]
-[n S437 . . SRENA ]
-"9726
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9726: typedef union {
-[u S430 `S431 1 `S432 1 `S433 1 `S434 1 `S435 1 `S436 1 `S437 1 ]
-[n S430 . . . . . . . . ]
-"9771
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9771: extern volatile RCSTAbits_t RCSTAbits __attribute__((address(0xFAC)));
-[v _RCSTAbits `VS430 ~T0 @X0 0 e@4012 ]
-"10222
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 10222: extern volatile unsigned char RCREG __attribute__((address(0xFAF)));
-[v _RCREG `Vuc ~T0 @X0 0 e@4015 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 54: __asm("RPOR0 equ 0EC6h");
 [; <" RPOR0 equ 0EC6h ;# ">
@@ -1184,7 +1127,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "6 system.c
 [; ;system.c: 6: IRQ_cbk_t IRQ_clbk_lp[10];
-[v _IRQ_clbk_lp `*F5900 ~T0 @X0 -> 10 `i e ]
+[v _IRQ_clbk_lp `*F5894 ~T0 @X0 -> 10 `i e ]
 "7
 [; ;system.c: 7: uint8_t IRQ_lpmax = 0;
 [v _IRQ_lpmax `uc ~T0 @X0 1 e ]
@@ -1193,7 +1136,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "9
 [; ;system.c: 9: IRQ_cbk_t IRQ_clbk_hp[10];
-[v _IRQ_clbk_hp `*F5903 ~T0 @X0 -> 10 `i e ]
+[v _IRQ_clbk_hp `*F5897 ~T0 @X0 -> 10 `i e ]
 "10
 [; ;system.c: 10: uint8_t IRQ_hpmax = 0;
 [v _IRQ_hpmax `uc ~T0 @X0 1 e ]
@@ -1202,7 +1145,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "12
 [; ;system.c: 12: ms_cllbk_t ms_clbk[10];
-[v _ms_clbk `*F5906 ~T0 @X0 -> 10 `i e ]
+[v _ms_clbk `*F5900 ~T0 @X0 -> 10 `i e ]
 "13
 [; ;system.c: 13: uint8_t ms_clbk_max = 0;
 [v _ms_clbk_max `uc ~T0 @X0 1 e ]
@@ -1223,14 +1166,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "19
 [; ;system.c: 19: uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio)
-[v _sys_regiter_IRQ_clbk `(uc ~T0 @X0 1 ef2`*F5912`uc ]
+[v _sys_regiter_IRQ_clbk `(uc ~T0 @X0 1 ef2`*F5906`uc ]
 "20
 [; ;system.c: 20: {
 {
 [e :U _sys_regiter_IRQ_clbk ]
 "19
 [; ;system.c: 19: uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio)
-[v _cbk `*F5914 ~T0 @X0 1 r1 ]
+[v _cbk `*F5908 ~T0 @X0 1 r1 ]
 [v _IPrio `uc ~T0 @X0 1 r2 ]
 "20
 [; ;system.c: 20: {
@@ -1297,14 +1240,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "38
 [; ;system.c: 38: uint8_t sys_regiter_ms_clbk(void (*clbk)(void))
-[v _sys_regiter_ms_clbk `(uc ~T0 @X0 1 ef1`*F5925 ]
+[v _sys_regiter_ms_clbk `(uc ~T0 @X0 1 ef1`*F5919 ]
 "39
 [; ;system.c: 39: {
 {
 [e :U _sys_regiter_ms_clbk ]
 "38
 [; ;system.c: 38: uint8_t sys_regiter_ms_clbk(void (*clbk)(void))
-[v _clbk `*F5927 ~T0 @X0 1 r1 ]
+[v _clbk `*F5921 ~T0 @X0 1 r1 ]
 "39
 [; ;system.c: 39: {
 [f ]
@@ -1344,16 +1287,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;system.c: 50:   {
 {
 "51
-[; ;system.c: 51:     TMR0L += TMR0L_tmp;
-[e =+ _TMR0L -> _TMR0L_tmp `Vuc ]
+[; ;system.c: 51:     TMR0IF = 0;
+[e = _TMR0IF -> -> 0 `i `b ]
 "52
 [; ;system.c: 52:     TMR0H = TMR0H_tmp;
 [e = _TMR0H _TMR0H_tmp ]
 "53
-[; ;system.c: 53:     timestamp++;
-[e ++ _timestamp -> -> 1 `i `Vul ]
+[; ;system.c: 53:     TMR0L = TMR0L_tmp;
+[e = _TMR0L _TMR0L_tmp ]
 "54
-[; ;system.c: 54:     for(uint8_t i = 0; i < ms_clbk_max; i++) ms_clbk[i]();
+[; ;system.c: 54:     timestamp++;
+[e ++ _timestamp -> -> 1 `i `Vul ]
+"55
+[; ;system.c: 55:     for(uint8_t i = 0; i < ms_clbk_max; i++) ms_clbk[i]();
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -1365,9 +1311,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ < -> _i `i -> _ms_clbk_max `i 781  ]
 [e :U 782 ]
 }
-"55
-[; ;system.c: 55:     TMR0IF = 0;
-[e = _TMR0IF -> -> 0 `i `b ]
 "56
 [; ;system.c: 56:   }
 }
@@ -1483,8 +1426,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 796 ]
 }
 "91
-[; ;system.c: 91:   ms_cycles = 65537 - ((48000000L / 4000) / T0_prescaler);
-[e = _ms_cycles - -> -> 65537 `l `ul / -> / -> 48000000 `l -> -> 4000 `i `l `ul _T0_prescaler ]
+[; ;system.c: 91:   ms_cycles = 65536 - ((48000000L / 4000) / T0_prescaler);
+[e = _ms_cycles - -> -> 65536 `l `ul / -> / -> 48000000 `l -> -> 4000 `i `l `ul _T0_prescaler ]
 "92
 [; ;system.c: 92:   TMR0L_tmp = (uint8_t)(ms_cycles % 256);
 [e = _TMR0L_tmp -> % _ms_cycles -> -> -> 256 `i `l `ul `uc ]
@@ -1492,11 +1435,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;system.c: 93:   TMR0H_tmp = (uint8_t)(ms_cycles / 256);
 [e = _TMR0H_tmp -> / _ms_cycles -> -> -> 256 `i `l `ul `uc ]
 "95
-[; ;system.c: 95:   TMR0L = TMR0L_tmp;
-[e = _TMR0L _TMR0L_tmp ]
-"96
-[; ;system.c: 96:   TMR0H = TMR0H_tmp;
+[; ;system.c: 95:   TMR0H = TMR0H_tmp;
 [e = _TMR0H _TMR0H_tmp ]
+"96
+[; ;system.c: 96:   TMR0L = TMR0L_tmp;
+[e = _TMR0L _TMR0L_tmp ]
 "98
 [; ;system.c: 98:   INTCONbits.GIE = 1;
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
@@ -1530,6 +1473,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "109
 [; ;system.c: 109:   RCONbits.IPEN = 1;
 [e = . . _RCONbits 6 7 -> -> 1 `i `uc ]
+"110
+[; ;system.c: 110:   {volatile uint32_t cycles = ((48000000L / 4) * 10) / 1000; while(cycles--);};
+{
+[v _cycles `Vul ~T0 @X0 1 a ]
+[e = _cycles -> / * / -> 48000000 `l -> -> 4 `i `l -> -> 10 `i `l -> -> 1000 `i `l `ul ]
+[e $U 800  ]
+[e :U 801 ]
+[e :U 800 ]
+[e $ != -- _cycles -> -> 1 `i `Vul -> -> -> 0 `i `l `ul 801  ]
+[e :U 802 ]
+}
 "111
 [; ;system.c: 111:   ANCON0 = 0xFF;
 [e = _ANCON0 -> -> 255 `i `uc ]
@@ -1557,19 +1511,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;system.c: 117: {
 [f ]
 "118
-[; ;system.c: 118:   volatile uint32_t temp_time = timestamp;
+[; ;system.c: 118:   volatile uint32_t temp_time = get_ms();
 [v _temp_time `Vul ~T0 @X0 1 a ]
-[e = _temp_time _timestamp ]
+[e = _temp_time ( _get_ms ..  ]
 "119
-[; ;system.c: 119:   while((timestamp - temp_time) < del);
-[e $U 801  ]
-[e :U 802 ]
-[e :U 801 ]
-[e $ < - _timestamp _temp_time _del 802  ]
-[e :U 803 ]
+[; ;system.c: 119:   while((get_ms() - temp_time) < del);
+[e $U 804  ]
+[e :U 805 ]
+[e :U 804 ]
+[e $ < - ( _get_ms ..  _temp_time _del 805  ]
+[e :U 806 ]
 "120
 [; ;system.c: 120: }
-[e :UE 800 ]
+[e :UE 803 ]
 }
 "122
 [; ;system.c: 122: uint32_t get_ms(void)
@@ -1580,237 +1534,126 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _get_ms ]
 [f ]
 "124
-[; ;system.c: 124:   return timestamp;
-[e ) _timestamp ]
-[e $UE 804  ]
+[; ;system.c: 124:   uint32_t retval_1 = timestamp;
+[v _retval_1 `ul ~T0 @X0 1 a ]
+[e = _retval_1 _timestamp ]
 "125
-[; ;system.c: 125: }
-[e :UE 804 ]
-}
+[; ;system.c: 125:   uint32_t retval_2 = timestamp;
+[v _retval_2 `ul ~T0 @X0 1 a ]
+[e = _retval_2 _timestamp ]
+"126
+[; ;system.c: 126:   while(retval_1 != retval_2) {
+[e $U 808  ]
+[e :U 809 ]
+{
 "127
-[; ;system.c: 127: void UART1_Init(void)
-[v _UART1_Init `(v ~T0 @X0 1 ef ]
+[; ;system.c: 127:     retval_1 = retval_2;
+[e = _retval_1 _retval_2 ]
 "128
-[; ;system.c: 128: {
+[; ;system.c: 128:     retval_2 = timestamp;
+[e = _retval_2 _timestamp ]
+"129
+[; ;system.c: 129:   }
+}
+[e :U 808 ]
+"126
+[; ;system.c: 126:   while(retval_1 != retval_2) {
+[e $ != _retval_1 _retval_2 809  ]
+[e :U 810 ]
+"130
+[; ;system.c: 130:   return retval_2;
+[e ) _retval_2 ]
+[e $UE 807  ]
+"131
+[; ;system.c: 131: }
+[e :UE 807 ]
+}
+"133
+[; ;system.c: 133: void UART1_Init(void)
+[v _UART1_Init `(v ~T0 @X0 1 ef ]
+"134
+[; ;system.c: 134: {
 {
 [e :U _UART1_Init ]
 [f ]
-"130
-[; ;system.c: 130:   RCSTA1bits.SPEN = 0;
+"135
+[; ;system.c: 135:   RCSTA1bits.SPEN = 0;
 [e = . . _RCSTA1bits 0 7 -> -> 0 `i `uc ]
-"131
-[; ;system.c: 131:   TXSTA1bits.TXEN = 0;
-[e = . . _TXSTA1bits 0 5 -> -> 0 `i `uc ]
-"133
-[; ;system.c: 133:   TRISCbits.TRISC7 = 1;
-[e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
-"134
-[; ;system.c: 134:   TRISCbits.TRISC6 = 0;
-[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
 "136
-[; ;system.c: 136:   RCSTA1bits.RX9 = 0;
-[e = . . _RCSTA1bits 0 6 -> -> 0 `i `uc ]
-"137
-[; ;system.c: 137:   RCSTA1bits.SREN = 0;
-[e = . . _RCSTA1bits 0 5 -> -> 0 `i `uc ]
+[; ;system.c: 136:   TXSTA1bits.TXEN = 0;
+[e = . . _TXSTA1bits 0 5 -> -> 0 `i `uc ]
+"138
+[; ;system.c: 138:   TRISCbits.TRISC7 = 1;
+[e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
 "139
-[; ;system.c: 139:   TXSTA1bits.CSRC = 1;
-[e = . . _TXSTA1bits 0 7 -> -> 1 `i `uc ]
-"140
-[; ;system.c: 140:   TXSTA1bits.TX9 = 0;
-[e = . . _TXSTA1bits 0 6 -> -> 0 `i `uc ]
+[; ;system.c: 139:   TRISCbits.TRISC6 = 0;
+[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
 "141
-[; ;system.c: 141:   TXSTA1bits.SYNC = 0;
-[e = . . _TXSTA1bits 0 4 -> -> 0 `i `uc ]
+[; ;system.c: 141:   RCSTA1bits.RX9 = 0;
+[e = . . _RCSTA1bits 0 6 -> -> 0 `i `uc ]
 "142
-[; ;system.c: 142:   TXSTA1bits.BRGH = 1;
-[e = . . _TXSTA1bits 0 2 -> -> 1 `i `uc ]
+[; ;system.c: 142:   RCSTA1bits.SREN = 0;
+[e = . . _RCSTA1bits 0 5 -> -> 0 `i `uc ]
 "144
-[; ;system.c: 144:   BAUDCON1bits.ABDEN = 0;
-[e = . . _BAUDCON1bits 0 0 -> -> 0 `i `uc ]
+[; ;system.c: 144:   TXSTA1bits.CSRC = 1;
+[e = . . _TXSTA1bits 0 7 -> -> 1 `i `uc ]
 "145
-[; ;system.c: 145:   BAUDCON1bits.RXDTP = 0;
-[e = . . _BAUDCON1bits 0 5 -> -> 0 `i `uc ]
+[; ;system.c: 145:   TXSTA1bits.TX9 = 0;
+[e = . . _TXSTA1bits 0 6 -> -> 0 `i `uc ]
 "146
-[; ;system.c: 146:   BAUDCON1bits.TXCKP = 0;
-[e = . . _BAUDCON1bits 0 4 -> -> 0 `i `uc ]
+[; ;system.c: 146:   TXSTA1bits.SYNC = 0;
+[e = . . _TXSTA1bits 0 4 -> -> 0 `i `uc ]
 "147
-[; ;system.c: 147:   BAUDCON1bits.BRG16 = 1;
-[e = . . _BAUDCON1bits 0 3 -> -> 1 `i `uc ]
+[; ;system.c: 147:   TXSTA1bits.BRGH = 1;
+[e = . . _TXSTA1bits 0 2 -> -> 1 `i `uc ]
 "149
-[; ;system.c: 149:   uint16_t SPBRG_VAL = (uint16_t)((48000000L/(4 * 230400L)) + (((48000000L % (4 * 230400L)) >= (2 * 230400L)) ? 0 : -1));
-[v _SPBRG_VAL `us ~T0 @X0 1 a ]
-[e = _SPBRG_VAL -> + / -> 48000000 `l * -> -> 4 `i `l -> 230400 `l -> ? >= % -> 48000000 `l * -> -> 4 `i `l -> 230400 `l * -> -> 2 `i `l -> 230400 `l : -> 0 `i -U -> 1 `i `l `us ]
+[; ;system.c: 149:   BAUDCON1bits.ABDEN = 0;
+[e = . . _BAUDCON1bits 0 0 -> -> 0 `i `uc ]
+"150
+[; ;system.c: 150:   BAUDCON1bits.RXDTP = 0;
+[e = . . _BAUDCON1bits 0 5 -> -> 0 `i `uc ]
 "151
-[; ;system.c: 151:   SPBRGH1 = (uint8_t)(SPBRG_VAL >> 8);
-[e = _SPBRGH1 -> >> -> _SPBRG_VAL `ui -> 8 `i `uc ]
+[; ;system.c: 151:   BAUDCON1bits.TXCKP = 0;
+[e = . . _BAUDCON1bits 0 4 -> -> 0 `i `uc ]
 "152
-[; ;system.c: 152:   SPBRG1 = (uint8_t)(SPBRG_VAL);
-[e = _SPBRG1 -> _SPBRG_VAL `uc ]
+[; ;system.c: 152:   BAUDCON1bits.BRG16 = 1;
+[e = . . _BAUDCON1bits 0 3 -> -> 1 `i `uc ]
 "154
-[; ;system.c: 154:   TXSTA1bits.TXEN = 1;
-[e = . . _TXSTA1bits 0 5 -> -> 1 `i `uc ]
+[; ;system.c: 154:   int32_t freq = 48000000L;
+[v _freq `l ~T0 @X0 1 a ]
+[e = _freq -> 48000000 `l ]
 "155
-[; ;system.c: 155:   RCSTA1bits.CREN = 1;
-[e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
+[; ;system.c: 155:   uint16_t SPBRG_VAL = (uint16_t)((freq/(4 * 230400L)) + (((freq % (4 * 230400L)) >= (2 * 230400L)) ? 0 : -1));
+[v _SPBRG_VAL `us ~T0 @X0 1 a ]
+[e = _SPBRG_VAL -> + / _freq * -> -> 4 `i `l -> 230400 `l -> ? >= % _freq * -> -> 4 `i `l -> 230400 `l * -> -> 2 `i `l -> 230400 `l : -> 0 `i -U -> 1 `i `l `us ]
+"157
+[; ;system.c: 157:   SPBRGH1 = (uint8_t)(SPBRG_VAL >> 8);
+[e = _SPBRGH1 -> >> -> _SPBRG_VAL `ui -> 8 `i `uc ]
 "158
-[; ;system.c: 158:   PIE1bits.TX1IE = 0;
-[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
-"159
-[; ;system.c: 159:   PIE1bits.RC1IE = 1;
-[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+[; ;system.c: 158:   SPBRG1 = (uint8_t)(SPBRG_VAL);
+[e = _SPBRG1 -> _SPBRG_VAL `uc ]
+"160
+[; ;system.c: 160:   TXSTA1bits.TXEN = 1;
+[e = . . _TXSTA1bits 0 5 -> -> 1 `i `uc ]
 "161
-[; ;system.c: 161:   IPR1bits.RCIP = 0;
-[e = . . _IPR1bits 1 3 -> -> 0 `i `uc ]
-"162
-[; ;system.c: 162:   IPR1bits.TXIP = 0;
-[e = . . _IPR1bits 1 2 -> -> 0 `i `uc ]
+[; ;system.c: 161:   RCSTA1bits.CREN = 1;
+[e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
 "164
-[; ;system.c: 164:   PIR1bits.RC1IF = 0;
-[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+[; ;system.c: 164:   PIE1bits.TX1IE = 0;
+[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
 "165
-[; ;system.c: 165:   PIR1bits.TX1IF = 0;
-[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+[; ;system.c: 165:   PIE1bits.RC1IE = 1;
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
 "167
-[; ;system.c: 167:   RCSTA1bits.SPEN = 1;
+[; ;system.c: 167:   IPR1bits.RCIP = 0;
+[e = . . _IPR1bits 1 3 -> -> 0 `i `uc ]
+"168
+[; ;system.c: 168:   IPR1bits.TXIP = 0;
+[e = . . _IPR1bits 1 2 -> -> 0 `i `uc ]
+"170
+[; ;system.c: 170:   RCSTA1bits.SPEN = 1;
 [e = . . _RCSTA1bits 0 7 -> -> 1 `i `uc ]
-"169
-[; ;system.c: 169: }
-[e :UE 805 ]
-}
-"171
-[; ;system.c: 171: void UART1_PutChar(char byte)
-[v _UART1_PutChar `(v ~T0 @X0 1 ef1`uc ]
 "172
-[; ;system.c: 172: {
-{
-[e :U _UART1_PutChar ]
-"171
-[; ;system.c: 171: void UART1_PutChar(char byte)
-[v _byte `uc ~T0 @X0 1 r1 ]
-"172
-[; ;system.c: 172: {
-[f ]
-"173
-[; ;system.c: 173:   while(!TXSTA1bits.TRMT);
-[e $U 807  ]
-[e :U 808 ]
-[e :U 807 ]
-[e $ ! != -> . . _TXSTA1bits 0 1 `i -> 0 `i 808  ]
-[e :U 809 ]
-"174
-[; ;system.c: 174:   TXREG1 = byte;
-[e = _TXREG1 -> _byte `uc ]
-"175
-[; ;system.c: 175: }
-[e :UE 806 ]
-}
-"177
-[; ;system.c: 177: int16_t UART1_PutStr(char* byte, uint16_t N)
-[v _UART1_PutStr `(s ~T0 @X0 1 ef2`*uc`us ]
-"178
-[; ;system.c: 178: {
-{
-[e :U _UART1_PutStr ]
-"177
-[; ;system.c: 177: int16_t UART1_PutStr(char* byte, uint16_t N)
-[v _byte `*uc ~T0 @X0 1 r1 ]
-[v _N `us ~T0 @X0 1 r2 ]
-"178
-[; ;system.c: 178: {
-[f ]
-"179
-[; ;system.c: 179:   for(int i = 0; i < N; i++)
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $U 814  ]
-[e :U 811 ]
-"180
-[; ;system.c: 180:   {
-{
-"181
-[; ;system.c: 181:     UART1_PutChar(byte[i]);
-[e ( _UART1_PutChar (1 *U + _byte * -> _i `x -> -> # *U _byte `i `x ]
-"182
-[; ;system.c: 182:     if(byte[i] == 0) return i;
-[e $ ! == -> *U + _byte * -> _i `x -> -> # *U _byte `i `x `i -> 0 `i 815  ]
-[e ) -> _i `s ]
-[e $UE 810  ]
-[e :U 815 ]
-"183
-[; ;system.c: 183:   }
-}
-"179
-[; ;system.c: 179:   for(int i = 0; i < N; i++)
-[e ++ _i -> 1 `i ]
-[e :U 814 ]
-[e $ < -> _i `ui -> _N `ui 811  ]
-[e :U 812 ]
-"183
-[; ;system.c: 183:   }
-}
-"184
-[; ;system.c: 184:   return -1;
-[e ) -> -U -> 1 `i `s ]
-[e $UE 810  ]
-"185
-[; ;system.c: 185: }
-[e :UE 810 ]
-}
-"187
-[; ;system.c: 187: char UART1_GetChar(void)
-[v _UART1_GetChar `(uc ~T0 @X0 1 ef ]
-"188
-[; ;system.c: 188: {
-{
-[e :U _UART1_GetChar ]
-[f ]
-"189
-[; ;system.c: 189:   uint8_t retval;
-[v _retval `uc ~T0 @X0 1 a ]
-"190
-[; ;system.c: 190:   while(PIR1bits.RC1IF == 0)
-[e $U 817  ]
-[e :U 818 ]
-"191
-[; ;system.c: 191:   {
-{
-"192
-[; ;system.c: 192:     if(RCSTAbits.OERR)
-[e $ ! != -> . . _RCSTAbits 0 1 `i -> 0 `i 820  ]
-"193
-[; ;system.c: 193:     {
-{
-"194
-[; ;system.c: 194:       RCSTAbits.CREN = 0;
-[e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
-"195
-[; ;system.c: 195:       RCSTAbits.CREN = 1;
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"196
-[; ;system.c: 196:     }
-}
-[e :U 820 ]
-"197
-[; ;system.c: 197:   }
-}
-[e :U 817 ]
-"190
-[; ;system.c: 190:   while(PIR1bits.RC1IF == 0)
-[e $ == -> . . _PIR1bits 0 5 `i -> 0 `i 818  ]
-[e :U 819 ]
-"198
-[; ;system.c: 198:   PIR1bits.RC1IF = 0;
-[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"199
-[; ;system.c: 199:   retval = RCREG;
-[e = _retval _RCREG ]
-"200
-[; ;system.c: 200:   return retval;
-[e ) -> _retval `uc ]
-[e $UE 816  ]
-"201
-[; ;system.c: 201: }
-[e :UE 816 ]
+[; ;system.c: 172: }
+[e :UE 811 ]
 }

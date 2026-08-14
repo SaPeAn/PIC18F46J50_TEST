@@ -48,11 +48,11 @@ uint8_t sys_regiter_ms_clbk(void (*clbk)(void))
   // Timer0 interrupt
   if (TMR0IE && TMR0IF)
   {
-    TMR0L += TMR0L_tmp;
+    TMR0IF = 0;
     TMR0H = TMR0H_tmp;
+    TMR0L = TMR0L_tmp;
     timestamp++;
     for(uint8_t i = 0; i < ms_clbk_max; i++) ms_clbk[i]();
-    TMR0IF = 0;
   }
   // other hiprio registered interrupts handlers
   for(int i = 0; i < IRQ_hpmax; i++)
@@ -88,12 +88,12 @@ void sys_mstimer_init(void)
   uint32_t ms_cycles;
   uint32_t T0_prescaler = 2;
   for(int i = 0; i < T0CONbits.T0PS; i++) T0_prescaler *= 2;
-  ms_cycles = 65537 - ((F_OSC / 4000) / T0_prescaler);
+  ms_cycles = 65536 - ((F_OSC / 4000) / T0_prescaler);
   TMR0L_tmp = (uint8_t)(ms_cycles % 256);
   TMR0H_tmp = (uint8_t)(ms_cycles / 256);
   
-  TMR0L = TMR0L_tmp;
   TMR0H = TMR0H_tmp;
+  TMR0L = TMR0L_tmp;
   
   INTCONbits.GIE = 1;
   INTCONbits.PEIE = 1;
@@ -107,7 +107,7 @@ void sys_init(void)
 {
   OSCTUNEbits.PLLEN = 1; // PLL enable  
   RCONbits.IPEN = 1; // interrupt priority EN/DIS
-  
+  delay_cyc_ms(10);
   ANCON0 = 0xFF;   // all ports are digitall
   ANCON1 = 0x1F;   // all ports are digitall
   sys_mstimer_init();
@@ -115,18 +115,23 @@ void sys_init(void)
 
 void delay_ms(uint32_t del)
 {
-  volatile uint32_t temp_time = timestamp;
-  while((timestamp - temp_time) < del);
+  volatile uint32_t temp_time = get_ms();
+  while((get_ms() - temp_time) < del);
 }
 
 uint32_t get_ms(void)
 {
-  return timestamp;
+  uint32_t retval_1 = timestamp;
+  uint32_t retval_2 = timestamp;
+  while(retval_1 != retval_2) {
+    retval_1 = retval_2;
+    retval_2 = timestamp;
+  }
+  return retval_2;
 }
 
 void UART1_Init(void)
 {
-  
   RCSTA1bits.SPEN = 0;   // Serial port is disabled
   TXSTA1bits.TXEN = 0;
   
@@ -145,8 +150,9 @@ void UART1_Init(void)
   BAUDCON1bits.RXDTP = 0;
   BAUDCON1bits.TXCKP = 0;
   BAUDCON1bits.BRG16 = 1;
-
-  uint16_t SPBRG_VAL = (uint16_t)((F_OSC/(4 * U1_BAUDRATE)) + (((F_OSC % (4 * U1_BAUDRATE)) >= (2 * U1_BAUDRATE)) ? 0 : -1));
+  
+  int32_t freq = F_OSC;
+  uint16_t SPBRG_VAL = (uint16_t)((freq/(4 * U1_BAUDRATE)) + (((freq % (4 * U1_BAUDRATE)) >= (2 * U1_BAUDRATE)) ? 0 : -1));
   
   SPBRGH1 = (uint8_t)(SPBRG_VAL >> 8);
   SPBRG1 = (uint8_t)(SPBRG_VAL);
@@ -160,42 +166,39 @@ void UART1_Init(void)
   // Interrupt priority
   IPR1bits.RCIP = 0;
   IPR1bits.TXIP = 0;
-  // Clear interrrupt flags
-  PIR1bits.RC1IF = 0;
-  PIR1bits.TX1IF = 0;
   
   RCSTA1bits.SPEN = 1;   // Serial port is enabled
   
 }
 
-void UART1_PutChar(char byte)
-{
-  while(!TXSTA1bits.TRMT);
-  TXREG1 = byte;
-}
-
-int16_t UART1_PutStr(char* byte, uint16_t N)
-{
-  for(int i = 0; i < N; i++)
-  {
-    UART1_PutChar(byte[i]);
-    if(byte[i] == 0) return i;
-  }
-  return -1;
-}
-
-char UART1_GetChar(void)
-{
-  uint8_t retval;
-  while(PIR1bits.RC1IF == 0)
-  {
-    if(RCSTAbits.OERR) 
-    {
-      RCSTAbits.CREN = 0;
-      RCSTAbits.CREN = 1;
-    }
-  }
-  PIR1bits.RC1IF = 0;
-  retval = RCREG;
-  return retval;
-}
+//void UART1_PutChar(char byte)
+//{
+//  while(!TXSTA1bits.TRMT);
+//  TXREG1 = byte;
+//}
+//
+//int16_t UART1_PutStr(char* byte, uint16_t N)
+//{
+//  for(int i = 0; i < N; i++)
+//  {
+//    UART1_PutChar(byte[i]);
+//    if(byte[i] == 0) return i;
+//  }
+//  return -1;
+//}
+//
+//char UART1_GetChar(void)
+//{
+//  uint8_t retval;
+//  while(PIR1bits.RC1IF == 0)
+//  {
+//    if(RCSTAbits.OERR) 
+//    {
+//      RCSTAbits.CREN = 0;
+//      RCSTAbits.CREN = 1;
+//    }
+//  }
+//  PIR1bits.RC1IF = 0;
+//  retval = RCREG;
+//  return retval;
+//}

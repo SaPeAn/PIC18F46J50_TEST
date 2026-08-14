@@ -35,7 +35,10 @@ void ADC_ms_cbk(void)
 
 int16_t ADC_getChan(uint8_t chan)
 {
-  return ChanValue[chan];
+  InterruptDis();
+  int16_t retval = ChanValue[chan];
+  InterruptEn();
+  return retval;
 }
 
 void ADC_start_IT(void)
@@ -129,11 +132,10 @@ void ADC_init(void)
 #endif
 #if AN14_Vddcr   //AN14(Vddcr)
   ChanNum[chanmax++] = 14;
-  chanmax++;
 #endif
 #if AN15_Vbg     //AN15(Vbg)
   ChanNum[chanmax++] = 15;
-  ANCON1bits.VBGEN = 0;
+  ANCON1bits.VBGEN = 1;
 #endif
   ADCON0bits.VCFG = 0b00;  // VCFG      VREF-        VREF+
                            // 00        AVss         AVdd 

@@ -4,7 +4,10 @@
 #include <xc.h>
 
 #define      F_OSC                    48000000L
+#define      F_CYC                    (F_OSC / 4)
 #define      U1_BAUDRATE              230400L
+
+#define      delay_cyc_ms(ms)         {volatile uint32_t cycles = (F_CYC * ms) / 1000; while(cycles--);}
 
 #define      LOPRIO_INTMAX            10 
 #define      HIPRIO_INTMAX            10
@@ -37,9 +40,9 @@ uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
 uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
 
 void UART1_Init(void);
-void UART1_PutChar(char byte);
-int16_t UART1_PutStr(char* byte, uint16_t N);
-char UART1_GetChar(void);
+//void UART1_PutChar(char byte);
+//int16_t UART1_PutStr(char* byte, uint16_t N);
+//char UART1_GetChar(void);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

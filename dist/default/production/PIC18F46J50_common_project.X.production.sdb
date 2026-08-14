@@ -11,8 +11,8 @@ RINGBUF_PARAM_ERR 2
 RINGBUF_OVERFLOW 3
 RINGBUF_EMPTY 4
 ]
-"20 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
-[e E6398 RINGBUF_STATUS `uc
+"22 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
+[e E6392 RINGBUF_STATUS `uc
 RINGBUF_OK 0
 RINGBUF_ERR 1
 RINGBUF_PARAM_ERR 2
@@ -26,9 +26,11 @@ RINGBUF_EMPTY 4
 [v _ADC_ms_cbk ADC_ms_cbk `(v  1 e 1 0 ]
 "36
 [v _ADC_getChan ADC_getChan `(s  1 e 2 0 ]
-"41
+"44
 [v _ADC_start_IT ADC_start_IT `(v  1 e 1 0 ]
-"58
+"53
+[v _ADC_stop_IT ADC_stop_IT `(v  1 e 1 0 ]
+"61
 [v _ADC_init ADC_init `(v  1 e 1 0 ]
 "7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
@@ -116,19 +118,19 @@ RINGBUF_EMPTY 4
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"14 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
+"16 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
 [v _TXbyte_cbk TXbyte_cbk `(v  1 e 1 0 ]
 [v i2_TXbyte_cbk TXbyte_cbk `(v  1 e 1 0 ]
-"29
+"31
 [v _RXbyte_cbk RXbyte_cbk `(v  1 e 1 0 ]
 [v i2_RXbyte_cbk RXbyte_cbk `(v  1 e 1 0 ]
-"39
+"46
 [v _dbio_init dbio_init `(v  1 e 1 0 ]
-"49
+"56
 [v _dbio_getstring dbio_getstring `(s  1 e 2 0 ]
-"86
+"100
 [v _dbio_strnlen dbio_strnlen `(us  1 e 2 0 ]
-"96
+"110
 [v _dbio_putstring dbio_putstring `(s  1 e 2 0 ]
 "9 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
 [v _blinky blinky `(v  1 e 1 0 ]
@@ -179,17 +181,15 @@ RINGBUF_EMPTY 4
 "122
 [v _get_ms get_ms `(ul  1 e 4 0 ]
 [v i2_get_ms get_ms `(ul  1 e 4 0 ]
-"127
+"133
 [v _UART1_Init UART1_Init `(v  1 e 1 0 ]
-"171
-[v _UART1_PutChar UART1_PutChar `(v  1 e 1 0 ]
 "4 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
 [v _ChanNum ChanNum `[3]uc  1 e 3 0 ]
 "5
 [v _ChanIndx ChanIndx `i  1 e 2 0 ]
 "6
 [v _ChanValue ChanValue `[16]s  1 e 32 0 ]
-[s S1277 . 1 `uc 1 RTCPTR0 1 0 :1:0 
+[s S1302 . 1 `uc 1 RTCPTR0 1 0 :1:0 
 `uc 1 RTCPTR1 1 0 :1:1 
 `uc 1 RTCOE 1 0 :1:2 
 `uc 1 HALFSEC 1 0 :1:3 
@@ -199,11 +199,11 @@ RINGBUF_EMPTY 4
 `uc 1 RTCEN 1 0 :1:7 
 ]
 "2229 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
-[u S1286 . 1 `S1277 1 . 1 0 ]
-[v _RTCCFGbits RTCCFGbits `VES1286  1 e 1 @3903 ]
+[u S1311 . 1 `S1302 1 . 1 0 ]
+[v _RTCCFGbits RTCCFGbits `VES1311  1 e 1 @3903 ]
 "2347
 [v _ANCON0 ANCON0 `VEuc  1 e 1 @3912 ]
-[s S1447 . 1 `uc 1 PCFG0 1 0 :1:0 
+[s S1499 . 1 `uc 1 PCFG0 1 0 :1:0 
 `uc 1 PCFG1 1 0 :1:1 
 `uc 1 PCFG2 1 0 :1:2 
 `uc 1 PCFG3 1 0 :1:3 
@@ -213,11 +213,11 @@ RINGBUF_EMPTY 4
 `uc 1 PCFG7 1 0 :1:7 
 ]
 "2364
-[u S1456 . 1 `S1447 1 . 1 0 ]
-[v _ANCON0bits ANCON0bits `VES1456  1 e 1 @3912 ]
+[u S1508 . 1 `S1499 1 . 1 0 ]
+[v _ANCON0bits ANCON0bits `VES1508  1 e 1 @3912 ]
 "2409
 [v _ANCON1 ANCON1 `VEuc  1 e 1 @3913 ]
-[s S557 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S562 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -227,7 +227,7 @@ RINGBUF_EMPTY 4
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "5310
-[s S566 . 1 `uc 1 ABDEN1 1 0 :1:0 
+[s S571 . 1 `uc 1 ABDEN1 1 0 :1:0 
 `uc 1 WUE1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG161 1 0 :1:3 
@@ -236,27 +236,27 @@ RINGBUF_EMPTY 4
 `uc 1 RCIDL1 1 0 :1:6 
 `uc 1 ABDOVF1 1 0 :1:7 
 ]
-[s S575 . 1 `uc 1 . 1 0 :4:0 
+[s S580 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP 1 0 :1:4 
 `uc 1 DTRXP1 1 0 :1:5 
 `uc 1 RCMT 1 0 :1:6 
 ]
-[s S580 . 1 `uc 1 . 1 0 :4:0 
+[s S585 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP1 1 0 :1:4 
 `uc 1 RXDTP1 1 0 :1:5 
 `uc 1 RCMT1 1 0 :1:6 
 ]
-[s S585 . 1 `uc 1 . 1 0 :4:0 
+[s S590 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXCKP1 1 0 :1:4 
 ]
-[s S588 . 1 `uc 1 . 1 0 :5:0 
+[s S593 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RXCKP 1 0 :1:5 
 ]
-[s S591 . 1 `uc 1 . 1 0 :1:0 
+[s S596 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 W4E 1 0 :1:1 
 ]
-[u S594 . 1 `S557 1 . 1 0 `S566 1 . 1 0 `S575 1 . 1 0 `S580 1 . 1 0 `S585 1 . 1 0 `S588 1 . 1 0 `S591 1 . 1 0 ]
-[v _BAUDCON1bits BAUDCON1bits `VES594  1 e 1 @3966 ]
+[u S599 . 1 `S562 1 . 1 0 `S571 1 . 1 0 `S580 1 . 1 0 `S585 1 . 1 0 `S590 1 . 1 0 `S593 1 . 1 0 `S596 1 . 1 0 ]
+[v _BAUDCON1bits BAUDCON1bits `VES599  1 e 1 @3966 ]
 "5757
 [v _SPBRGH1 SPBRGH1 `VEuc  1 e 1 @3967 ]
 [s S28 . 1 `uc 1 LATD0 1 0 :1:0 
@@ -280,7 +280,7 @@ RINGBUF_EMPTY 4
 ]
 [u S46 . 1 `S28 1 . 1 0 `S37 1 . 1 0 ]
 [v _LATDbits LATDbits `VES46  1 e 1 @3980 ]
-[s S1426 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S1478 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -290,9 +290,9 @@ RINGBUF_EMPTY 4
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "7810
-[u S1435 . 1 `S1426 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES1435  1 e 1 @3986 ]
-[s S536 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S1487 . 1 `S1478 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES1487  1 e 1 @3986 ]
+[s S541 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -302,8 +302,8 @@ RINGBUF_EMPTY 4
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "7929
-[u S545 . 1 `S536 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES545  1 e 1 @3988 ]
+[u S550 . 1 `S541 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES550  1 e 1 @3988 ]
 [s S85 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
@@ -320,21 +320,21 @@ RINGBUF_EMPTY 4
 [v _RTCVALL RTCVALL `VEuc  1 e 1 @3992 ]
 "8163
 [v _RTCVALH RTCVALH `VEuc  1 e 1 @3993 ]
-[s S288 . 1 `uc 1 TUN 1 0 :6:0 
+[s S292 . 1 `uc 1 TUN 1 0 :6:0 
 `uc 1 PLLEN 1 0 :1:6 
 `uc 1 INTSRC 1 0 :1:7 
 ]
 "8333
-[s S292 . 1 `uc 1 TUN0 1 0 :1:0 
+[s S296 . 1 `uc 1 TUN0 1 0 :1:0 
 `uc 1 TUN1 1 0 :1:1 
 `uc 1 TUN2 1 0 :1:2 
 `uc 1 TUN3 1 0 :1:3 
 `uc 1 TUN4 1 0 :1:4 
 `uc 1 TUN5 1 0 :1:5 
 ]
-[u S299 . 1 `S288 1 . 1 0 `S292 1 . 1 0 ]
-[v _OSCTUNEbits OSCTUNEbits `VES299  1 e 1 @3995 ]
-[s S642 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S303 . 1 `S292 1 . 1 0 `S296 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES303  1 e 1 @3995 ]
+[s S647 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSP1IE 1 0 :1:3 
@@ -344,37 +344,17 @@ RINGBUF_EMPTY 4
 `uc 1 PMPIE 1 0 :1:7 
 ]
 "8546
-[s S651 . 1 `uc 1 . 1 0 :3:0 
+[s S656 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIE 1 0 :1:3 
 `uc 1 TXIE 1 0 :1:4 
 `uc 1 RCIE 1 0 :1:5 
 ]
-[s S656 . 1 `uc 1 . 1 0 :7:0 
+[s S661 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 PSPIE 1 0 :1:7 
 ]
-[u S659 . 1 `S642 1 . 1 0 `S651 1 . 1 0 `S656 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES659  1 e 1 @3997 ]
-[s S720 . 1 `uc 1 TMR1IF 1 0 :1:0 
-`uc 1 TMR2IF 1 0 :1:1 
-`uc 1 CCP1IF 1 0 :1:2 
-`uc 1 SSP1IF 1 0 :1:3 
-`uc 1 TX1IF 1 0 :1:4 
-`uc 1 RC1IF 1 0 :1:5 
-`uc 1 ADIF 1 0 :1:6 
-`uc 1 PMPIF 1 0 :1:7 
-]
-"8638
-[s S729 . 1 `uc 1 . 1 0 :3:0 
-`uc 1 SSPIF 1 0 :1:3 
-`uc 1 TXIF 1 0 :1:4 
-`uc 1 RCIF 1 0 :1:5 
-]
-[s S734 . 1 `uc 1 . 1 0 :7:0 
-`uc 1 PSPIF 1 0 :1:7 
-]
-[u S737 . 1 `S720 1 . 1 0 `S729 1 . 1 0 `S734 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES737  1 e 1 @3998 ]
-[s S681 . 1 `uc 1 TMR1IP 1 0 :1:0 
+[u S664 . 1 `S647 1 . 1 0 `S656 1 . 1 0 `S661 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES664  1 e 1 @3997 ]
+[s S686 . 1 `uc 1 TMR1IP 1 0 :1:0 
 `uc 1 TMR2IP 1 0 :1:1 
 `uc 1 CCP1IP 1 0 :1:2 
 `uc 1 SSP1IP 1 0 :1:3 
@@ -384,17 +364,17 @@ RINGBUF_EMPTY 4
 `uc 1 PMPIP 1 0 :1:7 
 ]
 "8730
-[s S690 . 1 `uc 1 . 1 0 :3:0 
+[s S695 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIP 1 0 :1:3 
 `uc 1 TXIP 1 0 :1:4 
 `uc 1 RCIP 1 0 :1:5 
 ]
-[s S695 . 1 `uc 1 . 1 0 :7:0 
+[s S700 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 PSPIP 1 0 :1:7 
 ]
-[u S698 . 1 `S681 1 . 1 0 `S690 1 . 1 0 `S695 1 . 1 0 ]
-[v _IPR1bits IPR1bits `VES698  1 e 1 @3999 ]
-[s S392 . 1 `uc 1 RX9D 1 0 :1:0 
+[u S703 . 1 `S686 1 . 1 0 `S695 1 . 1 0 `S700 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES703  1 e 1 @3999 ]
+[s S397 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -404,22 +384,22 @@ RINGBUF_EMPTY 4
 `uc 1 SPEN 1 0 :1:7 
 ]
 "9608
-[s S401 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S406 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :2:1 
 `uc 1 ADEN 1 0 :1:3 
 `uc 1 . 1 0 :2:4 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S407 . 1 `uc 1 . 1 0 :6:0 
+[s S412 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_RC8 1 0 :1:6 
 ]
-[s S410 . 1 `uc 1 . 1 0 :6:0 
+[s S415 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S413 . 1 `uc 1 . 1 0 :6:0 
+[s S418 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S416 . 1 `uc 1 RX9D1 1 0 :1:0 
+[s S421 . 1 `uc 1 RX9D1 1 0 :1:0 
 `uc 1 OERR1 1 0 :1:1 
 `uc 1 FERR1 1 0 :1:2 
 `uc 1 ADDEN1 1 0 :1:3 
@@ -428,14 +408,14 @@ RINGBUF_EMPTY 4
 `uc 1 RX91 1 0 :1:6 
 `uc 1 SPEN1 1 0 :1:7 
 ]
-[s S425 . 1 `uc 1 . 1 0 :5:0 
+[s S430 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[u S428 . 1 `S392 1 . 1 0 `S401 1 . 1 0 `S407 1 . 1 0 `S410 1 . 1 0 `S413 1 . 1 0 `S416 1 . 1 0 `S425 1 . 1 0 ]
-[v _RCSTA1bits RCSTA1bits `VES428  1 e 1 @4012 ]
+[u S433 . 1 `S397 1 . 1 0 `S406 1 . 1 0 `S412 1 . 1 0 `S415 1 . 1 0 `S418 1 . 1 0 `S421 1 . 1 0 `S430 1 . 1 0 ]
+[v _RCSTA1bits RCSTA1bits `VES433  1 e 1 @4012 ]
 "9771
-[v _RCSTAbits RCSTAbits `VES428  1 e 1 @4012 ]
-[s S473 . 1 `uc 1 TX9D 1 0 :1:0 
+[v _RCSTAbits RCSTAbits `VES433  1 e 1 @4012 ]
+[s S478 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -445,17 +425,17 @@ RINGBUF_EMPTY 4
 `uc 1 CSRC 1 0 :1:7 
 ]
 "9936
-[s S482 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S487 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S486 . 1 `uc 1 . 1 0 :6:0 
+[s S491 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_TX8 1 0 :1:6 
 ]
-[s S489 . 1 `uc 1 . 1 0 :6:0 
+[s S494 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S492 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S497 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -464,46 +444,44 @@ RINGBUF_EMPTY 4
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[u S501 . 1 `S473 1 . 1 0 `S482 1 . 1 0 `S486 1 . 1 0 `S489 1 . 1 0 `S492 1 . 1 0 ]
-[v _TXSTA1bits TXSTA1bits `VES501  1 e 1 @4013 ]
-"10179
-[v _TXREG1 TXREG1 `VEuc  1 e 1 @4014 ]
+[u S506 . 1 `S478 1 . 1 0 `S487 1 . 1 0 `S491 1 . 1 0 `S494 1 . 1 0 `S497 1 . 1 0 ]
+[v _TXSTA1bits TXSTA1bits `VES506  1 e 1 @4013 ]
 "10184
 [v _TXREG TXREG `VEuc  1 e 1 @4014 ]
 "10222
 [v _RCREG RCREG `VEuc  1 e 1 @4015 ]
 "10255
 [v _SPBRG1 SPBRG1 `VEuc  1 e 1 @4016 ]
-[s S1468 . 1 `uc 1 ADCS 1 0 :3:0 
+[s S1520 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 ADCAL 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "11813
-[s S1473 . 1 `uc 1 ADCS0 1 0 :1:0 
+[s S1525 . 1 `uc 1 ADCS0 1 0 :1:0 
 `uc 1 ADCS1 1 0 :1:1 
 `uc 1 ADCS2 1 0 :1:2 
 `uc 1 ACQT0 1 0 :1:3 
 `uc 1 ACQT1 1 0 :1:4 
 `uc 1 ACQT2 1 0 :1:5 
 ]
-[s S1480 . 1 `uc 1 . 1 0 :3:0 
+[s S1532 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CHSN3 1 0 :1:3 
 `uc 1 VCFG01 1 0 :1:4 
 `uc 1 VCFG11 1 0 :1:5 
 ]
-[u S1485 . 1 `S1468 1 . 1 0 `S1473 1 . 1 0 `S1480 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES1485  1 e 1 @4033 ]
-[s S1346 . 1 `uc 1 . 1 0 :1:0 
+[u S1537 . 1 `S1520 1 . 1 0 `S1525 1 . 1 0 `S1532 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES1537  1 e 1 @4033 ]
+[s S1371 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "11932
-[s S1349 . 1 `uc 1 ADON 1 0 :1:0 
+[s S1374 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 `uc 1 VCFG 1 0 :2:6 
 ]
-[s S1354 . 1 `uc 1 . 1 0 :1:0 
+[s S1379 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -512,30 +490,30 @@ RINGBUF_EMPTY 4
 `uc 1 VCFG0 1 0 :1:6 
 `uc 1 VCFG1 1 0 :1:7 
 ]
-[s S1363 . 1 `uc 1 . 1 0 :1:0 
+[s S1388 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S1366 . 1 `uc 1 . 1 0 :1:0 
+[s S1391 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S1369 . 1 `uc 1 . 1 0 :1:0 
+[s S1394 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S1372 . 1 `uc 1 . 1 0 :1:0 
+[s S1397 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S1375 . 1 `uc 1 . 1 0 :1:0 
+[s S1400 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 `uc 1 . 1 0 :5:2 
 `uc 1 ADCAL 1 0 :1:7 
 ]
-[u S1380 . 1 `S1346 1 . 1 0 `S1349 1 . 1 0 `S1354 1 . 1 0 `S1363 1 . 1 0 `S1366 1 . 1 0 `S1369 1 . 1 0 `S1372 1 . 1 0 `S1375 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES1380  1 e 1 @4034 ]
+[u S1405 . 1 `S1371 1 . 1 0 `S1374 1 . 1 0 `S1379 1 . 1 0 `S1388 1 . 1 0 `S1391 1 . 1 0 `S1394 1 . 1 0 `S1397 1 . 1 0 `S1400 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES1405  1 e 1 @4034 ]
 "12034
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "12054
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
-[s S1177 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S1202 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 RD16 1 0 :1:1 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -543,13 +521,13 @@ RINGBUF_EMPTY 4
 `uc 1 TMR1CS 1 0 :2:6 
 ]
 "14287
-[s S1184 . 1 `uc 1 . 1 0 :4:0 
+[s S1209 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 `uc 1 TMR1CS0 1 0 :1:6 
 `uc 1 TMR1CS1 1 0 :1:7 
 ]
-[s S1190 . 1 `uc 1 . 1 0 :1:0 
+[s S1215 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RD161 1 0 :1:1 
 `uc 1 T1SYNC1 1 0 :1:2 
 `uc 1 T1OSCEN1 1 0 :1:3 
@@ -558,32 +536,32 @@ RINGBUF_EMPTY 4
 `uc 1 TMR1CS01 1 0 :1:6 
 `uc 1 TMR1CS11 1 0 :1:7 
 ]
-[s S1199 . 1 `uc 1 . 1 0 :3:0 
+[s S1224 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 T1RD16 1 0 :1:7 
 ]
-[u S1204 . 1 `S1177 1 . 1 0 `S1184 1 . 1 0 `S1190 1 . 1 0 `S1199 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES1204  1 e 1 @4045 ]
-[s S314 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[u S1229 . 1 `S1202 1 . 1 0 `S1209 1 . 1 0 `S1215 1 . 1 0 `S1224 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES1229  1 e 1 @4045 ]
+[s S318 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "14482
-[s S316 . 1 `uc 1 . 1 0 :1:0 
+[s S320 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S319 . 1 `uc 1 . 1 0 :2:0 
+[s S323 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S322 . 1 `uc 1 . 1 0 :3:0 
+[s S326 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S325 . 1 `uc 1 . 1 0 :4:0 
+[s S329 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S328 . 1 `uc 1 . 1 0 :5:0 
+[s S332 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_CM 1 0 :1:5 
 ]
-[s S331 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S335 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -592,16 +570,16 @@ RINGBUF_EMPTY 4
 `uc 1 . 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S340 . 1 `uc 1 BOR 1 0 :1:0 
+[s S344 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 `uc 1 CM 1 0 :1:5 
 ]
-[u S347 . 1 `S314 1 . 1 0 `S316 1 . 1 0 `S319 1 . 1 0 `S322 1 . 1 0 `S325 1 . 1 0 `S328 1 . 1 0 `S331 1 . 1 0 `S340 1 . 1 0 ]
-[v _RCONbits RCONbits `VES347  1 e 1 @4048 ]
-[s S213 . 1 `uc 1 T0PS 1 0 :3:0 
+[u S351 . 1 `S318 1 . 1 0 `S320 1 . 1 0 `S323 1 . 1 0 `S326 1 . 1 0 `S329 1 . 1 0 `S332 1 . 1 0 `S335 1 . 1 0 `S344 1 . 1 0 ]
+[v _RCONbits RCONbits `VES351  1 e 1 @4048 ]
+[s S217 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -609,17 +587,17 @@ RINGBUF_EMPTY 4
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "15206
-[s S220 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S224 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
-[u S224 . 1 `S213 1 . 1 0 `S220 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES224  1 e 1 @4053 ]
+[u S228 . 1 `S217 1 . 1 0 `S224 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES228  1 e 1 @4053 ]
 "15263
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "15283
 [v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
-[s S239 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S243 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -629,7 +607,7 @@ RINGBUF_EMPTY 4
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "16040
-[s S248 . 1 `uc 1 . 1 0 :1:0 
+[s S252 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -638,12 +616,12 @@ RINGBUF_EMPTY 4
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S257 . 1 `uc 1 . 1 0 :6:0 
+[s S261 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S261 . 1 `S239 1 . 1 0 `S248 1 . 1 0 `S257 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES261  1 e 1 @4082 ]
+[u S265 . 1 `S243 1 . 1 0 `S252 1 . 1 0 `S261 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES265  1 e 1 @4082 ]
 "16557
 [v _ADIE ADIE `VEb  1 e 0 @31982 ]
 "16560
@@ -675,15 +653,17 @@ RINGBUF_EMPTY 4
 [v _flags flags `uc  1 s 1 flags ]
 "185
 [v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
-[s S1074 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
+[s S937 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
 "8 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
-[v _RXringbuf RXringbuf `VES1074  1 e 10 0 ]
+[v _RXringbuf RXringbuf `VES937  1 e 10 0 ]
 "9
 [v _RXbuf RXbuf `[200]uc  1 e 200 0 ]
 "11
-[v _TXringbuf TXringbuf `VES1074  1 e 10 0 ]
+[v _TXringbuf TXringbuf `VES937  1 e 10 0 ]
 "12
 [v _TXbuf TXbuf `[200]uc  1 e 200 0 ]
+"14
+[v _overrun_errors overrun_errors `uc  1 e 1 0 ]
 [s S68 . 8 `uc 1 YEAR 1 0 `uc 1 MONTH 1 1 `uc 1 DAY 1 2 `uc 1 WEEKDAY 1 3 `uc 1 HOURS 1 4 `uc 1 MINUTES 1 5 `uc 1 SECONDS 1 6 `uc 1 unknown 1 7 ]
 "23 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
 [v _DateTime DateTime `S68  1 e 8 0 ]
@@ -708,11 +688,11 @@ RINGBUF_EMPTY 4
 "25 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"45
-[v main@strtx strtx `[100]uc  1 a 100 100 ]
 "46
+[v main@strtx strtx `[100]uc  1 a 100 100 ]
+"47
 [v main@strrx strrx `[100]uc  1 a 100 0 ]
-"68
+"69
 } 0
 "26 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\RTC.c
 [v _write_RTCC write_RTCC `(v  1 e 1 0 ]
@@ -724,6 +704,10 @@ RINGBUF_EMPTY 4
 "106 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v _sys_init sys_init `(v  1 e 1 0 ]
 {
+"110
+{
+[v sys_init@cycles cycles `VEul  1 a 4 26 ]
+}
 "114
 } 0
 "73
@@ -759,16 +743,16 @@ RINGBUF_EMPTY 4
 "12
 [v sprintf@ap ap `[1]*.39v  1 a 2 72 ]
 "13
-[u S2174 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
-[s S2177 _IO_FILE 11 `S2174 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S2177  1 a 11 74 ]
+[u S2227 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
+[s S2230 _IO_FILE 11 `S2227 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S2230  1 a 11 74 ]
 "23
 } 0
 "1817 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
-[s S2209 _IO_FILE 0 ]
-[v vfprintf@fp fp `*.39S2209  1 p 2 55 ]
+[s S2262 _IO_FILE 0 ]
+[v vfprintf@fp fp `*.39S2262  1 p 2 55 ]
 [v vfprintf@fmt fmt `*.31Cuc  1 p 1 57 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 58 ]
 "1820
@@ -778,8 +762,8 @@ RINGBUF_EMPTY 4
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[s S2209 _IO_FILE 0 ]
-[v vfpfcnvrt@fp fp `*.39S2209  1 p 2 40 ]
+[s S2262 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.39S2262  1 p 2 40 ]
 [v vfpfcnvrt@fmt fmt `*.39*.31uc  1 p 2 42 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 44 ]
 "1179
@@ -788,15 +772,15 @@ RINGBUF_EMPTY 4
 "1180
 [v vfpfcnvrt@done done `a  1 a 1 52 ]
 "1188
-[u S2233 . 4 `l 1 sint 4 0 `ul 1 uint 4 0 `d 1 f 4 0 ]
-[v vfpfcnvrt@convarg convarg `S2233  1 a 4 48 ]
+[u S2286 . 4 `l 1 sint 4 0 `ul 1 uint 4 0 `d 1 f 4 0 ]
+[v vfpfcnvrt@convarg convarg `S2286  1 a 4 48 ]
 "1814
 } 0
 "942
 [v _stoa stoa `(v  1 s 1 stoa ]
 {
-[s S2209 _IO_FILE 0 ]
-[v stoa@fp fp `*.39S2209  1 p 2 9 ]
+[s S2262 _IO_FILE 0 ]
+[v stoa@fp fp `*.39S2262  1 p 2 9 ]
 [v stoa@s s `*.39uc  1 p 2 11 ]
 "944
 [v stoa@cp cp `*.35uc  1 a 2 19 ]
@@ -825,8 +809,8 @@ RINGBUF_EMPTY 4
 "513
 [v _dtoa dtoa `(v  1 s 1 dtoa ]
 {
-[s S2209 _IO_FILE 0 ]
-[v dtoa@fp fp `*.39S2209  1 p 2 25 ]
+[s S2262 _IO_FILE 0 ]
+[v dtoa@fp fp `*.39S2262  1 p 2 25 ]
 [v dtoa@d d `l  1 p 4 27 ]
 "515
 [v dtoa@s s `uc  1 a 1 37 ]
@@ -840,8 +824,8 @@ RINGBUF_EMPTY 4
 "193
 [v _pad pad `(v  1 s 1 pad ]
 {
-[s S2209 _IO_FILE 0 ]
-[v pad@fp fp `*.39S2209  1 p 2 16 ]
+[s S2262 _IO_FILE 0 ]
+[v pad@fp fp `*.39S2262  1 p 2 16 ]
 [v pad@buf buf `*.39uc  1 p 2 18 ]
 [v pad@p p `i  1 p 2 20 ]
 "195
@@ -852,9 +836,9 @@ RINGBUF_EMPTY 4
 [v _fputs fputs `(i  1 e 2 0 ]
 {
 [v fputs@s s `*.39Cuc  1 p 2 9 ]
-[u S2174 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
-[s S2177 _IO_FILE 11 `S2174 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.39S2177  1 p 2 11 ]
+[u S2227 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
+[s S2230 _IO_FILE 11 `S2227 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.39S2230  1 p 2 11 ]
 "10
 [v fputs@c c `uc  1 a 1 13 ]
 "11
@@ -865,9 +849,9 @@ RINGBUF_EMPTY 4
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[u S2174 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
-[s S2177 _IO_FILE 11 `S2174 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S2177  1 p 2 2 ]
+[u S2227 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
+[s S2230 _IO_FILE 11 `S2227 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S2230  1 p 2 2 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\putch.c
@@ -880,6 +864,75 @@ RINGBUF_EMPTY 4
 {
 [v abs@a a `i  1 p 2 10 ]
 "4
+} 0
+"55 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\RTC.c
+[v _read_RTCC read_RTCC `(v  1 e 1 0 ]
+{
+[s S68 . 8 `uc 1 YEAR 1 0 `uc 1 MONTH 1 1 `uc 1 DAY 1 2 `uc 1 WEEKDAY 1 3 `uc 1 HOURS 1 4 `uc 1 MINUTES 1 5 `uc 1 SECONDS 1 6 `uc 1 unknown 1 7 ]
+[v read_RTCC@me me `C*.39S68  1 p 2 0 ]
+"78
+} 0
+"8
+[v _unlock_RTCC unlock_RTCC `(v  1 e 1 0 ]
+{
+"16
+} 0
+"110 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
+[v _dbio_putstring dbio_putstring `(s  1 e 2 0 ]
+{
+[v dbio_putstring@str str `*.39uc  1 p 2 52 ]
+[v dbio_putstring@Nmax Nmax `us  1 p 2 54 ]
+"112
+[v dbio_putstring@buf_len buf_len `us  1 s 2 buf_len ]
+"113
+[v dbio_putstring@str_len str_len `us  1 a 2 58 ]
+"114
+[v dbio_putstring@byte byte `uc  1 a 1 60 ]
+"133
+} 0
+"100
+[v _dbio_strnlen dbio_strnlen `(us  1 e 2 0 ]
+{
+[v dbio_strnlen@str str `*.39Cuc  1 p 2 0 ]
+[v dbio_strnlen@N N `us  1 p 2 2 ]
+"102
+{
+[v dbio_strnlen@i i `us  1 a 2 4 ]
+"106
+}
+"108
+} 0
+"57 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
+[v _RingBuf_DataPut RingBuf_DataPut `(E691  1 e 1 0 ]
+{
+[v RingBuf_DataPut@data data `*.39Cv  1 p 2 13 ]
+[v RingBuf_DataPut@len len `us  1 p 2 15 ]
+[s S841 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
+[v RingBuf_DataPut@rb rb `*.30VES841  1 p 1 17 ]
+"61
+[v RingBuf_DataPut@input input `*.39Cuc  1 a 2 36 ]
+"63
+[v RingBuf_DataPut@s_addr s_addr `ui  1 a 2 38 ]
+"65
+[v RingBuf_DataPut@space space `ui  1 a 2 40 ]
+"68
+[v RingBuf_DataPut@avaldat avaldat `us  1 a 2 42 ]
+"70
+[v RingBuf_DataPut@len_tmp len_tmp `us  1 a 2 34 ]
+"96
+} 0
+"46 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
+[v _dbio_init dbio_init `(v  1 e 1 0 ]
+{
+"54
+} 0
+"133 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
+[v _UART1_Init UART1_Init `(v  1 e 1 0 ]
+{
+"154
+"155
+[v UART1_Init@SPBRG_VAL SPBRG_VAL `us  1 a 2 18 ]
+"172
 } 0
 "7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
 [v ___almod __almod `(l  1 e 4 0 ]
@@ -903,112 +956,40 @@ RINGBUF_EMPTY 4
 [v ___aldiv@sign sign `uc  1 a 1 9 ]
 "41
 } 0
-"55 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\RTC.c
-[v _read_RTCC read_RTCC `(v  1 e 1 0 ]
-{
-[s S68 . 8 `uc 1 YEAR 1 0 `uc 1 MONTH 1 1 `uc 1 DAY 1 2 `uc 1 WEEKDAY 1 3 `uc 1 HOURS 1 4 `uc 1 MINUTES 1 5 `uc 1 SECONDS 1 6 `uc 1 unknown 1 7 ]
-[v read_RTCC@me me `C*.39S68  1 p 2 0 ]
-"78
-} 0
-"8
-[v _unlock_RTCC unlock_RTCC `(v  1 e 1 0 ]
-{
-"16
-} 0
-"96 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
-[v _dbio_putstring dbio_putstring `(s  1 e 2 0 ]
-{
-[v dbio_putstring@str str `*.39uc  1 p 2 52 ]
-[v dbio_putstring@Nmax Nmax `us  1 p 2 54 ]
-"98
-[v dbio_putstring@buf_len buf_len `us  1 s 2 buf_len ]
-"99
-[v dbio_putstring@str_len str_len `us  1 a 2 58 ]
-"100
-[v dbio_putstring@byte byte `uc  1 a 1 60 ]
-"113
-} 0
-"86
-[v _dbio_strnlen dbio_strnlen `(us  1 e 2 0 ]
-{
-[v dbio_strnlen@str str `*.39Cuc  1 p 2 0 ]
-[v dbio_strnlen@N N `us  1 p 2 2 ]
-"88
-{
-[v dbio_strnlen@i i `us  1 a 2 4 ]
-"92
-}
-"94
-} 0
-"57 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
-[v _RingBuf_DataPut RingBuf_DataPut `(E691  1 e 1 0 ]
-{
-[v RingBuf_DataPut@data data `*.39Cv  1 p 2 13 ]
-[v RingBuf_DataPut@len len `us  1 p 2 15 ]
-[s S978 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
-[v RingBuf_DataPut@rb rb `*.30VES978  1 p 1 17 ]
-"61
-[v RingBuf_DataPut@input input `*.39Cuc  1 a 2 36 ]
-"63
-[v RingBuf_DataPut@s_addr s_addr `ui  1 a 2 38 ]
-"65
-[v RingBuf_DataPut@space space `ui  1 a 2 40 ]
-"68
-[v RingBuf_DataPut@avaldat avaldat `us  1 a 2 42 ]
-"70
-[v RingBuf_DataPut@len_tmp len_tmp `us  1 a 2 34 ]
-"96
-} 0
-"39 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
-[v _dbio_init dbio_init `(v  1 e 1 0 ]
-{
-"47
-} 0
-"127 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-[v _UART1_Init UART1_Init `(v  1 e 1 0 ]
-{
-"149
-"169
-} 0
 "12 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
 [v _RingBuf_Init RingBuf_Init `(E691  1 e 1 0 ]
 {
 [v RingBuf_Init@buf buf `*.39v  1 p 2 3 ]
 [v RingBuf_Init@size size `us  1 p 2 5 ]
 [v RingBuf_Init@cellsize cellsize `ui  1 p 2 7 ]
-[s S978 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
-[v RingBuf_Init@rb rb `*.30VES978  1 p 1 9 ]
+[s S841 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
+[v RingBuf_Init@rb rb `*.30VES841  1 p 1 9 ]
 "18
 } 0
 "27
 [v _RingBuf_Clear RingBuf_Clear `(E691  1 e 1 0 ]
 {
-[s S978 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
-[v RingBuf_Clear@rb rb `*.30VES978  1 p 1 0 ]
+[s S841 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
+[v RingBuf_Clear@rb rb `*.30VES841  1 p 1 0 ]
 "31
 } 0
-"49 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
+"56 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
 [v _dbio_getstring dbio_getstring `(s  1 e 2 0 ]
 {
 [v dbio_getstring@str str `*.39uc  1 p 2 52 ]
 [v dbio_getstring@Nmax Nmax `us  1 p 2 54 ]
 [v dbio_getstring@timeout timeout `us  1 p 2 56 ]
-"53
+"60
 [v dbio_getstring@buf_len_prev buf_len_prev `us  1 s 2 buf_len_prev ]
-"84
-} 0
-"122 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
-[v _get_ms get_ms `(ul  1 e 4 0 ]
-{
-"125
+"98
 } 0
 "106 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
 [v _RingBuf_DataRead RingBuf_DataRead `(E691  1 e 1 0 ]
 {
 [v RingBuf_DataRead@data data `*.39v  1 p 2 40 ]
 [v RingBuf_DataRead@len len `us  1 p 2 42 ]
-[s S978 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
-[v RingBuf_DataRead@rb rb `*.30VES978  1 p 1 44 ]
+[s S841 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
+[v RingBuf_DataRead@rb rb `*.30VES841  1 p 1 44 ]
 "108
 [v RingBuf_DataRead@aval_len aval_len `us  1 a 2 50 ]
 "112
@@ -1020,8 +1001,8 @@ RINGBUF_EMPTY 4
 {
 [v RingBuf_DataWatch@data data `*.39v  1 p 2 13 ]
 [v RingBuf_DataWatch@len len `us  1 p 2 15 ]
-[s S978 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
-[v RingBuf_DataWatch@rb rb `*.30VES978  1 p 1 17 ]
+[s S841 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
+[v RingBuf_DataWatch@rb rb `*.30VES841  1 p 1 17 ]
 "138
 [v RingBuf_DataWatch@aval_len aval_len `us  1 a 2 38 ]
 "142
@@ -1050,8 +1031,8 @@ RINGBUF_EMPTY 4
 [v _RingBuf_Available RingBuf_Available `(E691  1 e 1 0 ]
 {
 [v RingBuf_Available@len len `*.39us  1 p 2 0 ]
-[s S978 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
-[v RingBuf_Available@rb rb `*.30VES978  1 p 1 2 ]
+[s S841 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
+[v RingBuf_Available@rb rb `*.30VES841  1 p 1 2 ]
 "47
 } 0
 "18 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\RTC.c
@@ -1062,22 +1043,36 @@ RINGBUF_EMPTY 4
 "116 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v _delay_ms delay_ms `(v  1 e 1 0 ]
 {
-[v delay_ms@del del `ul  1 p 4 0 ]
+[v delay_ms@del del `ul  1 p 4 12 ]
 "118
-[v delay_ms@temp_time temp_time `VEul  1 a 4 8 ]
+[v delay_ms@temp_time temp_time `VEul  1 a 4 20 ]
 "120
 } 0
-"41 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
+"122
+[v _get_ms get_ms `(ul  1 e 4 0 ]
+{
+"124
+[v get_ms@retval_1 retval_1 `ul  1 a 4 4 ]
+"125
+[v get_ms@retval_2 retval_2 `ul  1 a 4 8 ]
+"131
+} 0
+"53 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
+[v _ADC_stop_IT ADC_stop_IT `(v  1 e 1 0 ]
+{
+"59
+} 0
+"44
 [v _ADC_start_IT ADC_start_IT `(v  1 e 1 0 ]
 {
-"48
+"51
 } 0
-"58
+"61
 [v _ADC_init ADC_init `(v  1 e 1 0 ]
 {
-"60
+"63
 [v ADC_init@chanmax chanmax `i  1 a 2 3 ]
-"169
+"171
 } 0
 "38 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v _sys_regiter_ms_clbk sys_regiter_ms_clbk `(uc  1 e 1 0 ]
@@ -1096,9 +1091,11 @@ RINGBUF_EMPTY 4
 [v _ADC_getChan ADC_getChan `(s  1 e 2 0 ]
 {
 [v ADC_getChan@chan chan `uc  1 p 1 wreg ]
+"39
+[v ADC_getChan@retval retval `s  1 a 2 3 ]
 "38
 [v ADC_getChan@chan chan `uc  1 p 1 2 ]
-"39
+"42
 } 1
 "64 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v _Interrupts_handler Interrupts_handler `IIL(v  1 e 1 0 ]
@@ -1115,37 +1112,37 @@ RINGBUF_EMPTY 4
 {
 "23
 } 0
-"29 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
+"31 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
 [v _RXbyte_cbk RXbyte_cbk `(v  1 e 1 0 ]
 {
-"32
+"34
 {
-"33
+"35
 [v RXbyte_cbk@byte byte `uc  1 a 1 44 ]
-"36
+"43
 }
-"37
+"44
 } 0
-"14
+"16
 [v _TXbyte_cbk TXbyte_cbk `(v  1 e 1 0 ]
 {
-"17
-{
-"18
-[v TXbyte_cbk@buf_len buf_len `us  1 a 2 53 ]
 "19
+{
+"20
+[v TXbyte_cbk@buf_len buf_len `us  1 a 2 53 ]
+"21
 [v TXbyte_cbk@byte byte `uc  1 a 1 52 ]
-"26
+"28
 }
-"27
+"29
 } 0
 "106 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
 [v i1_RingBuf_DataRead RingBuf_DataRead `(E691  1 e 1 0 ]
 {
 [v i1RingBuf_DataRead@data data `*.39v  1 p 2 40 ]
 [v i1RingBuf_DataRead@len len `us  1 p 2 42 ]
-[s S978 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
-[v i1RingBuf_DataRead@rb rb `*.30VES978  1 p 1 44 ]
+[s S841 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
+[v i1RingBuf_DataRead@rb rb `*.30VES841  1 p 1 44 ]
 "108
 [v i1RingBuf_DataRead@aval_len aval_len `us  1 a 2 50 ]
 "112
@@ -1157,8 +1154,8 @@ RINGBUF_EMPTY 4
 {
 [v i1RingBuf_DataWatch@data data `*.39v  1 p 2 13 ]
 [v i1RingBuf_DataWatch@len len `us  1 p 2 15 ]
-[s S978 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
-[v i1RingBuf_DataWatch@rb rb `*.30VES978  1 p 1 17 ]
+[s S841 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
+[v i1RingBuf_DataWatch@rb rb `*.30VES841  1 p 1 17 ]
 "138
 [v i1RingBuf_DataWatch@aval_len aval_len `us  1 a 2 38 ]
 "142
@@ -1174,8 +1171,8 @@ RINGBUF_EMPTY 4
 {
 [v i1RingBuf_DataPut@data data `*.39Cv  1 p 2 13 ]
 [v i1RingBuf_DataPut@len len `us  1 p 2 15 ]
-[s S978 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
-[v i1RingBuf_DataPut@rb rb `*.30VES978  1 p 1 17 ]
+[s S841 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
+[v i1RingBuf_DataPut@rb rb `*.30VES841  1 p 1 17 ]
 "61
 [v i1RingBuf_DataPut@input input `*.39Cuc  1 a 2 36 ]
 "63
@@ -1206,20 +1203,20 @@ RINGBUF_EMPTY 4
 [v i1_RingBuf_Available RingBuf_Available `(E691  1 e 1 0 ]
 {
 [v i1RingBuf_Available@len len `*.39us  1 p 2 0 ]
-[s S978 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
-[v i1RingBuf_Available@rb rb `*.30VES978  1 p 1 2 ]
+[s S841 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
+[v i1RingBuf_Available@rb rb `*.30VES841  1 p 1 2 ]
 "47
 } 0
 "46 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v _HighInterrupts_handler HighInterrupts_handler `IIH(v  1 e 1 0 ]
 {
-"54
+"55
 {
 [v HighInterrupts_handler@i i `uc  1 a 1 68 ]
 }
 "58
 {
-[v HighInterrupts_handler@i_863 i `i  1 a 2 66 ]
+[v HighInterrupts_handler@i_746 i `i  1 a 2 66 ]
 "61
 }
 "62
@@ -1229,37 +1226,37 @@ RINGBUF_EMPTY 4
 {
 "23
 } 0
-"29 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
+"31 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\dbio.c
 [v i2_RXbyte_cbk RXbyte_cbk `(v  1 e 1 0 ]
 {
-"32
+"34
 {
-"33
+"35
 [v i2RXbyte_cbk@byte byte `uc  1 a 1 44 ]
-"36
+"43
 }
-"37
+"44
 } 0
-"14
+"16
 [v i2_TXbyte_cbk TXbyte_cbk `(v  1 e 1 0 ]
 {
-"17
-{
-"18
-[v i2TXbyte_cbk@buf_len buf_len `us  1 a 2 53 ]
 "19
+{
+"20
+[v i2TXbyte_cbk@buf_len buf_len `us  1 a 2 53 ]
+"21
 [v i2TXbyte_cbk@byte byte `uc  1 a 1 52 ]
-"26
+"28
 }
-"27
+"29
 } 0
 "106 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ringbuf.c
 [v i2_RingBuf_DataRead RingBuf_DataRead `(E691  1 e 1 0 ]
 {
 [v i2RingBuf_DataRead@data data `*.39v  1 p 2 40 ]
 [v i2RingBuf_DataRead@len len `us  1 p 2 42 ]
-[s S978 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
-[v i2RingBuf_DataRead@rb rb `*.30VES978  1 p 1 44 ]
+[s S841 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
+[v i2RingBuf_DataRead@rb rb `*.30VES841  1 p 1 44 ]
 "108
 [v i2RingBuf_DataRead@aval_len aval_len `us  1 a 2 50 ]
 "112
@@ -1271,8 +1268,8 @@ RINGBUF_EMPTY 4
 {
 [v i2RingBuf_DataWatch@data data `*.39v  1 p 2 13 ]
 [v i2RingBuf_DataWatch@len len `us  1 p 2 15 ]
-[s S978 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
-[v i2RingBuf_DataWatch@rb rb `*.30VES978  1 p 1 17 ]
+[s S841 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
+[v i2RingBuf_DataWatch@rb rb `*.30VES841  1 p 1 17 ]
 "138
 [v i2RingBuf_DataWatch@aval_len aval_len `us  1 a 2 38 ]
 "142
@@ -1288,8 +1285,8 @@ RINGBUF_EMPTY 4
 {
 [v i2RingBuf_DataPut@data data `*.39Cv  1 p 2 13 ]
 [v i2RingBuf_DataPut@len len `us  1 p 2 15 ]
-[s S978 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
-[v i2RingBuf_DataPut@rb rb `*.30VES978  1 p 1 17 ]
+[s S841 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
+[v i2RingBuf_DataPut@rb rb `*.30VES841  1 p 1 17 ]
 "61
 [v i2RingBuf_DataPut@input input `*.39Cuc  1 a 2 36 ]
 "63
@@ -1320,8 +1317,8 @@ RINGBUF_EMPTY 4
 [v i2_RingBuf_Available RingBuf_Available `(E691  1 e 1 0 ]
 {
 [v i2RingBuf_Available@len len `*.39us  1 p 2 0 ]
-[s S978 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
-[v i2RingBuf_Available@rb rb `*.30VES978  1 p 1 2 ]
+[s S841 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEui 1 tail 2 2 `VEui 1 head 2 4 `VEui 1 size 2 6 `VEui 1 cell_size 2 8 ]
+[v i2RingBuf_Available@rb rb `*.30VES841  1 p 1 2 ]
 "47
 } 0
 "25 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\ADC.c
@@ -1339,5 +1336,9 @@ RINGBUF_EMPTY 4
 "122 C:\Projects_MCU\Microchip\!Test\PIC18F46J50_common_project.X\system.c
 [v i2_get_ms get_ms `(ul  1 e 4 0 ]
 {
+"124
+[v i2get_ms@retval_1 retval_1 `ul  1 a 4 4 ]
 "125
+[v i2get_ms@retval_2 retval_2 `ul  1 a 4 8 ]
+"131
 } 0

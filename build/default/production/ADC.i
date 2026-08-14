@@ -10133,7 +10133,7 @@ void ADC_stop_IT(void);
 void ADC_init(void);
 # 2 "ADC.c" 2
 # 1 "./system.h" 1
-# 31 "./system.h"
+# 34 "./system.h"
 void sys_init(void);
 
 uint32_t get_ms(void);
@@ -10143,9 +10143,6 @@ uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
 uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
 
 void UART1_Init(void);
-void UART1_PutChar(char byte);
-int16_t UART1_PutStr(char* byte, uint16_t N);
-char UART1_GetChar(void);
 # 3 "ADC.c" 2
 
 uint8_t ChanNum[(1 +1 +1 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0)];
@@ -10182,7 +10179,10 @@ void ADC_ms_cbk(void)
 
 int16_t ADC_getChan(uint8_t chan)
 {
-  return ChanValue[chan];
+  INTCONbits.GIE = 0;
+  int16_t retval = ChanValue[chan];
+  INTCONbits.GIE = 1;
+  return retval;
 }
 
 void ADC_start_IT(void)
@@ -10223,7 +10223,7 @@ void ADC_init(void)
   ChanNum[chanmax++] = 2;
   TRISAbits.TRISA2 = 1;
   ANCON0bits.PCFG2 = 0;
-# 138 "ADC.c"
+# 140 "ADC.c"
   ADCON0bits.VCFG = 0b00;
 
 
@@ -10241,7 +10241,7 @@ void ADC_init(void)
 
 
   ADCON1bits.ACQT = 0b111;
-# 163 "ADC.c"
+# 165 "ADC.c"
   IPR1bits.ADIP = 0;
 
   sys_regiter_IRQ_clbk(ADC_cplt_cbk, 0);

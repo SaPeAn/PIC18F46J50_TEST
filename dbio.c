@@ -11,6 +11,8 @@ uint8_t RXbuf[BUFLENGTH] = {0};
 RINGBUF_t TXringbuf;
 uint8_t TXbuf[BUFLENGTH] = {0};
 
+uint8_t overrun_errors = 0;
+
 void TXbyte_cbk(void)
 {
   if (TX1IE && TX1IF)
@@ -31,6 +33,11 @@ void RXbyte_cbk(void)
   if (RC1IE && RC1IF)
   {
     uint8_t byte;
+    if(RCSTAbits.OERR) {
+      RCSTA1bits.CREN = 0; 
+      RCSTA1bits.CREN = 1; 
+      overrun_errors++;
+    }
     byte = GetByte();
     RingBuf_DataPut((uint8_t*)&byte, 1, &RXringbuf);
   }
@@ -38,12 +45,12 @@ void RXbyte_cbk(void)
 
 void dbio_init(void)
 {
-  UART1_Init();
-  sys_regiter_IRQ_clbk(RXbyte_cbk, 0);
-  sys_regiter_IRQ_clbk(TXbyte_cbk, 0);
-  RxIntEn();
   RingBuf_Init(RXbuf, BUFLENGTH, 1, &RXringbuf);
   RingBuf_Init(TXbuf, BUFLENGTH, 1, &TXringbuf);
+  sys_regiter_IRQ_clbk(RXbyte_cbk, 0);
+  sys_regiter_IRQ_clbk(TXbyte_cbk, 0);
+  UART1_Init();
+  RxIntEn();
 }
 
 int16_t dbio_getstring(char* str, uint16_t Nmax, uint16_t timeout)
@@ -52,19 +59,24 @@ int16_t dbio_getstring(char* str, uint16_t Nmax, uint16_t timeout)
   static uint16_t buf_len = 0;
   static uint16_t buf_len_prev = 0;
   
+  if(Nmax > BUFLENGTH) return -1;
+  
+  InterruptDis();
   RingBuf_Available((uint16_t*)&buf_len, &RXringbuf);
-  if((Nmax + buf_len) > BUFLENGTH) return -1;
+  InterruptEn();
   
   if(buf_len)
   {
     if(buf_len_prev != buf_len)
     {
-      if(buf_len >= Nmax)
+      if(buf_len > (Nmax - 1))
       {
+        InterruptDis();
         RingBuf_DataRead(str, Nmax, &RXringbuf);
+        InterruptEn();
         //RingBuf_Clear(&RXringbuf);
         buf_len_prev = 0;
-        str[Nmax] = '\0';
+        str[(Nmax-1)] = '\0';
         return (int)Nmax;
       }
       buf_len_prev = buf_len;
@@ -74,7 +86,9 @@ int16_t dbio_getstring(char* str, uint16_t Nmax, uint16_t timeout)
     if(((get_ms() - timetmp) > timeout))
     {
       buf_len = (buf_len > Nmax) ? Nmax : buf_len;
+      InterruptDis();
       RingBuf_DataRead(str, buf_len, &RXringbuf);
+      InterruptEn();
       str[buf_len] = '\0';
       buf_len_prev = 0;
       return (int)buf_len;
@@ -88,7 +102,7 @@ uint16_t dbio_strnlen(const char* str, uint16_t N)
   for(uint16_t i = 0; i < N; i++)
   {
     if(str[i]) continue;
-    return ++i;
+    return i;
   }
   return N;
 }
@@ -98,14 +112,20 @@ int16_t dbio_putstring(char* str, uint16_t Nmax)
   static uint16_t buf_len = 0;  
   uint16_t str_len;
   uint8_t byte;
+  InterruptDis();
   RingBuf_Available(&buf_len, &TXringbuf);
+  InterruptEn();
   if((buf_len + Nmax + 1) > BUFLENGTH) return -1;  
  
   str_len = dbio_strnlen(str, Nmax);
+  InterruptDis();
   RingBuf_DataPut(str, str_len, &TXringbuf);
+  InterruptEn();
   if(CheckTxPermission())
   {
+    InterruptDis();
     RingBuf_DataRead(&byte, 1, &TXringbuf);
+    InterruptEn();
     SendByte(byte);
     TxIntEn();
   }

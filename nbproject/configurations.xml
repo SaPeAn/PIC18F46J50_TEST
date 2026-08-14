@@ -10,6 +10,7 @@
       <itemPath>dbio.h</itemPath>
       <itemPath>RTC.h</itemPath>
       <itemPath>ADC.h</itemPath>
+      <itemPath>USB.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -29,6 +30,7 @@
       <itemPath>dbio.c</itemPath>
       <itemPath>RTC.c</itemPath>
       <itemPath>ADC.c</itemPath>
+      <itemPath>USB.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -42,7 +44,7 @@
         <targetDevice>PIC18F46J50</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PICkit3PlatformTool</platformTool>
+        <platformTool>Simulator</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>4.00</languageToolchainVersion>
         <platform>3</platform>

@@ -10229,7 +10229,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 3 "main.c" 2
 # 1 "./system.h" 1
-# 31 "./system.h"
+# 34 "./system.h"
 void sys_init(void);
 
 uint32_t get_ms(void);
@@ -10239,9 +10239,6 @@ uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
 uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
 
 void UART1_Init(void);
-void UART1_PutChar(char byte);
-int16_t UART1_PutStr(char* byte, uint16_t N);
-char UART1_GetChar(void);
 # 4 "main.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdio.h" 3
@@ -10465,6 +10462,7 @@ void main(void)
   DateTime.DAY = 1;
   DateTime.YEAR = 0;
   DateTime.MONTH = 1;
+  DateTime.WEEKDAY = 0;
   DateTime.HOURS = 0;
   DateTime.MINUTES = 0;
   DateTime.SECONDS = 0;
@@ -10494,6 +10492,6 @@ void main(void)
 
     delay_ms(500);
   }
-
+  ADC_stop_IT();
   return;
 }

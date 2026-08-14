@@ -5,6 +5,7 @@
 #include "dbio.h"
 #include "RTC.h"
 #include "ADC.h"
+#include "USB.h"
 
 void blinky(void)
 {
@@ -34,6 +35,7 @@ void main(void)
   DateTime.DAY = 1;
   DateTime.YEAR = 0;
   DateTime.MONTH = 1;
+  DateTime.WEEKDAY = 0;
   DateTime.HOURS = 0;
   DateTime.MINUTES = 0;
   DateTime.SECONDS = 0;
@@ -41,9 +43,12 @@ void main(void)
   
   ADC_init();
   ADC_start_IT();
-  
+
+  USB_init();
+
   char strtx[100];
   char strrx[100];
+  uint8_t usb_was_ready = 0;
   
   sprintf(strtx, "Hello!!!\n\rTime: %ld\n\rEnter string: \n\r", get_ms());
   dbio_putstring(strtx, 50);
@@ -55,14 +60,29 @@ void main(void)
     sprintf(strtx, "ADC: %d %d %d\n\r", ADC_getChan(0), ADC_getChan(1), ADC_getChan(2));
     dbio_putstring(strtx, 100);
     
+    // Сообщаем в отладочный порт о смене состояния USB-клавиатуры
+    if(USB_is_configured() != usb_was_ready)
+    {
+      usb_was_ready = USB_is_configured();
+      dbio_putstring(usb_was_ready ? "USB keyboard: ready\n\r"
+                                   : "USB keyboard: not ready\n\r", 30);
+    }
+
     if(dbio_getstring(strrx, 50, 5) > 0)
     {
       sprintf(strtx, "Time: %.2d:%2.2d:%2.2d\n\rEntered string: %s\n\r", BCDtoDEC(DateTime.HOURS), BCDtoDEC(DateTime.MINUTES), BCDtoDEC(DateTime.SECONDS), strrx);
       dbio_putstring(strtx, 100);
+
+      // ...и "печатаем" её же на ПК как обычная USB-клавиатура
+      if(USB_is_configured())
+      {
+        USB_kbd_putstring(strrx, 50);
+        USB_kbd_putkey(0x28, 0);   // Enter
+      }
     }
-    
+
     delay_ms(500);
   }
-  
+  ADC_stop_IT();
   return;
 }
