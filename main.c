@@ -29,16 +29,18 @@ void main(void)
   dbio_init();
   
   TRISDbits.TRISD4 = 0;
-  sys_regiter_ms_clbk(blinky);
+  sys_register_ms_clbk(blinky);
   
   RTC_init();
-  DateTime.DAY = 1;
-  DateTime.YEAR = 0;
-  DateTime.MONTH = 1;
-  DateTime.WEEKDAY = 0;
-  DateTime.HOURS = 0;
-  DateTime.MINUTES = 0;
-  DateTime.SECONDS = 0;
+  // Регистры RTCC хранят BCD, поэтому десятичные значения переводим явно:
+  // без DECtoBCD() всё, что больше 9, попало бы в часы как мусор.
+  DateTime.DAY = DECtoBCD(1);
+  DateTime.YEAR = DECtoBCD(0);
+  DateTime.MONTH = DECtoBCD(1);
+  DateTime.WEEKDAY = DECtoBCD(0);
+  DateTime.HOURS = DECtoBCD(0);
+  DateTime.MINUTES = DECtoBCD(0);
+  DateTime.SECONDS = DECtoBCD(0);
   write_RTCC(&DateTime);
   
   ADC_init();
@@ -60,7 +62,7 @@ void main(void)
     sprintf(strtx, "ADC: %d %d %d\n\r", ADC_getChan(0), ADC_getChan(1), ADC_getChan(2));
     dbio_putstring(strtx, 100);
     
-    // РЎРѕРѕР±С‰Р°РµРј РІ РѕС‚Р»Р°РґРѕС‡РЅС‹Р№ РїРѕСЂС‚ Рѕ СЃРјРµРЅРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ USB-РєР»Р°РІРёР°С‚СѓСЂС‹
+    // Сообщаем в отладочный порт о смене состояния USB-клавиатуры
     if(USB_is_configured() != usb_was_ready)
     {
       usb_was_ready = USB_is_configured();
@@ -73,16 +75,13 @@ void main(void)
       sprintf(strtx, "Time: %.2d:%2.2d:%2.2d\n\rEntered string: %s\n\r", BCDtoDEC(DateTime.HOURS), BCDtoDEC(DateTime.MINUTES), BCDtoDEC(DateTime.SECONDS), strrx);
       dbio_putstring(strtx, 100);
 
-      // ...Рё "РїРµС‡Р°С‚Р°РµРј" РµС‘ Р¶Рµ РЅР° РџРљ РєР°Рє РѕР±С‹С‡РЅР°СЏ USB-РєР»Р°РІРёР°С‚СѓСЂР°
+      // ...и "печатаем" её же на ПК как обычная USB-клавиатура
       if(USB_is_configured())
       {
         USB_kbd_putstring(strrx, 50);
         USB_kbd_putkey(0x28, 0);   // Enter
       }
     }
-
     delay_ms(500);
   }
-  ADC_stop_IT();
-  return;
 }

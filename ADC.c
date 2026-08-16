@@ -1,66 +1,85 @@
 #include "ADC.h"
 #include "system.h"
 
-uint8_t ChanNum[CHAN_MAX];
-int ChanIndx = 0;
-int16_t ChanValue[16];
+static uint8_t ChanNum[CHAN_MAX];
+static volatile uint8_t ChanIndx = 0;
+// Written by the completion ISR, read by main through ADC_getChan()
+static volatile int16_t ChanValue[ADC_CHAN_VALUES];
+// Scanning is armed: ADC_ms_cbk() only starts a new scan when this is set,
+// so ADC_stop_IT() cannot be undone by the next timer tick.
+static volatile uint8_t adc_running = 0;
 
-void ADC_cplt_cbk(void)
+// Called by the system.c dispatcher with ADIE and ADIF already checked
+void ADC_isr(void)
 {
-  if(ADIE && ADIF)
-  {
-    ADIF = 0;
-    ChanValue[ChanNum[ChanIndx++]] = (((int16_t)ADRESH) << 8) | ADRESL;
-    if(ChanIndx >= CHAN_MAX) {
-      ADIE = 0;
-      ChanIndx = 0;
-    }
-    else {
-      ADCON0bits.CHS = ChanNum[ChanIndx];
-      ADCON0bits.GODONE = 1;
-    }
+  ADIF = 0;
+  ChanValue[ChanNum[ChanIndx++]] = (((int16_t)ADRESH) << 8) | ADRESL;
+  if(ChanIndx >= CHAN_MAX) {
+    ADIE = 0;
+    ChanIndx = 0;
+  }
+  else {
+    ADCON0bits.CHS = ChanNum[ChanIndx];
+    ADCON0bits.GODONE = 1;
   }
 } 
 
-void ADC_ms_cbk(void)
+// Runs from the high priority timer ISR, so it may preempt ADC_isr().
+// Starting a scan is safe only while ChanIndx == 0, i.e. no scan in flight.
+static void ADC_ms_cbk(void)
 {
-  if(ChanIndx == 0)
+  if(adc_running && (ChanIndx == 0))
   {
     ADCON0bits.CHS = ChanNum[ChanIndx];
     ADIF = 0;
     ADIE = 1;
     ADCON0bits.GODONE = 1;
   }
-} 
+}
 
 int16_t ADC_getChan(uint8_t chan)
 {
-  InterruptDis();
-  int16_t retval = ChanValue[chan];
-  InterruptEn();
+  int16_t retval;
+  CRIT_DECL();
+  if(chan >= ADC_CHAN_VALUES) return -1;
+  CRIT_ENTER();
+  retval = ChanValue[chan];
+  CRIT_EXIT();
   return retval;
 }
 
+// ADCON0 is written here and from ADC_ms_cbk() in the timer ISR. Both are
+// read-modify-write, so the sequence has to be atomic against that ISR.
 void ADC_start_IT(void)
 {
+  CRIT_DECL();
+  CRIT_ENTER();
   ChanIndx = 0;
+  adc_running = 1;
+  ADCON0bits.ADON = 1;   // ADC_stop_IT() powers the converter down
   ADCON0bits.CHS = ChanNum[ChanIndx];
   ADIF = 0;
   ADIE = 1;
   ADCON0bits.GODONE = 1;
+  CRIT_EXIT();
 }
 
 void ADC_stop_IT(void)
 {
+  CRIT_DECL();
+  CRIT_ENTER();
+  adc_running = 0;
   ChanIndx = 0;
+  ADCON0bits.GODONE = 0;
   ADCON0bits.ADON = 0;
   ADIF = 0;
   ADIE = 0;
+  CRIT_EXIT();
 }
 
-void ADC_init(void)
+uint8_t ADC_init(void)
 {
-  int chanmax = 0;
+  uint8_t chanmax = 0;
   
   ANCON0 = 0xFF;   // all ports are digitall
   ANCON1 = 0x1F;   // all ports are digitall
@@ -163,9 +182,10 @@ void ADC_init(void)
                            // 000 = 0 TAD
   
   IPR1bits.ADIP = 0;
-  
-  sys_regiter_IRQ_clbk(ADC_cplt_cbk, 0);
-  sys_regiter_ms_clbk(ADC_ms_cbk);
-  
+
+  // ADC_isr() is called by the system.c dispatcher directly, no registration
+  if(sys_register_ms_clbk(ADC_ms_cbk)) return ADC_INIT_CBK_ERR;
+
   ADCON0bits.ADON = 1;
+  return ADC_INIT_OK;
 }

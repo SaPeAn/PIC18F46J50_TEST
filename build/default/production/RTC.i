@@ -10127,6 +10127,8 @@ unsigned char __t3rd16on(void);
 
 
 
+
+
 typedef struct{
     uint8_t YEAR;
     uint8_t MONTH;
@@ -10143,14 +10145,13 @@ void read_RTCC(RTCC_VAL * const me);
 void RTC_init(void);
 # 2 "RTC.c" 2
 # 1 "./system.h" 1
-# 34 "./system.h"
+# 57 "./system.h"
 void sys_init(void);
 
 uint32_t get_ms(void);
 void delay_ms(uint32_t del);
 
-uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
-uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
+uint8_t sys_register_ms_clbk(void (*clbk)(void));
 
 void UART1_Init(void);
 # 3 "RTC.c" 2
@@ -10177,9 +10178,16 @@ void RTC_init(void)
   delay_ms(50);
 }
 
+
+
+
+
+
+
 void write_RTCC(RTCC_VAL * const me)
 {
-  INTCONbits.GIE = 0;
+  uint8_t gie_state;
+  do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
   unlock_RTCC();
   RTCEN = 0;
 
@@ -10202,15 +10210,18 @@ void write_RTCC(RTCC_VAL * const me)
 
   RTCEN = 1;
   RTCWREN = 0;
-  INTCONbits.GIE = 1;
+  do { if(gie_state) INTCONbits.GIE = 1; } while(0);
 }
 
 
 void read_RTCC(RTCC_VAL * const me)
 {
+  uint8_t gie_state;
+
+
+
+  do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
   while(RTCSYNC);
-  INTCONbits.GIE = 0;
-  unlock_RTCC();
 
   RTCCFGbits.RTCPTR1 = 1;
   RTCCFGbits.RTCPTR0 = 1;
@@ -10227,6 +10238,5 @@ void read_RTCC(RTCC_VAL * const me)
   me->SECONDS = RTCVALL;
   me->MINUTES = RTCVALH;
 
-  RTCWREN = 0;
-  INTCONbits.GIE = 1;
+  do { if(gie_state) INTCONbits.GIE = 1; } while(0);
 }

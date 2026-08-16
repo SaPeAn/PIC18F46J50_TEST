@@ -6,7 +6,7 @@
             <name>PIC18F46J50_TEST</name>
             <creation-uuid>c2147cb6-464a-4caf-a824-d2189b3ac84e</creation-uuid>
             <make-project-type>0</make-project-type>
-            <sourceEncoding>windows-1252</sourceEncoding>
+            <sourceEncoding>windows-1251</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>.</sourceRootElem>

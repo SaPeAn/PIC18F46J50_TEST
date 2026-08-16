@@ -23,9 +23,16 @@ void RTC_init(void)
   delay_ms(50);
 }
 
+/*
+ * Register window layout (datasheet Table 17-3): the RTCPTR value decrements
+ * only when RTCVALH is accessed, so RTCVALL of each pair must be touched
+ * first. Pairs are --/YEAR, MONTH/DAY, WEEKDAY/HOURS, MINUTES/SECONDS.
+ * Values are BCD - use DECtoBCD() when filling the structure.
+ */
 void write_RTCC(RTCC_VAL * const me)
 {
-  InterruptDis();
+  CRIT_DECL();
+  CRIT_ENTER();
   unlock_RTCC();
   off_RTCC();
 
@@ -48,15 +55,18 @@ void write_RTCC(RTCC_VAL * const me)
 
   on_RTCC();
   lock_RTCC();
-  InterruptEn();
+  CRIT_EXIT();
 }
 
 /*Read RTCC from RTCPTR*/
 void read_RTCC(RTCC_VAL * const me)
 {
+  CRIT_DECL();
+  // Interrupts off first: RTCSYNC only tells us the rollover window is closed
+  // right now, and an interrupt between the check and the reads could land us
+  // in the middle of one. RTCWREN is not needed for reading.
+  CRIT_ENTER();
   while(RTCSYNC);     //check if safe to access registers wait 'till zero
-  InterruptDis();
-  unlock_RTCC();
 
   RTCCFGbits.RTCPTR1 = 1;     //Point to Year
   RTCCFGbits.RTCPTR0 = 1;
@@ -73,6 +83,5 @@ void read_RTCC(RTCC_VAL * const me)
   me->SECONDS = RTCVALL;
   me->MINUTES = RTCVALH;
 
-  lock_RTCC();
-  InterruptEn();
+  CRIT_EXIT();
 }

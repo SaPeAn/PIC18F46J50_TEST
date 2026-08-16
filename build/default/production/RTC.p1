@@ -33,14 +33,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14287
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 14287: extern volatile T1CONbits_t T1CONbits __attribute__((address(0xFCD)));
 [v _T1CONbits `VS653 ~T0 @X0 0 e@4045 ]
-"37 ./system.h
-[; ;./system.h: 37: void delay_ms(uint32_t del);
+"60 ./system.h
+[; ;./system.h: 60: void delay_ms(uint32_t del);
 [v _delay_ms `(v ~T0 @X0 0 ef1`ul ]
-"9 ./RTC.h
-[; ;./RTC.h: 9: typedef struct{
+"11 ./RTC.h
+[; ;./RTC.h: 11: typedef struct{
 [s S772 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S772 . YEAR MONTH DAY WEEKDAY HOURS MINUTES SECONDS unknown ]
-[v F5911 `*S772 ~T0 @X0 1 t ]
+[v F5906 `*S772 ~T0 @X0 1 t ]
 "16014 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 16014:     struct {
 [s S748 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -86,7 +86,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19287
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 19287: extern volatile __bit RTCWREN __attribute__((address(0x79FD)));
 [v _RTCWREN `Vb ~T0 @X0 0 e@31229 ]
-[v F5915 `*S772 ~T0 @X0 1 t ]
+[v F5911 `*S772 ~T0 @X0 1 t ]
 "19281
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 19281: extern volatile __bit RTCSYNC __attribute__((address(0x79FC)));
 [v _RTCSYNC `Vb ~T0 @X0 0 e@31228 ]
@@ -999,139 +999,161 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;RTC.c: 24: }
 [e :UE 774 ]
 }
-"26
-[; ;RTC.c: 26: void write_RTCC(RTCC_VAL * const me)
+"32
+[; ;RTC.c: 32: void write_RTCC(RTCC_VAL * const me)
 [v _write_RTCC `(v ~T0 @X0 1 ef1`C*S772 ]
-"27
-[; ;RTC.c: 27: {
+"33
+[; ;RTC.c: 33: {
 {
 [e :U _write_RTCC ]
-[v F5913 `*S772 ~T0 @X0 1 t ]
-"26
-[; ;RTC.c: 26: void write_RTCC(RTCC_VAL * const me)
-[v _me `C*S772 ~T0 @X0 1 r1 ]
-"27
-[; ;RTC.c: 27: {
-[f ]
-"28
-[; ;RTC.c: 28:   INTCONbits.GIE = 0;
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"29
-[; ;RTC.c: 29:   unlock_RTCC();
-[e ( _unlock_RTCC ..  ]
-"30
-[; ;RTC.c: 30:   RTCEN = 0;
-[e = _RTCEN -> -> 0 `i `b ]
+[v F5908 `*S772 ~T0 @X0 1 t ]
 "32
-[; ;RTC.c: 32:   RTCOE = 0;
-[e = _RTCOE -> -> 0 `i `b ]
+[; ;RTC.c: 32: void write_RTCC(RTCC_VAL * const me)
+[v _me `C*S772 ~T0 @X0 1 r1 ]
+"33
+[; ;RTC.c: 33: {
+[f ]
 "34
-[; ;RTC.c: 34:   RTCCFGbits.RTCPTR1 = 1;
-[e = . . _RTCCFGbits 0 1 -> -> 1 `i `uc ]
+[; ;RTC.c: 34:   uint8_t gie_state;
+[v _gie_state `uc ~T0 @X0 1 a ]
 "35
-[; ;RTC.c: 35:   RTCCFGbits.RTCPTR0 = 1;
-[e = . . _RTCCFGbits 0 0 -> -> 1 `i `uc ]
+[; ;RTC.c: 35:   do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+[e :U 778 ]
+{
+[e = _gie_state . . _INTCONbits 1 7 ]
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+}
+[e :U 777 ]
+"36
+[; ;RTC.c: 36:   unlock_RTCC();
+[e ( _unlock_RTCC ..  ]
 "37
-[; ;RTC.c: 37:   RTCVALL = me->YEAR;
-[e = _RTCVALL . *U _me 0 ]
-"38
-[; ;RTC.c: 38:   RTCVALH = me->unknown;
-[e = _RTCVALH . *U _me 7 ]
-"40
-[; ;RTC.c: 40:   RTCVALL = me->DAY;
-[e = _RTCVALL . *U _me 2 ]
+[; ;RTC.c: 37:   RTCEN = 0;
+[e = _RTCEN -> -> 0 `i `b ]
+"39
+[; ;RTC.c: 39:   RTCOE = 0;
+[e = _RTCOE -> -> 0 `i `b ]
 "41
-[; ;RTC.c: 41:   RTCVALH = me->MONTH;
-[e = _RTCVALH . *U _me 1 ]
-"43
-[; ;RTC.c: 43:   RTCVALL = me->HOURS;
-[e = _RTCVALL . *U _me 4 ]
+[; ;RTC.c: 41:   RTCCFGbits.RTCPTR1 = 1;
+[e = . . _RTCCFGbits 0 1 -> -> 1 `i `uc ]
+"42
+[; ;RTC.c: 42:   RTCCFGbits.RTCPTR0 = 1;
+[e = . . _RTCCFGbits 0 0 -> -> 1 `i `uc ]
 "44
-[; ;RTC.c: 44:   RTCVALH = me->WEEKDAY;
-[e = _RTCVALH . *U _me 3 ]
-"46
-[; ;RTC.c: 46:   RTCVALL = me->SECONDS;
-[e = _RTCVALL . *U _me 6 ]
+[; ;RTC.c: 44:   RTCVALL = me->YEAR;
+[e = _RTCVALL . *U _me 0 ]
+"45
+[; ;RTC.c: 45:   RTCVALH = me->unknown;
+[e = _RTCVALH . *U _me 7 ]
 "47
-[; ;RTC.c: 47:   RTCVALH = me->MINUTES;
-[e = _RTCVALH . *U _me 5 ]
-"49
-[; ;RTC.c: 49:   RTCEN = 1;
-[e = _RTCEN -> -> 1 `i `b ]
+[; ;RTC.c: 47:   RTCVALL = me->DAY;
+[e = _RTCVALL . *U _me 2 ]
+"48
+[; ;RTC.c: 48:   RTCVALH = me->MONTH;
+[e = _RTCVALH . *U _me 1 ]
 "50
-[; ;RTC.c: 50:   RTCWREN = 0;
-[e = _RTCWREN -> -> 0 `i `b ]
+[; ;RTC.c: 50:   RTCVALL = me->HOURS;
+[e = _RTCVALL . *U _me 4 ]
 "51
-[; ;RTC.c: 51:   INTCONbits.GIE = 1;
+[; ;RTC.c: 51:   RTCVALH = me->WEEKDAY;
+[e = _RTCVALH . *U _me 3 ]
+"53
+[; ;RTC.c: 53:   RTCVALL = me->SECONDS;
+[e = _RTCVALL . *U _me 6 ]
+"54
+[; ;RTC.c: 54:   RTCVALH = me->MINUTES;
+[e = _RTCVALH . *U _me 5 ]
+"56
+[; ;RTC.c: 56:   RTCEN = 1;
+[e = _RTCEN -> -> 1 `i `b ]
+"57
+[; ;RTC.c: 57:   RTCWREN = 0;
+[e = _RTCWREN -> -> 0 `i `b ]
+"58
+[; ;RTC.c: 58:   do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+[e :U 781 ]
+{
+[e $ ! != -> _gie_state `i -> 0 `i 782  ]
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"52
-[; ;RTC.c: 52: }
+[e :U 782 ]
+}
+[e :U 780 ]
+"59
+[; ;RTC.c: 59: }
 [e :UE 775 ]
 }
-"55
-[; ;RTC.c: 55: void read_RTCC(RTCC_VAL * const me)
+"62
+[; ;RTC.c: 62: void read_RTCC(RTCC_VAL * const me)
 [v _read_RTCC `(v ~T0 @X0 1 ef1`C*S772 ]
-"56
-[; ;RTC.c: 56: {
+"63
+[; ;RTC.c: 63: {
 {
 [e :U _read_RTCC ]
-[v F5917 `*S772 ~T0 @X0 1 t ]
-"55
-[; ;RTC.c: 55: void read_RTCC(RTCC_VAL * const me)
-[v _me `C*S772 ~T0 @X0 1 r1 ]
-"56
-[; ;RTC.c: 56: {
-[f ]
-"57
-[; ;RTC.c: 57:   while(RTCSYNC);
-[e $U 777  ]
-[e :U 778 ]
-[e :U 777 ]
-[e $ _RTCSYNC 778  ]
-[e :U 779 ]
-"58
-[; ;RTC.c: 58:   INTCONbits.GIE = 0;
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"59
-[; ;RTC.c: 59:   unlock_RTCC();
-[e ( _unlock_RTCC ..  ]
-"61
-[; ;RTC.c: 61:   RTCCFGbits.RTCPTR1 = 1;
-[e = . . _RTCCFGbits 0 1 -> -> 1 `i `uc ]
+[v F5913 `*S772 ~T0 @X0 1 t ]
 "62
-[; ;RTC.c: 62:   RTCCFGbits.RTCPTR0 = 1;
-[e = . . _RTCCFGbits 0 0 -> -> 1 `i `uc ]
+[; ;RTC.c: 62: void read_RTCC(RTCC_VAL * const me)
+[v _me `C*S772 ~T0 @X0 1 r1 ]
+"63
+[; ;RTC.c: 63: {
+[f ]
 "64
-[; ;RTC.c: 64:   me->YEAR = RTCVALL;
-[e = . *U _me 0 _RTCVALL ]
-"65
-[; ;RTC.c: 65:   me->unknown = RTCVALH;
-[e = . *U _me 7 _RTCVALH ]
-"67
-[; ;RTC.c: 67:   me->DAY = RTCVALL;
-[e = . *U _me 2 _RTCVALL ]
+[; ;RTC.c: 64:   uint8_t gie_state;
+[v _gie_state `uc ~T0 @X0 1 a ]
 "68
-[; ;RTC.c: 68:   me->MONTH = RTCVALH;
-[e = . *U _me 1 _RTCVALH ]
-"70
-[; ;RTC.c: 70:   me->HOURS = RTCVALL;
-[e = . *U _me 4 _RTCVALL ]
+[; ;RTC.c: 68:   do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+[e :U 786 ]
+{
+[e = _gie_state . . _INTCONbits 1 7 ]
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+}
+[e :U 785 ]
+"69
+[; ;RTC.c: 69:   while(RTCSYNC);
+[e $U 787  ]
+[e :U 788 ]
+[e :U 787 ]
+[e $ _RTCSYNC 788  ]
+[e :U 789 ]
 "71
-[; ;RTC.c: 71:   me->WEEKDAY = RTCVALH;
-[e = . *U _me 3 _RTCVALH ]
-"73
-[; ;RTC.c: 73:   me->SECONDS = RTCVALL;
-[e = . *U _me 6 _RTCVALL ]
+[; ;RTC.c: 71:   RTCCFGbits.RTCPTR1 = 1;
+[e = . . _RTCCFGbits 0 1 -> -> 1 `i `uc ]
+"72
+[; ;RTC.c: 72:   RTCCFGbits.RTCPTR0 = 1;
+[e = . . _RTCCFGbits 0 0 -> -> 1 `i `uc ]
 "74
-[; ;RTC.c: 74:   me->MINUTES = RTCVALH;
-[e = . *U _me 5 _RTCVALH ]
-"76
-[; ;RTC.c: 76:   RTCWREN = 0;
-[e = _RTCWREN -> -> 0 `i `b ]
+[; ;RTC.c: 74:   me->YEAR = RTCVALL;
+[e = . *U _me 0 _RTCVALL ]
+"75
+[; ;RTC.c: 75:   me->unknown = RTCVALH;
+[e = . *U _me 7 _RTCVALH ]
 "77
-[; ;RTC.c: 77:   INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;RTC.c: 77:   me->DAY = RTCVALL;
+[e = . *U _me 2 _RTCVALL ]
 "78
-[; ;RTC.c: 78: }
-[e :UE 776 ]
+[; ;RTC.c: 78:   me->MONTH = RTCVALH;
+[e = . *U _me 1 _RTCVALH ]
+"80
+[; ;RTC.c: 80:   me->HOURS = RTCVALL;
+[e = . *U _me 4 _RTCVALL ]
+"81
+[; ;RTC.c: 81:   me->WEEKDAY = RTCVALH;
+[e = . *U _me 3 _RTCVALH ]
+"83
+[; ;RTC.c: 83:   me->SECONDS = RTCVALL;
+[e = . *U _me 6 _RTCVALL ]
+"84
+[; ;RTC.c: 84:   me->MINUTES = RTCVALH;
+[e = . *U _me 5 _RTCVALH ]
+"86
+[; ;RTC.c: 86:   do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+[e :U 792 ]
+{
+[e $ ! != -> _gie_state `i -> 0 `i 793  ]
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[e :U 793 ]
+}
+[e :U 791 ]
+"87
+[; ;RTC.c: 87: }
+[e :UE 783 ]
 }

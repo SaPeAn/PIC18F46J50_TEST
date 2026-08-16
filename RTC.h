@@ -3,8 +3,10 @@
 
 #include <xc.h> 
 
-#define BCDtoDEC(BCDByte)     (((BCDByte & 0xF0) >> 4) * 10) + (BCDByte & 0x0F)
-#define DECtoBCD(DECByte)     (((DECByte / 10) << 4) | (DECByte % 10))
+// Parentheses matter here: without them BCDtoDEC(x) * 2 and DECtoBCD(a + b)
+// silently expand into something else.
+#define BCDtoDEC(BCDByte)     (((((BCDByte) & 0xF0) >> 4) * 10) + ((BCDByte) & 0x0F))
+#define DECtoBCD(DECByte)     (((((DECByte) / 10) << 4) | ((DECByte) % 10)))
 
 typedef struct{
     uint8_t YEAR;
@@ -21,5 +23,5 @@ void write_RTCC(RTCC_VAL * const me);
 void read_RTCC(RTCC_VAL * const me);
 void RTC_init(void);
 
-#endif	/* XC_HEADER_TEMPLATE_H */
+#endif	/* RTC_H */
 

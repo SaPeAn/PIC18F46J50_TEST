@@ -2,25 +2,25 @@
 #include "ringbuf.h"
 
 /* ------------------------------------------------------------------------ *
- *  РљРѕРЅСЃС‚Р°РЅС‚С‹ РїСЂРѕС‚РѕРєРѕР»Р° USB
+ *  Константы протокола USB
  * ------------------------------------------------------------------------ */
 
 #define EP0_SIZE                8
 #define EP1_SIZE                8
 
-// BDnSTAT: Р±РёС‚С‹, РєРѕРіРґР° Р±СѓС„РµСЂРѕРј РІР»Р°РґРµРµС‚ SIE (UOWN = 1)
+// BDnSTAT: биты, когда буфером владеет SIE (UOWN = 1)
 #define _UOWN                   0x80
 #define _DTS                    0x40
 #define _DTSEN                  0x08
 #define _BSTALL                 0x04
 
-// BDnSTAT: PID С‚РѕРєРµРЅР°, РєРѕРіРґР° Р±СѓС„РµСЂ РІРµСЂРЅСѓР»СЃСЏ РїСЂРѕС†РµСЃСЃРѕСЂСѓ (UOWN = 0)
+// BDnSTAT: PID токена, когда буфер вернулся процессору (UOWN = 0)
 #define BD_PID(stat)            (((stat) >> 2) & 0x0F)
 #define PID_OUT                 0x01
 #define PID_IN                  0x09
 #define PID_SETUP               0x0D
 
-// РЎС‚Р°РЅРґР°СЂС‚РЅС‹Рµ Р·Р°РїСЂРѕСЃС‹
+// Стандартные запросы
 #define REQ_GET_STATUS          0x00
 #define REQ_CLEAR_FEATURE       0x01
 #define REQ_SET_FEATURE         0x03
@@ -31,7 +31,7 @@
 #define REQ_GET_INTERFACE       0x0A
 #define REQ_SET_INTERFACE       0x0B
 
-// Р—Р°РїСЂРѕСЃС‹ РєР»Р°СЃСЃР° HID
+// Запросы класса HID
 #define HID_GET_REPORT          0x01
 #define HID_GET_IDLE            0x02
 #define HID_GET_PROTOCOL        0x03
@@ -39,7 +39,7 @@
 #define HID_SET_IDLE            0x0A
 #define HID_SET_PROTOCOL        0x0B
 
-// РўРёРїС‹ РґРµСЃРєСЂРёРїС‚РѕСЂРѕРІ
+// Типы дескрипторов
 #define DSC_DEVICE              0x01
 #define DSC_CONFIG              0x02
 #define DSC_STRING              0x03
@@ -49,38 +49,38 @@
 #define REQ_TYPE(bm)            ((bm) & 0x60)   // 0x00 - standard, 0x20 - class
 #define REQ_DIR_IN(bm)          ((bm) & 0x80)
 
-// РЎРѕСЃС‚РѕСЏРЅРёСЏ СѓСЃС‚СЂРѕР№СЃС‚РІР°
+// Состояния устройства
 #define ST_DETACHED             0
 #define ST_DEFAULT              1
 #define ST_ADDRESSED            2
 #define ST_CONFIGURED           3
 
 /*
- * РЎС‚Р°РґРёРё СѓРїСЂР°РІР»СЏСЋС‰РµР№ РїРµСЂРµРґР°С‡Рё РЅР° EP0.
+ * Стадии управляющей передачи на EP0.
  *
- * РРЅРІР°СЂРёР°РЅС‚: BD EP0 OUT РІР·РІРѕРґРёС‚СЃСЏ СЂРѕРІРЅРѕ РѕРґРёРЅ СЂР°Р· Р·Р° РїРµСЂРµРґР°С‡Сѓ вЂ” РІ РєРѕРЅС†Рµ
- * ep0_setup() (РґР»СЏ СЃС‚Р°РґРёР№ IN_DATA Рё STATUS_IN) Р»РёР±Рѕ СЃР°РјРѕР№ СЃС‚Р°РґРёРµР№ OUT_DATA,
- * Рё РґР°Р»РµРµ РїРµСЂРµРІР·РІРѕРґРёС‚СЃСЏ С‚РѕР»СЊРєРѕ РїРѕСЃР»Рµ С‚РѕРіРѕ, РєР°Рє РѕС‡РµСЂРµРґРЅРѕР№ РїР°РєРµС‚ OUT СЂРµР°Р»СЊРЅРѕ
- * РїСЂРёРЅСЏС‚. РџРѕРІС‚РѕСЂРЅРѕРµ РІР·РІРµРґРµРЅРёРµ Р±СѓС„РµСЂР°, РєРѕС‚РѕСЂС‹Рј СѓР¶Рµ РІР»Р°РґРµРµС‚ SIE, Р»РѕРјР°РµС‚
- * СѓРїСЂР°РІР»СЏСЋС‰РёР№ РєР°РЅР°Р», РїРѕСЌС‚РѕРјСѓ СЃС‚Р°С‚СѓСЃРЅС‹Рµ СЃС‚Р°РґРёРё СЂР°Р·РІРµРґРµРЅС‹ СЏРІРЅРѕ.
+ * Инвариант: BD EP0 OUT взводится ровно один раз за передачу — в конце
+ * ep0_setup() (для стадий IN_DATA и STATUS_IN) либо самой стадией OUT_DATA,
+ * и далее перевзводится только после того, как очередной пакет OUT реально
+ * принят. Повторное взведение буфера, которым уже владеет SIE, ломает
+ * управляющий канал, поэтому статусные стадии разведены явно.
  */
 #define CTRL_IDLE               0
-#define CTRL_IN_DATA            1   // РѕС‚РґР°С‘Рј РґР°РЅРЅС‹Рµ С…РѕСЃС‚Сѓ
-#define CTRL_OUT_DATA           2   // РїСЂРёРЅРёРјР°РµРј РґР°РЅРЅС‹Рµ РѕС‚ С…РѕСЃС‚Р°
-#define CTRL_STATUS_IN          3   // РЅР°С€ РїСѓСЃС‚РѕР№ IN-РїР°РєРµС‚ РІР·РІРµРґС‘РЅ РєР°Рє СЃС‚Р°С‚СѓСЃ
-#define CTRL_STATUS_OUT         4   // РґР°РЅРЅС‹Рµ РѕС‚РґР°РЅС‹, Р¶РґС‘Рј СЃС‚Р°С‚СѓСЃРЅС‹Р№ OUT РѕС‚ С…РѕСЃС‚Р°
+#define CTRL_IN_DATA            1   // отдаём данные хосту
+#define CTRL_OUT_DATA           2   // принимаем данные от хоста
+#define CTRL_STATUS_IN          3   // наш пустой IN-пакет взведён как статус
+#define CTRL_STATUS_OUT         4   // данные отданы, ждём статусный OUT от хоста
 
-// РРЅРґРµРєСЃС‹ РІ С‚Р°Р±Р»РёС†Рµ РґРµСЃРєСЂРёРїС‚РѕСЂРѕРІ Р±СѓС„РµСЂРѕРІ (СЂРµР¶РёРј Р±РµР· ping-pong, PPB = 00)
+// Индексы в таблице дескрипторов буферов (режим без ping-pong, PPB = 00)
 #define BD_EP0_OUT              0
 #define BD_EP0_IN               1
 #define BD_EP1_OUT              2
 #define BD_EP1_IN               3
 
-// Р¤Р»Р°Рі "СЃРёРјРІРѕР» С‚СЂРµР±СѓРµС‚ Shift" РІ С‚Р°Р±Р»РёС†Рµ ASCII -> HID Usage ID
+// Флаг "символ требует Shift" в таблице ASCII -> HID Usage ID
 #define KBD_SHIFT               0x80
 
 /* ------------------------------------------------------------------------ *
- *  РџР°РјСЏС‚СЊ USB (Р±Р°РЅРєРё 4..7, 0x400...0x7FF)
+ *  Память USB (банки 4..7, 0x400...0x7FF)
  * ------------------------------------------------------------------------ */
 
 typedef struct {
@@ -90,20 +90,20 @@ typedef struct {
   uint8_t ADRH;
 } BD_t;
 
-// Р•СЃР»Рё РёСЃРїРѕР»СЊР·СѓРµРјР°СЏ РІРµСЂСЃРёСЏ XC8 РЅРµ РїРѕРЅРёРјР°РµС‚ __at(), Р·Р°РјРµРЅРёС‚Рµ РЅР° "@ 0x0400" Рё С‚.Рґ.
+// Если используемая версия XC8 не понимает __at(), замените на "@ 0x0400" и т.д.
 volatile BD_t   BDT[4]                 __at(0x0400);
 volatile uint8_t ep0_out_buf[EP0_SIZE] __at(0x0410);
 volatile uint8_t ep0_in_buf[EP0_SIZE]  __at(0x0418);
 volatile uint8_t ep1_in_buf[EP1_SIZE]  __at(0x0420);
 
 /* ------------------------------------------------------------------------ *
- *  Р”РµСЃРєСЂРёРїС‚РѕСЂС‹
+ *  Дескрипторы
  * ------------------------------------------------------------------------ */
 
 /*
- * Р’РќРРњРђРќРР•: VID/PID РЅРёР¶Рµ вЂ” РґРµРјРѕРЅСЃС‚СЂР°С†РёРѕРЅРЅС‹Рµ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂС‹ Microchip РёР· MLA
- * (РґР»СЏ РѕС‚Р»Р°РґРѕС‡РЅС‹С… РїР»Р°С‚). Р”Р»СЏ Р»СЋР±РѕРіРѕ СЃРµСЂРёР№РЅРѕРіРѕ РёР·РґРµР»РёСЏ РёС… РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ РЅСѓР¶РЅРѕ
- * Р·Р°РјРµРЅРёС‚СЊ РЅР° СЃРѕР±СЃС‚РІРµРЅРЅС‹Рµ, РїРѕР»СѓС‡РµРЅРЅС‹Рµ РІ USB-IF.
+ * ВНИМАНИЕ: VID/PID ниже — демонстрационные идентификаторы Microchip из MLA
+ * (для отладочных плат). Для любого серийного изделия их обязательно нужно
+ * заменить на собственные, полученные в USB-IF.
  */
 #define USB_VID                 0x04D8
 #define USB_PID                 0x003F
@@ -112,7 +112,7 @@ static const uint8_t dev_desc[18] = {
   18,                     // bLength
   DSC_DEVICE,             // bDescriptorType
   0x00, 0x02,             // bcdUSB = 2.00
-  0x00,                   // bDeviceClass  (РѕРїСЂРµРґРµР»СЏРµС‚СЃСЏ РёРЅС‚РµСЂС„РµР№СЃРѕРј)
+  0x00,                   // bDeviceClass  (определяется интерфейсом)
   0x00,                   // bDeviceSubClass
   0x00,                   // bDeviceProtocol
   EP0_SIZE,               // bMaxPacketSize0
@@ -121,7 +121,7 @@ static const uint8_t dev_desc[18] = {
   0x00, 0x01,             // bcdDevice = 1.00
   0x01,                   // iManufacturer
   0x02,                   // iProduct
-  0x00,                   // iSerialNumber (РЅРµС‚)
+  0x00,                   // iSerialNumber (нет)
   0x01                    // bNumConfigurations
 };
 
@@ -135,8 +135,8 @@ static const uint8_t cfg_desc[CFG_TOTAL_LEN] = {
   0x01,                   // bNumInterfaces
   0x01,                   // bConfigurationValue
   0x00,                   // iConfiguration
-  0x80,                   // bmAttributes: РїРёС‚Р°РЅРёРµ РѕС‚ С€РёРЅС‹, Р±РµР· remote wakeup
-  50,                     // bMaxPower = 100 РјРђ
+  0x80,                   // bmAttributes: питание от шины, без remote wakeup
+  50,                     // bMaxPower = 100 мА
 
   /* --- Interface ----------------------------------------------------- */
   9, 0x04,
@@ -161,14 +161,14 @@ static const uint8_t cfg_desc[CFG_TOTAL_LEN] = {
   0x81,                   // bEndpointAddress = EP1 IN
   0x03,                   // bmAttributes = Interrupt
   EP1_SIZE, 0x00,         // wMaxPacketSize
-  10                      // bInterval = 10 РјСЃ (~50 СЃРёРјРІ/СЃ СЃ СѓС‡С‘С‚РѕРј
-                          //              РЅР°Р¶Р°С‚РёСЏ + РѕС‚РїСѓСЃРєР°РЅРёСЏ)
+  10                      // bInterval = 10 мс (~50 симв/с с учётом
+                          //              нажатия + отпускания)
 };
 
-// РЎРјРµС‰РµРЅРёРµ HID-РґРµСЃРєСЂРёРїС‚РѕСЂР° РІРЅСѓС‚СЂРё cfg_desc (РґР»СЏ GET_DESCRIPTOR type 0x21)
+// Смещение HID-дескриптора внутри cfg_desc (для GET_DESCRIPTOR type 0x21)
 #define HID_DESC_OFFSET  18
 
-/* РЎС‚Р°РЅРґР°СЂС‚РЅС‹Р№ boot-РѕС‚С‡С‘С‚ РєР»Р°РІРёР°С‚СѓСЂС‹: 8 Р±Р°Р№С‚ IN, 1 Р±Р°Р№С‚ OUT (СЃРІРµС‚РѕРґРёРѕРґС‹). */
+/* Стандартный boot-отчёт клавиатуры: 8 байт IN, 1 байт OUT (светодиоды). */
 static const uint8_t report_desc[REPORT_DESC_LEN] = {
   0x05, 0x01,             // Usage Page (Generic Desktop)
   0x09, 0x06,             // Usage (Keyboard)
@@ -180,19 +180,19 @@ static const uint8_t report_desc[REPORT_DESC_LEN] = {
   0x25, 0x01,             //   Logical Maximum (1)
   0x75, 0x01,             //   Report Size (1)
   0x95, 0x08,             //   Report Count (8)
-  0x81, 0x02,             //   Input (Data,Var,Abs)   -- Р±Р°Р№С‚ РјРѕРґРёС„РёРєР°С‚РѕСЂРѕРІ
+  0x81, 0x02,             //   Input (Data,Var,Abs)   -- байт модификаторов
   0x95, 0x01,             //   Report Count (1)
   0x75, 0x08,             //   Report Size (8)
-  0x81, 0x01,             //   Input (Cnst)           -- Р·Р°СЂРµР·РµСЂРІРёСЂРѕРІР°РЅРЅС‹Р№ Р±Р°Р№С‚
+  0x81, 0x01,             //   Input (Cnst)           -- зарезервированный байт
   0x95, 0x05,             //   Report Count (5)
   0x75, 0x01,             //   Report Size (1)
   0x05, 0x08,             //   Usage Page (LEDs)
   0x19, 0x01,             //   Usage Minimum (Num Lock)
   0x29, 0x05,             //   Usage Maximum (Kana)
-  0x91, 0x02,             //   Output (Data,Var,Abs)  -- СЃРІРµС‚РѕРґРёРѕРґС‹
+  0x91, 0x02,             //   Output (Data,Var,Abs)  -- светодиоды
   0x95, 0x01,             //   Report Count (1)
   0x75, 0x03,             //   Report Size (3)
-  0x91, 0x01,             //   Output (Cnst)          -- РІС‹СЂР°РІРЅРёРІР°РЅРёРµ
+  0x91, 0x01,             //   Output (Cnst)          -- выравнивание
   0x95, 0x06,             //   Report Count (6)
   0x75, 0x08,             //   Report Size (8)
   0x15, 0x00,             //   Logical Minimum (0)
@@ -200,7 +200,7 @@ static const uint8_t report_desc[REPORT_DESC_LEN] = {
   0x05, 0x07,             //   Usage Page (Keyboard/Keypad)
   0x19, 0x00,             //   Usage Minimum (0)
   0x29, 0x65,             //   Usage Maximum (101)
-  0x81, 0x00,             //   Input (Data,Ary)       -- 6 РєРѕРґРѕРІ РєР»Р°РІРёС€
+  0x81, 0x00,             //   Input (Data,Ary)       -- 6 кодов клавиш
   0xC0                    // End Collection
 };
 
@@ -219,8 +219,8 @@ static const uint8_t str2_desc[34] = {                              // "PIC HID 
 };
 
 /* ------------------------------------------------------------------------ *
- *  ASCII -> HID Usage ID (СЂР°СЃРєР»Р°РґРєР° US). РЎС‚Р°СЂС€РёР№ Р±РёС‚ = С‚СЂРµР±СѓРµС‚СЃСЏ Shift.
- *  Р—РЅР°С‡РµРЅРёРµ 0 РѕР·РЅР°С‡Р°РµС‚ "СЃРёРјРІРѕР» РЅРµ РїРµС‡Р°С‚Р°РµС‚СЃСЏ" Рё РјРѕР»С‡Р° РїСЂРѕРїСѓСЃРєР°РµС‚СЃСЏ.
+ *  ASCII -> HID Usage ID (раскладка US). Старший бит = требуется Shift.
+ *  Значение 0 означает "символ не печатается" и молча пропускается.
  * ------------------------------------------------------------------------ */
 static const uint8_t ascii2usage[128] = {
 /* 0x00 */ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -242,31 +242,31 @@ static const uint8_t ascii2usage[128] = {
 };
 
 /* ------------------------------------------------------------------------ *
- *  РЎРѕСЃС‚РѕСЏРЅРёРµ РјРѕРґСѓР»СЏ
+ *  Состояние модуля
  * ------------------------------------------------------------------------ */
 
 static volatile uint8_t usb_state    = ST_DETACHED;
 static volatile uint8_t kbd_leds     = 0;
 
-// РЈРїСЂР°РІР»СЏСЋС‰Р°СЏ РїРµСЂРµРґР°С‡Р° РЅР° EP0
+// Управляющая передача на EP0
 static uint8_t  ctrl_stage  = CTRL_IDLE;
-static const uint8_t* ctrl_rom = 0;   // РёСЃС‚РѕС‡РЅРёРє РґР°РЅРЅС‹С… РІРѕ С„Р»РµС€-РїР°РјСЏС‚Рё
-static uint8_t  ctrl_ram[8];          // РёСЃС‚РѕС‡РЅРёРє РґР°РЅРЅС‹С… РІ РћР—РЈ
-static uint8_t  ctrl_in_rom = 0;      // 1 - С‡РёС‚Р°РµРј РёР· ctrl_rom, 0 - РёР· ctrl_ram
+static const uint8_t* ctrl_rom = 0;   // источник данных во флеш-памяти
+static uint8_t  ctrl_ram[8];          // источник данных в ОЗУ
+static uint8_t  ctrl_in_rom = 0;      // 1 - читаем из ctrl_rom, 0 - из ctrl_ram
 static uint16_t ctrl_pos    = 0;
 static uint16_t ctrl_len    = 0;
-static uint8_t  ctrl_zlp    = 0;      // РЅСѓР¶РµРЅ Р·Р°РІРµСЂС€Р°СЋС‰РёР№ РїСѓСЃС‚РѕР№ РїР°РєРµС‚
+static uint8_t  ctrl_zlp    = 0;      // нужен завершающий пустой пакет
 static uint8_t  ctrl_dts    = 1;
-static uint8_t  pending_addr = 0;     // Р°РґСЂРµСЃ, РїСЂРёРјРµРЅСЏРµРјС‹Р№ РїРѕСЃР»Рµ СЃС‚Р°С‚СѓСЃРЅРѕР№ СЃС‚Р°РґРёРё
+static uint8_t  pending_addr = 0;     // адрес, применяемый после статусной стадии
 
-// РћС‡РµСЂРµРґСЊ "РЅР°Р¶Р°С‚РёР№": РїРѕ 2 Р±Р°Р№С‚Р° РЅР° СЌР»РµРјРµРЅС‚ вЂ” {usage, modifiers}
+// Очередь "нажатий": по 2 байта на элемент — {usage, modifiers}
 static RINGBUF_t kbd_rb;
 static uint8_t   kbd_rb_mem[USB_KBD_BUFLEN * 2];
-static uint8_t   kbd_release = 0;     // СЃР»РµРґСѓСЋС‰РёР№ РѕС‚С‡С‘С‚ вЂ” "РІСЃРµ РєР»Р°РІРёС€Рё РѕС‚РїСѓС‰РµРЅС‹"
+static uint8_t   kbd_release = 0;     // следующий отчёт — "все клавиши отпущены"
 static uint8_t   kbd_dts     = 0;
 
 /* ------------------------------------------------------------------------ *
- *  РќРёР·РєРѕСѓСЂРѕРІРЅРµРІС‹Рµ РїРѕРјРѕС‰РЅРёРєРё
+ *  Низкоуровневые помощники
  * ------------------------------------------------------------------------ */
 
 static void bd_set_addr(uint8_t idx, volatile uint8_t* buf)
@@ -276,15 +276,15 @@ static void bd_set_addr(uint8_t idx, volatile uint8_t* buf)
   BDT[idx].ADRH = (uint8_t)(a >> 8);
 }
 
-/* РџРѕРґСЃС‚Р°РІРёС‚СЊ EP0 OUT РїРѕРґ РїСЂРёС‘Рј СЃР»РµРґСѓСЋС‰РµРіРѕ РїР°РєРµС‚Р° (SETUP Р»РёР±Рѕ СЃС‚Р°С‚СѓСЃ). */
+/* Подставить EP0 OUT под приём следующего пакета (SETUP либо статус). */
 static void ep0_arm_out(void)
 {
   BDT[BD_EP0_OUT].CNT  = EP0_SIZE;
   bd_set_addr(BD_EP0_OUT, ep0_out_buf);
-  BDT[BD_EP0_OUT].STAT = _UOWN;      // Р±РµР· DTSEN: РїСЂРёРЅРёРјР°РµРј Р»СЋР±РѕР№ toggle
+  BDT[BD_EP0_OUT].STAT = _UOWN;      // без DTSEN: принимаем любой toggle
 }
 
-/* РћС‚РїСЂР°РІРёС‚СЊ РѕС‡РµСЂРµРґРЅСѓСЋ РїРѕСЂС†РёСЋ РґР°РЅРЅС‹С… СѓРїСЂР°РІР»СЏСЋС‰РµР№ РїРµСЂРµРґР°С‡Рё. */
+/* Отправить очередную порцию данных управляющей передачи. */
 static void ep0_send_chunk(void)
 {
   uint8_t n = (ctrl_len > EP0_SIZE) ? EP0_SIZE : (uint8_t)ctrl_len;
@@ -301,7 +301,7 @@ static void ep0_send_chunk(void)
   ctrl_dts ^= 1;
 }
 
-/* РќР°С‡Р°С‚СЊ СЃС‚Р°РґРёСЋ РґР°РЅРЅС‹С… IN (РёСЃС‚РѕС‡РЅРёРє вЂ” С„Р»РµС€). */
+/* Начать стадию данных IN (источник — флеш). */
 static void ctrl_send_rom(const uint8_t* p, uint16_t len, uint16_t wLength)
 {
   if(len > wLength) len = wLength;
@@ -309,36 +309,36 @@ static void ctrl_send_rom(const uint8_t* p, uint16_t len, uint16_t wLength)
   ctrl_in_rom = 1;
   ctrl_pos    = 0;
   ctrl_len    = len;
-  // Р•СЃР»Рё РѕС‚РґР°С‘Рј РјРµРЅСЊС€Рµ, С‡РµРј РїСЂРѕСЃРёР» С…РѕСЃС‚, Рё РґР»РёРЅР° РєСЂР°С‚РЅР° СЂР°Р·РјРµСЂСѓ РїР°РєРµС‚Р°,
-  // РїРµСЂРµРґР°С‡Сѓ РЅСѓР¶РЅРѕ Р·Р°РІРµСЂС€РёС‚СЊ РїСѓСЃС‚С‹Рј РїР°РєРµС‚РѕРј.
+  // Если отдаём меньше, чем просил хост, и длина кратна размеру пакета,
+  // передачу нужно завершить пустым пакетом.
   ctrl_zlp    = (len < wLength) && (len != 0) && ((len % EP0_SIZE) == 0);
   ctrl_stage  = CTRL_IN_DATA;
   ep0_send_chunk();
 }
 
-/* РќР°С‡Р°С‚СЊ СЃС‚Р°РґРёСЋ РґР°РЅРЅС‹С… IN (РёСЃС‚РѕС‡РЅРёРє вЂ” ctrl_ram). */
+/* Начать стадию данных IN (источник — ctrl_ram). */
 static void ctrl_send_ram(uint16_t len, uint16_t wLength)
 {
   if(len > wLength) len = wLength;
   ctrl_in_rom = 0;
   ctrl_pos    = 0;
   ctrl_len    = len;
-  ctrl_zlp    = 0;                   // РѕС‚РІРµС‚С‹ РёР· РћР—РЈ РІСЃРµРіРґР° РєРѕСЂРѕС‡Рµ EP0_SIZE
+  ctrl_zlp    = 0;                   // ответы из ОЗУ всегда короче EP0_SIZE
   ctrl_stage  = CTRL_IN_DATA;
   ep0_send_chunk();
 }
 
-/* Р—Р°РїСЂРѕСЃ Р±РµР· СЃС‚Р°РґРёРё РґР°РЅРЅС‹С…: РѕС‚РїСЂР°РІР»СЏРµРј СЃС‚Р°С‚СѓСЃРЅС‹Р№ РїСѓСЃС‚РѕР№ РїР°РєРµС‚. */
+/* Запрос без стадии данных: отправляем статусный пустой пакет. */
 static void ctrl_ack(void)
 {
   ctrl_stage = CTRL_STATUS_IN;
   ctrl_len   = 0;
   BDT[BD_EP0_IN].CNT  = 0;
   bd_set_addr(BD_EP0_IN, ep0_in_buf);
-  BDT[BD_EP0_IN].STAT = _UOWN | _DTS | _DTSEN;   // СЃС‚Р°С‚СѓСЃ РІСЃРµРіРґР° DATA1
+  BDT[BD_EP0_IN].STAT = _UOWN | _DTS | _DTSEN;   // статус всегда DATA1
 }
 
-/* РќРµСЂР°СЃРїРѕР·РЅР°РЅРЅС‹Р№ Р·Р°РїСЂРѕСЃ вЂ” STALL РЅР° РѕР±РѕРёС… РЅР°РїСЂР°РІР»РµРЅРёСЏС… EP0. */
+/* Нераспознанный запрос — STALL на обоих направлениях EP0. */
 static void ctrl_stall(void)
 {
   ctrl_stage = CTRL_IDLE;
@@ -350,7 +350,7 @@ static void ctrl_stall(void)
 }
 
 /* ------------------------------------------------------------------------ *
- *  Р Р°Р·Р±РѕСЂ SETUP-РїР°РєРµС‚Р°
+ *  Разбор SETUP-пакета
  * ------------------------------------------------------------------------ */
 
 static void ep0_setup(void)
@@ -361,17 +361,17 @@ static void ep0_setup(void)
   uint8_t wValueH       = ep0_out_buf[3];
   uint16_t wLength      = ((uint16_t)ep0_out_buf[7] << 8) | ep0_out_buf[6];
 
-  // SETUP РѕС‚РјРµРЅСЏРµС‚ РІСЃС‘, С‡С‚Рѕ Р±С‹Р»Рѕ РІ СЂР°Р±РѕС‚Рµ РЅР° EP0
+  // SETUP отменяет всё, что было в работе на EP0
   BDT[BD_EP0_OUT].STAT = 0;
   BDT[BD_EP0_IN].STAT  = 0;
   ctrl_stage  = CTRL_IDLE;
   ctrl_len    = 0;
   ctrl_pos    = 0;
   ctrl_zlp    = 0;
-  ctrl_dts    = 1;             // РїРµСЂРІС‹Р№ РїР°РєРµС‚ РїРѕСЃР»Рµ SETUP вЂ” РІСЃРµРіРґР° DATA1
-  UCONbits.PKTDIS = 0;         // SIE РїСЂРёРѕСЃС‚Р°РЅРѕРІРёР» РѕР±СЂР°Р±РѕС‚РєСѓ вЂ” РІРѕР·РѕР±РЅРѕРІР»СЏРµРј
+  ctrl_dts    = 1;             // первый пакет после SETUP — всегда DATA1
+  UCONbits.PKTDIS = 0;         // SIE приостановил обработку — возобновляем
 
-  if(REQ_TYPE(bmRequestType) == 0x00)          /* --- СЃС‚Р°РЅРґР°СЂС‚РЅС‹Рµ --- */
+  if(REQ_TYPE(bmRequestType) == 0x00)          /* --- стандартные --- */
   {
     switch(bRequest)
     {
@@ -401,7 +401,7 @@ static void ep0_setup(void)
         break;
 
       case REQ_SET_ADDRESS:
-        // РђРґСЂРµСЃ РІСЃС‚СѓРїР°РµС‚ РІ СЃРёР»Сѓ С‚РѕР»СЊРєРѕ РїРѕСЃР»Рµ СЃС‚Р°С‚СѓСЃРЅРѕР№ СЃС‚Р°РґРёРё
+        // Адрес вступает в силу только после статусной стадии
         pending_addr = wValueL;
         ctrl_ack();
         return;
@@ -414,7 +414,7 @@ static void ep0_setup(void)
         }
         else
         {
-          // EP1: EPHSHK = 1, EPCONDIS = 1 (С‚РѕР»СЊРєРѕ data), EPINEN = 1
+          // EP1: EPHSHK = 1, EPCONDIS = 1 (только data), EPINEN = 1
           UEP1 = 0x1A;
           BDT[BD_EP1_IN].STAT = 0;
           BDT[BD_EP1_IN].CNT  = 0;
@@ -432,7 +432,7 @@ static void ep0_setup(void)
         return;
 
       case REQ_GET_STATUS:
-        ctrl_ram[0] = 0x00;      // РїРёС‚Р°РЅРёРµ РѕС‚ С€РёРЅС‹, remote wakeup РІС‹РєР»СЋС‡РµРЅ
+        ctrl_ram[0] = 0x00;      // питание от шины, remote wakeup выключен
         ctrl_ram[1] = 0x00;
         ctrl_send_ram(2, wLength);
         return;
@@ -452,7 +452,7 @@ static void ep0_setup(void)
         break;
     }
   }
-  else if(REQ_TYPE(bmRequestType) == 0x20)     /* --- РєР»Р°СЃСЃР° HID --- */
+  else if(REQ_TYPE(bmRequestType) == 0x20)     /* --- класса HID --- */
   {
     switch(bRequest)
     {
@@ -477,7 +477,7 @@ static void ep0_setup(void)
         return;
 
       case HID_SET_REPORT:
-        // РҐРѕСЃС‚ С€Р»С‘С‚ СЃРѕСЃС‚РѕСЏРЅРёРµ СЃРІРµС‚РѕРґРёРѕРґРѕРІ. РџСЂРёРЅРёРјР°РµРј СЃС‚Р°РґРёСЋ РґР°РЅРЅС‹С… OUT.
+        // Хост шлёт состояние светодиодов. Принимаем стадию данных OUT.
         if(wLength)
         {
           ctrl_stage = CTRL_OUT_DATA;
@@ -497,7 +497,7 @@ static void ep0_setup(void)
 }
 
 /* ------------------------------------------------------------------------ *
- *  РћР±СЂР°Р±РѕС‚РєР° Р·Р°РІРµСЂС€С‘РЅРЅС‹С… С‚СЂР°РЅР·Р°РєС†РёР№
+ *  Обработка завершённых транзакций
  * ------------------------------------------------------------------------ */
 
 static void ep0_out_done(void)
@@ -505,21 +505,21 @@ static void ep0_out_done(void)
   if(BD_PID(BDT[BD_EP0_OUT].STAT) == PID_SETUP)
   {
     ep0_setup();
-    // OUT_DATA РІР·РІРµР»Р° РїСЂРёС‘РјРЅС‹Р№ Р±СѓС„РµСЂ СЃР°РјР°, Р° РїРѕСЃР»Рµ STALL (CTRL_IDLE) РѕРЅ
-    // РЅР°РјРµСЂРµРЅРЅРѕ РѕСЃС‚Р°РІР»РµРЅ СЃ BSTALL вЂ” РІ СЌС‚РёС… РґРІСѓС… СЃР»СѓС‡Р°СЏС… РЅРµ С‚СЂРѕРіР°РµРј.
+    // OUT_DATA взвела приёмный буфер сама, а после STALL (CTRL_IDLE) он
+    // намеренно оставлен с BSTALL — в этих двух случаях не трогаем.
     if(ctrl_stage == CTRL_IN_DATA || ctrl_stage == CTRL_STATUS_IN) ep0_arm_out();
     return;
   }
 
   if(ctrl_stage == CTRL_OUT_DATA)
   {
-    // Р•РґРёРЅСЃС‚РІРµРЅРЅР°СЏ РїРѕРґРґРµСЂР¶РёРІР°РµРјР°СЏ РїРµСЂРµРґР°С‡Р° OUT вЂ” SET_REPORT (СЃРІРµС‚РѕРґРёРѕРґС‹)
+    // Единственная поддерживаемая передача OUT — SET_REPORT (светодиоды)
     if(BDT[BD_EP0_OUT].CNT >= 1) kbd_leds = ep0_out_buf[0];
-    ctrl_ack();                  // РїРѕРґС‚РІРµСЂР¶РґР°РµРј СЃС‚Р°С‚СѓСЃРЅС‹Рј РїСѓСЃС‚С‹Рј РїР°РєРµС‚РѕРј
+    ctrl_ack();                  // подтверждаем статусным пустым пакетом
   }
   else
   {
-    // РЎС‚Р°С‚СѓСЃРЅР°СЏ СЃС‚Р°РґРёСЏ OUT РїРѕСЃР»Рµ РїРµСЂРµРґР°С‡Рё РґР°РЅРЅС‹С… С…РѕСЃС‚Сѓ
+    // Статусная стадия OUT после передачи данных хосту
     ctrl_stage = CTRL_IDLE;
   }
   ep0_arm_out();
@@ -537,30 +537,30 @@ static void ep0_in_done(void)
     if(ctrl_zlp)
     {
       ctrl_zlp = 0;
-      ep0_send_chunk();          // РѕС‚РїСЂР°РІРёС‚ РїР°РєРµС‚ РЅСѓР»РµРІРѕР№ РґР»РёРЅС‹
+      ep0_send_chunk();          // отправит пакет нулевой длины
       return;
     }
-    // Р”Р°РЅРЅС‹Рµ РѕС‚РґР°РЅС‹ РїРѕР»РЅРѕСЃС‚СЊСЋ, РґР°Р»СЊС€Рµ С…РѕСЃС‚ РїСЂРёС€Р»С‘С‚ СЃС‚Р°С‚СѓСЃРЅС‹Р№ OUT.
-    // РџСЂРёС‘РјРЅС‹Р№ Р±СѓС„РµСЂ СѓР¶Рµ РІР·РІРµРґС‘РЅ РІ ep0_out_done() вЂ” РїРѕРІС‚РѕСЂРЅРѕ РЅРµ С‚СЂРѕРіР°РµРј.
+    // Данные отданы полностью, дальше хост пришлёт статусный OUT.
+    // Приёмный буфер уже взведён в ep0_out_done() — повторно не трогаем.
     ctrl_stage = CTRL_STATUS_OUT;
     return;
   }
 
   if(ctrl_stage == CTRL_STATUS_IN)
   {
-    // РђРґСЂРµСЃ РЅР°Р·РЅР°С‡Р°РµС‚СЃСЏ С‚РѕР»СЊРєРѕ С‚РµРїРµСЂСЊ, РїРѕСЃР»Рµ РїРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ SET_ADDRESS
+    // Адрес назначается только теперь, после подтверждения SET_ADDRESS
     if(pending_addr)
     {
       UADDR = pending_addr;
       usb_state = ST_ADDRESSED;
       pending_addr = 0;
     }
-    ctrl_stage = CTRL_IDLE;      // EP0 OUT СѓР¶Рµ Р¶РґС‘С‚ СЃР»РµРґСѓСЋС‰РёР№ SETUP
+    ctrl_stage = CTRL_IDLE;      // EP0 OUT уже ждёт следующий SETUP
   }
 }
 
 /* ------------------------------------------------------------------------ *
- *  Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ РѕС‚С‡С‘С‚РѕРІ РєР»Р°РІРёР°С‚СѓСЂС‹ (EP1 IN)
+ *  Формирование отчётов клавиатуры (EP1 IN)
  * ------------------------------------------------------------------------ */
 
 static void kbd_arm_report(void)
@@ -572,12 +572,12 @@ static void kbd_arm_report(void)
 }
 
 /*
- * РљР°Р¶РґС‹Р№ СЃРёРјРІРѕР» РїРµС‡Р°С‚Р°РµС‚СЃСЏ РґРІСѓРјСЏ РѕС‚С‡С‘С‚Р°РјРё: "РєР»Р°РІРёС€Р° РЅР°Р¶Р°С‚Р°" Рё "РєР»Р°РІРёС€Р°
- * РѕС‚РїСѓС‰РµРЅР°". Р‘РµР· РІС‚РѕСЂРѕРіРѕ РѕС‚С‡С‘С‚Р° С…РѕСЃС‚ РІРѕСЃРїСЂРёРјРµС‚ РІРІРѕРґ РєР°Рє СѓРґРµСЂР¶Р°РЅРёРµ РєР»Р°РІРёС€Рё,
- * Р° РґРІР° РѕРґРёРЅР°РєРѕРІС‹С… СЃРёРјРІРѕР»Р° РїРѕРґСЂСЏРґ СЃРѕР»СЊСЋС‚СЃСЏ РІ РѕРґРёРЅ.
+ * Каждый символ печатается двумя отчётами: "клавиша нажата" и "клавиша
+ * отпущена". Без второго отчёта хост воспримет ввод как удержание клавиши,
+ * а два одинаковых символа подряд сольются в один.
  *
- * Р’С‹Р·С‹РІР°РµС‚СЃСЏ С‚РѕР»СЊРєРѕ РёР· USB-РїСЂРµСЂС‹РІР°РЅРёСЏ, РїРѕСЌС‚РѕРјСѓ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ СЃРёРЅС…СЂРѕРЅРёР·Р°С†РёСЏ
- * РґРѕСЃС‚СѓРїР° Рє kbd_rb Р·РґРµСЃСЊ РЅРµ РЅСѓР¶РЅР°.
+ * Вызывается только из USB-прерывания, поэтому дополнительная синхронизация
+ * доступа к kbd_rb здесь не нужна.
  */
 static void kbd_service(void)
 {
@@ -585,13 +585,13 @@ static void kbd_service(void)
   uint16_t key   = 0;
 
   if(usb_state != ST_CONFIGURED) return;
-  if(BDT[BD_EP1_IN].STAT & _UOWN) return;   // РїСЂРµРґС‹РґСѓС‰РёР№ РѕС‚С‡С‘С‚ РµС‰С‘ РЅРµ Р·Р°Р±СЂР°РЅ
+  if(BDT[BD_EP1_IN].STAT & _UOWN) return;   // предыдущий отчёт ещё не забран
 
   for(uint8_t i = 0; i < EP1_SIZE; i++) ep1_in_buf[i] = 0;
 
   if(kbd_release)
   {
-    kbd_release = 0;                        // РѕС‚С‡С‘С‚ "РІСЃС‘ РѕС‚РїСѓС‰РµРЅРѕ" вЂ” СѓР¶Рµ РЅСѓР»Рё
+    kbd_release = 0;                        // отчёт "всё отпущено" — уже нули
     kbd_arm_report();
     return;
   }
@@ -600,19 +600,19 @@ static void kbd_service(void)
   if(avail == 0) return;
   if(RingBuf_DataRead(&key, 1, &kbd_rb) != RINGBUF_OK) return;
 
-  ep1_in_buf[0] = (uint8_t)(key >> 8);      // РјРѕРґРёС„РёРєР°С‚РѕСЂС‹
-  ep1_in_buf[2] = (uint8_t)(key & 0xFF);    // РєРѕРґ РєР»Р°РІРёС€Рё
+  ep1_in_buf[0] = (uint8_t)(key >> 8);      // модификаторы
+  ep1_in_buf[2] = (uint8_t)(key & 0xFF);    // код клавиши
   kbd_release = 1;
   kbd_arm_report();
 }
 
 /* ------------------------------------------------------------------------ *
- *  РћР±СЂР°Р±РѕС‚С‡РёРє РїСЂРµСЂС‹РІР°РЅРёСЏ USB (СЂРµРіРёСЃС‚СЂРёСЂСѓРµС‚СЃСЏ РєР°Рє low-priority РєРѕР»Р±СЌРє)
+ *  Обработчик прерывания USB (регистрируется как low-priority колбэк)
  * ------------------------------------------------------------------------ */
 
 static void usb_reset(void)
 {
-  // РЎР±СЂР°СЃС‹РІР°РµРј РѕС‡РµСЂРµРґСЊ С‚СЂР°РЅР·Р°РєС†РёР№ USTAT
+  // Сбрасываем очередь транзакций USTAT
   while(UIRbits.TRNIF) UIRbits.TRNIF = 0;
 
   UEP1 = 0x00;
@@ -624,7 +624,7 @@ static void usb_reset(void)
   UCONbits.PPBRST = 0;
   UCONbits.PKTDIS = 0;
 
-  // EP0: EPHSHK = 1, EPOUTEN = 1, EPINEN = 1, СѓРїСЂР°РІР»СЏСЋС‰РёРµ РїРµСЂРµРґР°С‡Рё СЂР°Р·СЂРµС€РµРЅС‹
+  // EP0: EPHSHK = 1, EPOUTEN = 1, EPINEN = 1, управляющие передачи разрешены
   UEP0 = 0x16;
 
   BDT[BD_EP0_IN].STAT  = 0;
@@ -636,21 +636,21 @@ static void usb_reset(void)
   kbd_release  = 0;
   kbd_dts      = 0;
   kbd_leds     = 0;
-  RingBuf_Clear(&kbd_rb);       // РЅРµ РІС‹РїР»С‘РІС‹РІР°С‚СЊ РІ РЅРѕРІС‹Р№ СЃРµР°РЅСЃ СЃС‚Р°СЂСѓСЋ РѕС‡РµСЂРµРґСЊ
+  RingBuf_Clear(&kbd_rb);       // не выплёвывать в новый сеанс старую очередь
 
   usb_state = ST_DEFAULT;
 }
 
-static void USB_isr_cbk(void)
+/* Вызывается диспетчером system.c при взведённых USBIE и USBIF. */
+void USB_isr(void)
 {
-  if(!(PIE2bits.USBIE && PIR2bits.USBIF)) return;
   PIR2bits.USBIF = 0;
 
-  // Р’С‹С…РѕРґ РёР· suspend РїРѕ Р°РєС‚РёРІРЅРѕСЃС‚Рё РЅР° С€РёРЅРµ
+  // Выход из suspend по активности на шине
   if(UIRbits.ACTVIF && UIEbits.ACTVIE)
   {
     UCONbits.SUSPND = 0;
-    // ACTVIF СЃРЅРёРјР°РµС‚СЃСЏ С‚РѕР»СЊРєРѕ РїРѕСЃР»Рµ С‚РѕРіРѕ, РєР°Рє Р°РєС‚РёРІРЅРѕСЃС‚СЊ СЂРµР°Р»СЊРЅРѕ РЅР°С‡Р°Р»Р°СЃСЊ
+    // ACTVIF снимается только после того, как активность реально началась
     while(UIRbits.ACTVIF) UIRbits.ACTVIF = 0;
     UIEbits.ACTVIE = 0;
   }
@@ -667,13 +667,13 @@ static void USB_isr_cbk(void)
   {
     UIRbits.IDLEIF = 0;
     UIEbits.ACTVIE = 1;
-    UCONbits.SUSPND = 1;        // С…РѕСЃС‚ РїРµСЂРµРІС‘Р» С€РёРЅСѓ РІ suspend
+    UCONbits.SUSPND = 1;        // хост перевёл шину в suspend
     return;
   }
 
   if(UIRbits.UERRIF)
   {
-    UEIR = 0x00;                // РѕС€РёР±РєРё С€РёРЅС‹: С‡РёСЃС‚РёРј Рё РїСЂРѕРґРѕР»Р¶Р°РµРј
+    UEIR = 0x00;                // ошибки шины: чистим и продолжаем
     UIRbits.UERRIF = 0;
   }
 
@@ -681,7 +681,7 @@ static void USB_isr_cbk(void)
   {
     if(UEP0bits.EPSTALL)
     {
-      // РҐРѕСЃС‚ РїСЂРёРЅСЏР» STALL вЂ” РІРѕР·РІСЂР°С‰Р°РµРј EP0 РІ СЂР°Р±РѕС‡РµРµ СЃРѕСЃС‚РѕСЏРЅРёРµ
+      // Хост принял STALL — возвращаем EP0 в рабочее состояние
       if(ctrl_stage == CTRL_IDLE)
       {
         BDT[BD_EP0_IN].STAT = 0;
@@ -695,14 +695,14 @@ static void USB_isr_cbk(void)
   if(UIRbits.SOFIF)
   {
     UIRbits.SOFIF = 0;
-    kbd_service();              // СЂР°Р· РІ 1 РјСЃ РїРѕРґС‚Р°Р»РєРёРІР°РµРј РѕС‡РµСЂРµРґСЊ СЃРёРјРІРѕР»РѕРІ
+    kbd_service();              // раз в 1 мс подталкиваем очередь символов
   }
 
-  // РћС‡РµСЂРµРґСЊ Р·Р°РІРµСЂС€С‘РЅРЅС‹С… С‚СЂР°РЅР·Р°РєС†РёР№ (USTAT вЂ” FIFO РЅР° 4 Р·Р°РїРёСЃРё)
+  // Очередь завершённых транзакций (USTAT — FIFO на 4 записи)
   while(UIRbits.TRNIF)
   {
     uint8_t stat = USTAT;
-    UIRbits.TRNIF = 0;          // СЃР±СЂРѕСЃ С„Р»Р°РіР° РїСЂРѕРґРІРёРіР°РµС‚ FIFO
+    UIRbits.TRNIF = 0;          // сброс флага продвигает FIFO
 
     uint8_t ep  = (stat >> 3) & 0x0F;
     uint8_t dir = (stat >> 2) & 0x01;   // 1 = IN
@@ -714,13 +714,13 @@ static void USB_isr_cbk(void)
     }
     else if(ep == 1 && dir)
     {
-      kbd_service();            // РѕС‚С‡С‘С‚ СѓС€С‘Р» вЂ” РіРѕС‚РѕРІРёРј СЃР»РµРґСѓСЋС‰РёР№
+      kbd_service();            // отчёт ушёл — готовим следующий
     }
   }
 }
 
 /* ------------------------------------------------------------------------ *
- *  РџСѓР±Р»РёС‡РЅС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ
+ *  Публичный интерфейс
  * ------------------------------------------------------------------------ */
 
 void USB_init(void)
@@ -733,8 +733,8 @@ void USB_init(void)
   UIE  = 0x00;
   UEIE = 0x00;
 
-  // UCFG: UPUEN = 1 (РІСЃС‚СЂРѕРµРЅРЅР°СЏ РїРѕРґС‚СЏР¶РєР°), UTRDIS = 0 (РІСЃС‚СЂРѕРµРЅРЅС‹Р№
-  // С‚СЂР°РЅСЃРёРІРµСЂ), FSEN = 1 (Full Speed), PPB = 00 (Р±РµР· ping-pong)
+  // UCFG: UPUEN = 1 (встроенная подтяжка), UTRDIS = 0 (встроенный
+  // трансивер), FSEN = 1 (Full Speed), PPB = 00 (без ping-pong)
   UCFG = 0x14;
 
   UEP0 = 0x00;
@@ -746,12 +746,12 @@ void USB_init(void)
     BDT[i].CNT  = 0;
   }
 
-  UCONbits.USBEN = 1;                 // РїРѕРґРєР»СЋС‡Р°РµРј РјРѕРґСѓР»СЊ Рє С€РёРЅРµ
+  UCONbits.USBEN = 1;                 // подключаем модуль к шине
 
-  // Р–РґС‘Рј РѕРєРѕРЅС‡Р°РЅРёСЏ СЃРѕСЃС‚РѕСЏРЅРёСЏ Single-Ended Zero, РЅРѕ РЅРµ РґРѕР»СЊС€Рµ 100 РјСЃ:
-  // РїСЂРё РЅРµРІРѕС‚РєРЅСѓС‚РѕРј РєР°Р±РµР»Рµ SE0 РґРµСЂР¶РёС‚СЃСЏ РїРѕСЃС‚РѕСЏРЅРЅРѕ, Рё Р±РµР·СѓСЃР»РѕРІРЅС‹Р№ С†РёРєР»
-  // РїРѕРІРµСЃРёР» Р±С‹ РїСЂРѕС€РёРІРєСѓ РЅР° СЃС‚Р°СЂС‚Рµ. РџРѕРґРєР»СЋС‡РµРЅРёРµ РІСЃС‘ СЂР°РІРЅРѕ Р±СѓРґРµС‚ РїРѕР№РјР°РЅРѕ
-  // РїРѕ РїСЂРµСЂС‹РІР°РЅРёСЋ URSTIF РІ РјРѕРјРµРЅС‚, РєРѕРіРґР° РєР°Р±РµР»СЊ РІРѕС‚РєРЅСѓС‚.
+  // Ждём окончания состояния Single-Ended Zero, но не дольше 100 мс:
+  // при невоткнутом кабеле SE0 держится постоянно, и безусловный цикл
+  // повесил бы прошивку на старте. Подключение всё равно будет поймано
+  // по прерыванию URSTIF в момент, когда кабель воткнут.
   uint32_t t0 = get_ms();
   while(UCONbits.SE0 && ((get_ms() - t0) < 100));
 
@@ -763,9 +763,9 @@ void USB_init(void)
   UIEbits.UERRIE  = 1;
   UIEbits.SOFIE   = 1;
 
-  IPR2bits.USBIP = 0;                 // РЅРёР·РєРёР№ РїСЂРёРѕСЂРёС‚РµС‚ вЂ” РєР°Рє Сѓ ADC Рё UART
+  IPR2bits.USBIP = 0;                 // низкий приоритет — как у ADC и UART
   PIR2bits.USBIF = 0;
-  sys_regiter_IRQ_clbk(USB_isr_cbk, 0);
+  // USB_isr() вызывается диспетчером system.c напрямую, регистрация не нужна
   PIE2bits.USBIE = 1;
 
   usb_state = ST_DEFAULT;
@@ -798,15 +798,15 @@ int16_t USB_kbd_putkey(uint8_t usage, uint8_t modifiers)
   if(usage == 0) return 0;
   if(usb_state != ST_CONFIGURED) return -1;
 
-  // USB-РїСЂРµСЂС‹РІР°РЅРёРµ РЅРёР·РєРѕРїСЂРёРѕСЂРёС‚РµС‚РЅРѕРµ: РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ Р·Р°РїСЂРµС‚РёС‚СЊ РёРјРµРЅРЅРѕ РµРіРѕ,
-  // РЅРµ С‚СЂРѕРіР°СЏ GIE Рё РЅРµ РјРµС€Р°СЏ РѕСЃС‚Р°Р»СЊРЅРѕР№ СЃРёСЃС‚РµРјРµ.
+  // USB-прерывание низкоприоритетное: достаточно запретить именно его,
+  // не трогая GIE и не мешая остальной системе.
   ie = PIE2bits.USBIE;
   PIE2bits.USBIE = 0;
   RingBuf_Available(&avail, &kbd_rb);
   if(avail >= (USB_KBD_BUFLEN - 1))
   {
     PIE2bits.USBIE = ie;
-    return 0;                          // РѕС‡РµСЂРµРґСЊ РїРµСЂРµРїРѕР»РЅРµРЅР°, СЃРёРјРІРѕР» РЅРµ РїРѕС‚РµСЂСЏРЅ РјРѕР»С‡Р°
+    return 0;                          // очередь переполнена, символ не потерян молча
   }
   RingBuf_DataPut(&key, 1, &kbd_rb);
   PIE2bits.USBIE = ie;
@@ -818,7 +818,7 @@ int16_t USB_kbd_putchar(char c)
 {
   uint8_t code;
 
-  if((uint8_t)c > 127) return 0;       // РІРЅРµ US-ASCII вЂ” РїРµС‡Р°С‚Р°С‚СЊ РЅРµС‡РµРј
+  if((uint8_t)c > 127) return 0;       // вне US-ASCII — печатать нечем
   code = ascii2usage[(uint8_t)c];
   if(code == 0) return 0;
 
@@ -835,7 +835,7 @@ int16_t USB_kbd_putstring(const char* str, uint16_t Nmax)
   for(uint16_t i = 0; i < Nmax; i++)
   {
     if(str[i] == '\0') break;
-    if(USB_kbd_putchar(str[i]) <= 0) break;   // РѕС‡РµСЂРµРґСЊ РєРѕРЅС‡РёР»Р°СЃСЊ
+    if(USB_kbd_putchar(str[i]) <= 0) break;   // очередь кончилась
     n++;
   }
   return n;

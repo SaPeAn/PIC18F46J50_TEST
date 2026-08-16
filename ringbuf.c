@@ -9,7 +9,7 @@
  * @param[in] rb #RINGBUF_t structure instance
  * @return #RINGBUF_STATUS enum
  */
-RINGBUF_STATUS RingBuf_Init(void *buf, uint16_t size, size_t cellsize, RINGBUF_t *rb) {
+RINGBUF_STATUS RingBuf_Init(void *buf, uint16_t size, uint16_t cellsize, RINGBUF_t *rb) {
     rb->size = size; // size of array
     rb->cell_size = cellsize; // size of 1 cell of array
     rb->buf = buf;      // set pointer to buffer
@@ -55,8 +55,8 @@ RINGBUF_STATUS RingBuf_Available(uint16_t *len, RINGBUF_t *rb) {
  * @return #RINGBUF_STATUS enum
  */
 RINGBUF_STATUS RingBuf_DataPut(const void *data, uint16_t len, RINGBUF_t *rb) {
-    if (rb->buf == NULL) return RINGBUF_PARAM_ERR;
-    if (len > rb->size)
+    if ((rb->buf == NULL) || (data == NULL)) return RINGBUF_PARAM_ERR;
+    if (len >= rb->size)
         return RINGBUF_OVERFLOW;
     const char *input = data; // recast pointer
     // INPUT data index start address

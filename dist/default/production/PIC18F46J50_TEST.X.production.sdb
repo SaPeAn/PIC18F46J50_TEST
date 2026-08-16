@@ -1,0 +1,1626 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F46J50 ]
+[d frameptr 4065 ]
+"12 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+[e E691 RINGBUF_STATUS `uc
+RINGBUF_OK 0
+RINGBUF_ERR 1
+RINGBUF_PARAM_ERR 2
+RINGBUF_OVERFLOW 3
+RINGBUF_EMPTY 4
+]
+"59 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+[e E6403 RINGBUF_STATUS `uc
+RINGBUF_OK 0
+RINGBUF_ERR 1
+RINGBUF_PARAM_ERR 2
+RINGBUF_OVERFLOW 3
+RINGBUF_EMPTY 4
+]
+"113
+[e E5890 DBIO_INIT_STATUS `uc
+DBIO_INIT_OK 0
+DBIO_INIT_BUF_ERR 1
+DBIO_INIT_CBK_ERR 2
+]
+"130
+[e E5884 DBIO_STATUS `c
+DBIO_PENDING 0
+DBIO_PARAM_ERR -1
+DBIO_NO_SPACE -1
+DBIO_NO_DATA -2
+]
+"599 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+[e E6392 RINGBUF_STATUS `uc
+RINGBUF_OK 0
+RINGBUF_ERR 1
+RINGBUF_PARAM_ERR 2
+RINGBUF_OVERFLOW 3
+RINGBUF_EMPTY 4
+]
+"13 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+[v _ADC_isr ADC_isr `(v  1 e 1 0 ]
+"29
+[v _ADC_ms_cbk ADC_ms_cbk `(v  1 s 1 ADC_ms_cbk ]
+"40
+[v _ADC_getChan ADC_getChan `(s  1 e 2 0 ]
+"53
+[v _ADC_start_IT ADC_start_IT `(v  1 e 1 0 ]
+"80
+[v _ADC_init ADC_init `(uc  1 e 1 0 ]
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"1 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
+"9 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aodiv.c
+[v ___aodiv __aodiv `(o  1 e 8 0 ]
+"9 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aomod.c
+[v ___aomod __aomod `(o  1 e 8 0 ]
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\atdiv.c
+[v ___atdiv __atdiv `(m  1 e 3 0 ]
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\atmod.c
+[v ___atmod __atmod `(m  1 e 3 0 ]
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"193 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+[v _pad pad `(v  1 s 1 pad ]
+"513
+[v _dtoa dtoa `(v  1 s 1 dtoa ]
+"942
+[v _stoa stoa `(v  1 s 1 stoa ]
+"1158
+[v _read_prec_or_width read_prec_or_width `(i  1 s 2 read_prec_or_width ]
+"1177
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+"1817
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+"9 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\lodiv.c
+[v ___lodiv __lodiv `(uo  1 e 8 0 ]
+"9 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\lomod.c
+[v ___lomod __lomod `(uo  1 e 8 0 ]
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\ltdiv.c
+[v ___ltdiv __ltdiv `(um  1 e 3 0 ]
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\ltmod.c
+[v ___ltmod __ltmod `(um  1 e 3 0 ]
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+[v _memcpy memcpy `(*.39v  1 e 2 0 ]
+[v i1_memcpy memcpy `(*.39v  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+"9 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\putch.c
+[v _putch putch `(v  1 e 1 0 ]
+"10 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\Umul24.c
+[v ___tmul __tmul `(um  1 e 3 0 ]
+"15 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"42 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+[v _dbio_strnlen dbio_strnlen `(us  1 s 2 dbio_strnlen ]
+"54
+[v _dbio_tx_isr dbio_tx_isr `(v  1 e 1 0 ]
+"68
+[v _dbio_rx_isr dbio_rx_isr `(v  1 e 1 0 ]
+"111
+[v _dbio_init dbio_init `(uc  1 e 1 0 ]
+"121
+[v _dbio_getstring dbio_getstring `(s  1 e 2 0 ]
+"175
+[v _dbio_putstring dbio_putstring `(s  1 e 2 0 ]
+"10 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+[v _blinky blinky `(v  1 e 1 0 ]
+"26
+[v _main main `(v  1 e 1 0 ]
+"12 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+[v _RingBuf_Init RingBuf_Init `(E691  1 e 1 0 ]
+"27
+[v _RingBuf_Clear RingBuf_Clear `(E691  1 e 1 0 ]
+[v i1_RingBuf_Clear RingBuf_Clear `(E691  1 e 1 0 ]
+"40
+[v _RingBuf_Available RingBuf_Available `(E691  1 e 1 0 ]
+[v i1_RingBuf_Available RingBuf_Available `(E691  1 e 1 0 ]
+"57
+[v _RingBuf_DataPut RingBuf_DataPut `(E691  1 e 1 0 ]
+[v i1_RingBuf_DataPut RingBuf_DataPut `(E691  1 e 1 0 ]
+"106
+[v _RingBuf_DataRead RingBuf_DataRead `(E691  1 e 1 0 ]
+[v i1_RingBuf_DataRead RingBuf_DataRead `(E691  1 e 1 0 ]
+"131
+[v _RingBuf_DataWatch RingBuf_DataWatch `(E691  1 e 1 0 ]
+[v i1_RingBuf_DataWatch RingBuf_DataWatch `(E691  1 e 1 0 ]
+"8 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+[v _unlock_RTCC unlock_RTCC `(v  1 e 1 0 ]
+"18
+[v _RTC_init RTC_init `(v  1 e 1 0 ]
+"32
+[v _write_RTCC write_RTCC `(v  1 e 1 0 ]
+"62
+[v _read_RTCC read_RTCC `(v  1 e 1 0 ]
+"25 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+[v _sys_register_ms_clbk sys_register_ms_clbk `(uc  1 e 1 0 ]
+"33
+[v _HighInterrupts_handler HighInterrupts_handler `IIH(v  1 e 1 0 ]
+"49
+[v _Interrupts_handler Interrupts_handler `IIL(v  1 e 1 0 ]
+"75
+[v _sys_mstimer_init sys_mstimer_init `(v  1 e 1 0 ]
+"93
+[v _sys_init sys_init `(v  1 e 1 0 ]
+"103
+[v _delay_ms delay_ms `(v  1 e 1 0 ]
+"109
+[v _get_ms get_ms `(ul  1 e 4 0 ]
+[v i2_get_ms get_ms `(ul  1 e 4 0 ]
+"120
+[v _UART1_Init UART1_Init `(v  1 e 1 0 ]
+"272 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+[v _bd_set_addr bd_set_addr `(v  1 s 1 bd_set_addr ]
+"280
+[v _ep0_arm_out ep0_arm_out `(v  1 s 1 ep0_arm_out ]
+"288
+[v _ep0_send_chunk ep0_send_chunk `(v  1 s 1 ep0_send_chunk ]
+"305
+[v _ctrl_send_rom ctrl_send_rom `(v  1 s 1 ctrl_send_rom ]
+"320
+[v _ctrl_send_ram ctrl_send_ram `(v  1 s 1 ctrl_send_ram ]
+"332
+[v _ctrl_ack ctrl_ack `(v  1 s 1 ctrl_ack ]
+"342
+[v _ctrl_stall ctrl_stall `(v  1 s 1 ctrl_stall ]
+"356
+[v _ep0_setup ep0_setup `(v  1 s 1 ep0_setup ]
+"503
+[v _ep0_out_done ep0_out_done `(v  1 s 1 ep0_out_done ]
+"528
+[v _ep0_in_done ep0_in_done `(v  1 s 1 ep0_in_done ]
+"566
+[v _kbd_arm_report kbd_arm_report `(v  1 s 1 kbd_arm_report ]
+"582
+[v _kbd_service kbd_service `(v  1 s 1 kbd_service ]
+"613
+[v _usb_reset usb_reset `(v  1 s 1 usb_reset ]
+"645
+[v _USB_isr USB_isr `(v  1 e 1 0 ]
+"726
+[v _USB_init USB_init `(v  1 e 1 0 ]
+"782
+[v _USB_is_configured USB_is_configured `(uc  1 e 1 0 ]
+"792
+[v _USB_kbd_putkey USB_kbd_putkey `(s  1 e 2 0 ]
+"817
+[v _USB_kbd_putchar USB_kbd_putchar `(s  1 e 2 0 ]
+"829
+[v _USB_kbd_putstring USB_kbd_putstring `(s  1 e 2 0 ]
+"4 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+[v _ChanNum ChanNum `[3]uc  1 s 3 ChanNum ]
+"5
+[v _ChanIndx ChanIndx `VEuc  1 s 1 ChanIndx ]
+"7
+[v _ChanValue ChanValue `VE[16]s  1 s 32 ChanValue ]
+"10
+[v _adc_running adc_running `VEuc  1 s 1 adc_running ]
+"331 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
+[v _UEP0 UEP0 `VEuc  1 e 1 @3878 ]
+[s S1813 . 1 `uc 1 EPSTALL 1 0 :1:0 
+`uc 1 EPINEN 1 0 :1:1 
+`uc 1 EPOUTEN 1 0 :1:2 
+`uc 1 EPCONDIS 1 0 :1:3 
+`uc 1 EPHSHK 1 0 :1:4 
+]
+"359
+[s S1819 . 1 `uc 1 EP0STALL 1 0 :1:0 
+`uc 1 EP0INEN 1 0 :1:1 
+`uc 1 EP0OUTEN 1 0 :1:2 
+`uc 1 EP0CONDIS 1 0 :1:3 
+`uc 1 EP0HSHK 1 0 :1:4 
+]
+[s S1825 . 1 `uc 1 EPSTALL0 1 0 :1:0 
+`uc 1 EPINEN0 1 0 :1:1 
+`uc 1 EPOUTEN0 1 0 :1:2 
+`uc 1 EPCONDIS0 1 0 :1:3 
+`uc 1 EPHSHK0 1 0 :1:4 
+]
+[u S1831 . 1 `S1813 1 . 1 0 `S1819 1 . 1 0 `S1825 1 . 1 0 ]
+[v _UEP0bits UEP0bits `VES1831  1 e 1 @3878 ]
+"439
+[v _UEP1 UEP1 `VEuc  1 e 1 @3879 ]
+"1803
+[v _UIE UIE `VEuc  1 e 1 @3894 ]
+[s S1794 . 1 `uc 1 URSTIE 1 0 :1:0 
+`uc 1 UERRIE 1 0 :1:1 
+`uc 1 ACTVIE 1 0 :1:2 
+`uc 1 TRNIE 1 0 :1:3 
+`uc 1 IDLEIE 1 0 :1:4 
+`uc 1 STALLIE 1 0 :1:5 
+`uc 1 SOFIE 1 0 :1:6 
+]
+"1819
+[u S1802 . 1 `S1794 1 . 1 0 ]
+[v _UIEbits UIEbits `VES1802  1 e 1 @3894 ]
+"1859
+[v _UEIE UEIE `VEuc  1 e 1 @3895 ]
+"1910
+[v _UADDR UADDR `VEuc  1 e 1 @3896 ]
+"1974
+[v _UCFG UCFG `VEuc  1 e 1 @3897 ]
+[s S1384 . 1 `uc 1 RTCPTR0 1 0 :1:0 
+`uc 1 RTCPTR1 1 0 :1:1 
+`uc 1 RTCOE 1 0 :1:2 
+`uc 1 HALFSEC 1 0 :1:3 
+`uc 1 RTCSYNC 1 0 :1:4 
+`uc 1 RTCWREN 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 RTCEN 1 0 :1:7 
+]
+"2229
+[u S1393 . 1 `S1384 1 . 1 0 ]
+[v _RTCCFGbits RTCCFGbits `VES1393  1 e 1 @3903 ]
+"2347
+[v _ANCON0 ANCON0 `VEuc  1 e 1 @3912 ]
+[s S1583 . 1 `uc 1 PCFG0 1 0 :1:0 
+`uc 1 PCFG1 1 0 :1:1 
+`uc 1 PCFG2 1 0 :1:2 
+`uc 1 PCFG3 1 0 :1:3 
+`uc 1 PCFG4 1 0 :1:4 
+`uc 1 PCFG5 1 0 :1:5 
+`uc 1 PCFG6 1 0 :1:6 
+`uc 1 PCFG7 1 0 :1:7 
+]
+"2364
+[u S1592 . 1 `S1583 1 . 1 0 ]
+[v _ANCON0bits ANCON0bits `VES1592  1 e 1 @3912 ]
+"2409
+[v _ANCON1 ANCON1 `VEuc  1 e 1 @3913 ]
+"3480
+[v _UIR UIR `VEuc  1 e 1 @3938 ]
+[s S1751 . 1 `uc 1 URSTIF 1 0 :1:0 
+`uc 1 UERRIF 1 0 :1:1 
+`uc 1 ACTVIF 1 0 :1:2 
+`uc 1 TRNIF 1 0 :1:3 
+`uc 1 IDLEIF 1 0 :1:4 
+`uc 1 STALLIF 1 0 :1:5 
+`uc 1 SOFIF 1 0 :1:6 
+]
+"3496
+[u S1759 . 1 `S1751 1 . 1 0 ]
+[v _UIRbits UIRbits `VES1759  1 e 1 @3938 ]
+"3536
+[v _UEIR UEIR `VEuc  1 e 1 @3939 ]
+"3587
+[v _USTAT USTAT `VEuc  1 e 1 @3940 ]
+"3647
+[v _UCON UCON `VEuc  1 e 1 @3941 ]
+[s S1722 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 SUSPND 1 0 :1:1 
+`uc 1 RESUME 1 0 :1:2 
+`uc 1 USBEN 1 0 :1:3 
+`uc 1 PKTDIS 1 0 :1:4 
+`uc 1 SE0 1 0 :1:5 
+`uc 1 PPBRST 1 0 :1:6 
+]
+"3663
+[u S1730 . 1 `S1722 1 . 1 0 ]
+[v _UCONbits UCONbits `VES1730  1 e 1 @3941 ]
+[s S782 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 TXCKP 1 0 :1:4 
+`uc 1 RXDTP 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"5310
+[s S791 . 1 `uc 1 ABDEN1 1 0 :1:0 
+`uc 1 WUE1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG161 1 0 :1:3 
+`uc 1 CKTXP 1 0 :1:4 
+`uc 1 DTRXP 1 0 :1:5 
+`uc 1 RCIDL1 1 0 :1:6 
+`uc 1 ABDOVF1 1 0 :1:7 
+]
+[s S800 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 DTRXP1 1 0 :1:5 
+`uc 1 RCMT 1 0 :1:6 
+]
+[s S805 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP1 1 0 :1:4 
+`uc 1 RXDTP1 1 0 :1:5 
+`uc 1 RCMT1 1 0 :1:6 
+]
+[s S810 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TXCKP1 1 0 :1:4 
+]
+[s S813 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXCKP 1 0 :1:5 
+]
+[s S816 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 W4E 1 0 :1:1 
+]
+[u S819 . 1 `S782 1 . 1 0 `S791 1 . 1 0 `S800 1 . 1 0 `S805 1 . 1 0 `S810 1 . 1 0 `S813 1 . 1 0 `S816 1 . 1 0 ]
+[v _BAUDCON1bits BAUDCON1bits `VES819  1 e 1 @3966 ]
+"5757
+[v _SPBRGH1 SPBRGH1 `VEuc  1 e 1 @3967 ]
+[s S28 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"7470
+[s S37 . 1 `uc 1 LD0 1 0 :1:0 
+`uc 1 LD1 1 0 :1:1 
+`uc 1 LD2 1 0 :1:2 
+`uc 1 LD3 1 0 :1:3 
+`uc 1 LD4 1 0 :1:4 
+`uc 1 LD5 1 0 :1:5 
+`uc 1 LD6 1 0 :1:6 
+`uc 1 LD7 1 0 :1:7 
+]
+[u S46 . 1 `S28 1 . 1 0 `S37 1 . 1 0 ]
+[v _LATDbits LATDbits `VES46  1 e 1 @3980 ]
+[s S1562 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"7810
+[u S1571 . 1 `S1562 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES1571  1 e 1 @3986 ]
+[s S761 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"7929
+[u S770 . 1 `S761 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES770  1 e 1 @3988 ]
+[s S85 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"7986
+[u S94 . 1 `S85 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES94  1 e 1 @3989 ]
+"8143
+[v _RTCVALL RTCVALL `VEuc  1 e 1 @3992 ]
+"8163
+[v _RTCVALH RTCVALH `VEuc  1 e 1 @3993 ]
+[s S512 . 1 `uc 1 TUN 1 0 :6:0 
+`uc 1 PLLEN 1 0 :1:6 
+`uc 1 INTSRC 1 0 :1:7 
+]
+"8333
+[s S516 . 1 `uc 1 TUN0 1 0 :1:0 
+`uc 1 TUN1 1 0 :1:1 
+`uc 1 TUN2 1 0 :1:2 
+`uc 1 TUN3 1 0 :1:3 
+`uc 1 TUN4 1 0 :1:4 
+`uc 1 TUN5 1 0 :1:5 
+]
+[u S523 . 1 `S512 1 . 1 0 `S516 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES523  1 e 1 @3995 ]
+[s S230 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSP1IE 1 0 :1:3 
+`uc 1 TX1IE 1 0 :1:4 
+`uc 1 RC1IE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+`uc 1 PMPIE 1 0 :1:7 
+]
+"8546
+[s S239 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+]
+[s S244 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 PSPIE 1 0 :1:7 
+]
+[u S247 . 1 `S230 1 . 1 0 `S239 1 . 1 0 `S244 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES247  1 e 1 @3997 ]
+[s S269 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 PMPIF 1 0 :1:7 
+]
+"8638
+[s S278 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+]
+[s S283 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 PSPIF 1 0 :1:7 
+]
+[u S286 . 1 `S269 1 . 1 0 `S278 1 . 1 0 `S283 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES286  1 e 1 @3998 ]
+[s S424 . 1 `uc 1 TMR1IP 1 0 :1:0 
+`uc 1 TMR2IP 1 0 :1:1 
+`uc 1 CCP1IP 1 0 :1:2 
+`uc 1 SSP1IP 1 0 :1:3 
+`uc 1 TX1IP 1 0 :1:4 
+`uc 1 RC1IP 1 0 :1:5 
+`uc 1 ADIP 1 0 :1:6 
+`uc 1 PMPIP 1 0 :1:7 
+]
+"8730
+[s S433 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIP 1 0 :1:3 
+`uc 1 TXIP 1 0 :1:4 
+`uc 1 RCIP 1 0 :1:5 
+]
+[s S438 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 PSPIP 1 0 :1:7 
+]
+[u S441 . 1 `S424 1 . 1 0 `S433 1 . 1 0 `S438 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES441  1 e 1 @3999 ]
+[s S320 . 1 `uc 1 CCP2IE 1 0 :1:0 
+`uc 1 TMR3IE 1 0 :1:1 
+`uc 1 LVDIE 1 0 :1:2 
+`uc 1 BCL1IE 1 0 :1:3 
+`uc 1 USBIE 1 0 :1:4 
+`uc 1 CM1IE 1 0 :1:5 
+`uc 1 CM2IE 1 0 :1:6 
+`uc 1 OSCFIE 1 0 :1:7 
+]
+"8820
+[s S329 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 BCLIE 1 0 :1:3 
+]
+[s S332 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CMIE 1 0 :1:6 
+]
+[u S335 . 1 `S320 1 . 1 0 `S329 1 . 1 0 `S332 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES335  1 e 1 @4000 ]
+[s S355 . 1 `uc 1 CCP2IF 1 0 :1:0 
+`uc 1 TMR3IF 1 0 :1:1 
+`uc 1 LVDIF 1 0 :1:2 
+`uc 1 BCL1IF 1 0 :1:3 
+`uc 1 USBIF 1 0 :1:4 
+`uc 1 CM1IF 1 0 :1:5 
+`uc 1 CM2IF 1 0 :1:6 
+`uc 1 OSCFIF 1 0 :1:7 
+]
+"8900
+[s S364 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 BCLIF 1 0 :1:3 
+]
+[s S367 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CMIF 1 0 :1:6 
+]
+[u S370 . 1 `S355 1 . 1 0 `S364 1 . 1 0 `S367 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES370  1 e 1 @4001 ]
+[s S1861 . 1 `uc 1 CCP2IP 1 0 :1:0 
+`uc 1 TMR3IP 1 0 :1:1 
+`uc 1 LVDIP 1 0 :1:2 
+`uc 1 BCL1IP 1 0 :1:3 
+`uc 1 USBIP 1 0 :1:4 
+`uc 1 CM1IP 1 0 :1:5 
+`uc 1 CM2IP 1 0 :1:6 
+`uc 1 OSCFIP 1 0 :1:7 
+]
+"8980
+[s S1870 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 BCLIP 1 0 :1:3 
+]
+[s S1873 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CMIP 1 0 :1:6 
+]
+[u S1876 . 1 `S1861 1 . 1 0 `S1870 1 . 1 0 `S1873 1 . 1 0 ]
+[v _IPR2bits IPR2bits `VES1876  1 e 1 @4002 ]
+[s S617 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"9608
+[s S626 . 1 `uc 1 RCD8 1 0 :1:0 
+`uc 1 . 1 0 :2:1 
+`uc 1 ADEN 1 0 :1:3 
+`uc 1 . 1 0 :2:4 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S632 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 NOT_RC8 1 0 :1:6 
+]
+[s S635 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nRC8 1 0 :1:6 
+]
+[s S638 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S641 . 1 `uc 1 RX9D1 1 0 :1:0 
+`uc 1 OERR1 1 0 :1:1 
+`uc 1 FERR1 1 0 :1:2 
+`uc 1 ADDEN1 1 0 :1:3 
+`uc 1 CREN1 1 0 :1:4 
+`uc 1 SREN1 1 0 :1:5 
+`uc 1 RX91 1 0 :1:6 
+`uc 1 SPEN1 1 0 :1:7 
+]
+[s S650 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[u S653 . 1 `S617 1 . 1 0 `S626 1 . 1 0 `S632 1 . 1 0 `S635 1 . 1 0 `S638 1 . 1 0 `S641 1 . 1 0 `S650 1 . 1 0 ]
+[v _RCSTA1bits RCSTA1bits `VES653  1 e 1 @4012 ]
+[s S698 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"9936
+[s S707 . 1 `uc 1 TXD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S711 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 NOT_TX8 1 0 :1:6 
+]
+[s S714 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nTX8 1 0 :1:6 
+]
+[s S717 . 1 `uc 1 TX9D1 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+`uc 1 BRGH1 1 0 :1:2 
+`uc 1 SENDB1 1 0 :1:3 
+`uc 1 SYNC1 1 0 :1:4 
+`uc 1 TXEN1 1 0 :1:5 
+`uc 1 TX91 1 0 :1:6 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[u S726 . 1 `S698 1 . 1 0 `S707 1 . 1 0 `S711 1 . 1 0 `S714 1 . 1 0 `S717 1 . 1 0 ]
+[v _TXSTA1bits TXSTA1bits `VES726  1 e 1 @4013 ]
+"10184
+[v _TXREG TXREG `VEuc  1 e 1 @4014 ]
+"10222
+[v _RCREG RCREG `VEuc  1 e 1 @4015 ]
+"10255
+[v _SPBRG1 SPBRG1 `VEuc  1 e 1 @4016 ]
+[s S1604 . 1 `uc 1 ADCS 1 0 :3:0 
+`uc 1 ACQT 1 0 :3:3 
+`uc 1 ADCAL 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"11813
+[s S1609 . 1 `uc 1 ADCS0 1 0 :1:0 
+`uc 1 ADCS1 1 0 :1:1 
+`uc 1 ADCS2 1 0 :1:2 
+`uc 1 ACQT0 1 0 :1:3 
+`uc 1 ACQT1 1 0 :1:4 
+`uc 1 ACQT2 1 0 :1:5 
+]
+[s S1616 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CHSN3 1 0 :1:3 
+`uc 1 VCFG01 1 0 :1:4 
+`uc 1 VCFG11 1 0 :1:5 
+]
+[u S1621 . 1 `S1604 1 . 1 0 `S1609 1 . 1 0 `S1616 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES1621  1 e 1 @4033 ]
+[s S1455 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"11932
+[s S1458 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+`uc 1 VCFG 1 0 :2:6 
+]
+[s S1463 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+`uc 1 VCFG0 1 0 :1:6 
+`uc 1 VCFG1 1 0 :1:7 
+]
+[s S1472 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S1475 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[s S1478 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S1481 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S1484 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+`uc 1 . 1 0 :5:2 
+`uc 1 ADCAL 1 0 :1:7 
+]
+[u S1489 . 1 `S1455 1 . 1 0 `S1458 1 . 1 0 `S1463 1 . 1 0 `S1472 1 . 1 0 `S1475 1 . 1 0 `S1478 1 . 1 0 `S1481 1 . 1 0 `S1484 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES1489  1 e 1 @4034 ]
+"12034
+[v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
+"12054
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+[s S394 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 T2OUTPS 1 0 :4:3 
+]
+"14053
+[s S398 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 T2OUTPS0 1 0 :1:3 
+`uc 1 T2OUTPS1 1 0 :1:4 
+`uc 1 T2OUTPS2 1 0 :1:5 
+`uc 1 T2OUTPS3 1 0 :1:6 
+]
+[u S406 . 1 `S394 1 . 1 0 `S398 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES406  1 e 1 @4042 ]
+"14103
+[v _PR2 PR2 `VEuc  1 e 1 @4043 ]
+"14229
+[v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
+[s S1284 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 RD16 1 0 :1:1 
+`uc 1 T1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS 1 0 :2:4 
+`uc 1 TMR1CS 1 0 :2:6 
+]
+"14287
+[s S1291 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+`uc 1 TMR1CS0 1 0 :1:6 
+`uc 1 TMR1CS1 1 0 :1:7 
+]
+[s S1297 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RD161 1 0 :1:1 
+`uc 1 T1SYNC1 1 0 :1:2 
+`uc 1 T1OSCEN1 1 0 :1:3 
+`uc 1 T1CKPS01 1 0 :1:4 
+`uc 1 T1CKPS11 1 0 :1:5 
+`uc 1 TMR1CS01 1 0 :1:6 
+`uc 1 TMR1CS11 1 0 :1:7 
+]
+[s S1306 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SOSCEN 1 0 :1:3 
+`uc 1 . 1 0 :3:4 
+`uc 1 T1RD16 1 0 :1:7 
+]
+[u S1311 . 1 `S1284 1 . 1 0 `S1291 1 . 1 0 `S1297 1 . 1 0 `S1306 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES1311  1 e 1 @4045 ]
+[s S538 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+]
+"14482
+[s S540 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_POR 1 0 :1:1 
+]
+[s S543 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_PD 1 0 :1:2 
+]
+[s S546 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_TO 1 0 :1:3 
+]
+[s S549 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 NOT_RI 1 0 :1:4 
+]
+[s S552 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_CM 1 0 :1:5 
+]
+[s S555 . 1 `uc 1 nBOR 1 0 :1:0 
+`uc 1 nPOR 1 0 :1:1 
+`uc 1 nPD 1 0 :1:2 
+`uc 1 nTO 1 0 :1:3 
+`uc 1 nRI 1 0 :1:4 
+`uc 1 nCM 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 IPEN 1 0 :1:7 
+]
+[s S564 . 1 `uc 1 BOR 1 0 :1:0 
+`uc 1 POR 1 0 :1:1 
+`uc 1 PD 1 0 :1:2 
+`uc 1 TO 1 0 :1:3 
+`uc 1 RI 1 0 :1:4 
+`uc 1 CM 1 0 :1:5 
+]
+[u S571 . 1 `S538 1 . 1 0 `S540 1 . 1 0 `S543 1 . 1 0 `S546 1 . 1 0 `S549 1 . 1 0 `S552 1 . 1 0 `S555 1 . 1 0 `S564 1 . 1 0 ]
+[v _RCONbits RCONbits `VES571  1 e 1 @4048 ]
+[s S463 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"16040
+[s S472 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S481 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S485 . 1 `S463 1 . 1 0 `S472 1 . 1 0 `S481 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES485  1 e 1 @4082 ]
+"16557
+[v _ADIE ADIE `VEb  1 e 0 @31982 ]
+"16560
+[v _ADIF ADIF `VEb  1 e 0 @31990 ]
+"19269
+[v _RTCEN RTCEN `VEb  1 e 0 @31231 ]
+"19272
+[v _RTCOE RTCOE `VEb  1 e 0 @31226 ]
+"19281
+[v _RTCSYNC RTCSYNC `VEb  1 e 0 @31228 ]
+"19287
+[v _RTCWREN RTCWREN `VEb  1 e 0 @31229 ]
+"153 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+[v _prec prec `i  1 s 2 prec ]
+[v _width width `i  1 s 2 width ]
+"154
+[v _flags flags `uc  1 s 1 flags ]
+"185
+[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
+[s S1092 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEus 1 tail 2 2 `VEus 1 head 2 4 `VEus 1 size 2 6 `VEus 1 cell_size 2 8 ]
+"28 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+[v _RXringbuf RXringbuf `VES1092  1 s 10 RXringbuf ]
+"29
+[v _RXbuf RXbuf `[200]uc  1 s 200 RXbuf ]
+"31
+[v _TXringbuf TXringbuf `VES1092  1 s 10 TXringbuf ]
+"32
+[v _TXbuf TXbuf `[200]uc  1 s 200 TXbuf ]
+"34
+[v _hw_overrun_errors hw_overrun_errors `VEus  1 s 2 hw_overrun_errors ]
+"35
+[v _hw_framing_errors hw_framing_errors `VEus  1 s 2 hw_framing_errors ]
+"36
+[v _rx_dropped_bytes rx_dropped_bytes `VEus  1 s 2 rx_dropped_bytes ]
+[s S68 . 8 `uc 1 YEAR 1 0 `uc 1 MONTH 1 1 `uc 1 DAY 1 2 `uc 1 WEEKDAY 1 3 `uc 1 HOURS 1 4 `uc 1 MINUTES 1 5 `uc 1 SECONDS 1 6 `uc 1 unknown 1 7 ]
+"24 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+[v _DateTime DateTime `S68  1 e 8 0 ]
+"20 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+[v _timestamp timestamp `VEul  1 e 4 0 ]
+"22
+[v _ms_clbk ms_clbk `[10]*.37(v  1 e 20 0 ]
+"23
+[v _ms_clbk_max ms_clbk_max `uc  1 e 1 0 ]
+[s S1711 . 4 `uc 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+"94 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+[v _BDT BDT `VE[4]S1711  1 e 16 @1024 ]
+"95
+[v _ep0_out_buf ep0_out_buf `VE[8]uc  1 e 8 @1040 ]
+"96
+[v _ep0_in_buf ep0_in_buf `VE[8]uc  1 e 8 @1048 ]
+"97
+[v _ep1_in_buf ep1_in_buf `VE[8]uc  1 e 8 @1056 ]
+"111
+[v _dev_desc dev_desc `C[18]uc  1 s 18 dev_desc ]
+"131
+[v _cfg_desc cfg_desc `C[34]uc  1 s 34 cfg_desc ]
+"172
+[v _report_desc report_desc `C[63]uc  1 s 63 report_desc ]
+"207
+[v _str0_desc str0_desc `C[4]uc  1 s 4 str0_desc ]
+"209
+[v _str1_desc str1_desc `C[24]uc  1 s 24 str1_desc ]
+"215
+[v _str2_desc str2_desc `C[34]uc  1 s 34 str2_desc ]
+"225
+[v _ascii2usage ascii2usage `C[128]uc  1 s 128 ascii2usage ]
+"248
+[v _usb_state usb_state `VEuc  1 s 1 usb_state ]
+"249
+[v _kbd_leds kbd_leds `VEuc  1 s 1 kbd_leds ]
+"252
+[v _ctrl_stage ctrl_stage `uc  1 s 1 ctrl_stage ]
+"253
+[v _ctrl_rom ctrl_rom `*.32Cuc  1 s 2 ctrl_rom ]
+"254
+[v _ctrl_ram ctrl_ram `[8]uc  1 s 8 ctrl_ram ]
+"255
+[v _ctrl_in_rom ctrl_in_rom `uc  1 s 1 ctrl_in_rom ]
+"256
+[v _ctrl_pos ctrl_pos `us  1 s 2 ctrl_pos ]
+"257
+[v _ctrl_len ctrl_len `us  1 s 2 ctrl_len ]
+"258
+[v _ctrl_zlp ctrl_zlp `uc  1 s 1 ctrl_zlp ]
+"259
+[v _ctrl_dts ctrl_dts `uc  1 s 1 ctrl_dts ]
+"260
+[v _pending_addr pending_addr `uc  1 s 1 pending_addr ]
+[s S1716 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEus 1 tail 2 2 `VEus 1 head 2 4 `VEus 1 size 2 6 `VEus 1 cell_size 2 8 ]
+"263
+[v _kbd_rb kbd_rb `VES1716  1 s 10 kbd_rb ]
+"264
+[v _kbd_rb_mem kbd_rb_mem `[128]uc  1 s 128 kbd_rb_mem ]
+"265
+[v _kbd_release kbd_release `uc  1 s 1 kbd_release ]
+"266
+[v _kbd_dts kbd_dts `uc  1 s 1 kbd_dts ]
+"26 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"51
+[v main@strtx strtx `[100]uc  1 a 100 100 ]
+"52
+[v main@strrx strrx `[100]uc  1 a 100 0 ]
+"53
+[v main@usb_was_ready usb_was_ready `uc  1 a 1 202 ]
+"87
+} 0
+"32 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+[v _write_RTCC write_RTCC `(v  1 e 1 0 ]
+{
+[s S68 . 8 `uc 1 YEAR 1 0 `uc 1 MONTH 1 1 `uc 1 DAY 1 2 `uc 1 WEEKDAY 1 3 `uc 1 HOURS 1 4 `uc 1 MINUTES 1 5 `uc 1 SECONDS 1 6 `uc 1 unknown 1 7 ]
+[v write_RTCC@me me `C*.39S68  1 p 2 48 ]
+"34
+[v write_RTCC@gie_state gie_state `uc  1 a 1 50 ]
+"59
+} 0
+"8
+[v _unlock_RTCC unlock_RTCC `(v  1 e 1 0 ]
+{
+"16
+} 0
+"93 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+[v _sys_init sys_init `(v  1 e 1 0 ]
+{
+"97
+{
+[v sys_init@cycles cycles `VEul  1 a 4 48 ]
+}
+"101
+} 0
+"75
+[v _sys_mstimer_init sys_mstimer_init `(v  1 e 1 0 ]
+{
+"91
+} 0
+"9 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[v sprintf@s s `*.39uc  1 p 2 50 ]
+[v sprintf@fmt fmt `*.32Cuc  1 p 2 52 ]
+"11
+"12
+[v sprintf@ap ap `[1]*.39v  1 a 2 62 ]
+"13
+[u S2657 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
+[s S2660 _IO_FILE 11 `S2657 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S2660  1 a 11 64 ]
+"23
+} 0
+"1817 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+{
+[s S2692 _IO_FILE 0 ]
+[v vfprintf@fp fp `*.39S2692  1 p 2 42 ]
+[v vfprintf@fmt fmt `*.32Cuc  1 p 2 44 ]
+[v vfprintf@ap ap `*.39*.39v  1 p 2 46 ]
+"1820
+[v vfprintf@cfmt cfmt `*.32uc  1 a 2 48 ]
+"1840
+} 0
+"1177
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+{
+[s S2692 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.39S2692  1 p 2 26 ]
+[v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 28 ]
+[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 30 ]
+"1179
+[v vfpfcnvrt@c c `uc  1 a 1 39 ]
+[v vfpfcnvrt@cp cp `*.32uc  1 a 2 40 ]
+"1180
+[v vfpfcnvrt@done done `a  1 a 1 38 ]
+"1188
+[u S2716 . 4 `l 1 sint 4 0 `ul 1 uint 4 0 `d 1 f 4 0 ]
+[v vfpfcnvrt@convarg convarg `S2716  1 a 4 34 ]
+"1814
+} 0
+"942
+[v _stoa stoa `(v  1 s 1 stoa ]
+{
+[s S2692 _IO_FILE 0 ]
+[v stoa@fp fp `*.39S2692  1 p 2 57 ]
+[v stoa@s s `*.39uc  1 p 2 59 ]
+"944
+[v stoa@cp cp `*.35uc  1 a 2 4 ]
+"945
+[v stoa@l l `i  1 a 2 6 ]
+[v stoa@p p `i  1 a 2 0 ]
+"947
+[v stoa@w w `i  1 a 2 2 ]
+"997
+} 0
+"1158
+[v _read_prec_or_width read_prec_or_width `(i  1 s 2 read_prec_or_width ]
+{
+[v read_prec_or_width@fmt fmt `*.39*.32Cuc  1 p 2 48 ]
+[v read_prec_or_width@ap ap `*.39[1]*.39v  1 p 2 50 ]
+"1159
+[v read_prec_or_width@n n `i  1 a 2 55 ]
+"1163
+{
+"1164
+[v read_prec_or_width@c c `uc  1 a 1 54 ]
+"1169
+}
+"1171
+} 0
+"513
+[v _dtoa dtoa `(v  1 s 1 dtoa ]
+{
+[s S2692 _IO_FILE 0 ]
+[v dtoa@fp fp `*.39S2692  1 p 2 11 ]
+[v dtoa@d d `l  1 p 4 13 ]
+"515
+[v dtoa@s s `uc  1 a 1 23 ]
+"516
+[v dtoa@i i `i  1 a 2 24 ]
+[v dtoa@w w `i  1 a 2 19 ]
+"518
+[v dtoa@p p `i  1 a 2 21 ]
+"583
+} 0
+"193
+[v _pad pad `(v  1 s 1 pad ]
+{
+[s S2692 _IO_FILE 0 ]
+[v pad@fp fp `*.39S2692  1 p 2 3 ]
+[v pad@buf buf `*.39uc  1 p 2 5 ]
+[v pad@p p `i  1 p 2 7 ]
+"195
+[v pad@i i `i  1 a 2 9 ]
+"226
+} 0
+"8 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+{
+[v fputs@s s `*.39Cuc  1 p 2 57 ]
+[u S2657 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
+[s S2660 _IO_FILE 11 `S2657 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.39S2660  1 p 2 59 ]
+"10
+[v fputs@c c `uc  1 a 1 0 ]
+"11
+[v fputs@i i `i  1 a 2 1 ]
+"19
+} 0
+"8 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+{
+[v fputc@c c `i  1 p 2 48 ]
+[u S2657 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
+[s S2660 _IO_FILE 11 `S2657 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S2660  1 p 2 50 ]
+"24
+} 0
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\putch.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+"9
+} 1
+"1 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+{
+[v abs@a a `i  1 p 2 58 ]
+"4
+} 0
+"62 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+[v _read_RTCC read_RTCC `(v  1 e 1 0 ]
+{
+[s S68 . 8 `uc 1 YEAR 1 0 `uc 1 MONTH 1 1 `uc 1 DAY 1 2 `uc 1 WEEKDAY 1 3 `uc 1 HOURS 1 4 `uc 1 MINUTES 1 5 `uc 1 SECONDS 1 6 `uc 1 unknown 1 7 ]
+[v read_RTCC@me me `C*.39S68  1 p 2 48 ]
+"64
+[v read_RTCC@gie_state gie_state `uc  1 a 1 50 ]
+"87
+} 0
+"175 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+[v _dbio_putstring dbio_putstring `(s  1 e 2 0 ]
+{
+[v dbio_putstring@str str `*.35Cuc  1 p 2 31 ]
+[v dbio_putstring@Nmax Nmax `us  1 p 2 33 ]
+"177
+[v dbio_putstring@buf_len buf_len `us  1 a 2 38 ]
+"178
+[v dbio_putstring@str_len str_len `us  1 a 2 36 ]
+"179
+[v dbio_putstring@gie_state gie_state `uc  1 a 1 35 ]
+"207
+} 0
+"42
+[v _dbio_strnlen dbio_strnlen `(us  1 s 2 dbio_strnlen ]
+{
+[v dbio_strnlen@str str `*.35Cuc  1 p 2 48 ]
+[v dbio_strnlen@N N `us  1 p 2 50 ]
+"44
+{
+[v dbio_strnlen@i i `us  1 a 2 54 ]
+"48
+}
+"50
+} 0
+"111
+[v _dbio_init dbio_init `(uc  1 e 1 0 ]
+{
+"119
+} 0
+"120 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+[v _UART1_Init UART1_Init `(v  1 e 1 0 ]
+{
+"141
+"142
+[v UART1_Init@SPBRG_VAL SPBRG_VAL `us  1 a 2 4 ]
+"159
+} 0
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
+{
+[v ___almod@dividend dividend `l  1 p 4 48 ]
+[v ___almod@divisor divisor `l  1 p 4 52 ]
+"10
+[v ___almod@counter counter `uc  1 a 1 56 ]
+[v ___almod@sign sign `uc  1 a 1 57 ]
+"34
+} 0
+"7 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+{
+[v ___aldiv@dividend dividend `l  1 p 4 48 ]
+[v ___aldiv@divisor divisor `l  1 p 4 52 ]
+"10
+[v ___aldiv@quotient quotient `l  1 a 4 58 ]
+"11
+[v ___aldiv@counter counter `uc  1 a 1 56 ]
+[v ___aldiv@sign sign `uc  1 a 1 57 ]
+"41
+} 0
+"121 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+[v _dbio_getstring dbio_getstring `(s  1 e 2 0 ]
+{
+[v dbio_getstring@str str `*.39uc  1 p 2 39 ]
+[v dbio_getstring@Nmax Nmax `us  1 p 2 41 ]
+[v dbio_getstring@timeout timeout `us  1 p 2 43 ]
+"124
+[v dbio_getstring@buf_len_prev buf_len_prev `us  1 s 2 buf_len_prev ]
+"125
+[v dbio_getstring@buf_len buf_len `us  1 a 2 55 ]
+"126
+[v dbio_getstring@st st `E6403  1 a 1 53 ]
+"127
+[v dbio_getstring@gie_state gie_state `uc  1 a 1 54 ]
+"173
+} 0
+"106 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+[v _RingBuf_DataRead RingBuf_DataRead `(E691  1 e 1 0 ]
+{
+[v RingBuf_DataRead@data data `*.39v  1 p 2 27 ]
+[v RingBuf_DataRead@len len `us  1 p 2 29 ]
+[s S996 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEus 1 tail 2 2 `VEus 1 head 2 4 `VEus 1 size 2 6 `VEus 1 cell_size 2 8 ]
+[v RingBuf_DataRead@rb rb `*.30VES996  1 p 1 31 ]
+"108
+[v RingBuf_DataRead@aval_len aval_len `us  1 a 2 37 ]
+"112
+[v RingBuf_DataRead@st st `E691  1 a 1 36 ]
+"120
+} 0
+"131
+[v _RingBuf_DataWatch RingBuf_DataWatch `(E691  1 e 1 0 ]
+{
+[v RingBuf_DataWatch@data data `*.39v  1 p 2 0 ]
+[v RingBuf_DataWatch@len len `us  1 p 2 2 ]
+[s S996 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEus 1 tail 2 2 `VEus 1 head 2 4 `VEus 1 size 2 6 `VEus 1 cell_size 2 8 ]
+[v RingBuf_DataWatch@rb rb `*.30VES996  1 p 1 4 ]
+"138
+[v RingBuf_DataWatch@aval_len aval_len `us  1 a 2 25 ]
+"142
+[v RingBuf_DataWatch@s_addr s_addr `us  1 a 2 19 ]
+"144
+[v RingBuf_DataWatch@space space `us  1 a 2 23 ]
+"145
+[v RingBuf_DataWatch@loc_tail loc_tail `us  1 a 2 21 ]
+"160
+} 0
+"829 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+[v _USB_kbd_putstring USB_kbd_putstring `(s  1 e 2 0 ]
+{
+[v USB_kbd_putstring@str str `*.39Cuc  1 p 2 45 ]
+[v USB_kbd_putstring@Nmax Nmax `us  1 p 2 47 ]
+"831
+[v USB_kbd_putstring@n n `s  1 a 2 49 ]
+"835
+{
+[v USB_kbd_putstring@i i `us  1 a 2 51 ]
+"840
+}
+"842
+} 0
+"817
+[v _USB_kbd_putchar USB_kbd_putchar `(s  1 e 2 0 ]
+{
+[v USB_kbd_putchar@c c `uc  1 p 1 wreg ]
+"819
+[v USB_kbd_putchar@code code `uc  1 a 1 44 ]
+"821
+[v USB_kbd_putchar@c c `uc  1 p 1 43 ]
+"827
+} 1
+"792
+[v _USB_kbd_putkey USB_kbd_putkey `(s  1 e 2 0 ]
+{
+[v USB_kbd_putkey@usage usage `uc  1 p 1 wreg ]
+[v USB_kbd_putkey@modifiers modifiers `uc  1 p 1 31 ]
+"794
+[v USB_kbd_putkey@key key `us  1 a 2 33 ]
+"795
+[v USB_kbd_putkey@avail avail `us  1 a 2 37 ]
+"796
+[v USB_kbd_putkey@ie ie `uc  1 a 1 36 ]
+"794
+[v USB_kbd_putkey@usage usage `uc  1 p 1 35 ]
+"815
+} 1
+"57 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+[v _RingBuf_DataPut RingBuf_DataPut `(E691  1 e 1 0 ]
+{
+[v RingBuf_DataPut@data data `*.35Cv  1 p 2 0 ]
+[v RingBuf_DataPut@len len `us  1 p 2 2 ]
+[s S996 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEus 1 tail 2 2 `VEus 1 head 2 4 `VEus 1 size 2 6 `VEus 1 cell_size 2 8 ]
+[v RingBuf_DataPut@rb rb `*.30VES996  1 p 1 4 ]
+"61
+[v RingBuf_DataPut@input input `*.35Cuc  1 a 2 23 ]
+"63
+[v RingBuf_DataPut@s_addr s_addr `ui  1 a 2 25 ]
+"65
+[v RingBuf_DataPut@space space `ui  1 a 2 27 ]
+"68
+[v RingBuf_DataPut@avaldat avaldat `us  1 a 2 29 ]
+"70
+[v RingBuf_DataPut@len_tmp len_tmp `us  1 a 2 21 ]
+"96
+} 0
+"4 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+[v _memcpy memcpy `(*.39v  1 e 2 0 ]
+{
+[v memcpy@d1 d1 `*.39v  1 p 2 48 ]
+[v memcpy@s1 s1 `*.35Cv  1 p 2 50 ]
+[v memcpy@n n `ui  1 p 2 52 ]
+"7
+[v memcpy@d d `*.39uc  1 a 2 55 ]
+"8
+[v memcpy@s s `*.35Cuc  1 a 2 57 ]
+"9
+[v memcpy@tmp tmp `uc  1 a 1 54 ]
+"18
+} 0
+"40 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+[v _RingBuf_Available RingBuf_Available `(E691  1 e 1 0 ]
+{
+[v RingBuf_Available@len len `*.39us  1 p 2 48 ]
+[s S996 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEus 1 tail 2 2 `VEus 1 head 2 4 `VEus 1 size 2 6 `VEus 1 cell_size 2 8 ]
+[v RingBuf_Available@rb rb `*.30VES996  1 p 1 50 ]
+"47
+} 0
+"782 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+[v _USB_is_configured USB_is_configured `(uc  1 e 1 0 ]
+{
+"785
+} 0
+"726
+[v _USB_init USB_init `(v  1 e 1 0 ]
+{
+"755
+[v USB_init@t0 t0 `ul  1 a 4 4 ]
+"743
+{
+[v USB_init@i i `uc  1 a 1 8 ]
+"747
+}
+"772
+} 0
+"12 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+[v _RingBuf_Init RingBuf_Init `(E691  1 e 1 0 ]
+{
+[v RingBuf_Init@buf buf `*.39v  1 p 2 51 ]
+[v RingBuf_Init@size size `us  1 p 2 53 ]
+[v RingBuf_Init@cellsize cellsize `us  1 p 2 55 ]
+[s S996 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEus 1 tail 2 2 `VEus 1 head 2 4 `VEus 1 size 2 6 `VEus 1 cell_size 2 8 ]
+[v RingBuf_Init@rb rb `*.30VES996  1 p 1 57 ]
+"18
+} 0
+"27
+[v _RingBuf_Clear RingBuf_Clear `(E691  1 e 1 0 ]
+{
+[s S996 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEus 1 tail 2 2 `VEus 1 head 2 4 `VEus 1 size 2 6 `VEus 1 cell_size 2 8 ]
+[v RingBuf_Clear@rb rb `*.30VES996  1 p 1 48 ]
+"31
+} 0
+"18 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+[v _RTC_init RTC_init `(v  1 e 1 0 ]
+{
+"24
+} 0
+"103 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+[v _delay_ms delay_ms `(v  1 e 1 0 ]
+{
+[v delay_ms@del del `ul  1 p 4 0 ]
+"105
+[v delay_ms@temp_time temp_time `VEul  1 a 4 8 ]
+"107
+} 0
+"109
+[v _get_ms get_ms `(ul  1 e 4 0 ]
+{
+"111
+[v get_ms@retval_1 retval_1 `ul  1 a 4 52 ]
+"112
+[v get_ms@retval_2 retval_2 `ul  1 a 4 56 ]
+"118
+} 0
+"53 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+[v _ADC_start_IT ADC_start_IT `(v  1 e 1 0 ]
+{
+"55
+[v ADC_start_IT@gie_state gie_state `uc  1 a 1 49 ]
+"65
+} 0
+"80
+[v _ADC_init ADC_init `(uc  1 e 1 0 ]
+{
+"82
+[v ADC_init@chanmax chanmax `uc  1 a 1 50 ]
+"191
+} 0
+"25 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+[v _sys_register_ms_clbk sys_register_ms_clbk `(uc  1 e 1 0 ]
+{
+[v sys_register_ms_clbk@clbk clbk `*.37(v  1 p 2 48 ]
+"31
+} 0
+"40 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+[v _ADC_getChan ADC_getChan `(s  1 e 2 0 ]
+{
+[v ADC_getChan@chan chan `uc  1 p 1 wreg ]
+"42
+[v ADC_getChan@retval retval `s  1 a 2 50 ]
+"43
+[v ADC_getChan@gie_state gie_state `uc  1 a 1 52 ]
+"44
+[v ADC_getChan@chan chan `uc  1 p 1 53 ]
+"49
+} 1
+"49 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+[v _Interrupts_handler Interrupts_handler `IIL(v  1 e 1 0 ]
+{
+"57
+} 0
+"54 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+[v _dbio_tx_isr dbio_tx_isr `(v  1 e 1 0 ]
+{
+"56
+[v dbio_tx_isr@buf_len buf_len `us  1 a 2 28 ]
+"57
+[v dbio_tx_isr@byte byte `uc  1 a 1 27 ]
+"65
+} 0
+"68
+[v _dbio_rx_isr dbio_rx_isr `(v  1 e 1 0 ]
+{
+"70
+[v dbio_rx_isr@byte byte `uc  1 a 1 41 ]
+"71
+[v dbio_rx_isr@buf_len buf_len `us  1 a 2 42 ]
+"109
+} 0
+"57 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+[v i1_RingBuf_DataPut RingBuf_DataPut `(E691  1 e 1 0 ]
+{
+[v i1RingBuf_DataPut@data data `*.35Cv  1 p 2 36 ]
+[v i1RingBuf_DataPut@len len `us  1 p 2 38 ]
+[s S996 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEus 1 tail 2 2 `VEus 1 head 2 4 `VEus 1 size 2 6 `VEus 1 cell_size 2 8 ]
+[v i1RingBuf_DataPut@rb rb `*.30VES996  1 p 1 40 ]
+"61
+[v i1RingBuf_DataPut@input input `*.35Cuc  1 a 2 18 ]
+"63
+[v i1RingBuf_DataPut@s_addr s_addr `ui  1 a 2 20 ]
+"65
+[v i1RingBuf_DataPut@space space `ui  1 a 2 24 ]
+"68
+[v i1RingBuf_DataPut@avaldat avaldat `us  1 a 2 22 ]
+"70
+[v i1RingBuf_DataPut@len_tmp len_tmp `us  1 a 2 16 ]
+"96
+} 0
+"645 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+[v _USB_isr USB_isr `(v  1 e 1 0 ]
+{
+"703
+{
+"704
+[v USB_isr@stat stat `uc  1 a 1 32 ]
+"707
+[v USB_isr@ep ep `uc  1 a 1 33 ]
+"708
+[v USB_isr@dir dir `uc  1 a 1 34 ]
+"719
+}
+"720
+} 0
+"613
+[v _usb_reset usb_reset `(v  1 s 1 usb_reset ]
+{
+"642
+} 0
+"27 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+[v i1_RingBuf_Clear RingBuf_Clear `(E691  1 e 1 0 ]
+{
+[s S996 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEus 1 tail 2 2 `VEus 1 head 2 4 `VEus 1 size 2 6 `VEus 1 cell_size 2 8 ]
+[v i1RingBuf_Clear@rb rb `*.30VES996  1 p 1 23 ]
+"31
+} 0
+"582 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+[v _kbd_service kbd_service `(v  1 s 1 kbd_service ]
+{
+"584
+[v kbd_service@avail avail `us  1 a 2 30 ]
+"585
+[v kbd_service@key key `us  1 a 2 28 ]
+"590
+{
+[v kbd_service@i i `uc  1 a 1 27 ]
+}
+"607
+} 0
+"106 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+[v i1_RingBuf_DataRead RingBuf_DataRead `(E691  1 e 1 0 ]
+{
+[v i1RingBuf_DataRead@data data `*.39v  1 p 2 22 ]
+[v i1RingBuf_DataRead@len len `us  1 p 2 24 ]
+[s S996 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEus 1 tail 2 2 `VEus 1 head 2 4 `VEus 1 size 2 6 `VEus 1 cell_size 2 8 ]
+[v i1RingBuf_DataRead@rb rb `*.30VES996  1 p 1 26 ]
+"108
+[v i1RingBuf_DataRead@aval_len aval_len `us  1 a 2 46 ]
+"112
+[v i1RingBuf_DataRead@st st `E691  1 a 1 45 ]
+"120
+} 0
+"131
+[v i1_RingBuf_DataWatch RingBuf_DataWatch `(E691  1 e 1 0 ]
+{
+[v i1RingBuf_DataWatch@data data `*.39v  1 p 2 36 ]
+[v i1RingBuf_DataWatch@len len `us  1 p 2 38 ]
+[s S996 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEus 1 tail 2 2 `VEus 1 head 2 4 `VEus 1 size 2 6 `VEus 1 cell_size 2 8 ]
+[v i1RingBuf_DataWatch@rb rb `*.30VES996  1 p 1 40 ]
+"138
+[v i1RingBuf_DataWatch@aval_len aval_len `us  1 a 2 20 ]
+"142
+[v i1RingBuf_DataWatch@s_addr s_addr `us  1 a 2 14 ]
+"144
+[v i1RingBuf_DataWatch@space space `us  1 a 2 18 ]
+"145
+[v i1RingBuf_DataWatch@loc_tail loc_tail `us  1 a 2 16 ]
+"160
+} 0
+"4 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+[v i1_memcpy memcpy `(*.39v  1 e 2 0 ]
+{
+[v i1memcpy@d1 d1 `*.39v  1 p 2 23 ]
+[v i1memcpy@s1 s1 `*.35Cv  1 p 2 25 ]
+[v i1memcpy@n n `ui  1 p 2 27 ]
+"7
+[v i1memcpy@d d `*.39uc  1 a 2 30 ]
+"8
+[v i1memcpy@s s `*.35Cuc  1 a 2 32 ]
+"9
+[v i1memcpy@tmp tmp `uc  1 a 1 29 ]
+"18
+} 0
+"40 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+[v i1_RingBuf_Available RingBuf_Available `(E691  1 e 1 0 ]
+{
+[v i1RingBuf_Available@len len `*.39us  1 p 2 23 ]
+[s S996 RINGBUF_t 10 `*.39uc 1 buf 2 0 `VEus 1 tail 2 2 `VEus 1 head 2 4 `VEus 1 size 2 6 `VEus 1 cell_size 2 8 ]
+[v i1RingBuf_Available@rb rb `*.30VES996  1 p 1 25 ]
+"47
+} 0
+"566 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+[v _kbd_arm_report kbd_arm_report `(v  1 s 1 kbd_arm_report ]
+{
+"572
+} 0
+"503
+[v _ep0_out_done ep0_out_done `(v  1 s 1 ep0_out_done ]
+{
+"526
+} 0
+"356
+[v _ep0_setup ep0_setup `(v  1 s 1 ep0_setup ]
+{
+"358
+[v ep0_setup@bmRequestType bmRequestType `uc  1 a 1 3 ]
+"359
+[v ep0_setup@bRequest bRequest `uc  1 a 1 4 ]
+"360
+[v ep0_setup@wValueL wValueL `uc  1 a 1 6 ]
+"361
+[v ep0_setup@wValueH wValueH `uc  1 a 1 2 ]
+"362
+[v ep0_setup@wLength wLength `us  1 a 2 7 ]
+"475
+{
+[v ep0_setup@i i `uc  1 a 1 5 ]
+}
+"497
+} 0
+"342
+[v _ctrl_stall ctrl_stall `(v  1 s 1 ctrl_stall ]
+{
+"350
+} 0
+"305
+[v _ctrl_send_rom ctrl_send_rom `(v  1 s 1 ctrl_send_rom ]
+{
+[v ctrl_send_rom@p p `*.32Cuc  1 p 2 39 ]
+[v ctrl_send_rom@len len `us  1 p 2 41 ]
+[v ctrl_send_rom@wLength wLength `us  1 p 2 43 ]
+"317
+} 0
+"320
+[v _ctrl_send_ram ctrl_send_ram `(v  1 s 1 ctrl_send_ram ]
+{
+[v ctrl_send_ram@len len `us  1 p 2 39 ]
+[v ctrl_send_ram@wLength wLength `us  1 p 2 41 ]
+"329
+} 0
+"332
+[v _ctrl_ack ctrl_ack `(v  1 s 1 ctrl_ack ]
+{
+"339
+} 0
+"280
+[v _ep0_arm_out ep0_arm_out `(v  1 s 1 ep0_arm_out ]
+{
+"285
+} 0
+"528
+[v _ep0_in_done ep0_in_done `(v  1 s 1 ep0_in_done ]
+{
+"560
+} 0
+"288
+[v _ep0_send_chunk ep0_send_chunk `(v  1 s 1 ep0_send_chunk ]
+{
+"290
+[v ep0_send_chunk@n n `uc  1 a 1 37 ]
+"292
+{
+[v ep0_send_chunk@i i `uc  1 a 1 38 ]
+"293
+}
+"302
+} 0
+"272
+[v _bd_set_addr bd_set_addr `(v  1 s 1 bd_set_addr ]
+{
+[v bd_set_addr@idx idx `uc  1 p 1 wreg ]
+[v bd_set_addr@buf buf `*.39VEuc  1 p 2 23 ]
+"274
+[v bd_set_addr@a a `us  1 a 2 26 ]
+[v bd_set_addr@idx idx `uc  1 p 1 25 ]
+"277
+} 1
+"13 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+[v _ADC_isr ADC_isr `(v  1 e 1 0 ]
+{
+"25
+} 0
+"33 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+[v _HighInterrupts_handler HighInterrupts_handler `IIH(v  1 e 1 0 ]
+{
+"42
+{
+[v HighInterrupts_handler@i i `uc  1 a 1 22 ]
+}
+"47
+} 0
+"29 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+[v _ADC_ms_cbk ADC_ms_cbk `(v  1 s 1 ADC_ms_cbk ]
+{
+"38
+} 0
+"10 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+[v _blinky blinky `(v  1 e 1 0 ]
+{
+"12
+[v blinky@time time `ul  1 s 4 time ]
+"22
+} 0
+"109 C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+[v i2_get_ms get_ms `(ul  1 e 4 0 ]
+{
+"111
+[v i2get_ms@retval_1 retval_1 `ul  1 a 4 4 ]
+"112
+[v i2get_ms@retval_2 retval_2 `ul  1 a 4 8 ]
+"118
+} 0

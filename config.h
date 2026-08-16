@@ -1,5 +1,5 @@
-#ifndef XC_HEADER_TEMPLATE_H
-#define	XC_HEADER_TEMPLATE_H
+#ifndef CONFIG_H
+#define	CONFIG_H
 
 // PIC18F46J50 Configuration Bit Settings
 
@@ -9,7 +9,7 @@
 #pragma config WDTEN = OFF      // Watchdog Timer (Disabled - Controlled by SWDTEN bit)
 #pragma config PLLDIV = 1       // PLL Prescaler Selection bits (No prescale (4 MHz oscillator input drives PLL directly))
 #pragma config STVREN = ON      // Stack Overflow/Underflow Reset (Enabled)
-#pragma config XINST = OFF       // Extended Instruction Set (Enabled)
+#pragma config XINST = OFF      // Extended Instruction Set (Disabled - required by XC8)
 
 // CONFIG1H
 #pragma config CPUDIV = OSC1    // CPU System Clock Postscaler (No CPU system clock divide)
@@ -17,7 +17,7 @@
 
 // CONFIG2L
 #pragma config OSC = HSPLL      // Oscillator (HS, USB-HS)
-#pragma config T1DIG = ON      // T1OSCEN Enforcement (Secondary Oscillator clock source may not be selected)
+#pragma config T1DIG = ON       // T1OSCEN Enforcement (Secondary Oscillator clock source may be selected regardless of T1OSCEN)
 #pragma config LPT1OSC = ON    // Low-Power Timer1 Oscillator (High-power operation)
 #pragma config FCMEN = ON       // Fail-Safe Clock Monitor (Enabled)
 #pragma config IESO = OFF       // Internal External Oscillator Switch Over Mode (Disabled)
@@ -51,5 +51,5 @@
 
 
 
-#endif	/* XC_HEADER_TEMPLATE_H */
+#endif	/* CONFIG_H */
 

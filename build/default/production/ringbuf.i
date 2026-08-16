@@ -11,8 +11,6 @@
 
 
 
-
-
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdint.h" 1 3
 
 
@@ -118,7 +116,7 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 149 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdint.h" 2 3
-# 7 "./ringbuf.h" 2
+# 5 "./ringbuf.h" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdlib.h" 1 3
 # 10 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdlib.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/features.h" 1 3
@@ -201,9 +199,9 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 8 "./ringbuf.h" 2
+# 6 "./ringbuf.h" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdbool.h" 1 3
-# 9 "./ringbuf.h" 2
+# 7 "./ringbuf.h" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/string.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/bits/alltypes.h" 1 3
@@ -261,7 +259,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 10 "./ringbuf.h" 2
+# 8 "./ringbuf.h" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/bits/alltypes.h" 1 3
@@ -414,7 +412,10 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "./ringbuf.h" 2
+# 9 "./ringbuf.h" 2
+
+
+
 
 
 
@@ -422,12 +423,12 @@ char *tempnam(const char *, const char *);
 
 typedef struct RINGBUF_t {
     uint8_t* buf;
-    volatile size_t tail;
-    volatile size_t head;
-    volatile size_t size;
-    volatile size_t cell_size;
+    volatile uint16_t tail;
+    volatile uint16_t head;
+    volatile uint16_t size;
+    volatile uint16_t cell_size;
 } RINGBUF_t;
-# 31 "./ringbuf.h"
+# 32 "./ringbuf.h"
 typedef enum RINGBUF_STATUS {
     RINGBUF_OK,
     RINGBUF_ERR,
@@ -436,7 +437,7 @@ typedef enum RINGBUF_STATUS {
     RINGBUF_EMPTY,
 } RINGBUF_STATUS;
 
-RINGBUF_STATUS RingBuf_Init(void* buf, uint16_t size, size_t cellsize, RINGBUF_t* rb);
+RINGBUF_STATUS RingBuf_Init(void* buf, uint16_t size, uint16_t cellsize, RINGBUF_t* rb);
 RINGBUF_STATUS RingBuf_Clear(RINGBUF_t* rb);
 RINGBUF_STATUS RingBuf_Available(uint16_t* len, RINGBUF_t* rb);
 
@@ -450,7 +451,7 @@ RINGBUF_STATUS RingBuf_DataRead(void* data, uint16_t len, RINGBUF_t* rb);
 RINGBUF_STATUS RingBuf_DataWatch(void* data, uint16_t len, RINGBUF_t* rb);
 # 2 "ringbuf.c" 2
 # 12 "ringbuf.c"
-RINGBUF_STATUS RingBuf_Init(void *buf, uint16_t size, size_t cellsize, RINGBUF_t *rb) {
+RINGBUF_STATUS RingBuf_Init(void *buf, uint16_t size, uint16_t cellsize, RINGBUF_t *rb) {
     rb->size = size;
     rb->cell_size = cellsize;
     rb->buf = buf;
@@ -474,8 +475,8 @@ RINGBUF_STATUS RingBuf_Available(uint16_t *len, RINGBUF_t *rb) {
 }
 # 57 "ringbuf.c"
 RINGBUF_STATUS RingBuf_DataPut(const void *data, uint16_t len, RINGBUF_t *rb) {
-    if (rb->buf == ((void*)0)) return RINGBUF_PARAM_ERR;
-    if (len > rb->size)
+    if ((rb->buf == ((void*)0)) || (data == ((void*)0))) return RINGBUF_PARAM_ERR;
+    if (len >= rb->size)
         return RINGBUF_OVERFLOW;
     const char *input = data;
 

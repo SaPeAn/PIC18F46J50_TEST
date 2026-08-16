@@ -1,34 +1,34 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"16 ./ringbuf.h
-[; ;./ringbuf.h: 16: typedef struct RINGBUF_t {
-[s S9 `*uc 1 `Vui 1 `Vui 1 `Vui 1 `Vui 1 ]
+"17 ./ringbuf.h
+[; ;./ringbuf.h: 17: typedef struct RINGBUF_t {
+[s S9 `*uc 1 `Vus 1 `Vus 1 `Vus 1 `Vus 1 ]
 [n S9 RINGBUF_t buf tail head size cell_size ]
 "12 ringbuf.c
-[; ;ringbuf.c: 12: RINGBUF_STATUS RingBuf_Init(void *buf, uint16_t size, size_t cellsize, RINGBUF_t *rb) {
+[; ;ringbuf.c: 12: RINGBUF_STATUS RingBuf_Init(void *buf, uint16_t size, uint16_t cellsize, RINGBUF_t *rb) {
 [c E691 0 1 2 3 4 .. ]
 [n E691 RINGBUF_STATUS RINGBUF_OK RINGBUF_ERR RINGBUF_PARAM_ERR RINGBUF_OVERFLOW RINGBUF_EMPTY  ]
-"40 ./ringbuf.h
-[; ;./ringbuf.h: 40: RINGBUF_STATUS RingBuf_Clear(RINGBUF_t* rb);
+"41 ./ringbuf.h
+[; ;./ringbuf.h: 41: RINGBUF_STATUS RingBuf_Clear(RINGBUF_t* rb);
 [v _RingBuf_Clear `(E691 ~T0 @X0 0 ef1`*S9 ]
 "27 C:\Program Files\Microchip\xc8\v4.00\pic\include\c99/string.h
 [; ;C:\Program Files\Microchip\xc8\v4.00\pic\include\c99/string.h: 27: void *memcpy (void *restrict, const void *restrict, size_t);
 [v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
-"50 ./ringbuf.h
-[; ;./ringbuf.h: 50: RINGBUF_STATUS RingBuf_DataWatch(void* data, uint16_t len, RINGBUF_t* rb);
+"51 ./ringbuf.h
+[; ;./ringbuf.h: 51: RINGBUF_STATUS RingBuf_DataWatch(void* data, uint16_t len, RINGBUF_t* rb);
 [v _RingBuf_DataWatch `(E691 ~T0 @X0 0 ef3`*v`us`*S9 ]
 "12 ringbuf.c
-[; ;ringbuf.c: 12: RINGBUF_STATUS RingBuf_Init(void *buf, uint16_t size, size_t cellsize, RINGBUF_t *rb) {
-[v _RingBuf_Init `(E691 ~T0 @X0 1 ef4`*v`us`ui`*S9 ]
+[; ;ringbuf.c: 12: RINGBUF_STATUS RingBuf_Init(void *buf, uint16_t size, uint16_t cellsize, RINGBUF_t *rb) {
+[v _RingBuf_Init `(E691 ~T0 @X0 1 ef4`*v`us`us`*S9 ]
 {
 [e :U _RingBuf_Init ]
 [v _buf `*v ~T0 @X0 1 r1 ]
 [v _size `us ~T0 @X0 1 r2 ]
-[v _cellsize `ui ~T0 @X0 1 r3 ]
+[v _cellsize `us ~T0 @X0 1 r3 ]
 [v _rb `*S9 ~T0 @X0 1 r4 ]
 [f ]
 "13
 [; ;ringbuf.c: 13:     rb->size = size;
-[e = . *U _rb 3 -> _size `ui ]
+[e = . *U _rb 3 _size ]
 "14
 [; ;ringbuf.c: 14:     rb->cell_size = cellsize;
 [e = . *U _rb 4 _cellsize ]
@@ -61,7 +61,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 12 ]
 "29
 [; ;ringbuf.c: 29:     rb->head = rb->tail = 0;
-[e = . *U _rb 2 = . *U _rb 1 -> -> 0 `i `ui ]
+[e = . *U _rb 2 = . *U _rb 1 -> -> 0 `i `us ]
 "30
 [; ;ringbuf.c: 30:     return RINGBUF_OK;
 [e ) . `E691 0 ]
@@ -86,17 +86,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 14 ]
 "42
 [; ;ringbuf.c: 42:     if (rb->head < rb->tail)
-[e $ ! < . *U _rb 2 . *U _rb 1 15  ]
+[e $ ! < -> . *U _rb 2 `ui -> . *U _rb 1 `ui 15  ]
 "43
 [; ;ringbuf.c: 43:         *len = rb->size - rb->tail + rb->head;
-[e = *U _len -> + - . *U _rb 3 . *U _rb 1 . *U _rb 2 `us ]
+[e = *U _len -> + - -> . *U _rb 3 `ui -> . *U _rb 1 `ui -> . *U _rb 2 `ui `us ]
 [e $U 16  ]
 "44
 [; ;ringbuf.c: 44:     else
 [e :U 15 ]
 "45
 [; ;ringbuf.c: 45:         *len = rb->head - rb->tail;
-[e = *U _len -> - . *U _rb 2 . *U _rb 1 `us ]
+[e = *U _len -> - -> . *U _rb 2 `ui -> . *U _rb 1 `ui `us ]
 [e :U 16 ]
 "46
 [; ;ringbuf.c: 46:     return RINGBUF_OK;
@@ -116,14 +116,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _rb `*S9 ~T0 @X0 1 r3 ]
 [f ]
 "58
-[; ;ringbuf.c: 58:     if (rb->buf == ((void*)0)) return RINGBUF_PARAM_ERR;
-[e $ ! == . *U _rb 0 -> -> -> 0 `i `*v `*uc 18  ]
+[; ;ringbuf.c: 58:     if ((rb->buf == ((void*)0)) || (data == ((void*)0))) return RINGBUF_PARAM_ERR;
+[e $ ! || == . *U _rb 0 -> -> -> 0 `i `*v `*uc == _data -> -> -> 0 `i `*v `*Cv 18  ]
 [e ) . `E691 2 ]
 [e $UE 17  ]
 [e :U 18 ]
 "59
-[; ;ringbuf.c: 59:     if (len > rb->size)
-[e $ ! > -> _len `ui . *U _rb 3 19  ]
+[; ;ringbuf.c: 59:     if (len >= rb->size)
+[e $ ! >= -> _len `ui -> . *U _rb 3 `ui 19  ]
 "60
 [; ;ringbuf.c: 60:         return RINGBUF_OVERFLOW;
 [e ) . `E691 3 ]
@@ -140,7 +140,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "65
 [; ;ringbuf.c: 65:     size_t space = rb->size - rb->head;
 [v _space `ui ~T0 @X0 1 a ]
-[e = _space - . *U _rb 3 . *U _rb 2 ]
+[e = _space - -> . *U _rb 3 `ui -> . *U _rb 2 `ui ]
 "68
 [; ;ringbuf.c: 68:     uint16_t avaldat = 0;
 [v _avaldat `us ~T0 @X0 1 a ]
@@ -158,10 +158,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "74
 [; ;ringbuf.c: 74:         memcpy(&rb->buf[rb->head*rb->cell_size], &input[s_addr * rb->cell_size], space * rb->cell_size);
-[e ( _memcpy (3 , , -> &U *U + . *U _rb 0 * -> * . *U _rb 2 . *U _rb 4 `ux -> -> # *U . *U _rb 0 `ui `ux `*v -> &U *U + _input * -> * _s_addr . *U _rb 4 `ux -> -> # *U _input `ui `ux `*Cv * _space . *U _rb 4 ]
+[e ( _memcpy (3 , , -> &U *U + . *U _rb 0 * -> * -> . *U _rb 2 `ui -> . *U _rb 4 `ui `ux -> -> # *U . *U _rb 0 `ui `ux `*v -> &U *U + _input * -> * _s_addr -> . *U _rb 4 `ui `ux -> -> # *U _input `ui `ux `*Cv * _space -> . *U _rb 4 `ui ]
 "76
 [; ;ringbuf.c: 76:         rb->head = 0;
-[e = . *U _rb 2 -> -> 0 `i `ui ]
+[e = . *U _rb 2 -> -> 0 `i `us ]
 "78
 [; ;ringbuf.c: 78:         s_addr = space;
 [e = _s_addr _space ]
@@ -174,28 +174,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 20 ]
 "83
 [; ;ringbuf.c: 83:     memcpy(&rb->buf[rb->head*rb->cell_size], &input[s_addr * rb->cell_size], len * rb->cell_size);
-[e ( _memcpy (3 , , -> &U *U + . *U _rb 0 * -> * . *U _rb 2 . *U _rb 4 `ux -> -> # *U . *U _rb 0 `ui `ux `*v -> &U *U + _input * -> * _s_addr . *U _rb 4 `ux -> -> # *U _input `ui `ux `*Cv * -> _len `ui . *U _rb 4 ]
+[e ( _memcpy (3 , , -> &U *U + . *U _rb 0 * -> * -> . *U _rb 2 `ui -> . *U _rb 4 `ui `ux -> -> # *U . *U _rb 0 `ui `ux `*v -> &U *U + _input * -> * _s_addr -> . *U _rb 4 `ui `ux -> -> # *U _input `ui `ux `*Cv * -> _len `ui -> . *U _rb 4 `ui ]
 "85
 [; ;ringbuf.c: 85:     rb->head += len;
-[e =+ . *U _rb 2 -> _len `Vui ]
+[e =+ . *U _rb 2 -> _len `Vus ]
 "86
 [; ;ringbuf.c: 86:     if (rb->head >= rb->size)
-[e $ ! >= . *U _rb 2 . *U _rb 3 21  ]
+[e $ ! >= -> . *U _rb 2 `ui -> . *U _rb 3 `ui 21  ]
 "87
 [; ;ringbuf.c: 87:         rb->head -= rb->size;
-[e =- . *U _rb 2 -> . *U _rb 3 `Vui ]
+[e =- . *U _rb 2 -> . *U _rb 3 `Vus ]
 [e :U 21 ]
 "90
 [; ;ringbuf.c: 90:     if((rb->size - avaldat) <= len_tmp) rb->tail = rb->head + 1;
-[e $ ! <= - . *U _rb 3 -> _avaldat `ui -> _len_tmp `ui 22  ]
-[e = . *U _rb 1 + . *U _rb 2 -> -> 1 `i `ui ]
+[e $ ! <= - -> . *U _rb 3 `ui -> _avaldat `ui -> _len_tmp `ui 22  ]
+[e = . *U _rb 1 -> + -> . *U _rb 2 `ui -> -> 1 `i `ui `us ]
 [e :U 22 ]
 "92
 [; ;ringbuf.c: 92:     if (rb->tail >= rb->size)
-[e $ ! >= . *U _rb 1 . *U _rb 3 23  ]
+[e $ ! >= -> . *U _rb 1 `ui -> . *U _rb 3 `ui 23  ]
 "93
 [; ;ringbuf.c: 93:         rb->tail = 0;
-[e = . *U _rb 1 -> -> 0 `i `ui ]
+[e = . *U _rb 1 -> -> 0 `i `us ]
 [e :U 23 ]
 "95
 [; ;ringbuf.c: 95:     return RINGBUF_OK;
@@ -246,13 +246,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 27 ]
 "116
 [; ;ringbuf.c: 116:     rb->tail += len;
-[e =+ . *U _rb 1 -> _len `Vui ]
+[e =+ . *U _rb 1 -> _len `Vus ]
 "117
 [; ;ringbuf.c: 117:     if (rb->tail >= rb->size)
-[e $ ! >= . *U _rb 1 . *U _rb 3 28  ]
+[e $ ! >= -> . *U _rb 1 `ui -> . *U _rb 3 `ui 28  ]
 "118
 [; ;ringbuf.c: 118:         rb->tail -= rb->size;
-[e =- . *U _rb 1 -> . *U _rb 3 `Vui ]
+[e =- . *U _rb 1 -> . *U _rb 3 `Vus ]
 [e :U 28 ]
 "119
 [; ;ringbuf.c: 119:     return st;
@@ -281,7 +281,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 30 ]
 "134
 [; ;ringbuf.c: 134:     if (len > rb->size)
-[e $ ! > -> _len `ui . *U _rb 3 31  ]
+[e $ ! > -> _len `ui -> . *U _rb 3 `ui 31  ]
 "135
 [; ;ringbuf.c: 135:         return RINGBUF_OVERFLOW;
 [e ) . `E691 3 ]
@@ -289,7 +289,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 31 ]
 "136
 [; ;ringbuf.c: 136:     if (rb->head == rb->tail)
-[e $ ! == . *U _rb 2 . *U _rb 1 32  ]
+[e $ ! == -> . *U _rb 2 `ui -> . *U _rb 1 `ui 32  ]
 "137
 [; ;ringbuf.c: 137:         return RINGBUF_EMPTY;
 [e ) . `E691 4 ]
@@ -314,18 +314,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "144
 [; ;ringbuf.c: 144:     uint16_t space = rb->size - rb->tail;
 [v _space `us ~T0 @X0 1 a ]
-[e = _space -> - . *U _rb 3 . *U _rb 1 `us ]
+[e = _space -> - -> . *U _rb 3 `ui -> . *U _rb 1 `ui `us ]
 "145
 [; ;ringbuf.c: 145:     uint16_t loc_tail = rb->tail;
 [v _loc_tail `us ~T0 @X0 1 a ]
-[e = _loc_tail -> . *U _rb 1 `us ]
+[e = _loc_tail . *U _rb 1 ]
 "146
 [; ;ringbuf.c: 146:     if (len > space) {
 [e $ ! > -> _len `ui -> _space `ui 34  ]
 {
 "149
 [; ;ringbuf.c: 149:         memcpy((uint8_t*)data + (s_addr * rb->cell_size), &rb->buf[loc_tail * rb->cell_size], space * rb->cell_size);
-[e ( _memcpy (3 , , -> + -> _data `*uc * -> * -> _s_addr `ui . *U _rb 4 `ux -> -> # *U -> _data `*uc `ui `ux `*v -> &U *U + . *U _rb 0 * -> * -> _loc_tail `ui . *U _rb 4 `ux -> -> # *U . *U _rb 0 `ui `ux `*Cv * -> _space `ui . *U _rb 4 ]
+[e ( _memcpy (3 , , -> + -> _data `*uc * -> * -> _s_addr `ui -> . *U _rb 4 `ui `ux -> -> # *U -> _data `*uc `ui `ux `*v -> &U *U + . *U _rb 0 * -> * -> _loc_tail `ui -> . *U _rb 4 `ui `ux -> -> # *U . *U _rb 0 `ui `ux `*Cv * -> _space `ui -> . *U _rb 4 `ui ]
 "151
 [; ;ringbuf.c: 151:         loc_tail = 0;
 [e = _loc_tail -> -> 0 `i `us ]
@@ -341,7 +341,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 34 ]
 "158
 [; ;ringbuf.c: 158:     memcpy((uint8_t*)data + (s_addr * rb->cell_size), &rb->buf[loc_tail * rb->cell_size], len * rb->cell_size);
-[e ( _memcpy (3 , , -> + -> _data `*uc * -> * -> _s_addr `ui . *U _rb 4 `ux -> -> # *U -> _data `*uc `ui `ux `*v -> &U *U + . *U _rb 0 * -> * -> _loc_tail `ui . *U _rb 4 `ux -> -> # *U . *U _rb 0 `ui `ux `*Cv * -> _len `ui . *U _rb 4 ]
+[e ( _memcpy (3 , , -> + -> _data `*uc * -> * -> _s_addr `ui -> . *U _rb 4 `ui `ux -> -> # *U -> _data `*uc `ui `ux `*v -> &U *U + . *U _rb 0 * -> * -> _loc_tail `ui -> . *U _rb 4 `ui `ux -> -> # *U . *U _rb 0 `ui `ux `*Cv * -> _len `ui -> . *U _rb 4 `ui ]
 "159
 [; ;ringbuf.c: 159:     return RINGBUF_OK;
 [e ) . `E691 0 ]

@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "USB.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 295 "<built-in>" 3
@@ -6,54 +6,12 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 1 "./config.h" 1
+# 1 "USB.c" 2
+# 1 "./USB.h" 1
 
 
 
-
-
-
-
-
-#pragma config WDTEN = OFF
-#pragma config PLLDIV = 1
-#pragma config STVREN = ON
-#pragma config XINST = OFF
-
-
-#pragma config CPUDIV = OSC1
-#pragma config CP0 = OFF
-
-
-#pragma config OSC = HSPLL
-#pragma config T1DIG = ON
-#pragma config LPT1OSC = ON
-#pragma config FCMEN = ON
-#pragma config IESO = OFF
-
-
-#pragma config WDTPS = 32768
-
-
-#pragma config DSWDTOSC = INTOSCREF
-#pragma config RTCOSC = T1OSCREF
-#pragma config DSBOREN = OFF
-#pragma config DSWDTEN = OFF
-#pragma config DSWDTPS = G2
-
-
-#pragma config IOL1WAY = ON
-#pragma config MSSP7B_EN = MSK7
-
-
-#pragma config WPFP = PAGE_63
-#pragma config WPEND = PAGE_WPFP
-#pragma config WPCFG = OFF
-
-
-#pragma config WPDIS = OFF
-
+# 1 "./system.h" 1
 
 
 
@@ -10168,8 +10126,67 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include/xc.h" 2 3
-# 51 "./config.h" 2
-# 2 "main.c" 2
+# 5 "./system.h" 2
+# 57 "./system.h"
+void sys_init(void);
+
+uint32_t get_ms(void);
+void delay_ms(uint32_t del);
+
+uint8_t sys_register_ms_clbk(void (*clbk)(void));
+
+void UART1_Init(void);
+# 5 "./USB.h" 2
+# 40 "./USB.h"
+void USB_init(void);
+
+
+void USB_deinit(void);
+
+
+
+
+
+
+void USB_isr(void);
+
+
+
+
+
+uint8_t USB_is_configured(void);
+
+
+
+
+
+int16_t USB_kbd_putchar(char c);
+
+
+
+
+
+int16_t USB_kbd_putstring(const char* str, uint16_t Nmax);
+
+
+
+
+
+
+
+int16_t USB_kbd_putkey(uint8_t usage, uint8_t modifiers);
+
+
+uint8_t USB_kbd_getleds(void);
+# 2 "USB.c" 2
+# 1 "./ringbuf.h" 1
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdbool.h" 1 3
+# 7 "./ringbuf.h" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/string.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/bits/alltypes.h" 1 3
@@ -10227,18 +10244,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 3 "main.c" 2
-# 1 "./system.h" 1
-# 57 "./system.h"
-void sys_init(void);
-
-uint32_t get_ms(void);
-void delay_ms(uint32_t del);
-
-uint8_t sys_register_ms_clbk(void (*clbk)(void));
-
-void UART1_Init(void);
-# 4 "main.c" 2
+# 8 "./ringbuf.h" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/bits/alltypes.h" 1 3
@@ -10391,217 +10397,779 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 5 "main.c" 2
-# 1 "./dbio.h" 1
-# 32 "./dbio.h"
-typedef enum DBIO_STATUS {
-    DBIO_PENDING = 0,
+# 9 "./ringbuf.h" 2
 
-    DBIO_PARAM_ERR = -1,
-    DBIO_NO_SPACE = -1,
-    DBIO_NO_DATA = -2,
-} DBIO_STATUS;
 
 
 
 
 
-typedef enum DBIO_INIT_STATUS {
-    DBIO_INIT_OK = 0,
-    DBIO_INIT_BUF_ERR = 1,
-    DBIO_INIT_CBK_ERR = 2,
-} DBIO_INIT_STATUS;
 
 
+typedef struct RINGBUF_t {
+    uint8_t* buf;
+    volatile uint16_t tail;
+    volatile uint16_t head;
+    volatile uint16_t size;
+    volatile uint16_t cell_size;
+} RINGBUF_t;
+# 32 "./ringbuf.h"
+typedef enum RINGBUF_STATUS {
+    RINGBUF_OK,
+    RINGBUF_ERR,
+    RINGBUF_PARAM_ERR,
+    RINGBUF_OVERFLOW,
+    RINGBUF_EMPTY,
+} RINGBUF_STATUS;
 
+RINGBUF_STATUS RingBuf_Init(void* buf, uint16_t size, uint16_t cellsize, RINGBUF_t* rb);
+RINGBUF_STATUS RingBuf_Clear(RINGBUF_t* rb);
+RINGBUF_STATUS RingBuf_Available(uint16_t* len, RINGBUF_t* rb);
 
 
-uint8_t dbio_init(void);
+RINGBUF_STATUS RingBuf_DataPut(const void* data, uint16_t len, RINGBUF_t* rb);
 
 
+RINGBUF_STATUS RingBuf_DataRead(void* data, uint16_t len, RINGBUF_t* rb);
 
 
+RINGBUF_STATUS RingBuf_DataWatch(void* data, uint16_t len, RINGBUF_t* rb);
+# 3 "USB.c" 2
+# 86 "USB.c"
+typedef struct {
+  uint8_t STAT;
+  uint8_t CNT;
+  uint8_t ADRL;
+  uint8_t ADRH;
+} BD_t;
+
+
+volatile BD_t BDT[4] __attribute__((address(0x0400)));
+volatile uint8_t ep0_out_buf[8] __attribute__((address(0x0410)));
+volatile uint8_t ep0_in_buf[8] __attribute__((address(0x0418)));
+volatile uint8_t ep1_in_buf[8] __attribute__((address(0x0420)));
+# 111 "USB.c"
+static const uint8_t dev_desc[18] = {
+  18,
+  0x01,
+  0x00, 0x02,
+  0x00,
+  0x00,
+  0x00,
+  8,
+  (uint8_t)(0x04D8 & 0xFF), (uint8_t)(0x04D8 >> 8),
+  (uint8_t)(0x003F & 0xFF), (uint8_t)(0x003F >> 8),
+  0x00, 0x01,
+  0x01,
+  0x02,
+  0x00,
+  0x01
+};
 
+
+
+
+static const uint8_t cfg_desc[34] = {
+
+  9, 0x02,
+  34, 0x00,
+  0x01,
+  0x01,
+  0x00,
+  0x80,
+  50,
+
+
+  9, 0x04,
+  0x00,
+  0x00,
+  0x01,
+  0x03,
+  0x01,
+  0x01,
+  0x00,
+
 
-void dbio_rx_isr(void);
+  9, 0x21,
+  0x11, 0x01,
+  0x00,
+  0x01,
+  0x22,
+  63, 0x00,
+
+
+  7, 0x05,
+  0x81,
+  0x03,
+  8, 0x00,
+  10
+
+};
+
+
+
+
 
+static const uint8_t report_desc[63] = {
+  0x05, 0x01,
+  0x09, 0x06,
+  0xA1, 0x01,
+  0x05, 0x07,
+  0x19, 0xE0,
+  0x29, 0xE7,
+  0x15, 0x00,
+  0x25, 0x01,
+  0x75, 0x01,
+  0x95, 0x08,
+  0x81, 0x02,
+  0x95, 0x01,
+  0x75, 0x08,
+  0x81, 0x01,
+  0x95, 0x05,
+  0x75, 0x01,
+  0x05, 0x08,
+  0x19, 0x01,
+  0x29, 0x05,
+  0x91, 0x02,
+  0x95, 0x01,
+  0x75, 0x03,
+  0x91, 0x01,
+  0x95, 0x06,
+  0x75, 0x08,
+  0x15, 0x00,
+  0x25, 0x65,
+  0x05, 0x07,
+  0x19, 0x00,
+  0x29, 0x65,
+  0x81, 0x00,
+  0xC0
+};
 
+static const uint8_t str0_desc[4] = { 4, 0x03, 0x09, 0x04 };
 
+static const uint8_t str1_desc[24] = {
+  24, 0x03,
+  'P',0, 'I',0, 'C',0, '1',0, '8',0, 'F',0, '4',0, '6',0,
+  'J',0, '5',0, '0',0
+};
 
+static const uint8_t str2_desc[34] = {
+  34, 0x03,
+  'P',0, 'I',0, 'C',0, ' ',0, 'H',0, 'I',0, 'D',0, ' ',0,
+  'K',0, 'e',0, 'y',0, 'b',0, 'o',0, 'a',0, 'r',0, 'd',0
+};
 
-void dbio_tx_isr(void);
-# 86 "./dbio.h"
-int16_t dbio_getstring(char* str, uint16_t Nmax, uint16_t timeout);
-# 95 "./dbio.h"
-int16_t dbio_putstring(const char* str, uint16_t Nmax);
 
 
-uint16_t dbio_get_hw_overruns(void);
 
-uint16_t dbio_get_hw_framing_errors(void);
 
-uint16_t dbio_get_rx_dropped(void);
-# 6 "main.c" 2
-# 1 "./RTC.h" 1
-# 11 "./RTC.h"
-typedef struct{
-    uint8_t YEAR;
-    uint8_t MONTH;
-    uint8_t DAY;
-    uint8_t WEEKDAY;
-    uint8_t HOURS;
-    uint8_t MINUTES;
-    uint8_t SECONDS;
-    uint8_t unknown;
-} RTCC_VAL;
+static const uint8_t ascii2usage[128] = {
+           0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+           0x2A, 0x2B, 0x28, 0x00, 0x00, 0x28, 0x00, 0x00,
+           0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+           0x00, 0x00, 0x00, 0x29, 0x00, 0x00, 0x00, 0x00,
+           0x2C, 0x9E, 0xB4, 0xA0, 0xA1, 0xA2, 0xA4, 0x34,
+           0xA6, 0xA7, 0xA5, 0xAE, 0x36, 0x2D, 0x37, 0x38,
+           0x27, 0x1E, 0x1F, 0x20, 0x21, 0x22, 0x23, 0x24,
+           0x25, 0x26, 0xB3, 0x33, 0xB6, 0x2E, 0xB7, 0xB8,
+           0x9F, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8A,
+           0x8B, 0x8C, 0x8D, 0x8E, 0x8F, 0x90, 0x91, 0x92,
+           0x93, 0x94, 0x95, 0x96, 0x97, 0x98, 0x99, 0x9A,
+           0x9B, 0x9C, 0x9D, 0x2F, 0x31, 0x30, 0xA3, 0xAD,
+           0x35, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A,
+           0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10, 0x11, 0x12,
+           0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A,
+           0x1B, 0x1C, 0x1D, 0xAF, 0xB1, 0xB0, 0xB5, 0x4C
+};
 
-void write_RTCC(RTCC_VAL * const me);
-void read_RTCC(RTCC_VAL * const me);
-void RTC_init(void);
-# 7 "main.c" 2
-# 1 "./ADC.h" 1
-# 42 "./ADC.h"
-int16_t ADC_getChan(uint8_t chan);
 
 
-void ADC_start_IT(void);
 
 
-void ADC_stop_IT(void);
+static volatile uint8_t usb_state = 0;
+static volatile uint8_t kbd_leds = 0;
 
 
+static uint8_t ctrl_stage = 0;
+static const uint8_t* ctrl_rom = 0;
+static uint8_t ctrl_ram[8];
+static uint8_t ctrl_in_rom = 0;
+static uint16_t ctrl_pos = 0;
+static uint16_t ctrl_len = 0;
+static uint8_t ctrl_zlp = 0;
+static uint8_t ctrl_dts = 1;
+static uint8_t pending_addr = 0;
 
 
+static RINGBUF_t kbd_rb;
+static uint8_t kbd_rb_mem[64 * 2];
+static uint8_t kbd_release = 0;
+static uint8_t kbd_dts = 0;
 
 
-uint8_t ADC_init(void);
 
 
 
-
-
-
-void ADC_isr(void);
-# 8 "main.c" 2
-# 1 "./USB.h" 1
-# 40 "./USB.h"
-void USB_init(void);
-
-
-void USB_deinit(void);
-
-
-
-
-
-
-void USB_isr(void);
-
-
-
-
-
-uint8_t USB_is_configured(void);
-
-
-
-
-
-int16_t USB_kbd_putchar(char c);
-
-
-
-
-
-int16_t USB_kbd_putstring(const char* str, uint16_t Nmax);
-
-
-
-
-
-
-
-int16_t USB_kbd_putkey(uint8_t usage, uint8_t modifiers);
-
-
-uint8_t USB_kbd_getleds(void);
-# 9 "main.c" 2
-
-void blinky(void)
+static void bd_set_addr(uint8_t idx, volatile uint8_t* buf)
 {
-  static uint32_t time;
-  if(get_ms() - time > 10)
+  uint16_t a = (uint16_t)buf;
+  BDT[idx].ADRL = (uint8_t)(a & 0xFF);
+  BDT[idx].ADRH = (uint8_t)(a >> 8);
+}
+
+
+static void ep0_arm_out(void)
+{
+  BDT[0].CNT = 8;
+  bd_set_addr(0, ep0_out_buf);
+  BDT[0].STAT = 0x80;
+}
+
+
+static void ep0_send_chunk(void)
+{
+  uint8_t n = (ctrl_len > 8) ? 8 : (uint8_t)ctrl_len;
+
+  for(uint8_t i = 0; i < n; i++)
+    ep0_in_buf[i] = ctrl_in_rom ? ctrl_rom[ctrl_pos + i] : ctrl_ram[ctrl_pos + i];
+
+  ctrl_pos += n;
+  ctrl_len -= n;
+
+  BDT[1].CNT = n;
+  bd_set_addr(1, ep0_in_buf);
+  BDT[1].STAT = ctrl_dts ? (0x80 | 0x40 | 0x08) : (0x80 | 0x08);
+  ctrl_dts ^= 1;
+}
+
+
+static void ctrl_send_rom(const uint8_t* p, uint16_t len, uint16_t wLength)
+{
+  if(len > wLength) len = wLength;
+  ctrl_rom = p;
+  ctrl_in_rom = 1;
+  ctrl_pos = 0;
+  ctrl_len = len;
+
+
+  ctrl_zlp = (len < wLength) && (len != 0) && ((len % 8) == 0);
+  ctrl_stage = 1;
+  ep0_send_chunk();
+}
+
+
+static void ctrl_send_ram(uint16_t len, uint16_t wLength)
+{
+  if(len > wLength) len = wLength;
+  ctrl_in_rom = 0;
+  ctrl_pos = 0;
+  ctrl_len = len;
+  ctrl_zlp = 0;
+  ctrl_stage = 1;
+  ep0_send_chunk();
+}
+
+
+static void ctrl_ack(void)
+{
+  ctrl_stage = 3;
+  ctrl_len = 0;
+  BDT[1].CNT = 0;
+  bd_set_addr(1, ep0_in_buf);
+  BDT[1].STAT = 0x80 | 0x40 | 0x08;
+}
+
+
+static void ctrl_stall(void)
+{
+  ctrl_stage = 0;
+  BDT[0].CNT = 8;
+  bd_set_addr(0, ep0_out_buf);
+  BDT[0].STAT = 0x80 | 0x04;
+  BDT[1].CNT = 0;
+  BDT[1].STAT = 0x80 | 0x04;
+}
+
+
+
+
+
+static void ep0_setup(void)
+{
+  uint8_t bmRequestType = ep0_out_buf[0];
+  uint8_t bRequest = ep0_out_buf[1];
+  uint8_t wValueL = ep0_out_buf[2];
+  uint8_t wValueH = ep0_out_buf[3];
+  uint16_t wLength = ((uint16_t)ep0_out_buf[7] << 8) | ep0_out_buf[6];
+
+
+  BDT[0].STAT = 0;
+  BDT[1].STAT = 0;
+  ctrl_stage = 0;
+  ctrl_len = 0;
+  ctrl_pos = 0;
+  ctrl_zlp = 0;
+  ctrl_dts = 1;
+  UCONbits.PKTDIS = 0;
+
+  if(((bmRequestType) & 0x60) == 0x00)
   {
-    LATDbits.LATD4 = 0;
-    if(get_ms() - time > 1000)
+    switch(bRequest)
     {
-      LATDbits.LATD4 = 1;
-      time = get_ms();
+      case 0x06:
+        switch(wValueH)
+        {
+          case 0x01:
+            ctrl_send_rom(dev_desc, sizeof(dev_desc), wLength);
+            return;
+          case 0x02:
+            ctrl_send_rom(cfg_desc, sizeof(cfg_desc), wLength);
+            return;
+          case 0x21:
+            ctrl_send_rom(&cfg_desc[18], 9, wLength);
+            return;
+          case 0x22:
+            ctrl_send_rom(report_desc, sizeof(report_desc), wLength);
+            return;
+          case 0x03:
+            if(wValueL == 0) { ctrl_send_rom(str0_desc, sizeof(str0_desc), wLength); return; }
+            if(wValueL == 1) { ctrl_send_rom(str1_desc, sizeof(str1_desc), wLength); return; }
+            if(wValueL == 2) { ctrl_send_rom(str2_desc, sizeof(str2_desc), wLength); return; }
+            break;
+          default:
+            break;
+        }
+        break;
+
+      case 0x05:
+
+        pending_addr = wValueL;
+        ctrl_ack();
+        return;
+
+      case 0x09:
+        if(wValueL == 0)
+        {
+          usb_state = 2;
+          UEP1 = 0x00;
+        }
+        else
+        {
+
+          UEP1 = 0x1A;
+          BDT[3].STAT = 0;
+          BDT[3].CNT = 0;
+          bd_set_addr(3, ep1_in_buf);
+          kbd_dts = 0;
+          kbd_release = 0;
+          usb_state = 3;
+        }
+        ctrl_ack();
+        return;
+
+      case 0x08:
+        ctrl_ram[0] = (usb_state == 3) ? 1 : 0;
+        ctrl_send_ram(1, wLength);
+        return;
+
+      case 0x00:
+        ctrl_ram[0] = 0x00;
+        ctrl_ram[1] = 0x00;
+        ctrl_send_ram(2, wLength);
+        return;
+
+      case 0x0A:
+        ctrl_ram[0] = 0x00;
+        ctrl_send_ram(1, wLength);
+        return;
+
+      case 0x0B:
+      case 0x01:
+      case 0x03:
+        ctrl_ack();
+        return;
+
+      default:
+        break;
+    }
+  }
+  else if(((bmRequestType) & 0x60) == 0x20)
+  {
+    switch(bRequest)
+    {
+      case 0x0A:
+      case 0x0B:
+        ctrl_ack();
+        return;
+
+      case 0x02:
+        ctrl_ram[0] = 0x00;
+        ctrl_send_ram(1, wLength);
+        return;
+
+      case 0x03:
+        ctrl_ram[0] = 0x01;
+        ctrl_send_ram(1, wLength);
+        return;
+
+      case 0x01:
+        for(uint8_t i = 0; i < 8; i++) ctrl_ram[i] = 0;
+        ctrl_send_ram(8, wLength);
+        return;
+
+      case 0x09:
+
+        if(wLength)
+        {
+          ctrl_stage = 2;
+          BDT[0].CNT = 8;
+          bd_set_addr(0, ep0_out_buf);
+          BDT[0].STAT = 0x80 | 0x40 | 0x08;
+        }
+        else ctrl_ack();
+        return;
+
+      default:
+        break;
+    }
+  }
+
+  ctrl_stall();
+}
+
+
+
+
+
+static void ep0_out_done(void)
+{
+  if((((BDT[0].STAT) >> 2) & 0x0F) == 0x0D)
+  {
+    ep0_setup();
+
+
+    if(ctrl_stage == 1 || ctrl_stage == 3) ep0_arm_out();
+    return;
+  }
+
+  if(ctrl_stage == 2)
+  {
+
+    if(BDT[0].CNT >= 1) kbd_leds = ep0_out_buf[0];
+    ctrl_ack();
+  }
+  else
+  {
+
+    ctrl_stage = 0;
+  }
+  ep0_arm_out();
+}
+
+static void ep0_in_done(void)
+{
+  if(ctrl_stage == 1)
+  {
+    if(ctrl_len > 0)
+    {
+      ep0_send_chunk();
+      return;
+    }
+    if(ctrl_zlp)
+    {
+      ctrl_zlp = 0;
+      ep0_send_chunk();
+      return;
+    }
+
+
+    ctrl_stage = 4;
+    return;
+  }
+
+  if(ctrl_stage == 3)
+  {
+
+    if(pending_addr)
+    {
+      UADDR = pending_addr;
+      usb_state = 2;
+      pending_addr = 0;
+    }
+    ctrl_stage = 0;
+  }
+}
+
+
+
+
+
+static void kbd_arm_report(void)
+{
+  BDT[3].CNT = 8;
+  bd_set_addr(3, ep1_in_buf);
+  BDT[3].STAT = kbd_dts ? (0x80 | 0x40 | 0x08) : (0x80 | 0x08);
+  kbd_dts ^= 1;
+}
+# 582 "USB.c"
+static void kbd_service(void)
+{
+  uint16_t avail = 0;
+  uint16_t key = 0;
+
+  if(usb_state != 3) return;
+  if(BDT[3].STAT & 0x80) return;
+
+  for(uint8_t i = 0; i < 8; i++) ep1_in_buf[i] = 0;
+
+  if(kbd_release)
+  {
+    kbd_release = 0;
+    kbd_arm_report();
+    return;
+  }
+
+  RingBuf_Available(&avail, &kbd_rb);
+  if(avail == 0) return;
+  if(RingBuf_DataRead(&key, 1, &kbd_rb) != RINGBUF_OK) return;
+
+  ep1_in_buf[0] = (uint8_t)(key >> 8);
+  ep1_in_buf[2] = (uint8_t)(key & 0xFF);
+  kbd_release = 1;
+  kbd_arm_report();
+}
+
+
+
+
+
+static void usb_reset(void)
+{
+
+  while(UIRbits.TRNIF) UIRbits.TRNIF = 0;
+
+  UEP1 = 0x00;
+  UADDR = 0x00;
+  UIR = 0x00;
+  UEIR = 0x00;
+
+  UCONbits.PPBRST = 1;
+  UCONbits.PPBRST = 0;
+  UCONbits.PKTDIS = 0;
+
+
+  UEP0 = 0x16;
+
+  BDT[1].STAT = 0;
+  BDT[3].STAT = 0;
+  ep0_arm_out();
+
+  ctrl_stage = 0;
+  pending_addr = 0;
+  kbd_release = 0;
+  kbd_dts = 0;
+  kbd_leds = 0;
+  RingBuf_Clear(&kbd_rb);
+
+  usb_state = 1;
+}
+
+
+void USB_isr(void)
+{
+  PIR2bits.USBIF = 0;
+
+
+  if(UIRbits.ACTVIF && UIEbits.ACTVIE)
+  {
+    UCONbits.SUSPND = 0;
+
+    while(UIRbits.ACTVIF) UIRbits.ACTVIF = 0;
+    UIEbits.ACTVIE = 0;
+  }
+
+  if(UCONbits.SUSPND) return;
+
+  if(UIRbits.URSTIF)
+  {
+    usb_reset();
+    UIRbits.URSTIF = 0;
+  }
+
+  if(UIRbits.IDLEIF)
+  {
+    UIRbits.IDLEIF = 0;
+    UIEbits.ACTVIE = 1;
+    UCONbits.SUSPND = 1;
+    return;
+  }
+
+  if(UIRbits.UERRIF)
+  {
+    UEIR = 0x00;
+    UIRbits.UERRIF = 0;
+  }
+
+  if(UIRbits.STALLIF)
+  {
+    if(UEP0bits.EPSTALL)
+    {
+
+      if(ctrl_stage == 0)
+      {
+        BDT[1].STAT = 0;
+        ep0_arm_out();
+      }
+      UEP0bits.EPSTALL = 0;
+    }
+    UIRbits.STALLIF = 0;
+  }
+
+  if(UIRbits.SOFIF)
+  {
+    UIRbits.SOFIF = 0;
+    kbd_service();
+  }
+
+
+  while(UIRbits.TRNIF)
+  {
+    uint8_t stat = USTAT;
+    UIRbits.TRNIF = 0;
+
+    uint8_t ep = (stat >> 3) & 0x0F;
+    uint8_t dir = (stat >> 2) & 0x01;
+
+    if(ep == 0)
+    {
+      if(dir) ep0_in_done();
+      else ep0_out_done();
+    }
+    else if(ep == 1 && dir)
+    {
+      kbd_service();
     }
   }
 }
 
-RTCC_VAL DateTime;
 
-void main(void)
+
+
+
+void USB_init(void)
 {
-  sys_init();
-  dbio_init();
+  RingBuf_Init(kbd_rb_mem, 64, 2, &kbd_rb);
 
-  TRISDbits.TRISD4 = 0;
-  sys_register_ms_clbk(blinky);
+  usb_state = 0;
 
-  RTC_init();
+  UCON = 0x00;
+  UIE = 0x00;
+  UEIE = 0x00;
 
 
-  DateTime.DAY = (((((1) / 10) << 4) | ((1) % 10)));
-  DateTime.YEAR = (((((0) / 10) << 4) | ((0) % 10)));
-  DateTime.MONTH = (((((1) / 10) << 4) | ((1) % 10)));
-  DateTime.WEEKDAY = (((((0) / 10) << 4) | ((0) % 10)));
-  DateTime.HOURS = (((((0) / 10) << 4) | ((0) % 10)));
-  DateTime.MINUTES = (((((0) / 10) << 4) | ((0) % 10)));
-  DateTime.SECONDS = (((((0) / 10) << 4) | ((0) % 10)));
-  write_RTCC(&DateTime);
 
-  ADC_init();
-  ADC_start_IT();
+  UCFG = 0x14;
 
-  USB_init();
+  UEP0 = 0x00;
+  UEP1 = 0x00;
 
-  char strtx[100];
-  char strrx[100];
-  uint8_t usb_was_ready = 0;
-
-  sprintf(strtx, "Hello!!!\n\rTime: %ld\n\rEnter string: \n\r", get_ms());
-  dbio_putstring(strtx, 50);
-  delay_ms(15);
-  while(1)
+  for(uint8_t i = 0; i < 4; i++)
   {
-    read_RTCC(&DateTime);
-
-    sprintf(strtx, "ADC: %d %d %d\n\r", ADC_getChan(0), ADC_getChan(1), ADC_getChan(2));
-    dbio_putstring(strtx, 100);
-
-
-    if(USB_is_configured() != usb_was_ready)
-    {
-      usb_was_ready = USB_is_configured();
-      dbio_putstring(usb_was_ready ? "USB keyboard: ready\n\r"
-                                   : "USB keyboard: not ready\n\r", 30);
-    }
-
-    if(dbio_getstring(strrx, 50, 5) > 0)
-    {
-      sprintf(strtx, "Time: %.2d:%2.2d:%2.2d\n\rEntered string: %s\n\r", (((((DateTime.HOURS) & 0xF0) >> 4) * 10) + ((DateTime.HOURS) & 0x0F)), (((((DateTime.MINUTES) & 0xF0) >> 4) * 10) + ((DateTime.MINUTES) & 0x0F)), (((((DateTime.SECONDS) & 0xF0) >> 4) * 10) + ((DateTime.SECONDS) & 0x0F)), strrx);
-      dbio_putstring(strtx, 100);
-
-
-      if(USB_is_configured())
-      {
-        USB_kbd_putstring(strrx, 50);
-        USB_kbd_putkey(0x28, 0);
-      }
-    }
-    delay_ms(500);
+    BDT[i].STAT = 0;
+    BDT[i].CNT = 0;
   }
+
+  UCONbits.USBEN = 1;
+
+
+
+
+
+  uint32_t t0 = get_ms();
+  while(UCONbits.SE0 && ((get_ms() - t0) < 100));
+
+  UIR = 0x00;
+  UIEbits.URSTIE = 1;
+  UIEbits.TRNIE = 1;
+  UIEbits.IDLEIE = 1;
+  UIEbits.STALLIE = 1;
+  UIEbits.UERRIE = 1;
+  UIEbits.SOFIE = 1;
+
+  IPR2bits.USBIP = 0;
+  PIR2bits.USBIF = 0;
+
+  PIE2bits.USBIE = 1;
+
+  usb_state = 1;
+}
+
+void USB_deinit(void)
+{
+  PIE2bits.USBIE = 0;
+  UIE = 0x00;
+  UCON = 0x00;
+  usb_state = 0;
+}
+
+uint8_t USB_is_configured(void)
+{
+  return (usb_state == 3) && !UCONbits.SUSPND;
+}
+
+uint8_t USB_kbd_getleds(void)
+{
+  return kbd_leds;
+}
+
+int16_t USB_kbd_putkey(uint8_t usage, uint8_t modifiers)
+{
+  uint16_t key = ((uint16_t)modifiers << 8) | usage;
+  uint16_t avail = 0;
+  uint8_t ie;
+
+  if(usage == 0) return 0;
+  if(usb_state != 3) return -1;
+
+
+
+  ie = PIE2bits.USBIE;
+  PIE2bits.USBIE = 0;
+  RingBuf_Available(&avail, &kbd_rb);
+  if(avail >= (64 - 1))
+  {
+    PIE2bits.USBIE = ie;
+    return 0;
+  }
+  RingBuf_DataPut(&key, 1, &kbd_rb);
+  PIE2bits.USBIE = ie;
+
+  return 1;
+}
+
+int16_t USB_kbd_putchar(char c)
+{
+  uint8_t code;
+
+  if((uint8_t)c > 127) return 0;
+  code = ascii2usage[(uint8_t)c];
+  if(code == 0) return 0;
+
+  return USB_kbd_putkey(code & 0x7F,
+                        (code & 0x80) ? 0x02 : 0);
+}
+
+int16_t USB_kbd_putstring(const char* str, uint16_t Nmax)
+{
+  int16_t n = 0;
+
+  if(usb_state != 3) return -1;
+
+  for(uint16_t i = 0; i < Nmax; i++)
+  {
+    if(str[i] == '\0') break;
+    if(USB_kbd_putchar(str[i]) <= 0) break;
+    n++;
+  }
+  return n;
 }

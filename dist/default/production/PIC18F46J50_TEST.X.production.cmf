@@ -1,0 +1,2145 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+init CODE 0 106 106 4 1 2
+reset_vec CODE 0 0 0 4 1 2
+config CONFIG 4 FFF8 FFF8 8 1 1
+$dist/default/production\PIC18F46J50_TEST.X.production.o
+intcodelo CODE 0 18 18 EE 1 2
+cinit CODE 0 334A 334A 68 1 2
+intcode_body CODE 0 2BC0 2BC0 A0 1 2
+text0 CODE 0 E66 E66 284 1 2
+text1 CODE 0 29B6 29B6 B4 1 2
+text2 CODE 0 3A02 3A02 E 1 2
+text3 CODE 0 36C8 36C8 4A 1 2
+text4 CODE 0 39A6 39A6 22 1 2
+text5 CODE 0 3630 3630 4C 1 2
+text6 CODE 0 3590 3590 50 1 2
+text7 CODE 0 10A 10A 378 1 2
+text8 CODE 0 183A 183A 1C4 1 2
+text9 CODE 0 28F2 28F2 C4 1 2
+text10 CODE 0 19FE 19FE 1B0 1 2
+text11 CODE 0 2B1C 2B1C A4 1 2
+text12 CODE 0 35E0 35E0 50 1 2
+text13 CODE 0 2760 2760 CC 1 2
+text14 CODE 0 3A10 3A10 2 1 2
+text15 CODE 0 3894 3894 36 1 2
+text16 CODE 0 2A6A 2A6A B2 1 2
+text17 CODE 0 1F1E 1F1E FC 1 2
+text18 CODE 0 2EA0 2EA0 7E 1 2
+text19 CODE 0 3276 3276 6A 1 2
+text20 CODE 0 2688 2688 D8 1 2
+text21 CODE 0 2200 2200 EC 1 2
+text22 CODE 0 1D0E 1D0E 10C 1 2
+text23 CODE 0 10EA 10EA 27C 1 2
+text24 CODE 0 2110 2110 F0 1 2
+text25 CODE 0 1366 1366 278 1 2
+text26 CODE 0 2C60 2C60 9E 1 2
+text27 CODE 0 3096 3096 7A 1 2
+text28 CODE 0 282C 282C C6 1 2
+text29 CODE 0 482 482 35A 1 2
+text30 CODE 0 32E0 32E0 6A 1 2
+text31 CODE 0 22EC 22EC EC 1 2
+text32 CODE 0 3932 3932 2C 1 2
+text33 CODE 0 201A 201A F6 1 2
+text34 CODE 0 347A 347A 60 1 2
+text35 CODE 0 379C 379C 40 1 2
+text36 CODE 0 39C8 39C8 1E 1 2
+text37 CODE 0 3418 3418 62 1 2
+text38 CODE 0 301A 301A 7C 1 2
+text39 CODE 0 3712 3712 48 1 2
+text40 CODE 0 2F1E 2F1E 7E 1 2
+text41 CODE 0 38CA 38CA 34 1 2
+text42 CODE 0 34DA 34DA 5C 1 2
+text44 CODE 0 3536 3536 5A 1 2
+text45 CODE 0 2E1E 2E1E 82 1 2
+text46 CODE 0 B26 B26 340 1 2
+text47 CODE 0 1BAE 1BAE 160 1 2
+text48 CODE 0 367C 367C 4C 1 2
+text49 CODE 0 37DC 37DC 3E 1 2
+text50 CODE 0 25AE 25AE DA 1 2
+text51 CODE 0 23D8 23D8 EC 1 2
+text52 CODE 0 15DE 15DE 25C 1 2
+text53 CODE 0 33B2 33B2 66 1 2
+text54 CODE 0 24C4 24C4 EA 1 2
+text55 CODE 0 381A 381A 3E 1 2
+text56 CODE 0 2F9C 2F9C 7E 1 2
+text57 CODE 0 7DC 7DC 34A 1 2
+text58 CODE 0 395E 395E 24 1 2
+text59 CODE 0 2CFE 2CFE 94 1 2
+text60 CODE 0 3858 3858 3C 1 2
+text61 CODE 0 3982 3982 24 1 2
+text62 CODE 0 39E6 39E6 1C 1 2
+text63 CODE 0 3110 3110 7A 1 2
+text64 CODE 0 1E1A 1E1A 104 1 2
+text65 CODE 0 38FE 38FE 34 1 2
+text66 CODE 0 3204 3204 72 1 2
+text68 CODE 0 375A 375A 42 1 2
+text69 CODE 0 2D92 2D92 8C 1 2
+text70 CODE 0 318A 318A 7A 1 2
+idataCOMRAM CODE 0 3A12 3A12 1 1 1
+cstackBANK4h BANK4 1 428 428 CB 1 1
+cstackCOMRAM COMRAM 1 2 2 30 1 1
+cstackBANK0 BANK0 1 60 60 3F 1 1
+cstackBANK1 BANK1 1 100 100 51 1 1
+bssBANK0 BANK0 1 9F 9F 31 1 1
+bssBANK1 BANK1 1 151 151 28 1 1
+bssBANK2 BANK2 1 200 200 C0 1 1
+bssBANK3 BANK3 1 300 300 C8 1 1
+bssBANK5 BANK5 1 500 500 C8 1 1
+intcode CODE 0 8 8 6 1 2
+dataCOMRAM COMRAM 1 48 48 1 1 1
+bssCOMRAM COMRAM 1 32 32 16 1 1
+mediumconst MEDIUMCONST 0 FE2A FE2A 1CE 1 2
+config CONFIG 4 FFF8 FFF8 8 1 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM D0-FF 1
+RAM 179-1FF 1
+RAM 2C0-2FF 1
+RAM 3C8-3FF 1
+RAM 4F3-4FF 1
+RAM 5C8-EBF 1
+SFR EC0-FFF 1
+BANK0 D0-FF 1
+BANK1 179-1FF 1
+BANK2 2C0-2FF 1
+BANK3 3C8-3FF 1
+BANK4 4F3-4FF 1
+BANK5 5C8-5FF 1
+BANK6 600-6FF 1
+BANK7 700-7FF 1
+BANK8 800-8FF 1
+BANK9 900-9FF 1
+CONST 4-7 1
+CONST E-17 1
+CONST 3A13-FE29 1
+SMALLCONST 3A13-FE29 1
+CODE 4-7 1
+CODE E-17 1
+CODE 3A13-FE29 1
+BANK10 A00-AFF 1
+BANK11 B00-BFF 1
+BANK12 C00-CFF 1
+BANK13 D00-DFF 1
+BANK14 E00-EBF 1
+BIGRAM 49-5F 1
+BIGRAM D0-FF 1
+BIGRAM 179-1FF 1
+BIGRAM 2C0-2FF 1
+BIGRAM 3C8-3FF 1
+BIGRAM 4F3-4FF 1
+BIGRAM 5C8-EBF 1
+BIGSFR EC0-FFF 1
+COMRAM 49-5F 1
+MEDIUMCONST 3A13-FE29 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\PIC18F46J50_TEST.X.production.o
+18 intcodelo CODE >15124:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+18 intcodelo CODE >49:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+4E intcodelo CODE >53:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+6E intcodelo CODE >54:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+8E intcodelo CODE >55:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+AE intcodelo CODE >56:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+CE intcodelo CODE >57:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+8 intcode CODE >19997:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+8 intcode CODE >33:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+318A text70 CODE >109:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+318A text70 CODE >111:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+319A text70 CODE >112:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+31AA text70 CODE >113:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+31AE text70 CODE >114:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+31BE text70 CODE >115:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+31CE text70 CODE >113:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+31F2 text70 CODE >117:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+3202 text70 CODE >118:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2D92 text69 CODE >10:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+2D92 text69 CODE >13:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+2DCA text69 CODE >15:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+2DCC text69 CODE >16:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+2E06 text69 CODE >18:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+2E08 text69 CODE >19:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+2E1C text69 CODE >22:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+375A text68 CODE >29:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+375A text68 CODE >31:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+377A text68 CODE >33:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3794 text68 CODE >34:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3796 text68 CODE >35:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3798 text68 CODE >36:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+379A text68 CODE >38:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2BC0 intcode_body CODE >33:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2BD8 intcode_body CODE >38:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2BF4 intcode_body CODE >40:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2BF6 intcode_body CODE >41:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2C02 intcode_body CODE >42:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2C44 intcode_body CODE >47:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+3204 text66 CODE >13:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3204 text66 CODE >15:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3206 text66 CODE >16:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3240 text66 CODE >17:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3250 text66 CODE >18:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3252 text66 CODE >19:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3254 text66 CODE >20:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3258 text66 CODE >22:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3272 text66 CODE >23:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3274 text66 CODE >25:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+38FE text65 CODE >272:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+38FE text65 CODE >274:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3908 text65 CODE >275:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+391C text65 CODE >276:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3930 text65 CODE >277:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1E1A text64 CODE >288:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1E1A text64 CODE >290:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1E44 text64 CODE >292:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1E4A text64 CODE >293:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1EBC text64 CODE >292:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1ED0 text64 CODE >295:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1EDA text64 CODE >296:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1EE2 text64 CODE >298:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1EE6 text64 CODE >299:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1EF4 text64 CODE >300:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1F18 text64 CODE >301:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1F1C text64 CODE >302:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3110 text63 CODE >528:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3110 text63 CODE >530:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3120 text63 CODE >532:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3132 text63 CODE >534:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+313A text63 CODE >537:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+314A text63 CODE >539:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3150 text63 CODE >545:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3158 text63 CODE >549:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+316A text63 CODE >552:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+317A text63 CODE >554:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+317E text63 CODE >555:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3184 text63 CODE >556:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3186 text63 CODE >558:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3188 text63 CODE >560:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+39E6 text62 CODE >280:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+39E6 text62 CODE >282:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+39EC text62 CODE >283:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+39FA text62 CODE >284:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3A00 text62 CODE >285:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3982 text61 CODE >332:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3982 text61 CODE >334:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3986 text61 CODE >335:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+398C text61 CODE >336:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3990 text61 CODE >337:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+399E text61 CODE >338:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+39A4 text61 CODE >339:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3858 text60 CODE >320:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3858 text60 CODE >322:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3876 text60 CODE >323:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3878 text60 CODE >324:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3880 text60 CODE >325:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3888 text60 CODE >326:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+388A text60 CODE >327:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+388E text60 CODE >328:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3892 text60 CODE >329:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2CFE text59 CODE >305:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2CFE text59 CODE >307:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2D1C text59 CODE >308:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2D24 text59 CODE >309:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2D28 text59 CODE >310:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2D30 text59 CODE >311:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2D38 text59 CODE >314:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2D88 text59 CODE >315:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2D8C text59 CODE >316:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2D90 text59 CODE >317:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+395E text58 CODE >342:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+395E text58 CODE >344:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3960 text58 CODE >345:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3966 text58 CODE >346:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3974 text58 CODE >347:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+397A text58 CODE >348:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+397C text58 CODE >349:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3980 text58 CODE >350:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+7DC text57 CODE >356:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+7DC text57 CODE >358:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+7E0 text57 CODE >359:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+7E4 text57 CODE >360:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+7E8 text57 CODE >361:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+7EC text57 CODE >362:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+800 text57 CODE >365:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+804 text57 CODE >366:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+806 text57 CODE >367:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+808 text57 CODE >368:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+80E text57 CODE >369:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+816 text57 CODE >370:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+818 text57 CODE >371:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+81C text57 CODE >372:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+81E text57 CODE >374:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+838 text57 CODE >382:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+856 text57 CODE >385:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+874 text57 CODE >388:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+892 text57 CODE >391:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+8B0 text57 CODE >394:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+8DE text57 CODE >395:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+90C text57 CODE >396:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+93C text57 CODE >379:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+940 text57 CODE >379:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+948 text57 CODE >379:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+950 text57 CODE >379:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+958 text57 CODE >379:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+960 text57 CODE >379:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+96A text57 CODE >403:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+96A text57 CODE >405:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+96E text57 CODE >406:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+976 text57 CODE >410:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+986 text57 CODE >412:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+98A text57 CODE >413:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+98E text57 CODE >414:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+992 text57 CODE >418:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+998 text57 CODE >419:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+99C text57 CODE >420:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+99E text57 CODE >421:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+9AC text57 CODE >422:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+9AE text57 CODE >423:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+9B0 text57 CODE >424:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+9BA text57 CODE >430:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+9D4 text57 CODE >431:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+9EA text57 CODE >434:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+9EA text57 CODE >435:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+9EE text57 CODE >436:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+9F0 text57 CODE >437:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A06 text57 CODE >440:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A06 text57 CODE >441:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A0E text57 CODE >376:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A12 text57 CODE >376:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A1A text57 CODE >376:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A22 text57 CODE >376:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A2A text57 CODE >376:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A32 text57 CODE >376:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A3A text57 CODE >376:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A42 text57 CODE >376:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A4A text57 CODE >376:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A52 text57 CODE >376:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A5C text57 CODE >455:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A74 text57 CODE >470:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A7E text57 CODE >474:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+A7E text57 CODE >475:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+AA0 text57 CODE >476:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+AB6 text57 CODE >481:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+AC8 text57 CODE >483:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+ACC text57 CODE >484:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+AD2 text57 CODE >485:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+AE0 text57 CODE >486:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+AE6 text57 CODE >487:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+AEA text57 CODE >457:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+AEE text57 CODE >457:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+AF6 text57 CODE >457:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+AFE text57 CODE >457:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+B06 text57 CODE >457:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+B0E text57 CODE >457:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+B16 text57 CODE >457:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+B20 text57 CODE >496:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+B24 text57 CODE >497:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2F9C text56 CODE >503:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2F9C text56 CODE >505:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2FB6 text56 CODE >507:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2FBA text56 CODE >510:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2FE4 text56 CODE >514:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2FF6 text56 CODE >517:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+300A text56 CODE >518:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+300E text56 CODE >519:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3012 text56 CODE >520:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3012 text56 CODE >523:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3018 text56 CODE >526:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+381A text55 CODE >566:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+381A text55 CODE >568:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3820 text55 CODE >569:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+382E text55 CODE >570:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3852 text55 CODE >571:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3856 text55 CODE >572:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+24C4 text54 CODE >40:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+24C4 text54 CODE >41:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+24E0 text54 CODE >42:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+250A text54 CODE >43:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+256C text54 CODE >45:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+25AC text54 CODE >47:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+33B2 text53 CODE >4:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+33B2 text53 CODE >11:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+33BA text53 CODE >12:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+33C2 text53 CODE >13:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+33C6 text53 CODE >14:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+33EC text53 CODE >15:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+33FC text53 CODE >13:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+3416 text53 CODE >18:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+15DE text52 CODE >131:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+15DE text52 CODE >132:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+15F0 text52 CODE >133:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+15F6 text52 CODE >134:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1616 text52 CODE >135:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+161C text52 CODE >136:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1648 text52 CODE >137:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+164E text52 CODE >138:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1656 text52 CODE >139:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1664 text52 CODE >140:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1684 text52 CODE >142:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+168A text52 CODE >144:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+16BA text52 CODE >145:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+16CC text52 CODE >146:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+16E2 text52 CODE >149:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1768 text52 CODE >151:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1770 text52 CODE >153:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1778 text52 CODE >155:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1780 text52 CODE >158:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1836 text52 CODE >159:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1838 text52 CODE >160:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+23D8 text51 CODE >106:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+23D8 text51 CODE >107:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+23F8 text51 CODE >108:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+23FE text51 CODE >109:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+240C text51 CODE >110:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+242C text51 CODE >112:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+2446 text51 CODE >113:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+2456 text51 CODE >114:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+245C text51 CODE >116:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+2470 text51 CODE >117:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+249A text51 CODE >118:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+24C2 text51 CODE >120:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+25AE text50 CODE >582:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+25AE text50 CODE >584:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+25B6 text50 CODE >585:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+25BC text50 CODE >587:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+25D2 text50 CODE >588:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+25E6 text50 CODE >590:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+260A text50 CODE >592:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+261A text50 CODE >594:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+261C text50 CODE >595:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2624 text50 CODE >599:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2632 text50 CODE >600:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+264A text50 CODE >601:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2672 text50 CODE >603:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+267A text50 CODE >604:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+267E text50 CODE >605:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2686 text50 CODE >607:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+37DC text49 CODE >27:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+37DC text49 CODE >28:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+37F8 text49 CODE >29:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+3818 text49 CODE >31:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+367C text48 CODE >613:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+367C text48 CODE >616:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3690 text48 CODE >618:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3694 text48 CODE >619:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3696 text48 CODE >620:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3698 text48 CODE >621:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+369A text48 CODE >623:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+369C text48 CODE >624:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+369E text48 CODE >625:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+36A0 text48 CODE >628:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+36A4 text48 CODE >630:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+36A8 text48 CODE >631:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+36AA text48 CODE >632:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+36AE text48 CODE >634:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+36B0 text48 CODE >635:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+36B2 text48 CODE >636:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+36B4 text48 CODE >637:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+36B6 text48 CODE >638:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+36B8 text48 CODE >639:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+36C0 text48 CODE >641:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+36C6 text48 CODE >642:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1BAE text47 CODE >645:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1BAE text47 CODE >647:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1BB0 text47 CODE >650:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1BCE text47 CODE >652:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1BD0 text47 CODE >654:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1BE4 text47 CODE >655:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1BE8 text47 CODE >656:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1BE8 text47 CODE >658:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1BFA text47 CODE >660:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C08 text47 CODE >662:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C0C text47 CODE >663:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C0E text47 CODE >666:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C1C text47 CODE >668:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C1E text47 CODE >669:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C22 text47 CODE >670:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C24 text47 CODE >671:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C28 text47 CODE >672:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C28 text47 CODE >674:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C36 text47 CODE >676:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C38 text47 CODE >677:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C3A text47 CODE >678:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C3A text47 CODE >680:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C48 text47 CODE >682:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C58 text47 CODE >685:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C68 text47 CODE >687:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C6C text47 CODE >688:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C70 text47 CODE >690:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C74 text47 CODE >692:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C76 text47 CODE >695:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C84 text47 CODE >697:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C86 text47 CODE >698:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C8E text47 CODE >702:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C8E text47 CODE >704:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C92 text47 CODE >705:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1C94 text47 CODE >707:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1CA0 text47 CODE >708:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1CAA text47 CODE >710:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1CBA text47 CODE >712:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1CD2 text47 CODE >713:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1CDA text47 CODE >715:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1CFE text47 CODE >702:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1D0C text47 CODE >720:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+B26 text46 CODE >57:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+B26 text46 CODE >58:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+B54 text46 CODE >59:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+B78 text46 CODE >61:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+B80 text46 CODE >63:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+B88 text46 CODE >65:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+BB8 text46 CODE >68:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+BBE text46 CODE >69:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+BCC text46 CODE >70:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+BD4 text46 CODE >72:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+BEC text46 CODE >74:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+C84 text46 CODE >76:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+C92 text46 CODE >78:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+C9A text46 CODE >80:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+CA4 text46 CODE >83:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+D6C text46 CODE >85:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+D7E text46 CODE >86:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+DA8 text46 CODE >87:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+DCE text46 CODE >90:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+E2C text46 CODE >92:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+E56 text46 CODE >93:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+E64 text46 CODE >96:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+2E1E text45 CODE >68:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E1E text45 CODE >71:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E24 text45 CODE >77:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E32 text45 CODE >79:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E34 text45 CODE >80:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E36 text45 CODE >81:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E38 text45 CODE >82:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E3A text45 CODE >83:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E42 text45 CODE >85:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E42 text45 CODE >89:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E50 text45 CODE >91:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E52 text45 CODE >92:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E5A text45 CODE >94:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E5A text45 CODE >96:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E5E text45 CODE >102:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E6C text45 CODE >103:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E82 text45 CODE >105:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E8A text45 CODE >108:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2E9E text45 CODE >109:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+3536 text44 CODE >54:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+3536 text44 CODE >56:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+353E text44 CODE >59:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+354C text44 CODE >60:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+3584 text44 CODE >62:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+3588 text44 CODE >63:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+358C text44 CODE >64:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+358E text44 CODE >65:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+34DA text42 CODE >40:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+34DA text42 CODE >44:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+34F8 text42 CODE >45:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3502 text42 CODE >46:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+351A text42 CODE >47:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+352C text42 CODE >48:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3534 text42 CODE >49:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+38CA text41 CODE >25:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+38CA text41 CODE >27:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+38E0 text41 CODE >28:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+38F8 text41 CODE >29:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+38FA text41 CODE >30:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+38FC text41 CODE >31:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2F1E text40 CODE >80:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F1E text40 CODE >82:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F22 text40 CODE >84:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F26 text40 CODE >85:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F2A text40 CODE >88:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F30 text40 CODE >89:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F32 text40 CODE >90:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F36 text40 CODE >93:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F46 text40 CODE >94:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F48 text40 CODE >95:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F4C text40 CODE >98:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F5C text40 CODE >99:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F5E text40 CODE >100:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F62 text40 CODE >159:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F66 text40 CODE >165:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F68 text40 CODE >167:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F70 text40 CODE >175:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F74 text40 CODE >184:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F76 text40 CODE >187:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F98 text40 CODE >189:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+2F9A text40 CODE >191:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3712 text39 CODE >53:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3712 text39 CODE >56:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+371E text39 CODE >57:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3720 text39 CODE >58:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3724 text39 CODE >59:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3726 text39 CODE >60:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3740 text39 CODE >61:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3742 text39 CODE >62:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3744 text39 CODE >63:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3746 text39 CODE >64:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+3758 text39 CODE >65:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ADC.c
+301A text38 CODE >109:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+301A text38 CODE >111:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+302A text38 CODE >112:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+303A text38 CODE >113:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+303E text38 CODE >114:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+304E text38 CODE >115:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+305E text38 CODE >113:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+3084 text38 CODE >117:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+3094 text38 CODE >118:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+3418 text37 CODE >103:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+3418 text37 CODE >105:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+342C text37 CODE >106:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+3478 text37 CODE >107:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+39C8 text36 CODE >18:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+39C8 text36 CODE >20:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+39CA text36 CODE >21:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+39CC text36 CODE >22:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+39CE text36 CODE >23:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+39E4 text36 CODE >24:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+379C text35 CODE >27:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+379C text35 CODE >28:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+37BA text35 CODE >29:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+37DA text35 CODE >31:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+347A text34 CODE >12:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+347A text34 CODE >13:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+348E text34 CODE >14:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+34A0 text34 CODE >15:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+34AE text34 CODE >16:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+34B6 text34 CODE >17:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+34D8 text34 CODE >18:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+201A text33 CODE >726:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+201A text33 CODE >728:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2038 text33 CODE >730:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+203C text33 CODE >732:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+203E text33 CODE >733:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2042 text33 CODE >734:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2044 text33 CODE >738:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2048 text33 CODE >740:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+204A text33 CODE >741:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+204C text33 CODE >743:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2050 text33 CODE >745:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2062 text33 CODE >746:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2074 text33 CODE >743:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2086 text33 CODE >749:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2088 text33 CODE >755:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+209C text33 CODE >756:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+20F2 text33 CODE >758:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+20F4 text33 CODE >759:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+20F8 text33 CODE >760:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+20FA text33 CODE >761:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+20FC text33 CODE >762:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+20FE text33 CODE >763:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2100 text33 CODE >764:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2102 text33 CODE >766:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2104 text33 CODE >767:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2106 text33 CODE >769:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2108 text33 CODE >771:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+210E text33 CODE >772:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3932 text32 CODE >782:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3932 text32 CODE >784:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+395C text32 CODE >785:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+22EC text31 CODE >40:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+22EC text31 CODE >41:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+230A text31 CODE >42:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+2334 text31 CODE >43:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+2396 text31 CODE >45:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+23D6 text31 CODE >47:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+32E0 text30 CODE >4:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+32E0 text30 CODE >11:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+32E8 text30 CODE >12:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+32F0 text30 CODE >13:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+32F4 text30 CODE >14:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+331C text30 CODE >15:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+332C text30 CODE >13:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+3348 text30 CODE >18:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\memcpy.c
+482 text29 CODE >57:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+482 text29 CODE >58:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+4B2 text29 CODE >59:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+4D6 text29 CODE >61:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+4DE text29 CODE >63:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+4E4 text29 CODE >65:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+514 text29 CODE >68:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+51A text29 CODE >69:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+52C text29 CODE >70:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+534 text29 CODE >72:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+54C text29 CODE >74:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+5EC text29 CODE >76:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+5FC text29 CODE >78:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+604 text29 CODE >80:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+60C text29 CODE >83:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+6E4 text29 CODE >85:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+6F8 text29 CODE >86:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+722 text29 CODE >87:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+746 text29 CODE >90:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+7A2 text29 CODE >92:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+7CC text29 CODE >93:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+7DA text29 CODE >96:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+282C text28 CODE >792:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+282C text28 CODE >794:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2842 text28 CODE >795:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2848 text28 CODE >798:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2864 text28 CODE >799:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2882 text28 CODE >803:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+288C text28 CODE >804:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+288E text28 CODE >805:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+28A0 text28 CODE >806:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+28B8 text28 CODE >808:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+28C6 text28 CODE >811:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+28DC text28 CODE >812:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+28E8 text28 CODE >814:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+28F0 text28 CODE >815:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3096 text27 CODE >817:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+3096 text27 CODE >821:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+30B6 text27 CODE >822:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+30C8 text27 CODE >823:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+30DC text27 CODE >825:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+310E text27 CODE >827:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2C60 text26 CODE >829:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2C60 text26 CODE >831:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2C68 text26 CODE >833:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2C80 text26 CODE >835:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2C8C text26 CODE >837:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2CAC text26 CODE >838:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2CDE text26 CODE >839:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2CE2 text26 CODE >835:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+2CFC text26 CODE >842:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\USB.c
+1366 text25 CODE >131:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1366 text25 CODE >132:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+137A text25 CODE >133:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1380 text25 CODE >134:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+13A0 text25 CODE >135:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+13A6 text25 CODE >136:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+13D2 text25 CODE >137:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+13D8 text25 CODE >138:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+13DE text25 CODE >139:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+13F0 text25 CODE >140:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1410 text25 CODE >142:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1416 text25 CODE >144:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1446 text25 CODE >145:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1458 text25 CODE >146:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+146E text25 CODE >149:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+14FC text25 CODE >151:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1504 text25 CODE >153:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+150C text25 CODE >155:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+1514 text25 CODE >158:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+15DA text25 CODE >159:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+15DC text25 CODE >160:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+2110 text24 CODE >106:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+2110 text24 CODE >107:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+2130 text24 CODE >108:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+2136 text24 CODE >109:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+2148 text24 CODE >110:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+2168 text24 CODE >112:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+2184 text24 CODE >113:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+2194 text24 CODE >114:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+219A text24 CODE >116:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+21AC text24 CODE >117:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+21D6 text24 CODE >118:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+21FE text24 CODE >120:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\ringbuf.c
+10EA text23 CODE >121:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+10EA text23 CODE >125:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+10F2 text23 CODE >130:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1138 text23 CODE >132:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1142 text23 CODE >133:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1154 text23 CODE >134:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1168 text23 CODE >136:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1186 text23 CODE >138:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+11A4 text23 CODE >140:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+11C8 text23 CODE >144:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+11D2 text23 CODE >145:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+11F2 text23 CODE >146:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1204 text23 CODE >147:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1218 text23 CODE >148:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1232 text23 CODE >149:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+123A text23 CODE >150:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+124C text23 CODE >151:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+124C text23 CODE >153:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1254 text23 CODE >154:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1268 text23 CODE >155:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1274 text23 CODE >158:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+12CC text23 CODE >160:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+12FA text23 CODE >161:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1304 text23 CODE >162:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1320 text23 CODE >163:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1332 text23 CODE >164:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1346 text23 CODE >165:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1354 text23 CODE >166:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+135C text23 CODE >167:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1364 text23 CODE >173:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1D0E text22 CODE >7:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1D0E text22 CODE >13:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1D12 text22 CODE >14:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1D20 text22 CODE >15:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1D30 text22 CODE >16:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1D34 text22 CODE >18:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1D42 text22 CODE >19:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1D52 text22 CODE >20:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1D56 text22 CODE >22:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1D66 text22 CODE >23:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1D7C text22 CODE >24:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1D80 text22 CODE >25:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1D84 text22 CODE >26:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1D8E text22 CODE >27:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1D90 text22 CODE >25:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1D9E text22 CODE >30:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1DA8 text22 CODE >31:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1DC6 text22 CODE >32:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1DD6 text22 CODE >33:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1DD8 text22 CODE >35:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1DE2 text22 CODE >36:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1DE8 text22 CODE >38:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1DF8 text22 CODE >39:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1E08 text22 CODE >40:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+1E18 text22 CODE >41:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\aldiv.c
+2200 text21 CODE >7:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+2200 text21 CODE >12:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+2204 text21 CODE >13:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+2212 text21 CODE >14:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+2222 text21 CODE >15:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+2226 text21 CODE >17:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+2234 text21 CODE >18:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+2244 text21 CODE >19:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+225A text21 CODE >20:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+225E text21 CODE >21:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+2262 text21 CODE >22:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+226C text21 CODE >23:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+226E text21 CODE >21:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+227C text21 CODE >26:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+229A text21 CODE >27:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+22AA text21 CODE >28:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+22B4 text21 CODE >29:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+22BA text21 CODE >31:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+22CA text21 CODE >32:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+22DA text21 CODE >33:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+22EA text21 CODE >34:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\almod.c
+2688 text20 CODE >120:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2688 text20 CODE >122:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+268A text20 CODE >123:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+268C text20 CODE >125:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+268E text20 CODE >126:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2690 text20 CODE >128:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2692 text20 CODE >129:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2694 text20 CODE >131:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2696 text20 CODE >132:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2698 text20 CODE >133:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+269A text20 CODE >134:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+269C text20 CODE >136:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+269E text20 CODE >137:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+26A0 text20 CODE >138:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+26A2 text20 CODE >139:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+26A4 text20 CODE >141:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+26A4 text20 CODE >142:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2748 text20 CODE >144:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+274C text20 CODE >145:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2750 text20 CODE >147:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2752 text20 CODE >148:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2754 text20 CODE >151:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2756 text20 CODE >152:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+2758 text20 CODE >154:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+275A text20 CODE >155:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+275C text20 CODE >157:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+275E text20 CODE >159:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+3276 text19 CODE >111:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+3276 text19 CODE >113:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+32A8 text19 CODE >114:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+32DA text19 CODE >117:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+32DE text19 CODE >119:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2EA0 text18 CODE >42:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2EA0 text18 CODE >44:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2EAC text18 CODE >46:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2EEC text18 CODE >47:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2EF8 text18 CODE >44:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2F14 text18 CODE >49:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2F1C text18 CODE >50:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1F1E text17 CODE >175:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1F1E text17 CODE >177:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1F26 text17 CODE >181:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1F3C text17 CODE >186:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1F58 text17 CODE >187:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1F70 text17 CODE >188:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1F8A text17 CODE >190:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1F94 text17 CODE >191:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1FA6 text17 CODE >192:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1FD0 text17 CODE >194:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+1FE8 text17 CODE >197:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2002 text17 CODE >198:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2016 text17 CODE >204:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2018 text17 CODE >207:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\dbio.c
+2A6A text16 CODE >62:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2A6A text16 CODE >68:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2A76 text16 CODE >69:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2A86 text16 CODE >71:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2A88 text16 CODE >72:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2A8A text16 CODE >74:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2A96 text16 CODE >75:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2AA8 text16 CODE >77:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2AB8 text16 CODE >78:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2AC8 text16 CODE >80:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2AD8 text16 CODE >81:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2AE8 text16 CODE >83:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2AF8 text16 CODE >84:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2B08 text16 CODE >86:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2B1A text16 CODE >87:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+3894 text15 CODE >1:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\abs.c
+3894 text15 CODE >3:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\abs.c
+38C8 text15 CODE >4:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\abs.c
+3A10 text14 CODE >7:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\putch.c
+3A10 text14 CODE >9:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\putch.c
+2760 text13 CODE >8:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputc.c
+2760 text13 CODE >12:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputc.c
+2786 text13 CODE >13:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputc.c
+278C text13 CODE >14:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputc.c
+2790 text13 CODE >15:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputc.c
+27E4 text13 CODE >18:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputc.c
+2818 text13 CODE >20:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputc.c
+282A text13 CODE >24:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputc.c
+35E0 text12 CODE >8:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputs.c
+35E0 text12 CODE >13:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputs.c
+35E8 text12 CODE >14:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputs.c
+35EC text12 CODE >15:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputs.c
+3600 text12 CODE >16:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputs.c
+3606 text12 CODE >14:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputs.c
+362E text12 CODE >19:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_fputs.c
+2B1C text11 CODE >193:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2B1C text11 CODE >199:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2B2C text11 CODE >200:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2B40 text11 CODE >205:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2B50 text11 CODE >206:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2B56 text11 CODE >207:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2B56 text11 CODE >208:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2B5C text11 CODE >209:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2B60 text11 CODE >210:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2B72 text11 CODE >211:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2B78 text11 CODE >209:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2B9C text11 CODE >216:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2BAA text11 CODE >218:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2BBE text11 CODE >226:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+19FE text10 CODE >513:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+19FE text10 CODE >524:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1A14 text10 CODE >533:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1A38 text10 CODE >535:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1A40 text10 CODE >536:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1A52 text10 CODE >541:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1A58 text10 CODE >542:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1A7C text10 CODE >543:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1A7C text10 CODE >552:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1A82 text10 CODE >553:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1A86 text10 CODE >554:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1A8A text10 CODE >564:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1A90 text10 CODE >565:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1AD6 text10 CODE >567:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1ADE text10 CODE >571:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1AE4 text10 CODE >572:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1B1A text10 CODE >554:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1B66 text10 CODE >576:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1B76 text10 CODE >577:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1B7C text10 CODE >578:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1B8C text10 CODE >582:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1BAC text10 CODE >583:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+28F2 text9 CODE >1158:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+28F2 text9 CODE >1159:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+28FA text9 CODE >1160:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+291E text9 CODE >1161:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+292C text9 CODE >1162:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2954 text9 CODE >1163:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2958 text9 CODE >1166:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2976 text9 CODE >1167:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2984 text9 CODE >1165:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+29AC text9 CODE >1169:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+29AC text9 CODE >1170:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+29B4 text9 CODE >1171:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+183A text8 CODE >942:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+183A text8 CODE >951:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1842 text8 CODE >952:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1856 text8 CODE >953:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+185E text8 CODE >957:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+18B0 text8 CODE >961:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+18E6 text8 CODE >962:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+18EE text8 CODE >963:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+18EE text8 CODE >965:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+18F6 text8 CODE >969:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+18FE text8 CODE >970:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1910 text8 CODE >972:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1922 text8 CODE >973:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1928 text8 CODE >971:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1952 text8 CODE >980:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1988 text8 CODE >981:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+198E text8 CODE >979:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+19AA text8 CODE >986:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+19BE text8 CODE >988:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+19D0 text8 CODE >989:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+19D6 text8 CODE >987:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+19FC text8 CODE >997:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+10A text7 CODE >1177:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+10A text7 CODE >1201:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+12E text7 CODE >1202:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+13C text7 CODE >1204:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+148 text7 CODE >1205:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+14C text7 CODE >1256:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+168 text7 CODE >1257:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+178 text7 CODE >1258:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+17A text7 CODE >1259:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+182 text7 CODE >1265:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1A6 text7 CODE >1266:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1B4 text7 CODE >1267:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1D0 text7 CODE >1291:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1E0 text7 CODE >1293:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1EE text7 CODE >1294:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1F2 text7 CODE >1309:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1F6 text7 CODE >1316:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1FA text7 CODE >1350:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+1FE text7 CODE >1351:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+202 text7 CODE >1352:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+202 text7 CODE >1353:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+204 text7 CODE >1354:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+208 text7 CODE >1294:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+20E text7 CODE >1294:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+216 text7 CODE >1294:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+21E text7 CODE >1294:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+228 text7 CODE >1361:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+264 text7 CODE >1365:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+296 text7 CODE >1366:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+29A text7 CODE >1379:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2CA text7 CODE >1380:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2CE text7 CODE >1363:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2D2 text7 CODE >1363:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2DA text7 CODE >1363:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+2E4 text7 CODE >1406:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+300 text7 CODE >1432:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+320 text7 CODE >1434:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+320 text7 CODE >1656:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+322 text7 CODE >1657:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+346 text7 CODE >1658:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+354 text7 CODE >1659:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+358 text7 CODE >1660:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+35C text7 CODE >1661:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+3E8 text7 CODE >1662:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+3FC text7 CODE >1665:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+40C text7 CODE >1682:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+444 text7 CODE >1806:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+456 text7 CODE >1811:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+480 text7 CODE >1814:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+3590 text6 CODE >1817:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+3590 text6 CODE >1822:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+3598 text6 CODE >1826:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+359C text6 CODE >1830:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+35BA text6 CODE >1826:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+35D6 text6 CODE >1835:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+35DE text6 CODE >1840:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\doprnt.c
+3630 text5 CODE >9:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_sprintf.c
+3630 text5 CODE >15:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_sprintf.c
+363A text5 CODE >16:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_sprintf.c
+3642 text5 CODE >17:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_sprintf.c
+3648 text5 CODE >18:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_sprintf.c
+364E text5 CODE >19:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_sprintf.c
+366A text5 CODE >20:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_sprintf.c
+367A text5 CODE >23:C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\nf_sprintf.c
+39A6 text4 CODE >75:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+39A6 text4 CODE >77:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+39A8 text4 CODE >78:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+39AC text4 CODE >79:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+39B0 text4 CODE >80:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+39B8 text4 CODE >81:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+39BA text4 CODE >83:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+39BC text4 CODE >84:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+39BE text4 CODE >85:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+39C0 text4 CODE >87:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+39C2 text4 CODE >88:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+39C4 text4 CODE >90:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+39C6 text4 CODE >91:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+36C8 text3 CODE >93:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+36C8 text3 CODE >95:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+36CA text3 CODE >96:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+36CC text3 CODE >97:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+3704 text3 CODE >98:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+3708 text3 CODE >99:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+370C text3 CODE >100:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+3710 text3 CODE >101:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\system.c
+3A02 text2 CODE >8:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+3A02 text2 CODE >10:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+3A04 text2 CODE >11:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+3A06 text2 CODE >12:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+3A08 text2 CODE >13:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+3A0A text2 CODE >14:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+3A0C text2 CODE >15:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+3A0E text2 CODE >16:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+29B6 text1 CODE >32:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+29B6 text1 CODE >35:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+29C2 text1 CODE >36:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+29C6 text1 CODE >37:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+29CA text1 CODE >39:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+29CC text1 CODE >41:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+29CE text1 CODE >42:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+29D0 text1 CODE >44:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+29DC text1 CODE >45:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+29EE text1 CODE >47:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+29FE text1 CODE >48:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2A0E text1 CODE >50:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2A1E text1 CODE >51:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2A2E text1 CODE >53:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2A3E text1 CODE >54:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2A4E text1 CODE >56:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2A52 text1 CODE >57:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2A54 text1 CODE >58:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+2A68 text1 CODE >59:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\RTC.c
+E66 text0 CODE >26:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+E66 text0 CODE >28:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+E6A text0 CODE >29:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+E6E text0 CODE >31:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+E70 text0 CODE >32:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+E7E text0 CODE >34:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+E82 text0 CODE >37:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+E88 text0 CODE >38:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+E8A text0 CODE >39:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+E8E text0 CODE >40:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+E90 text0 CODE >41:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+E92 text0 CODE >42:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+E94 text0 CODE >43:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+E96 text0 CODE >44:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+EA4 text0 CODE >46:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+EA8 text0 CODE >47:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+EAC text0 CODE >49:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+EB0 text0 CODE >53:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+EB4 text0 CODE >55:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+EDE text0 CODE >56:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+EF2 text0 CODE >57:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+F08 text0 CODE >60:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+F16 text0 CODE >62:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+F56 text0 CODE >63:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+F6A text0 CODE >66:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+F80 text0 CODE >68:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+F88 text0 CODE >69:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+FC0 text0 CODE >73:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+FF6 text0 CODE >75:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+1084 text0 CODE >76:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+1098 text0 CODE >79:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+10AC text0 CODE >81:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+10C0 text0 CODE >82:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+10CC text0 CODE >85:C:\Users\Admin\Desktop\Claude\PIC18F46J50_TEST.X\main.c
+334A cinit CODE >4371:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+334A cinit CODE >4373:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+334A cinit CODE >4376:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+334A cinit CODE >4484:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+334C cinit CODE >4485:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+334E cinit CODE >4486:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3350 cinit CODE >4487:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3352 cinit CODE >4488:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3354 cinit CODE >4489:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3356 cinit CODE >4490:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3358 cinit CODE >4491:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+335C cinit CODE >4495:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3360 cinit CODE >4496:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3362 cinit CODE >4497:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3362 cinit CODE >4498:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3364 cinit CODE >4499:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3366 cinit CODE >4500:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3368 cinit CODE >4503:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+336C cinit CODE >4504:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+336E cinit CODE >4505:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+336E cinit CODE >4506:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3370 cinit CODE >4507:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3372 cinit CODE >4508:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3374 cinit CODE >4511:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3378 cinit CODE >4512:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+337A cinit CODE >4513:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+337A cinit CODE >4514:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+337C cinit CODE >4515:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+337E cinit CODE >4516:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3380 cinit CODE >4519:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3384 cinit CODE >4520:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3386 cinit CODE >4521:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3386 cinit CODE >4522:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3388 cinit CODE >4523:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+338A cinit CODE >4524:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+338C cinit CODE >4527:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3390 cinit CODE >4528:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3392 cinit CODE >4529:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3392 cinit CODE >4530:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3394 cinit CODE >4531:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3396 cinit CODE >4532:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+3398 cinit CODE >4535:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+339C cinit CODE >4536:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+339E cinit CODE >4537:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+339E cinit CODE >4538:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+33A0 cinit CODE >4539:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+33A2 cinit CODE >4540:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+33A4 cinit CODE >4546:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+33A4 cinit CODE >4548:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+33A6 cinit CODE >4549:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+33A8 cinit CODE >4551:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+33AA cinit CODE >4552:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+33AC cinit CODE >4553:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+33AE cinit CODE >4554:C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_1.s
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+sys_register_ms_clbk@clbk 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ms_clbk 151 0 BANK1 1 bssBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lmediumconst FE2A 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+_dbio_rx_isr 2E1E 0 CODE 0 text45 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hspace_0 FFF8 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hspace_1 5C8 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hspace_2 0 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hspace_4 1FFF8 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_ep0_in_done 3110 0 CODE 0 text63 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_USB_kbd_putkey 28F2 0 CODE 0 text28 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ctrl_in_rom 42 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+_dbio_putstring 1F1E 0 CODE 0 text17 dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_putstring@buf_len 126 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_write_RTCC 2A6A 0 CODE 0 text1 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataWatch@loc_tail 115 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_dbio_tx_isr 3536 0 CODE 0 text44 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hibigdata 0 0 CODE 0 ibigdata dist/default/production\PIC18F46J50_TEST.X.production.o
+__mediumconst FE2A 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+_RingBuf_Clear 379C 0 CODE 0 text35 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_ctrl_send_ram 3894 0 CODE 0 text60 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_ctrl_send_rom 2D92 0 CODE 0 text59 dist/default/production\PIC18F46J50_TEST.X.production.o
+_T1CONbits FCD 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+?_USB_kbd_putkey 11F 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1memcpy@tmp 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__L__absolute__ 0 0 ABS 0 __absolute__ dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_ep0_arm_out 3A02 0 CODE 0 text62 dist/default/production\PIC18F46J50_TEST.X.production.o
+?_abs 9A 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataWatch@rb 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+?_vfprintf 12A 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\PIC18F46J50_TEST.X.production.o
+_ADIE 7CEE 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_ADIF 7CF6 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_TMR2 FCC 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_UCFG F39 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_UCON F65 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_UEIE F37 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_UEIR F63 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_UEP0 F26 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_UEP1 F27 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+_dbuf 2A0 0 BANK2 1 bssBANK2 dist/default/production\PIC18F46J50_TEST.X.production.o
+_dtoa 19FE 0 CODE 0 text10 dist/default/production\PIC18F46J50_TEST.X.production.o
+_main E66 0 CODE 0 text0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_prec A8 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_stoa 183A 0 CODE 0 text8 dist/default/production\PIC18F46J50_TEST.X.production.o
+abs@a 9A 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+btemp 1 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataWatch@s_addr 6E 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+___stack_hi 0 0 STACK 2 stack C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+___stack_lo 0 0 STACK 2 stack C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+read_prec_or_width@c 96 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+read_prec_or_width@n 97 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+pad@i 109 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+pad@p 107 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+start 106 0 CODE 0 init C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+i1RingBuf_Clear@rb 19 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_RingBuf_Init 34DA 0 CODE 0 text34 dist/default/production\PIC18F46J50_TEST.X.production.o
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+pad@fp 103 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_sys_mstimer_init 39A6 0 CODE 0 text4 dist/default/production\PIC18F46J50_TEST.X.production.o
+_pending_addr 40 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_getstring@buf_len 137 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_USB_kbd_putchar$2056 129 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ms_clbk_max 47 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_ADC_start_IT 375A 0 CODE 0 text39 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hpowerup 0 0 CODE 0 powerup dist/default/production\PIC18F46J50_TEST.X.production.o
+_UEP0bits F26 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+___almod@sign 99 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+stoa@l 106 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+stoa@p 100 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+stoa@s 9B 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+stoa@w 102 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_vfpfcnvrt 482 0 CODE 0 text7 dist/default/production\PIC18F46J50_TEST.X.production.o
+ep0_setup@wLength 67 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_timestamp 32 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_USB_isr 1D0E 0 CODE 0 text47 dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_putstring@str_len 124 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__accesstop 60 0 ABS 0 - C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+intlevel0 0 0 CODE 0 text C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+intlevel1 0 0 CODE 0 text C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+intlevel2 0 0 CODE 0 text C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+intlevel3 0 0 CODE 0 text C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_dbio_putstring 201A 0 CODE 0 text17 dist/default/production\PIC18F46J50_TEST.X.production.o
+?_ADC_getChan 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+___aldiv@divisor 94 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+i1memcpy@d 20 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+i1memcpy@n 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+i1memcpy@s 22 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_Interrupts_handler 106 0 CODE 0 intcodelo dist/default/production\PIC18F46J50_TEST.X.production.o
+?_get_ms 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+HighInterrupts_handler@i 18 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hifardata 0 0 CODE 0 ifardata dist/default/production\PIC18F46J50_TEST.X.production.o
+_dbio_getstring 10EA 0 CODE 0 text23 dist/default/production\PIC18F46J50_TEST.X.production.o
+___aldiv@sign 99 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hclrtext 0 0 ABS 0 clrtext dist/default/production\PIC18F46J50_TEST.X.production.o
+_vfpfcnvrt 10A 0 CODE 0 text7 dist/default/production\PIC18F46J50_TEST.X.production.o
+dtoa@fp 10B 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataWatch@data 26 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+_cfg_desc FF0C 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+__pidataCOMRAM 3A12 0 CODE 0 idataCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_kbd_putstring@str 12D 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_DateTime 171 0 BANK1 1 bssBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+delay_ms@del 100 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+get_ms@retval_1 94 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+get_ms@retval_2 98 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ADRESH FC4 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_ADRESL FC3 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_ChanIndx 46 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+_ANCON0 F48 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_ANCON1 F49 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+__end_of_cfg_desc FF2E 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+_USB_init 201A 0 CODE 0 text33 dist/default/production\PIC18F46J50_TEST.X.production.o
+_kbd_release 3F 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_dbio_init 32E0 0 CODE 0 text19 dist/default/production\PIC18F46J50_TEST.X.production.o
+ep0_setup@wValueH 62 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+ep0_setup@wValueL 66 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ep0_send_chunk 1E1A 0 CODE 0 text64 dist/default/production\PIC18F46J50_TEST.X.production.o
+_hw_framing_errors 3A 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\PIC18F46J50_TEST.X.production.o
+sys_init@cycles 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ep0_out_done 2F9C 0 CODE 0 text56 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_USB_init 2110 0 CODE 0 text33 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_RingBuf_DataPut 7DC 0 CODE 0 text29 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ANCON0bits F48 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_Interrupts_handler 18 0 CODE 0 intcodelo dist/default/production\PIC18F46J50_TEST.X.production.o
+_TXSTA1bits FAD 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hmediumconst FFF8 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+_ADC_init 2F1E 0 CODE 0 text40 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hintcodelo 106 0 CODE 0 intcodelo dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_blinky 2E1E 0 CODE 0 text69 dist/default/production\PIC18F46J50_TEST.X.production.o
+_kbd_dts 3E 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of___aldiv 1E1A 0 CODE 0 text22 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of___almod 22EC 0 CODE 0 text21 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_sys_mstimer_init 39C8 0 CODE 0 text4 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataRead@len 11D 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_report_desc FEAB 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+_dbio_init 3276 0 CODE 0 text19 dist/default/production\PIC18F46J50_TEST.X.production.o
+blinky@time 9F 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_ascii2usage FEAB 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_Available@len 19 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_ADC_init 2F9C 0 CODE 0 text40 dist/default/production\PIC18F46J50_TEST.X.production.o
+_OSCTUNEbits F9B 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_ChanNum A3 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_dbio_getstring 1366 0 CODE 0 text23 dist/default/production\PIC18F46J50_TEST.X.production.o
+__LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_get_ms 3096 0 CODE 0 text38 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_Init@rb 99 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_RingBuf_DataWatch 15DE 0 CODE 0 text25 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_ep0_setup B26 0 CODE 0 text57 dist/default/production\PIC18F46J50_TEST.X.production.o
+memcpy@tmp 96 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_kbd_putchar@code 12C 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_kbd_arm_report$1998 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_RingBuf_Clear 37DC 0 CODE 0 text35 dist/default/production\PIC18F46J50_TEST.X.production.o
+?_dbio_getstring 127 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lintcodelo 18 0 CODE 0 intcodelo dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_rx_isr@buf_len 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+start_initialization 334A 0 CODE 0 cinit dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_putstring@str 11F 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+main@usb_was_ready 4F2 0 BANK4 1 cstackBANK4h dist/default/production\PIC18F46J50_TEST.X.production.o
+_kbd_leds 44 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_ep0_send_chunk 1F1E 0 CODE 0 text64 dist/default/production\PIC18F46J50_TEST.X.production.o
+ctrl_send_rom@p 29 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+_TRISAbits F92 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_TRISCbits F94 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_TRISDbits F95 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+___aldiv@quotient 9A 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ctrl_stage 43 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+_ctrl_stall 395E 0 CODE 0 text58 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ADC_isr 3204 0 CODE 0 text66 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataRead@rb 11F 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataRead@st 124 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+___rparam_used 1 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_memcpy 334A 0 CODE 0 text30 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1_RingBuf_DataWatch 15DE 0 CODE 0 text52 dist/default/production\PIC18F46J50_TEST.X.production.o
+ep0_setup@i 65 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+___almod@dividend 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_RingBuf_DataPut 482 0 CODE 0 text29 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_bd_set_addr 3932 0 CODE 0 text65 dist/default/production\PIC18F46J50_TEST.X.production.o
+ADC_getChan@gie_state 94 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_SPBRG1 FB0 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__pcstackBANK0 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__pcstackBANK1 100 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_IPR1bits F9F 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_IPR2bits FA2 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_ep0_setup 7DC 0 CODE 0 text57 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_Init@size 95 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+delay_ms@temp_time 108 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ChanValue 200 0 BANK2 1 bssBANK2 dist/default/production\PIC18F46J50_TEST.X.production.o
+_HighInterrupts_handler 8 0 CODE 0 intcode dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataPut@len 28 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+isa$xinst 0 0 ABS 0 - C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+RingBuf_Available@len 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_getstring@buf_len_prev AE 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_usb_reset 36C8 0 CODE 0 text48 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataPut@data 100 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_ep0_out_done 301A 0 CODE 0 text56 dist/default/production\PIC18F46J50_TEST.X.production.o
+fputc@fp 92 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+fputs@fp 9B 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+i2_get_ms 318A 0 CODE 0 text70 dist/default/production\PIC18F46J50_TEST.X.production.o
+_UIEbits F36 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_getstring@timeout 12B 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_getstring@timetmp 16D 0 BANK1 1 bssBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_UIRbits F62 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataPut@rb 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_Init@cellsize 97 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+vfpfcnvrt@done 126 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbank0 0 0 ABS 0 bank0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbank1 0 0 ABS 0 bank1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbank2 0 0 ABS 0 bank2 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbank3 0 0 ABS 0 bank3 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbank4 0 0 ABS 0 bank4 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbank5 0 0 ABS 0 bank5 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbank6 0 0 ABS 0 bank6 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbank7 0 0 ABS 0 bank7 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbank8 0 0 ABS 0 bank8 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbank9 0 0 ABS 0 bank9 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hcinit 0 0 ABS 0 cinit dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hconst 0 0 CONST 0 const dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_dbio_rx_isr 2EA0 0 CODE 0 text45 dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_getstring@st 135 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hidata 0 0 CODE 0 idata dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hidloc 0 0 IDLOC 5 idloc dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hparam 0 0 COMRAM 1 rparam dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_ofi1_RingBuf_DataRead 24C4 0 CODE 0 text51 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_ep0_in_done 318A 0 CODE 0 text63 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hrdata 0 0 COMRAM 1 rdata dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hstack 0 0 STACK 2 stack dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext0 0 0 ABS 0 text0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext1 0 0 ABS 0 text1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext2 0 0 ABS 0 text2 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext3 0 0 ABS 0 text3 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext4 0 0 ABS 0 text4 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext5 0 0 ABS 0 text5 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext6 0 0 ABS 0 text6 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext7 0 0 ABS 0 text7 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext8 0 0 ABS 0 text8 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext9 0 0 ABS 0 text9 dist/default/production\PIC18F46J50_TEST.X.production.o
+_TXringbuf BC 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ljflash_buffer F800 0 CODE 0 jflash_buffer dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbank10 0 0 ABS 0 bank10 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbank11 0 0 ABS 0 bank11 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbank12 0 0 ABS 0 bank12 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbank13 0 0 ABS 0 bank13 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbank14 0 0 ABS 0 bank14 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ctrl_send_rom$1968 31 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+?_read_prec_or_width 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbigram 0 0 ABS 0 bigram dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataWatch@aval_len 74 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__smallconst FE2A 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_dbio_tx_isr 3590 0 CODE 0 text44 dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_getstring@Nmax 129 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_sprintf 367C 0 CODE 0 text5 dist/default/production\PIC18F46J50_TEST.X.production.o
+?_USB_kbd_putchar 127 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_ofi2_get_ms 3204 0 CODE 0 text70 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hcomram 0 0 ABS 0 comram dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hconfig 10000 0 CONFIG 4 config dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_sys_register_ms_clbk 38FE 0 CODE 0 text41 dist/default/production\PIC18F46J50_TEST.X.production.o
+ep0_setup@bRequest 64 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataRead@data 76 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+ep0_setup@bmRequestType 63 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+UART1_Init@SPBRG_VAL 104 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbank0 0 0 ABS 0 bank0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbank1 0 0 ABS 0 bank1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbank2 0 0 ABS 0 bank2 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbank3 0 0 ABS 0 bank3 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbank4 0 0 ABS 0 bank4 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbank5 0 0 ABS 0 bank5 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbank6 0 0 ABS 0 bank6 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbank7 0 0 ABS 0 bank7 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbank8 0 0 ABS 0 bank8 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbank9 0 0 ABS 0 bank9 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lcinit 0 0 ABS 0 cinit dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lconst 0 0 CONST 0 const dist/default/production\PIC18F46J50_TEST.X.production.o
+_usb_reset 367C 0 CODE 0 text48 dist/default/production\PIC18F46J50_TEST.X.production.o
+_usb_state B1 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lidata 0 0 CODE 0 idata dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lidloc 0 0 IDLOC 5 idloc dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lnvbit 0 0 COMRAM 1 nvbit dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lparam 0 0 COMRAM 1 rparam dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lrdata 0 0 COMRAM 1 rdata dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lstack 0 0 STACK 2 stack dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext0 0 0 ABS 0 text0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext1 0 0 ABS 0 text1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext2 0 0 ABS 0 text2 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext3 0 0 ABS 0 text3 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext4 0 0 ABS 0 text4 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext5 0 0 ABS 0 text5 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext6 0 0 ABS 0 text6 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext7 0 0 ABS 0 text7 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext8 0 0 ABS 0 text8 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext9 0 0 ABS 0 text9 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_USB_kbd_putchar 3110 0 CODE 0 text27 dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_strnlen@str 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hfarbss 0 0 FARRAM 0 farbss dist/default/production\PIC18F46J50_TEST.X.production.o
+_rx_dropped_bytes 38 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\PIC18F46J50_TEST.X.production.o
+ADC_getChan@retval 92 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+memcpy@d1 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+memcpy@s1 92 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_INTCONbits FF2 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__Habs1 0 0 ABS 0 abs1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hdata 0 0 ABS 0 data dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hheap 0 0 HEAP 7 heap dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hinit 10A 0 CODE 0 init dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hrbit 0 0 COMRAM 1 rbit dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hrbss 0 0 COMRAM 1 rbss dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htemp 0 0 COMRAM 1 temp dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext 0 0 ABS 0 text dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_getstring@str 127 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__HcstackBANK4h 0 0 ABS 0 cstackBANK4h dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataRead@len 78 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Labs1 0 0 ABS 0 abs1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ldata 0 0 ABS 0 data dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lheap 0 0 HEAP 7 heap dist/default/production\PIC18F46J50_TEST.X.production.o
+__Linit 106 0 CODE 0 init dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lrbit 0 0 COMRAM 1 rbit dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lrbss 0 0 COMRAM 1 rbss dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltemp 0 0 COMRAM 1 temp dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext 0 0 ABS 0 text dist/default/production\PIC18F46J50_TEST.X.production.o
+memcpy@d 97 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+memcpy@n 94 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+memcpy@s 99 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_ctrl_stall 3982 0 CODE 0 text58 dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_putstring@Nmax 121 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+kbd_service@key 7C 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__LcstackBANK1 0 0 ABS 0 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+int$flags 1 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataWatch@loc_tail 70 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataRead@aval_len 30 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hintret 0 0 ABS 0 intret dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hirdata 0 0 CODE 0 irdata dist/default/production\PIC18F46J50_TEST.X.production.o
+_BDT 400 0 ABS 1 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_PR2 FCB 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_UIE F36 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_UIR F62 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__S0 FFF8 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__S1 5C8 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__S4 0 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_abs 3894 0 CODE 0 text15 dist/default/production\PIC18F46J50_TEST.X.production.o
+_pad 2B1C 0 CODE 0 text11 dist/default/production\PIC18F46J50_TEST.X.production.o
+_RingBuf_DataWatch 1366 0 CODE 0 text25 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ctrl_ack 3982 0 CODE 0 text61 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ctrl_dts 48 0 COMRAM 1 dataCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+_ctrl_len 36 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+_ctrl_pos AA 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ctrl_ram 165 0 BANK1 1 bssBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ctrl_rom AC 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ctrl_zlp 41 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hjflash_buffer F800 0 CODE 0 jflash_buffer dist/default/production\PIC18F46J50_TEST.X.production.o
+_USB_isr 1BAE 0 CODE 0 text47 dist/default/production\PIC18F46J50_TEST.X.production.o
+___almod@counter 98 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1_RingBuf_DataRead 23D8 0 CODE 0 text51 dist/default/production\PIC18F46J50_TEST.X.production.o
+_RXringbuf C6 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_blinky 2D92 0 CODE 0 text69 dist/default/production\PIC18F46J50_TEST.X.production.o
+_UCONbits F65 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_kbd_service 25AE 0 CODE 0 text50 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataPut@avaldat 76 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataPut@s_addr 119 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_ctrl_ack 39A6 0 CODE 0 text61 dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_kbd_putchar@c 12B 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\PIC18F46J50_TEST.X.production.o
+_ADC_getChan 34DA 0 CODE 0 text42 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1_memcpy 33B2 0 CODE 0 text53 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\PIC18F46J50_TEST.X.production.o
+ctrl_send_ram@wLength 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+sprintf@fmt 134 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_dtoa$2736 111 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_getstring@gie_state 136 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataPut@rb 104 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_abs 38CA 0 CODE 0 text15 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_pad 2BC0 0 CODE 0 text11 dist/default/production\PIC18F46J50_TEST.X.production.o
+int_func 2BC0 0 CODE 0 intcode_body dist/default/production\PIC18F46J50_TEST.X.production.o
+_get_ms 301A 0 CODE 0 text38 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataRead@data 11B 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_ofi1_RingBuf_DataWatch 183A 0 CODE 0 text52 dist/default/production\PIC18F46J50_TEST.X.production.o
+_unlock_RTCC 3A02 0 CODE 0 text2 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lintentry 0 0 ABS 0 intentry dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_ofi1_RingBuf_DataPut E66 0 CODE 0 text46 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_ofi1_memcpy 3418 0 CODE 0 text53 dist/default/production\PIC18F46J50_TEST.X.production.o
+_dbio_strnlen 2EA0 0 CODE 0 text18 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hramtop 1000 0 RAM 0 ramtop dist/default/production\PIC18F46J50_TEST.X.production.o
+_RTCCFGbits F3F 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_USB_kbd_putchar 3096 0 CODE 0 text27 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hrparam 0 0 COMRAM 1 rparam dist/default/production\PIC18F46J50_TEST.X.production.o
+__activetblptr 2 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_kbd_putkey@modifiers 11F 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hstruct 0 0 COMRAM 1 struct dist/default/production\PIC18F46J50_TEST.X.production.o
+__LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__LbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__LbssBANK2 0 0 ABS 0 bssBANK2 dist/default/production\PIC18F46J50_TEST.X.production.o
+__LbssBANK3 0 0 ABS 0 bssBANK3 dist/default/production\PIC18F46J50_TEST.X.production.o
+__LbssBANK5 0 0 ABS 0 bssBANK5 dist/default/production\PIC18F46J50_TEST.X.production.o
+_kbd_arm_report 381A 0 CODE 0 text55 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext10 0 0 ABS 0 text10 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext11 0 0 ABS 0 text11 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext12 0 0 ABS 0 text12 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext13 0 0 ABS 0 text13 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext14 0 0 ABS 0 text14 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext15 0 0 ABS 0 text15 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext16 0 0 ABS 0 text16 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext17 0 0 ABS 0 text17 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext18 0 0 ABS 0 text18 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext19 0 0 ABS 0 text19 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext20 0 0 ABS 0 text20 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext21 0 0 ABS 0 text21 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext22 0 0 ABS 0 text22 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext23 0 0 ABS 0 text23 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext24 0 0 ABS 0 text24 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext25 0 0 ABS 0 text25 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext26 0 0 ABS 0 text26 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext27 0 0 ABS 0 text27 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext28 0 0 ABS 0 text28 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext29 0 0 ABS 0 text29 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext30 0 0 ABS 0 text30 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext31 0 0 ABS 0 text31 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext32 0 0 ABS 0 text32 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext33 0 0 ABS 0 text33 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext34 0 0 ABS 0 text34 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext35 0 0 ABS 0 text35 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext36 0 0 ABS 0 text36 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext37 0 0 ABS 0 text37 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext38 0 0 ABS 0 text38 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext39 0 0 ABS 0 text39 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext40 0 0 ABS 0 text40 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext41 0 0 ABS 0 text41 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext42 0 0 ABS 0 text42 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext44 0 0 ABS 0 text44 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext45 0 0 ABS 0 text45 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext46 0 0 ABS 0 text46 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext47 0 0 ABS 0 text47 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext48 0 0 ABS 0 text48 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext49 0 0 ABS 0 text49 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext50 0 0 ABS 0 text50 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext51 0 0 ABS 0 text51 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext52 0 0 ABS 0 text52 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext53 0 0 ABS 0 text53 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext54 0 0 ABS 0 text54 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext55 0 0 ABS 0 text55 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext56 0 0 ABS 0 text56 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext57 0 0 ABS 0 text57 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext58 0 0 ABS 0 text58 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext59 0 0 ABS 0 text59 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext60 0 0 ABS 0 text60 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext61 0 0 ABS 0 text61 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext62 0 0 ABS 0 text62 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext63 0 0 ABS 0 text63 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext64 0 0 ABS 0 text64 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext65 0 0 ABS 0 text65 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext66 0 0 ABS 0 text66 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext68 0 0 ABS 0 text68 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext69 0 0 ABS 0 text69 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Htext70 0 0 ABS 0 text70 dist/default/production\PIC18F46J50_TEST.X.production.o
+_kbd_rb B2 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+vfpfcnvrt@fmt 11C 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataPut@data 26 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+_PIE1bits F9D 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_PIE2bits FA0 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_kbd_putkey@ie 124 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_RTCSYNC 79FC 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_RTCVALH F99 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_RTCVALL F98 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_RTCWREN 79FD 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_memcpy 32E0 0 CODE 0 text30 dist/default/production\PIC18F46J50_TEST.X.production.o
+pad@buf 105 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext10 19FE 0 CODE 0 text10 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext11 2B1C 0 CODE 0 text11 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext12 35E0 0 CODE 0 text12 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext13 2760 0 CODE 0 text13 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext14 3A10 0 CODE 0 text14 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext15 3894 0 CODE 0 text15 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext16 2A6A 0 CODE 0 text16 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext17 1F1E 0 CODE 0 text17 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext18 2EA0 0 CODE 0 text18 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext19 3276 0 CODE 0 text19 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext20 2688 0 CODE 0 text20 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext21 2200 0 CODE 0 text21 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext22 1D0E 0 CODE 0 text22 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext23 10EA 0 CODE 0 text23 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext24 2110 0 CODE 0 text24 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext25 1366 0 CODE 0 text25 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext26 2C60 0 CODE 0 text26 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext27 3096 0 CODE 0 text27 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext28 282C 0 CODE 0 text28 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext29 482 0 CODE 0 text29 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext30 32E0 0 CODE 0 text30 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext31 22EC 0 CODE 0 text31 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext32 3932 0 CODE 0 text32 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext33 201A 0 CODE 0 text33 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext34 347A 0 CODE 0 text34 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext35 379C 0 CODE 0 text35 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext36 39C8 0 CODE 0 text36 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext37 3418 0 CODE 0 text37 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext38 301A 0 CODE 0 text38 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext39 3712 0 CODE 0 text39 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext40 2F1E 0 CODE 0 text40 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext41 38CA 0 CODE 0 text41 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext42 34DA 0 CODE 0 text42 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext44 3536 0 CODE 0 text44 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext45 2E1E 0 CODE 0 text45 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext46 B26 0 CODE 0 text46 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext47 1BAE 0 CODE 0 text47 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext48 367C 0 CODE 0 text48 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext49 37DC 0 CODE 0 text49 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext50 25AE 0 CODE 0 text50 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext51 23D8 0 CODE 0 text51 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext52 15DE 0 CODE 0 text52 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext53 33B2 0 CODE 0 text53 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext54 24C4 0 CODE 0 text54 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext55 381A 0 CODE 0 text55 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext56 2F9C 0 CODE 0 text56 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext57 7DC 0 CODE 0 text57 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext58 395E 0 CODE 0 text58 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext59 2CFE 0 CODE 0 text59 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext60 3858 0 CODE 0 text60 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext61 3982 0 CODE 0 text61 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext62 39E6 0 CODE 0 text62 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext63 3110 0 CODE 0 text63 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext64 1E1A 0 CODE 0 text64 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext65 38FE 0 CODE 0 text65 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext66 3204 0 CODE 0 text66 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext68 375A 0 CODE 0 text68 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext69 2D92 0 CODE 0 text69 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext70 318A 0 CODE 0 text70 dist/default/production\PIC18F46J50_TEST.X.production.o
+_kbd_rb_mem 220 0 BANK2 1 bssBANK2 dist/default/production\PIC18F46J50_TEST.X.production.o
+___aldiv 1D0E 0 CODE 0 text22 dist/default/production\PIC18F46J50_TEST.X.production.o
+___almod 2200 0 CODE 0 text21 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_USB_is_configured 395E 0 CODE 0 text32 dist/default/production\PIC18F46J50_TEST.X.production.o
+__pintcode_body 2BC0 0 CODE 0 intcode_body dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbank10 0 0 ABS 0 bank10 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbank11 0 0 ABS 0 bank11 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbank12 0 0 ABS 0 bank12 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbank13 0 0 ABS 0 bank13 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbank14 0 0 ABS 0 bank14 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbigram 0 0 ABS 0 bigram dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbigsfr 0 0 ABS 0 bigsfr dist/default/production\PIC18F46J50_TEST.X.production.o
+kbd_service@avail 7E 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lcomram 0 0 ABS 0 comram dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lconfig 0 0 CONFIG 4 config dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_putstring@gie_state 123 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_LATDbits F8C 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lsivt_hi 0 0 CODE 0 sivt_hi dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lsivt_lo 106 0 CODE 0 sivt_lo dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_isr@stat 80 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ep0_arm_out 39E6 0 CODE 0 text62 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_read_prec_or_width 29B6 0 CODE 0 text9 dist/default/production\PIC18F46J50_TEST.X.production.o
+_RingBuf_DataRead 2110 0 CODE 0 text24 dist/default/production\PIC18F46J50_TEST.X.production.o
+_RCSTA1bits FAC 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lfarbss 0 0 FARRAM 0 farbss dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_kbd_putstring@i 133 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_kbd_putstring@n 131 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+___inthi_stack_hi 0 0 STACK 2 stack C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+___inthi_stack_lo 0 0 STACK 2 stack C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+__end_of_report_desc FEEA 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+?i2_get_ms 2 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+ctrl_send_ram@len 29 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+main@strrx 428 0 BANK4 1 cstackBANK4h dist/default/production\PIC18F46J50_TEST.X.production.o
+main@strtx 48C 0 BANK4 1 cstackBANK4h dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lfardata 0 0 FARRAM 0 fardata dist/default/production\PIC18F46J50_TEST.X.production.o
+isa$std 1 0 ABS 0 - C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+i1RingBuf_DataPut@len_tmp 70 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+i2get_ms@retval_1 6 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+i2get_ms@retval_2 A 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_strnlen@N 92 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_strnlen@i 96 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+read_RTCC@gie_state 92 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+stackhi 0 0 ABS 0 - C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+stacklo 0 0 ABS 0 - C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+RingBuf_Clear@rb 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+stoa@cp 104 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+stoa@fp 99 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_RingBuf_Available 23D8 0 CODE 0 text31 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lintcode 8 0 CODE 0 intcode dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_HighInterrupts_handler 2C60 0 CODE 0 intcode_body dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataPut@input 72 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lintret 0 0 ABS 0 intret dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lirdata 0 0 CODE 0 irdata dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataPut@space 78 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ADCON0bits FC2 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_ADCON1bits FC1 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+write_RTCC@gie_state 92 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_hw_overrun_errors 3C 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_kbd_arm_report 3858 0 CODE 0 text55 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lspace_0 0 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lspace_1 0 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lspace_2 0 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lspace_4 0 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__pbssCOMRAM 32 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__LcstackBANK4h 0 0 ABS 0 cstackBANK4h dist/default/production\PIC18F46J50_TEST.X.production.o
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__HcstackBANK1 0 0 ABS 0 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_PIR1bits F9E 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_PIR2bits FA1 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+vfpfcnvrt@convarg 122 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_adc_running 45 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_dbio_strnlen 2F1E 0 CODE 0 text18 dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_kbd_putkey@key 121 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+write_RTCC@me 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+bd_set_addr@a 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+end_of_initialization 33A4 0 CODE 0 cinit dist/default/production\PIC18F46J50_TEST.X.production.o
+i1_RingBuf_Available 24C4 0 CODE 0 text54 dist/default/production\PIC18F46J50_TEST.X.production.o
+_read_prec_or_width 28F2 0 CODE 0 text9 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataWatch@len 28 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hintentry 0 0 ABS 0 intentry dist/default/production\PIC18F46J50_TEST.X.production.o
+_UART1_Init 2688 0 CODE 0 text20 dist/default/production\PIC18F46J50_TEST.X.production.o
+_RCONbits FD0 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+___almod@divisor 94 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+fputc@c 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+fputs@c 100 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+fputs@i 101 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+fputs@s 99 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ep1_in_buf 420 0 ABS 1 - dist/default/production\PIC18F46J50_TEST.X.production.o
+i1_RingBuf_DataPut B26 0 CODE 0 text46 dist/default/production\PIC18F46J50_TEST.X.production.o
+_RTC_init 39C8 0 CODE 0 text36 dist/default/production\PIC18F46J50_TEST.X.production.o
+?___aldiv 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+?___almod 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataPut@avaldat 11D 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_USB_kbd_putstring 2CFE 0 CODE 0 text26 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataPut@s_addr 74 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+vfprintf@fmt 12C 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+ctrl_send_rom@wLength 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\PIC18F46J50_TEST.X.production.o
+__HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__HbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__HbssBANK2 0 0 ABS 0 bssBANK2 dist/default/production\PIC18F46J50_TEST.X.production.o
+__HbssBANK3 0 0 ABS 0 bssBANK3 dist/default/production\PIC18F46J50_TEST.X.production.o
+__HbssBANK5 0 0 ABS 0 bssBANK5 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataWatch@space 72 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_USB_is_configured$2045 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_sys_init 36C8 0 CODE 0 text3 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ctrl_send_ram 3858 0 CODE 0 text60 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ctrl_send_rom 2CFE 0 CODE 0 text59 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lramtop 1000 0 RAM 0 ramtop dist/default/production\PIC18F46J50_TEST.X.production.o
+?_dbio_strnlen 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_Available@rb 92 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lrparam 0 0 COMRAM 1 rparam dist/default/production\PIC18F46J50_TEST.X.production.o
+__pcinit 334A 0 CODE 0 cinit dist/default/production\PIC18F46J50_TEST.X.production.o
+_ep0_send_chunk$1960 21 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+_ep0_send_chunk$1962 23 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+_ep0_send_chunk$1963 25 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_RTC_init 39E6 0 CODE 0 text36 dist/default/production\PIC18F46J50_TEST.X.production.o
+vfpfcnvrt@ap 11E 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+vfpfcnvrt@cp 128 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+vfpfcnvrt@fp 11A 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext0 E66 0 CODE 0 text0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext1 29B6 0 CODE 0 text1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext2 3A02 0 CODE 0 text2 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext3 36C8 0 CODE 0 text3 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext4 39A6 0 CODE 0 text4 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext5 3630 0 CODE 0 text5 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext6 3590 0 CODE 0 text6 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext7 10A 0 CODE 0 text7 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext8 183A 0 CODE 0 text8 dist/default/production\PIC18F46J50_TEST.X.production.o
+__ptext9 28F2 0 CODE 0 text9 dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_tx_isr@buf_len 7C 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_str0_desc FF5C 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lstruct 0 0 COMRAM 1 struct dist/default/production\PIC18F46J50_TEST.X.production.o
+vfprintf@ap 12E 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+vfprintf@fp 12A 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_init@i 108 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+vfprintf@cfmt 130 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_isr@ep 81 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext10 0 0 ABS 0 text10 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext11 0 0 ABS 0 text11 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext12 0 0 ABS 0 text12 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext13 0 0 ABS 0 text13 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext14 0 0 ABS 0 text14 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext15 0 0 ABS 0 text15 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext16 0 0 ABS 0 text16 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext17 0 0 ABS 0 text17 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext18 0 0 ABS 0 text18 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext19 0 0 ABS 0 text19 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext20 0 0 ABS 0 text20 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext21 0 0 ABS 0 text21 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext22 0 0 ABS 0 text22 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext23 0 0 ABS 0 text23 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext24 0 0 ABS 0 text24 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext25 0 0 ABS 0 text25 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext26 0 0 ABS 0 text26 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext27 0 0 ABS 0 text27 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext28 0 0 ABS 0 text28 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext29 0 0 ABS 0 text29 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext30 0 0 ABS 0 text30 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext31 0 0 ABS 0 text31 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext32 0 0 ABS 0 text32 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext33 0 0 ABS 0 text33 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext34 0 0 ABS 0 text34 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext35 0 0 ABS 0 text35 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext36 0 0 ABS 0 text36 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext37 0 0 ABS 0 text37 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext38 0 0 ABS 0 text38 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext39 0 0 ABS 0 text39 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext40 0 0 ABS 0 text40 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext41 0 0 ABS 0 text41 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext42 0 0 ABS 0 text42 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext44 0 0 ABS 0 text44 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext45 0 0 ABS 0 text45 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext46 0 0 ABS 0 text46 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext47 0 0 ABS 0 text47 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext48 0 0 ABS 0 text48 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext49 0 0 ABS 0 text49 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext50 0 0 ABS 0 text50 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext51 0 0 ABS 0 text51 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext52 0 0 ABS 0 text52 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext53 0 0 ABS 0 text53 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext54 0 0 ABS 0 text54 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext55 0 0 ABS 0 text55 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext56 0 0 ABS 0 text56 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext57 0 0 ABS 0 text57 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext58 0 0 ABS 0 text58 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext59 0 0 ABS 0 text59 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext60 0 0 ABS 0 text60 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext61 0 0 ABS 0 text61 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext62 0 0 ABS 0 text62 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext63 0 0 ABS 0 text63 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext64 0 0 ABS 0 text64 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext65 0 0 ABS 0 text65 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext66 0 0 ABS 0 text66 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext68 0 0 ABS 0 text68 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext69 0 0 ABS 0 text69 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Ltext70 0 0 ABS 0 text70 dist/default/production\PIC18F46J50_TEST.X.production.o
+ctrl_send_rom@len 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_str1_desc FF46 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+__ramtop 1000 0 RAM 0 ramtop C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+___aldiv@dividend 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_sprintf 3630 0 CODE 0 text5 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_sys_init 3712 0 CODE 0 text3 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_str2_desc FF0C 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+_vfprintf 3590 0 CODE 0 text6 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lpowerup 0 0 CODE 0 powerup dist/default/production\PIC18F46J50_TEST.X.production.o
+_USB_is_configured 3932 0 CODE 0 text32 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataPut@input 117 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ADC_ms_cbk 375A 0 CODE 0 text68 dist/default/production\PIC18F46J50_TEST.X.production.o
+ADC_init@chanmax 92 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataPut@space 11B 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+sprintf@ap 13E 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__H__absolute__ 0 0 ABS 0 __absolute__ dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\PIC18F46J50_TEST.X.production.o
+_ep0_in_buf 418 0 ABS 1 - dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_init@t0 104 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+ep0_send_chunk@i 28 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+ep0_send_chunk@n 27 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_vfprintf 35E0 0 CODE 0 text6 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_RingBuf_DataRead 2200 0 CODE 0 text24 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataWatch@s_addr 113 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+___heap_hi 0 0 ABS 0 - C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+___heap_lo 0 0 ABS 0 - C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+i1RingBuf_DataRead@rb 7A 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_DataRead@st 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+_str0_desc FF58 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+___param_bank 0 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+___intlo_stack_hi 0 0 STACK 2 stack C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+___intlo_stack_lo 0 0 STACK 2 stack C:\Users\Admin\AppData\Local\Temp\xcAseyk.0\driver_tmp_12.o
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of__initialization 33A4 0 CODE 0 cinit dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_read_RTCC 2B1C 0 CODE 0 text16 dist/default/production\PIC18F46J50_TEST.X.production.o
+_delay_ms 3418 0 CODE 0 text37 dist/default/production\PIC18F46J50_TEST.X.production.o
+_str1_desc FF2E 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataWatch@rb 104 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataWatch@len 102 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Libigdata 0 0 CODE 0 ibigdata dist/default/production\PIC18F46J50_TEST.X.production.o
+_str2_desc FEEA 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+kbd_service@i 7B 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_sys_register_ms_clbk 38CA 0 CODE 0 text41 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_Init@buf 93 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lclrtext 0 0 ABS 0 clrtext dist/default/production\PIC18F46J50_TEST.X.production.o
+_SPBRGH1 F7F 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_RingBuf_Available 22EC 0 CODE 0 text31 dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_isr@dir 82 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_ofi1_RingBuf_Clear 381A 0 CODE 0 text49 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_UART1_Init 2760 0 CODE 0 text20 dist/default/production\PIC18F46J50_TEST.X.production.o
+__pcstackBANK4h 428 0 BANK4 1 cstackBANK4h dist/default/production\PIC18F46J50_TEST.X.production.o
+_ascii2usage FE2B 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_delay_ms 347A 0 CODE 0 text37 dist/default/production\PIC18F46J50_TEST.X.production.o
+__pintcodelo 18 0 CODE 0 intcodelo dist/default/production\PIC18F46J50_TEST.X.production.o
+__pcstackCOMRAM 2 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+_ep0_out_buf 410 0 ABS 1 - dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataPut@len 102 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_write_RTCC 29B6 0 CODE 0 text1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__pmediumconst FE2A 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+_UART1_Init$991 100 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataRead@aval_len 125 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_USB_kbd_putkey 282C 0 CODE 0 text28 dist/default/production\PIC18F46J50_TEST.X.production.o
+bd_set_addr@buf 19 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+bd_set_addr@idx 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+_read_RTCC 2A6A 0 CODE 0 text16 dist/default/production\PIC18F46J50_TEST.X.production.o
+___aldiv@counter 98 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataPut@len_tmp 115 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+vfpfcnvrt@c 127 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+sprintf@f 140 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+sprintf@s 132 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_dtoa 1BAE 0 CODE 0 text10 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_main 10EA 0 CODE 0 text0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_stoa 19FE 0 CODE 0 text8 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_kbd_service 2688 0 CODE 0 text50 dist/default/production\PIC18F46J50_TEST.X.production.o
+__pintcode 8 0 CODE 0 intcode dist/default/production\PIC18F46J50_TEST.X.production.o
+read_RTCC@me 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_RingBuf_Init 347A 0 CODE 0 text34 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1memcpy@d1 19 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+i1memcpy@s1 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+ADC_start_IT@gie_state 91 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_fputc 282C 0 CODE 0 text13 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_fputs 3630 0 CODE 0 text12 dist/default/production\PIC18F46J50_TEST.X.production.o
+?_sprintf 132 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_RCREG FAF 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_RTCEN 79FF 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_RTCOE 79FA 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_RXbuf 300 0 BANK3 1 bssBANK3 dist/default/production\PIC18F46J50_TEST.X.production.o
+_TXREG FAE 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_TXbuf 500 0 BANK5 1 bssBANK5 dist/default/production\PIC18F46J50_TEST.X.production.o
+_UADDR F38 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_USTAT F64 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_putch 3A12 0 CODE 0 text14 dist/default/production\PIC18F46J50_TEST.X.production.o
+_main$225 4F0 0 BANK4 1 cstackBANK4h dist/default/production\PIC18F46J50_TEST.X.production.o
+__HRAM 0 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hbss 0 0 RAM 1 bss dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hram 0 0 ABS 0 ram dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hsfr 0 0 ABS 0 sfr dist/default/production\PIC18F46J50_TEST.X.production.o
+__LRAM 1 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lbss 0 0 RAM 1 bss dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lram 0 0 ABS 0 ram dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lsfr 0 0 ABS 0 sfr dist/default/production\PIC18F46J50_TEST.X.production.o
+_flags B0 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+_fputc 2760 0 CODE 0 text13 dist/default/production\PIC18F46J50_TEST.X.production.o
+_fputs 35E0 0 CODE 0 text12 dist/default/production\PIC18F46J50_TEST.X.production.o
+_putch 3A10 0 CODE 0 text14 dist/default/production\PIC18F46J50_TEST.X.production.o
+read_prec_or_width@fmt 90 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_ADC_getChan 3536 0 CODE 0 text42 dist/default/production\PIC18F46J50_TEST.X.production.o
+_width A6 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_ofi1_RingBuf_Available 25AE 0 CODE 0 text54 dist/default/production\PIC18F46J50_TEST.X.production.o
+_USB_kbd_putstring 2C60 0 CODE 0 text26 dist/default/production\PIC18F46J50_TEST.X.production.o
+_dev_desc FF46 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_ADC_ms_cbk 379C 0 CODE 0 text68 dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataWatch@data 100 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_kbd_putstring@Nmax 12F 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_ADC_start_IT 3712 0 CODE 0 text39 dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_rx_isr@byte 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_kbd_putkey@avail 125 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_unlock_RTCC 3A10 0 CODE 0 text2 dist/default/production\PIC18F46J50_TEST.X.production.o
+USB_kbd_putkey@usage 123 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hsivt_hi 0 0 CODE 0 sivt_hi dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hsivt_lo 106 0 CODE 0 sivt_lo dist/default/production\PIC18F46J50_TEST.X.production.o
+_bd_set_addr 38FE 0 CODE 0 text65 dist/default/production\PIC18F46J50_TEST.X.production.o
+__initialization 334A 0 CODE 0 cinit dist/default/production\PIC18F46J50_TEST.X.production.o
+btemp0 1 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+btemp1 2 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+_BAUDCON1bits F7E 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+__pbssBANK0 9F 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__pbssBANK1 151 0 BANK1 1 bssBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+__pbssBANK2 200 0 BANK2 1 bssBANK2 dist/default/production\PIC18F46J50_TEST.X.production.o
+__pbssBANK3 300 0 BANK3 1 bssBANK3 dist/default/production\PIC18F46J50_TEST.X.production.o
+__pbssBANK5 500 0 BANK5 1 bssBANK5 dist/default/production\PIC18F46J50_TEST.X.production.o
+__pdataCOMRAM 48 0 COMRAM 1 dataCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_dev_desc FF58 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataWatch@aval_len 119 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+_T2CONbits FCA 0 ABS 0 - dist/default/production\PIC18F46J50_TEST.X.production.o
+ADC_getChan@chan 95 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hfardata 0 0 FARRAM 0 fardata dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\PIC18F46J50_TEST.X.production.o
+dtoa@d 10D 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+dtoa@i 118 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+dtoa@p 115 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+dtoa@s 117 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+dtoa@w 113 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+i1RingBuf_Available@rb 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46J50_TEST.X.production.o
+__end_of_ADC_isr 3276 0 CODE 0 text66 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Lifardata 0 0 CODE 0 ifardata dist/default/production\PIC18F46J50_TEST.X.production.o
+i1_RingBuf_Clear 37DC 0 CODE 0 text49 dist/default/production\PIC18F46J50_TEST.X.production.o
+dbio_tx_isr@byte 7B 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\PIC18F46J50_TEST.X.production.o
+__Hintcode E 0 CODE 0 intcode dist/default/production\PIC18F46J50_TEST.X.production.o
+RingBuf_DataWatch@space 117 0 BANK1 1 cstackBANK1 dist/default/production\PIC18F46J50_TEST.X.production.o
+read_prec_or_width@ap 92 0 BANK0 1 cstackBANK0 dist/default/production\PIC18F46J50_TEST.X.production.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+_BDT 1 400 10
+_ep1_in_buf 1 420 8
+_ep0_in_buf 1 418 8
+_ep0_out_buf 1 410 8
+- 1 1 1
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+intcodelo 0 18 18 39FB 1
+cstackBANK4h 1 428 428 CB 1
+cstackCOMRAM 1 2 2 47 1
+cstackBANK0 1 60 60 70 1
+cstackBANK1 1 100 100 79 1
+reset_vec 0 0 0 4 1
+bssBANK2 1 200 200 C0 1
+bssBANK3 1 300 300 C8 1
+bssBANK5 1 500 500 C8 1
+intcode 0 8 8 6 1
+mediumconst 0 FE2A FE2A 1CE 1
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES

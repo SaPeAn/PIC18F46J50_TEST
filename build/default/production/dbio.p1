@@ -1,24 +1,18 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"16 ./ringbuf.h
-[; ;./ringbuf.h: 16: typedef struct RINGBUF_t {
-[s S775 `*uc 1 `Vui 1 `Vui 1 `Vui 1 `Vui 1 ]
+"17 ./ringbuf.h
+[; ;./ringbuf.h: 17: typedef struct RINGBUF_t {
+[s S775 `*uc 1 `Vus 1 `Vus 1 `Vus 1 `Vus 1 ]
 [n S775 RINGBUF_t buf tail head size cell_size ]
-"20088 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 20088: extern volatile __bit TX1IE __attribute__((address(0x7CEC)));
-[v _TX1IE `Vb ~T0 @X0 0 e@31980 ]
-"20091
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 20091: extern volatile __bit TX1IF __attribute__((address(0x7CF4)));
-[v _TX1IF `Vb ~T0 @X0 0 e@31988 ]
-"22 dbio.c
-[; ;dbio.c: 22:     RingBuf_Available(&buf_len, &TXringbuf);
-[c E6392 0 1 2 3 4 .. ]
-[n E6392 RINGBUF_STATUS RINGBUF_OK RINGBUF_ERR RINGBUF_PARAM_ERR RINGBUF_OVERFLOW RINGBUF_EMPTY  ]
-"41 ./ringbuf.h
-[; ;./ringbuf.h: 41: RINGBUF_STATUS RingBuf_Available(uint16_t* len, RINGBUF_t* rb);
-[v _RingBuf_Available `(E6392 ~T0 @X0 0 ef2`*us`*S775 ]
-"47
-[; ;./ringbuf.h: 47: RINGBUF_STATUS RingBuf_DataRead(void* data, uint16_t len, RINGBUF_t* rb);
-[v _RingBuf_DataRead `(E6392 ~T0 @X0 0 ef3`*v`us`*S775 ]
+"59 dbio.c
+[; ;dbio.c: 59:   RingBuf_Available(&buf_len, &TXringbuf);
+[c E6403 0 1 2 3 4 .. ]
+[n E6403 RINGBUF_STATUS RINGBUF_OK RINGBUF_ERR RINGBUF_PARAM_ERR RINGBUF_OVERFLOW RINGBUF_EMPTY  ]
+"42 ./ringbuf.h
+[; ;./ringbuf.h: 42: RINGBUF_STATUS RingBuf_Available(uint16_t* len, RINGBUF_t* rb);
+[v _RingBuf_Available `(E6403 ~T0 @X0 0 ef2`*us`*S775 ]
+"48
+[; ;./ringbuf.h: 48: RINGBUF_STATUS RingBuf_DataRead(void* data, uint16_t len, RINGBUF_t* rb);
+[v _RingBuf_DataRead `(E6403 ~T0 @X0 0 ef3`*v`us`*S775 ]
 "10184 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 10184: extern volatile unsigned char TXREG __attribute__((address(0xFAE)));
 [v _TXREG `Vuc ~T0 @X0 0 e@4014 ]
@@ -41,47 +35,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8546
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 8546: extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
 [v _PIE1bits `VS374 ~T0 @X0 0 e@3997 ]
-"18984
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 18984: extern volatile __bit RC1IE __attribute__((address(0x7CED)));
-[v _RC1IE `Vb ~T0 @X0 0 e@31981 ]
-"18987
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 18987: extern volatile __bit RC1IF __attribute__((address(0x7CF5)));
-[v _RC1IF `Vb ~T0 @X0 0 e@31989 ]
-"9727
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9727:     struct {
-[s S431 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S431 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
-"9737
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9737:     struct {
-[s S432 :1 `uc 1 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S432 . RCD8 . ADEN . RC9 ]
-"9744
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9744:     struct {
-[s S433 :6 `uc 1 :1 `uc 1 ]
-[n S433 . . NOT_RC8 ]
-"9748
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9748:     struct {
-[s S434 :6 `uc 1 :1 `uc 1 ]
-[n S434 . . nRC8 ]
-"9752
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9752:     struct {
-[s S435 :6 `uc 1 :1 `uc 1 ]
-[n S435 . . RC8_9 ]
-"9756
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9756:     struct {
-[s S436 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S436 . RX9D1 OERR1 FERR1 ADDEN1 CREN1 SREN1 RX91 SPEN1 ]
-"9766
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9766:     struct {
-[s S437 :5 `uc 1 :1 `uc 1 ]
-[n S437 . . SRENA ]
-"9726
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9726: typedef union {
-[u S430 `S431 1 `S432 1 `S433 1 `S434 1 `S435 1 `S436 1 `S437 1 ]
-[n S430 . . . . . . . . ]
-"9771
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9771: extern volatile RCSTAbits_t RCSTAbits __attribute__((address(0xFAC)));
-[v _RCSTAbits `VS430 ~T0 @X0 0 e@4012 ]
 "9564
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 9564:     struct {
 [s S423 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -120,19 +73,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "10222
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 10222: extern volatile unsigned char RCREG __attribute__((address(0xFAF)));
 [v _RCREG `Vuc ~T0 @X0 0 e@4015 ]
-"44 ./ringbuf.h
-[; ;./ringbuf.h: 44: RINGBUF_STATUS RingBuf_DataPut(const void* data, uint16_t len, RINGBUF_t* rb);
-[v _RingBuf_DataPut `(E6392 ~T0 @X0 0 ef3`*Cv`us`*S775 ]
-"39
-[; ;./ringbuf.h: 39: RINGBUF_STATUS RingBuf_Init(void* buf, uint16_t size, size_t cellsize, RINGBUF_t* rb);
-[v _RingBuf_Init `(E6392 ~T0 @X0 0 ef4`*v`us`ui`*S775 ]
-[v F5884 `(v ~T0 @X0 0 tf ]
-"40 ./system.h
-[; ;./system.h: 40: uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
-[v _sys_regiter_IRQ_clbk `(uc ~T0 @X0 0 ef2`*F5884`uc ]
-"42
-[; ;./system.h: 42: void UART1_Init(void);
+"45 ./ringbuf.h
+[; ;./ringbuf.h: 45: RINGBUF_STATUS RingBuf_DataPut(const void* data, uint16_t len, RINGBUF_t* rb);
+[v _RingBuf_DataPut `(E6403 ~T0 @X0 0 ef3`*Cv`us`*S775 ]
+"40
+[; ;./ringbuf.h: 40: RINGBUF_STATUS RingBuf_Init(void* buf, uint16_t size, uint16_t cellsize, RINGBUF_t* rb);
+[v _RingBuf_Init `(E6403 ~T0 @X0 0 ef4`*v`us`us`*S775 ]
+"113 dbio.c
+[; ;dbio.c: 113:   if(RingBuf_Init(RXbuf, 200, 1, &RXringbuf) != RINGBUF_OK) return DBIO_INIT_BUF_ERR;
+[c E5890 0 1 2 .. ]
+[n E5890 DBIO_INIT_STATUS DBIO_INIT_OK DBIO_INIT_BUF_ERR DBIO_INIT_CBK_ERR  ]
+"64 ./system.h
+[; ;./system.h: 64: void UART1_Init(void);
 [v _UART1_Init `(v ~T0 @X0 0 ef ]
+"130 dbio.c
+[; ;dbio.c: 130:   if((str == ((void*)0)) || (Nmax < 2) || (Nmax > 200)) return DBIO_PARAM_ERR;
+[c E5884 0 -1 -1 -2 .. ]
+[n E5884 DBIO_STATUS DBIO_PENDING DBIO_PARAM_ERR DBIO_NO_SPACE DBIO_NO_DATA  ]
 "16014 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 16014:     struct {
 [s S748 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -152,8 +109,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16040
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 16040: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
 [v _INTCONbits `VS747 ~T0 @X0 0 e@4082 ]
-"36 ./system.h
-[; ;./system.h: 36: uint32_t get_ms(void);
+"59 ./system.h
+[; ;./system.h: 59: uint32_t get_ms(void);
 [v _get_ms `(ul ~T0 @X0 0 ef ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 54: __asm("RPOR0 equ 0EC6h");
@@ -1010,447 +967,681 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16434
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-J_DFP/1.7.159/xc8\pic\include\proc/pic18f46j50.h: 16434: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"8 dbio.c
-[; ;dbio.c: 8: RINGBUF_t RXringbuf;
-[v _RXringbuf `S775 ~T0 @X0 1 e ]
-"9
-[; ;dbio.c: 9: uint8_t RXbuf[200] = {0};
-[v _RXbuf `uc ~T0 @X0 -> 200 `i e ]
+"28 dbio.c
+[; ;dbio.c: 28: static RINGBUF_t RXringbuf;
+[v _RXringbuf `S775 ~T0 @X0 1 s ]
+"29
+[; ;dbio.c: 29: static uint8_t RXbuf[200] = {0};
+[v _RXbuf `uc ~T0 @X0 -> 200 `i s ]
 [i _RXbuf
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-"11
-[; ;dbio.c: 11: RINGBUF_t TXringbuf;
-[v _TXringbuf `S775 ~T0 @X0 1 e ]
-"12
-[; ;dbio.c: 12: uint8_t TXbuf[200] = {0};
-[v _TXbuf `uc ~T0 @X0 -> 200 `i e ]
+"31
+[; ;dbio.c: 31: static RINGBUF_t TXringbuf;
+[v _TXringbuf `S775 ~T0 @X0 1 s ]
+"32
+[; ;dbio.c: 32: static uint8_t TXbuf[200] = {0};
+[v _TXbuf `uc ~T0 @X0 -> 200 `i s ]
 [i _TXbuf
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-"14
-[; ;dbio.c: 14: uint8_t overrun_errors = 0;
-[v _overrun_errors `uc ~T0 @X0 1 e ]
-[i _overrun_errors
--> -> 0 `i `uc
-]
-"16
-[; ;dbio.c: 16: void TXbyte_cbk(void)
-[v _TXbyte_cbk `(v ~T0 @X0 1 ef ]
-"17
-[; ;dbio.c: 17: {
-{
-[e :U _TXbyte_cbk ]
-[f ]
-"18
-[; ;dbio.c: 18:   if (TX1IE && TX1IF)
-[e $ ! && _TX1IE _TX1IF 777  ]
-"19
-[; ;dbio.c: 19:   {
-{
-"20
-[; ;dbio.c: 20:     uint16_t buf_len = 0;
-[v _buf_len `us ~T0 @X0 1 a ]
-[e = _buf_len -> -> 0 `i `us ]
-"21
-[; ;dbio.c: 21:     uint8_t byte;
-[v _byte `uc ~T0 @X0 1 a ]
-"22
-[; ;dbio.c: 22:     RingBuf_Available(&buf_len, &TXringbuf);
-[e ( _RingBuf_Available (2 , &U _buf_len &U _TXringbuf ]
-"23
-[; ;dbio.c: 23:     if(buf_len) {
-[e $ ! != -> _buf_len `ui -> -> 0 `i `ui 778  ]
-{
-"24
-[; ;dbio.c: 24:       RingBuf_DataRead((uint8_t*)&byte, 1, &TXringbuf);
-[e ( _RingBuf_DataRead (3 , , -> &U _byte `*v -> -> 1 `i `us &U _TXringbuf ]
-"25
-[; ;dbio.c: 25:       TXREG = byte;
-[e = _TXREG _byte ]
-"26
-[; ;dbio.c: 26:     }
-}
-[e $U 779  ]
-"27
-[; ;dbio.c: 27:     else PIE1bits.TX1IE = 0;
-[e :U 778 ]
-[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
-[e :U 779 ]
-"28
-[; ;dbio.c: 28:   }
-}
-[e :U 777 ]
-"29
-[; ;dbio.c: 29: }
-[e :UE 776 ]
-}
-"31
-[; ;dbio.c: 31: void RXbyte_cbk(void)
-[v _RXbyte_cbk `(v ~T0 @X0 1 ef ]
-"32
-[; ;dbio.c: 32: {
-{
-[e :U _RXbyte_cbk ]
-[f ]
-"33
-[; ;dbio.c: 33:   if (RC1IE && RC1IF)
-[e $ ! && _RC1IE _RC1IF 781  ]
 "34
-[; ;dbio.c: 34:   {
-{
+[; ;dbio.c: 34: static volatile uint16_t hw_overrun_errors = 0;
+[v _hw_overrun_errors `Vus ~T0 @X0 1 s ]
+[i _hw_overrun_errors
+-> -> 0 `i `us
+]
 "35
-[; ;dbio.c: 35:     uint8_t byte;
-[v _byte `uc ~T0 @X0 1 a ]
+[; ;dbio.c: 35: static volatile uint16_t hw_framing_errors = 0;
+[v _hw_framing_errors `Vus ~T0 @X0 1 s ]
+[i _hw_framing_errors
+-> -> 0 `i `us
+]
 "36
-[; ;dbio.c: 36:     if(RCSTAbits.OERR) {
-[e $ ! != -> . . _RCSTAbits 0 1 `i -> 0 `i 782  ]
-{
-"37
-[; ;dbio.c: 37:       RCSTA1bits.CREN = 0;
-[e = . . _RCSTA1bits 0 4 -> -> 0 `i `uc ]
-"38
-[; ;dbio.c: 38:       RCSTA1bits.CREN = 1;
-[e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
-"39
-[; ;dbio.c: 39:       overrun_errors++;
-[e ++ _overrun_errors -> -> 1 `i `uc ]
-"40
-[; ;dbio.c: 40:     }
-}
-[e :U 782 ]
-"41
-[; ;dbio.c: 41:     byte = RCREG;
-[e = _byte _RCREG ]
+[; ;dbio.c: 36: static volatile uint16_t rx_dropped_bytes = 0;
+[v _rx_dropped_bytes `Vus ~T0 @X0 1 s ]
+[i _rx_dropped_bytes
+-> -> 0 `i `us
+]
 "42
-[; ;dbio.c: 42:     RingBuf_DataPut((uint8_t*)&byte, 1, &RXringbuf);
-[e ( _RingBuf_DataPut (3 , , -> &U _byte `*Cv -> -> 1 `i `us &U _RXringbuf ]
+[; ;dbio.c: 42: static uint16_t dbio_strnlen(const char* str, uint16_t N)
+[v _dbio_strnlen `(us ~T0 @X0 1 sf2`*Cuc`us ]
 "43
-[; ;dbio.c: 43:   }
-}
-[e :U 781 ]
-"44
-[; ;dbio.c: 44: }
-[e :UE 780 ]
-}
-"46
-[; ;dbio.c: 46: void dbio_init(void)
-[v _dbio_init `(v ~T0 @X0 1 ef ]
-"47
-[; ;dbio.c: 47: {
-{
-[e :U _dbio_init ]
-[f ]
-"48
-[; ;dbio.c: 48:   RingBuf_Init(RXbuf, 200, 1, &RXringbuf);
-[e ( _RingBuf_Init (4 , , , -> &U _RXbuf `*v -> -> 200 `i `us -> -> 1 `i `ui &U _RXringbuf ]
-"49
-[; ;dbio.c: 49:   RingBuf_Init(TXbuf, 200, 1, &TXringbuf);
-[e ( _RingBuf_Init (4 , , , -> &U _TXbuf `*v -> -> 200 `i `us -> -> 1 `i `ui &U _TXringbuf ]
-"50
-[; ;dbio.c: 50:   sys_regiter_IRQ_clbk(RXbyte_cbk, 0);
-[e ( _sys_regiter_IRQ_clbk (2 , &U _RXbyte_cbk -> -> 0 `i `uc ]
-"51
-[; ;dbio.c: 51:   sys_regiter_IRQ_clbk(TXbyte_cbk, 0);
-[e ( _sys_regiter_IRQ_clbk (2 , &U _TXbyte_cbk -> -> 0 `i `uc ]
-"52
-[; ;dbio.c: 52:   UART1_Init();
-[e ( _UART1_Init ..  ]
-"53
-[; ;dbio.c: 53:   PIE1bits.RC1IE = 1;
-[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-"54
-[; ;dbio.c: 54: }
-[e :UE 783 ]
-}
-"56
-[; ;dbio.c: 56: int16_t dbio_getstring(char* str, uint16_t Nmax, uint16_t timeout)
-[v _dbio_getstring `(s ~T0 @X0 1 ef3`*uc`us`us ]
-"57
-[; ;dbio.c: 57: {
-{
-[e :U _dbio_getstring ]
-"56
-[; ;dbio.c: 56: int16_t dbio_getstring(char* str, uint16_t Nmax, uint16_t timeout)
-[v _str `*uc ~T0 @X0 1 r1 ]
-[v _Nmax `us ~T0 @X0 1 r2 ]
-[v _timeout `us ~T0 @X0 1 r3 ]
-"57
-[; ;dbio.c: 57: {
-[f ]
-"58
-[; ;dbio.c: 58:   static uint32_t timetmp = 0;
-[v F6438 `ul ~T0 @X0 1 s timetmp ]
-[i F6438
--> -> -> 0 `i `l `ul
-]
-"59
-[; ;dbio.c: 59:   static uint16_t buf_len = 0;
-[v F6439 `us ~T0 @X0 1 s buf_len ]
-[i F6439
--> -> 0 `i `us
-]
-"60
-[; ;dbio.c: 60:   static uint16_t buf_len_prev = 0;
-[v F6440 `us ~T0 @X0 1 s buf_len_prev ]
-[i F6440
--> -> 0 `i `us
-]
-"62
-[; ;dbio.c: 62:   if(Nmax > 200) return -1;
-[e $ ! > -> _Nmax `ui -> -> 200 `i `ui 785  ]
-[e ) -> -U -> 1 `i `s ]
-[e $UE 784  ]
-[e :U 785 ]
-"64
-[; ;dbio.c: 64:   INTCONbits.GIE = 0;
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"65
-[; ;dbio.c: 65:   RingBuf_Available((uint16_t*)&buf_len, &RXringbuf);
-[e ( _RingBuf_Available (2 , &U F6439 &U _RXringbuf ]
-"66
-[; ;dbio.c: 66:   INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"68
-[; ;dbio.c: 68:   if(buf_len)
-[e $ ! != -> F6439 `ui -> -> 0 `i `ui 786  ]
-"69
-[; ;dbio.c: 69:   {
-{
-"70
-[; ;dbio.c: 70:     if(buf_len_prev != buf_len)
-[e $ ! != -> F6440 `ui -> F6439 `ui 787  ]
-"71
-[; ;dbio.c: 71:     {
-{
-"72
-[; ;dbio.c: 72:       if(buf_len > (Nmax - 1))
-[e $ ! > -> F6439 `ui - -> _Nmax `ui -> -> 1 `i `ui 788  ]
-"73
-[; ;dbio.c: 73:       {
-{
-"74
-[; ;dbio.c: 74:         INTCONbits.GIE = 0;
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"75
-[; ;dbio.c: 75:         RingBuf_DataRead(str, Nmax, &RXringbuf);
-[e ( _RingBuf_DataRead (3 , , -> _str `*v _Nmax &U _RXringbuf ]
-"76
-[; ;dbio.c: 76:         INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"78
-[; ;dbio.c: 78:         buf_len_prev = 0;
-[e = F6440 -> -> 0 `i `us ]
-"79
-[; ;dbio.c: 79:         str[(Nmax-1)] = '\0';
-[e = *U + _str * -> - -> _Nmax `ui -> -> 1 `i `ui `ux -> -> # *U _str `ui `ux -> -> 0 `ui `uc ]
-"80
-[; ;dbio.c: 80:         return (int)Nmax;
-[e ) -> -> _Nmax `i `s ]
-[e $UE 784  ]
-"81
-[; ;dbio.c: 81:       }
-}
-[e :U 788 ]
-"82
-[; ;dbio.c: 82:       buf_len_prev = buf_len;
-[e = F6440 F6439 ]
-"83
-[; ;dbio.c: 83:       timetmp = get_ms();
-[e = F6438 ( _get_ms ..  ]
-"84
-[; ;dbio.c: 84:       return 0;
-[e ) -> -> 0 `i `s ]
-[e $UE 784  ]
-"85
-[; ;dbio.c: 85:     }
-}
-[e :U 787 ]
-"86
-[; ;dbio.c: 86:     if(((get_ms() - timetmp) > timeout))
-[e $ ! > - ( _get_ms ..  F6438 -> _timeout `ul 789  ]
-"87
-[; ;dbio.c: 87:     {
-{
-"88
-[; ;dbio.c: 88:       buf_len = (buf_len > Nmax) ? Nmax : buf_len;
-[e = F6439 -> ? > -> F6439 `ui -> _Nmax `ui : -> _Nmax `ui -> F6439 `ui `us ]
-"89
-[; ;dbio.c: 89:       INTCONbits.GIE = 0;
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"90
-[; ;dbio.c: 90:       RingBuf_DataRead(str, buf_len, &RXringbuf);
-[e ( _RingBuf_DataRead (3 , , -> _str `*v F6439 &U _RXringbuf ]
-"91
-[; ;dbio.c: 91:       INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"92
-[; ;dbio.c: 92:       str[buf_len] = '\0';
-[e = *U + _str * -> F6439 `ux -> -> # *U _str `ui `ux -> -> 0 `ui `uc ]
-"93
-[; ;dbio.c: 93:       buf_len_prev = 0;
-[e = F6440 -> -> 0 `i `us ]
-"94
-[; ;dbio.c: 94:       return (int)buf_len;
-[e ) -> -> F6439 `i `s ]
-[e $UE 784  ]
-"95
-[; ;dbio.c: 95:     }
-}
-[e :U 789 ]
-"96
-[; ;dbio.c: 96:   }
-}
-[e :U 786 ]
-"97
-[; ;dbio.c: 97:   return -2;
-[e ) -> -U -> 2 `i `s ]
-[e $UE 784  ]
-"98
-[; ;dbio.c: 98: }
-[e :UE 784 ]
-}
-"100
-[; ;dbio.c: 100: uint16_t dbio_strnlen(const char* str, uint16_t N)
-[v _dbio_strnlen `(us ~T0 @X0 1 ef2`*Cuc`us ]
-"101
-[; ;dbio.c: 101: {
+[; ;dbio.c: 43: {
 {
 [e :U _dbio_strnlen ]
-"100
-[; ;dbio.c: 100: uint16_t dbio_strnlen(const char* str, uint16_t N)
+"42
+[; ;dbio.c: 42: static uint16_t dbio_strnlen(const char* str, uint16_t N)
 [v _str `*Cuc ~T0 @X0 1 r1 ]
 [v _N `us ~T0 @X0 1 r2 ]
-"101
-[; ;dbio.c: 101: {
+"43
+[; ;dbio.c: 43: {
 [f ]
-"102
-[; ;dbio.c: 102:   for(uint16_t i = 0; i < N; i++)
+"44
+[; ;dbio.c: 44:   for(uint16_t i = 0; i < N; i++)
 {
 [v _i `us ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `us ]
-[e $U 794  ]
-[e :U 791 ]
-"103
-[; ;dbio.c: 103:   {
+[e $U 780  ]
+[e :U 777 ]
+"45
+[; ;dbio.c: 45:   {
 {
-"104
-[; ;dbio.c: 104:     if(str[i]) continue;
-[e $ ! != -> *U + _str * -> _i `ux -> -> # *U _str `ui `ux `i -> 0 `i 795  ]
-[e $U 793  ]
-[e :U 795 ]
-"105
-[; ;dbio.c: 105:     return i;
+"46
+[; ;dbio.c: 46:     if(str[i]) continue;
+[e $ ! != -> *U + _str * -> _i `ux -> -> # *U _str `ui `ux `i -> 0 `i 781  ]
+[e $U 779  ]
+[e :U 781 ]
+"47
+[; ;dbio.c: 47:     return i;
 [e ) _i ]
-[e $UE 790  ]
-"106
-[; ;dbio.c: 106:   }
+[e $UE 776  ]
+"48
+[; ;dbio.c: 48:   }
 }
-[e :U 793 ]
-"102
-[; ;dbio.c: 102:   for(uint16_t i = 0; i < N; i++)
+[e :U 779 ]
+"44
+[; ;dbio.c: 44:   for(uint16_t i = 0; i < N; i++)
 [e ++ _i -> -> 1 `i `us ]
-[e :U 794 ]
-[e $ < -> _i `ui -> _N `ui 791  ]
-[e :U 792 ]
-"106
-[; ;dbio.c: 106:   }
+[e :U 780 ]
+[e $ < -> _i `ui -> _N `ui 777  ]
+[e :U 778 ]
+"48
+[; ;dbio.c: 48:   }
 }
-"107
-[; ;dbio.c: 107:   return N;
+"49
+[; ;dbio.c: 49:   return N;
 [e ) _N ]
-[e $UE 790  ]
-"108
-[; ;dbio.c: 108: }
-[e :UE 790 ]
+[e $UE 776  ]
+"50
+[; ;dbio.c: 50: }
+[e :UE 776 ]
 }
-"110
-[; ;dbio.c: 110: int16_t dbio_putstring(char* str, uint16_t Nmax)
-[v _dbio_putstring `(s ~T0 @X0 1 ef2`*uc`us ]
-"111
-[; ;dbio.c: 111: {
+"54
+[; ;dbio.c: 54: void dbio_tx_isr(void)
+[v _dbio_tx_isr `(v ~T0 @X0 1 ef ]
+"55
+[; ;dbio.c: 55: {
 {
-[e :U _dbio_putstring ]
-"110
-[; ;dbio.c: 110: int16_t dbio_putstring(char* str, uint16_t Nmax)
+[e :U _dbio_tx_isr ]
+[f ]
+"56
+[; ;dbio.c: 56:   uint16_t buf_len = 0;
+[v _buf_len `us ~T0 @X0 1 a ]
+[e = _buf_len -> -> 0 `i `us ]
+"57
+[; ;dbio.c: 57:   uint8_t byte;
+[v _byte `uc ~T0 @X0 1 a ]
+"59
+[; ;dbio.c: 59:   RingBuf_Available(&buf_len, &TXringbuf);
+[e ( _RingBuf_Available (2 , &U _buf_len &U _TXringbuf ]
+"60
+[; ;dbio.c: 60:   if(buf_len && (RingBuf_DataRead(&byte, 1, &TXringbuf) == RINGBUF_OK))
+[e $ ! && != -> _buf_len `ui -> -> 0 `i `ui == -> ( _RingBuf_DataRead (3 , , -> &U _byte `*v -> -> 1 `i `us &U _TXringbuf `ui -> . `E6403 0 `ui 783  ]
+"61
+[; ;dbio.c: 61:   {
+{
+"62
+[; ;dbio.c: 62:     TXREG = byte;
+[e = _TXREG _byte ]
+"63
+[; ;dbio.c: 63:   }
+}
+[e $U 784  ]
+"64
+[; ;dbio.c: 64:   else PIE1bits.TX1IE = 0;
+[e :U 783 ]
+[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
+[e :U 784 ]
+"65
+[; ;dbio.c: 65: }
+[e :UE 782 ]
+}
+"68
+[; ;dbio.c: 68: void dbio_rx_isr(void)
+[v _dbio_rx_isr `(v ~T0 @X0 1 ef ]
+"69
+[; ;dbio.c: 69: {
+{
+[e :U _dbio_rx_isr ]
+[f ]
+"70
+[; ;dbio.c: 70:   uint8_t byte;
+[v _byte `uc ~T0 @X0 1 a ]
+"71
+[; ;dbio.c: 71:   uint16_t buf_len = 0;
+[v _buf_len `us ~T0 @X0 1 a ]
+[e = _buf_len -> -> 0 `i `us ]
+"77
+[; ;dbio.c: 77:   if(RCSTA1bits.OERR)
+[e $ ! != -> . . _RCSTA1bits 0 1 `i -> 0 `i 786  ]
+"78
+[; ;dbio.c: 78:   {
+{
+"79
+[; ;dbio.c: 79:     (void)RCREG;
+[e _RCREG ]
+"80
+[; ;dbio.c: 80:     (void)RCREG;
+[e _RCREG ]
+"81
+[; ;dbio.c: 81:     RCSTA1bits.CREN = 0;
+[e = . . _RCSTA1bits 0 4 -> -> 0 `i `uc ]
+"82
+[; ;dbio.c: 82:     RCSTA1bits.CREN = 1;
+[e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
+"83
+[; ;dbio.c: 83:     hw_overrun_errors++;
+[e ++ _hw_overrun_errors -> -> 1 `i `Vus ]
+"84
+[; ;dbio.c: 84:     return;
+[e $UE 785  ]
+"85
+[; ;dbio.c: 85:   }
+}
+[e :U 786 ]
+"89
+[; ;dbio.c: 89:   if(RCSTA1bits.FERR)
+[e $ ! != -> . . _RCSTA1bits 0 2 `i -> 0 `i 787  ]
+"90
+[; ;dbio.c: 90:   {
+{
+"91
+[; ;dbio.c: 91:     (void)RCREG;
+[e _RCREG ]
+"92
+[; ;dbio.c: 92:     hw_framing_errors++;
+[e ++ _hw_framing_errors -> -> 1 `i `Vus ]
+"93
+[; ;dbio.c: 93:     return;
+[e $UE 785  ]
+"94
+[; ;dbio.c: 94:   }
+}
+[e :U 787 ]
+"96
+[; ;dbio.c: 96:   byte = RCREG;
+[e = _byte _RCREG ]
+"102
+[; ;dbio.c: 102:   RingBuf_Available(&buf_len, &RXringbuf);
+[e ( _RingBuf_Available (2 , &U _buf_len &U _RXringbuf ]
+"103
+[; ;dbio.c: 103:   if(buf_len >= (200 - 1))
+[e $ ! >= -> _buf_len `ui -> - -> 200 `i -> 1 `i `ui 788  ]
+"104
+[; ;dbio.c: 104:   {
+{
+"105
+[; ;dbio.c: 105:     rx_dropped_bytes++;
+[e ++ _rx_dropped_bytes -> -> 1 `i `Vus ]
+"106
+[; ;dbio.c: 106:     return;
+[e $UE 785  ]
+"107
+[; ;dbio.c: 107:   }
+}
+[e :U 788 ]
+"108
+[; ;dbio.c: 108:   RingBuf_DataPut(&byte, 1, &RXringbuf);
+[e ( _RingBuf_DataPut (3 , , -> &U _byte `*Cv -> -> 1 `i `us &U _RXringbuf ]
+"109
+[; ;dbio.c: 109: }
+[e :UE 785 ]
+}
+"111
+[; ;dbio.c: 111: uint8_t dbio_init(void)
+[v _dbio_init `(uc ~T0 @X0 1 ef ]
+"112
+[; ;dbio.c: 112: {
+{
+[e :U _dbio_init ]
+[f ]
+"113
+[; ;dbio.c: 113:   if(RingBuf_Init(RXbuf, 200, 1, &RXringbuf) != RINGBUF_OK) return DBIO_INIT_BUF_ERR;
+[e $ ! != -> ( _RingBuf_Init (4 , , , -> &U _RXbuf `*v -> -> 200 `i `us -> -> 1 `i `us &U _RXringbuf `ui -> . `E6403 0 `ui 790  ]
+[e ) -> . `E5890 1 `uc ]
+[e $UE 789  ]
+[e :U 790 ]
+"114
+[; ;dbio.c: 114:   if(RingBuf_Init(TXbuf, 200, 1, &TXringbuf) != RINGBUF_OK) return DBIO_INIT_BUF_ERR;
+[e $ ! != -> ( _RingBuf_Init (4 , , , -> &U _TXbuf `*v -> -> 200 `i `us -> -> 1 `i `us &U _TXringbuf `ui -> . `E6403 0 `ui 791  ]
+[e ) -> . `E5890 1 `uc ]
+[e $UE 789  ]
+[e :U 791 ]
+"117
+[; ;dbio.c: 117:   UART1_Init();
+[e ( _UART1_Init ..  ]
+"118
+[; ;dbio.c: 118:   return DBIO_INIT_OK;
+[e ) -> . `E5890 0 `uc ]
+[e $UE 789  ]
+"119
+[; ;dbio.c: 119: }
+[e :UE 789 ]
+}
+"121
+[; ;dbio.c: 121: int16_t dbio_getstring(char* str, uint16_t Nmax, uint16_t timeout)
+[v _dbio_getstring `(s ~T0 @X0 1 ef3`*uc`us`us ]
+"122
+[; ;dbio.c: 122: {
+{
+[e :U _dbio_getstring ]
+"121
+[; ;dbio.c: 121: int16_t dbio_getstring(char* str, uint16_t Nmax, uint16_t timeout)
 [v _str `*uc ~T0 @X0 1 r1 ]
 [v _Nmax `us ~T0 @X0 1 r2 ]
-"111
-[; ;dbio.c: 111: {
+[v _timeout `us ~T0 @X0 1 r3 ]
+"122
+[; ;dbio.c: 122: {
 [f ]
-"112
-[; ;dbio.c: 112:   static uint16_t buf_len = 0;
-[v F6448 `us ~T0 @X0 1 s buf_len ]
-[i F6448
+"123
+[; ;dbio.c: 123:   static uint32_t timetmp = 0;
+[v F6454 `ul ~T0 @X0 1 s timetmp ]
+[i F6454
+-> -> -> 0 `i `l `ul
+]
+"124
+[; ;dbio.c: 124:   static uint16_t buf_len_prev = 0;
+[v F6455 `us ~T0 @X0 1 s buf_len_prev ]
+[i F6455
 -> -> 0 `i `us
 ]
-"113
-[; ;dbio.c: 113:   uint16_t str_len;
-[v _str_len `us ~T0 @X0 1 a ]
-"114
-[; ;dbio.c: 114:   uint8_t byte;
-[v _byte `uc ~T0 @X0 1 a ]
-"115
-[; ;dbio.c: 115:   INTCONbits.GIE = 0;
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"116
-[; ;dbio.c: 116:   RingBuf_Available(&buf_len, &TXringbuf);
-[e ( _RingBuf_Available (2 , &U F6448 &U _TXringbuf ]
-"117
-[; ;dbio.c: 117:   INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"118
-[; ;dbio.c: 118:   if((buf_len + Nmax + 1) > 200) return -1;
-[e $ ! > + + -> F6448 `ui -> _Nmax `ui -> -> 1 `i `ui -> -> 200 `i `ui 797  ]
-[e ) -> -U -> 1 `i `s ]
-[e $UE 796  ]
-[e :U 797 ]
-"120
-[; ;dbio.c: 120:   str_len = dbio_strnlen(str, Nmax);
-[e = _str_len ( _dbio_strnlen (2 , -> _str `*Cuc _Nmax ]
-"121
-[; ;dbio.c: 121:   INTCONbits.GIE = 0;
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"122
-[; ;dbio.c: 122:   RingBuf_DataPut(str, str_len, &TXringbuf);
-[e ( _RingBuf_DataPut (3 , , -> _str `*Cv _str_len &U _TXringbuf ]
-"123
-[; ;dbio.c: 123:   INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"124
-[; ;dbio.c: 124:   if(TX1IF)
-[e $ ! _TX1IF 798  ]
 "125
-[; ;dbio.c: 125:   {
-{
+[; ;dbio.c: 125:   uint16_t buf_len = 0;
+[v _buf_len `us ~T0 @X0 1 a ]
+[e = _buf_len -> -> 0 `i `us ]
 "126
-[; ;dbio.c: 126:     INTCONbits.GIE = 0;
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;dbio.c: 126:   RINGBUF_STATUS st;
+[v _st `E6403 ~T0 @X0 1 a ]
 "127
-[; ;dbio.c: 127:     RingBuf_DataRead(&byte, 1, &TXringbuf);
-[e ( _RingBuf_DataRead (3 , , -> &U _byte `*v -> -> 1 `i `us &U _TXringbuf ]
-"128
-[; ;dbio.c: 128:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"129
-[; ;dbio.c: 129:     TXREG = byte;
-[e = _TXREG _byte ]
+[; ;dbio.c: 127:   uint8_t gie_state;
+[v _gie_state `uc ~T0 @X0 1 a ]
 "130
-[; ;dbio.c: 130:     PIE1bits.TX1IE = 1;
-[e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
-"131
-[; ;dbio.c: 131:   }
+[; ;dbio.c: 130:   if((str == ((void*)0)) || (Nmax < 2) || (Nmax > 200)) return DBIO_PARAM_ERR;
+[e $ ! || || == _str -> -> -> 0 `i `*v `*uc < -> _Nmax `ui -> -> 2 `i `ui > -> _Nmax `ui -> -> 200 `i `ui 793  ]
+[e ) -> . `E5884 1 `s ]
+[e $UE 792  ]
+[e :U 793 ]
+"132
+[; ;dbio.c: 132:   do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+[e :U 796 ]
+{
+[e = _gie_state . . _INTCONbits 1 7 ]
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+}
+[e :U 795 ]
+"133
+[; ;dbio.c: 133:   RingBuf_Available(&buf_len, &RXringbuf);
+[e ( _RingBuf_Available (2 , &U _buf_len &U _RXringbuf ]
+"134
+[; ;dbio.c: 134:   do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+[e :U 799 ]
+{
+[e $ ! != -> _gie_state `i -> 0 `i 800  ]
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[e :U 800 ]
 }
 [e :U 798 ]
-"132
-[; ;dbio.c: 132:   return (int16_t)str_len;
+"136
+[; ;dbio.c: 136:   if(buf_len == 0) return DBIO_NO_DATA;
+[e $ ! == -> _buf_len `ui -> -> 0 `i `ui 801  ]
+[e ) -> . `E5884 3 `s ]
+[e $UE 792  ]
+[e :U 801 ]
+"138
+[; ;dbio.c: 138:   if(buf_len_prev != buf_len)
+[e $ ! != -> F6455 `ui -> _buf_len `ui 802  ]
+"139
+[; ;dbio.c: 139:   {
+{
+"140
+[; ;dbio.c: 140:     if(buf_len > (uint16_t)(Nmax - 1))
+[e $ ! > -> _buf_len `ui -> -> - -> _Nmax `ui -> -> 1 `i `ui `us `ui 803  ]
+"141
+[; ;dbio.c: 141:     {
+{
+"144
+[; ;dbio.c: 144:       do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+[e :U 806 ]
+{
+[e = _gie_state . . _INTCONbits 1 7 ]
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+}
+[e :U 805 ]
+"145
+[; ;dbio.c: 145:       st = RingBuf_DataRead(str, (uint16_t)(Nmax - 1), &RXringbuf);
+[e = _st ( _RingBuf_DataRead (3 , , -> _str `*v -> - -> _Nmax `ui -> -> 1 `i `ui `us &U _RXringbuf ]
+"146
+[; ;dbio.c: 146:       do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+[e :U 809 ]
+{
+[e $ ! != -> _gie_state `i -> 0 `i 810  ]
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[e :U 810 ]
+}
+[e :U 808 ]
+"147
+[; ;dbio.c: 147:       if(st != RINGBUF_OK) return DBIO_NO_DATA;
+[e $ ! != -> _st `ui -> . `E6403 0 `ui 811  ]
+[e ) -> . `E5884 3 `s ]
+[e $UE 792  ]
+[e :U 811 ]
+"148
+[; ;dbio.c: 148:       str[Nmax - 1] = '\0';
+[e = *U + _str * -> - -> _Nmax `ui -> -> 1 `i `ui `ux -> -> # *U _str `ui `ux -> -> 0 `ui `uc ]
+"149
+[; ;dbio.c: 149:       buf_len_prev = 0;
+[e = F6455 -> -> 0 `i `us ]
+"150
+[; ;dbio.c: 150:       return (int16_t)(Nmax - 1);
+[e ) -> - -> _Nmax `ui -> -> 1 `i `ui `s ]
+[e $UE 792  ]
+"151
+[; ;dbio.c: 151:     }
+}
+[e :U 803 ]
+"153
+[; ;dbio.c: 153:     buf_len_prev = buf_len;
+[e = F6455 _buf_len ]
+"154
+[; ;dbio.c: 154:     timetmp = get_ms();
+[e = F6454 ( _get_ms ..  ]
+"155
+[; ;dbio.c: 155:     return DBIO_PENDING;
+[e ) -> . `E5884 0 `s ]
+[e $UE 792  ]
+"156
+[; ;dbio.c: 156:   }
+}
+[e :U 802 ]
+"158
+[; ;dbio.c: 158:   if((get_ms() - timetmp) > timeout)
+[e $ ! > - ( _get_ms ..  F6454 -> _timeout `ul 812  ]
+"159
+[; ;dbio.c: 159:   {
+{
+"160
+[; ;dbio.c: 160:     if(buf_len > (uint16_t)(Nmax - 1)) buf_len = (uint16_t)(Nmax - 1);
+[e $ ! > -> _buf_len `ui -> -> - -> _Nmax `ui -> -> 1 `i `ui `us `ui 813  ]
+[e = _buf_len -> - -> _Nmax `ui -> -> 1 `i `ui `us ]
+[e :U 813 ]
+"161
+[; ;dbio.c: 161:     do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+[e :U 816 ]
+{
+[e = _gie_state . . _INTCONbits 1 7 ]
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+}
+[e :U 815 ]
+"162
+[; ;dbio.c: 162:     st = RingBuf_DataRead(str, buf_len, &RXringbuf);
+[e = _st ( _RingBuf_DataRead (3 , , -> _str `*v _buf_len &U _RXringbuf ]
+"163
+[; ;dbio.c: 163:     do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+[e :U 819 ]
+{
+[e $ ! != -> _gie_state `i -> 0 `i 820  ]
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[e :U 820 ]
+}
+[e :U 818 ]
+"164
+[; ;dbio.c: 164:     if(st != RINGBUF_OK) return DBIO_NO_DATA;
+[e $ ! != -> _st `ui -> . `E6403 0 `ui 821  ]
+[e ) -> . `E5884 3 `s ]
+[e $UE 792  ]
+[e :U 821 ]
+"165
+[; ;dbio.c: 165:     str[buf_len] = '\0';
+[e = *U + _str * -> _buf_len `ux -> -> # *U _str `ui `ux -> -> 0 `ui `uc ]
+"166
+[; ;dbio.c: 166:     buf_len_prev = 0;
+[e = F6455 -> -> 0 `i `us ]
+"167
+[; ;dbio.c: 167:     return (int16_t)buf_len;
+[e ) -> _buf_len `s ]
+[e $UE 792  ]
+"168
+[; ;dbio.c: 168:   }
+}
+[e :U 812 ]
+"172
+[; ;dbio.c: 172:   return DBIO_PENDING;
+[e ) -> . `E5884 0 `s ]
+[e $UE 792  ]
+"173
+[; ;dbio.c: 173: }
+[e :UE 792 ]
+}
+"175
+[; ;dbio.c: 175: int16_t dbio_putstring(const char* str, uint16_t Nmax)
+[v _dbio_putstring `(s ~T0 @X0 1 ef2`*Cuc`us ]
+"176
+[; ;dbio.c: 176: {
+{
+[e :U _dbio_putstring ]
+"175
+[; ;dbio.c: 175: int16_t dbio_putstring(const char* str, uint16_t Nmax)
+[v _str `*Cuc ~T0 @X0 1 r1 ]
+[v _Nmax `us ~T0 @X0 1 r2 ]
+"176
+[; ;dbio.c: 176: {
+[f ]
+"177
+[; ;dbio.c: 177:   uint16_t buf_len = 0;
+[v _buf_len `us ~T0 @X0 1 a ]
+[e = _buf_len -> -> 0 `i `us ]
+"178
+[; ;dbio.c: 178:   uint16_t str_len;
+[v _str_len `us ~T0 @X0 1 a ]
+"179
+[; ;dbio.c: 179:   uint8_t gie_state;
+[v _gie_state `uc ~T0 @X0 1 a ]
+"181
+[; ;dbio.c: 181:   if(str == ((void*)0)) return DBIO_PARAM_ERR;
+[e $ ! == _str -> -> -> 0 `i `*v `*Cuc 823  ]
+[e ) -> . `E5884 1 `s ]
+[e $UE 822  ]
+[e :U 823 ]
+"186
+[; ;dbio.c: 186:   str_len = dbio_strnlen(str, Nmax);
+[e = _str_len ( _dbio_strnlen (2 , _str _Nmax ]
+"187
+[; ;dbio.c: 187:   if(str_len == 0) return DBIO_PENDING;
+[e $ ! == -> _str_len `ui -> -> 0 `i `ui 824  ]
+[e ) -> . `E5884 0 `s ]
+[e $UE 822  ]
+[e :U 824 ]
+"188
+[; ;dbio.c: 188:   if(str_len > (200 - 1)) return DBIO_PARAM_ERR;
+[e $ ! > -> _str_len `ui -> - -> 200 `i -> 1 `i `ui 825  ]
+[e ) -> . `E5884 1 `s ]
+[e $UE 822  ]
+[e :U 825 ]
+"190
+[; ;dbio.c: 190:   do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+[e :U 828 ]
+{
+[e = _gie_state . . _INTCONbits 1 7 ]
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+}
+[e :U 827 ]
+"191
+[; ;dbio.c: 191:   RingBuf_Available(&buf_len, &TXringbuf);
+[e ( _RingBuf_Available (2 , &U _buf_len &U _TXringbuf ]
+"192
+[; ;dbio.c: 192:   if((uint16_t)(buf_len + str_len) > (200 - 1))
+[e $ ! > -> -> + -> _buf_len `ui -> _str_len `ui `us `ui -> - -> 200 `i -> 1 `i `ui 829  ]
+"193
+[; ;dbio.c: 193:   {
+{
+"194
+[; ;dbio.c: 194:     do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+[e :U 832 ]
+{
+[e $ ! != -> _gie_state `i -> 0 `i 833  ]
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[e :U 833 ]
+}
+[e :U 831 ]
+"195
+[; ;dbio.c: 195:     return DBIO_NO_SPACE;
+[e ) -> . `E5884 2 `s ]
+[e $UE 822  ]
+"196
+[; ;dbio.c: 196:   }
+}
+[e :U 829 ]
+"197
+[; ;dbio.c: 197:   RingBuf_DataPut(str, str_len, &TXringbuf);
+[e ( _RingBuf_DataPut (3 , , -> _str `*Cv _str_len &U _TXringbuf ]
+"198
+[; ;dbio.c: 198:   do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+[e :U 836 ]
+{
+[e $ ! != -> _gie_state `i -> 0 `i 837  ]
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[e :U 837 ]
+}
+[e :U 835 ]
+"204
+[; ;dbio.c: 204:   PIE1bits.TX1IE = 1;
+[e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
+"206
+[; ;dbio.c: 206:   return (int16_t)str_len;
 [e ) -> _str_len `s ]
-[e $UE 796  ]
-"133
-[; ;dbio.c: 133: }
-[e :UE 796 ]
+[e $UE 822  ]
+"207
+[; ;dbio.c: 207: }
+[e :UE 822 ]
+}
+"209
+[; ;dbio.c: 209: uint16_t dbio_get_hw_overruns(void)
+[v _dbio_get_hw_overruns `(us ~T0 @X0 1 ef ]
+"210
+[; ;dbio.c: 210: {
+{
+[e :U _dbio_get_hw_overruns ]
+[f ]
+"211
+[; ;dbio.c: 211:   uint16_t val;
+[v _val `us ~T0 @X0 1 a ]
+"212
+[; ;dbio.c: 212:   uint8_t gie_state;
+[v _gie_state `uc ~T0 @X0 1 a ]
+"213
+[; ;dbio.c: 213:   do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+[e :U 841 ]
+{
+[e = _gie_state . . _INTCONbits 1 7 ]
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+}
+[e :U 840 ]
+"214
+[; ;dbio.c: 214:   val = hw_overrun_errors;
+[e = _val _hw_overrun_errors ]
+"215
+[; ;dbio.c: 215:   do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+[e :U 844 ]
+{
+[e $ ! != -> _gie_state `i -> 0 `i 845  ]
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[e :U 845 ]
+}
+[e :U 843 ]
+"216
+[; ;dbio.c: 216:   return val;
+[e ) _val ]
+[e $UE 838  ]
+"217
+[; ;dbio.c: 217: }
+[e :UE 838 ]
+}
+"219
+[; ;dbio.c: 219: uint16_t dbio_get_hw_framing_errors(void)
+[v _dbio_get_hw_framing_errors `(us ~T0 @X0 1 ef ]
+"220
+[; ;dbio.c: 220: {
+{
+[e :U _dbio_get_hw_framing_errors ]
+[f ]
+"221
+[; ;dbio.c: 221:   uint16_t val;
+[v _val `us ~T0 @X0 1 a ]
+"222
+[; ;dbio.c: 222:   uint8_t gie_state;
+[v _gie_state `uc ~T0 @X0 1 a ]
+"223
+[; ;dbio.c: 223:   do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+[e :U 849 ]
+{
+[e = _gie_state . . _INTCONbits 1 7 ]
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+}
+[e :U 848 ]
+"224
+[; ;dbio.c: 224:   val = hw_framing_errors;
+[e = _val _hw_framing_errors ]
+"225
+[; ;dbio.c: 225:   do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+[e :U 852 ]
+{
+[e $ ! != -> _gie_state `i -> 0 `i 853  ]
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[e :U 853 ]
+}
+[e :U 851 ]
+"226
+[; ;dbio.c: 226:   return val;
+[e ) _val ]
+[e $UE 846  ]
+"227
+[; ;dbio.c: 227: }
+[e :UE 846 ]
+}
+"229
+[; ;dbio.c: 229: uint16_t dbio_get_rx_dropped(void)
+[v _dbio_get_rx_dropped `(us ~T0 @X0 1 ef ]
+"230
+[; ;dbio.c: 230: {
+{
+[e :U _dbio_get_rx_dropped ]
+[f ]
+"231
+[; ;dbio.c: 231:   uint16_t val;
+[v _val `us ~T0 @X0 1 a ]
+"232
+[; ;dbio.c: 232:   uint8_t gie_state;
+[v _gie_state `uc ~T0 @X0 1 a ]
+"233
+[; ;dbio.c: 233:   do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+[e :U 857 ]
+{
+[e = _gie_state . . _INTCONbits 1 7 ]
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+}
+[e :U 856 ]
+"234
+[; ;dbio.c: 234:   val = rx_dropped_bytes;
+[e = _val _rx_dropped_bytes ]
+"235
+[; ;dbio.c: 235:   do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+[e :U 860 ]
+{
+[e $ ! != -> _gie_state `i -> 0 `i 861  ]
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[e :U 861 ]
+}
+[e :U 859 ]
+"236
+[; ;dbio.c: 236:   return val;
+[e ) _val ]
+[e $UE 854  ]
+"237
+[; ;dbio.c: 237: }
+[e :UE 854 ]
 }

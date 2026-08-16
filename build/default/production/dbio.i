@@ -7,10 +7,9 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "dbio.c" 2
+# 20 "dbio.c"
 # 1 "./dbio.h" 1
-
-
-
+# 15 "./dbio.h"
 # 1 "./system.h" 1
 
 
@@ -10127,32 +10126,73 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include/xc.h" 2 3
 # 5 "./system.h" 2
-# 34 "./system.h"
+# 57 "./system.h"
 void sys_init(void);
 
 uint32_t get_ms(void);
 void delay_ms(uint32_t del);
 
-uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
-uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
+uint8_t sys_register_ms_clbk(void (*clbk)(void));
 
 void UART1_Init(void);
-# 5 "./dbio.h" 2
-# 14 "./dbio.h"
-void dbio_init(void);
-int16_t dbio_getstring(char* ch, uint16_t Nmax, uint16_t timeout);
-int16_t dbio_putstring(char* str, uint16_t Nmax);
-# 2 "dbio.c" 2
+# 16 "./dbio.h" 2
+# 32 "./dbio.h"
+typedef enum DBIO_STATUS {
+    DBIO_PENDING = 0,
+
+    DBIO_PARAM_ERR = -1,
+    DBIO_NO_SPACE = -1,
+    DBIO_NO_DATA = -2,
+} DBIO_STATUS;
+
+
+
+
+
+typedef enum DBIO_INIT_STATUS {
+    DBIO_INIT_OK = 0,
+    DBIO_INIT_BUF_ERR = 1,
+    DBIO_INIT_CBK_ERR = 2,
+} DBIO_INIT_STATUS;
+
+
+
+
+
+uint8_t dbio_init(void);
+
+
+
+
+
+
+void dbio_rx_isr(void);
+
+
+
+
+
+void dbio_tx_isr(void);
+# 86 "./dbio.h"
+int16_t dbio_getstring(char* str, uint16_t Nmax, uint16_t timeout);
+# 95 "./dbio.h"
+int16_t dbio_putstring(const char* str, uint16_t Nmax);
+
+
+uint16_t dbio_get_hw_overruns(void);
+
+uint16_t dbio_get_hw_framing_errors(void);
+
+uint16_t dbio_get_rx_dropped(void);
+# 21 "dbio.c" 2
 # 1 "./ringbuf.h" 1
 
 
 
 
 
-
-
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdbool.h" 1 3
-# 9 "./ringbuf.h" 2
+# 7 "./ringbuf.h" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/string.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/bits/alltypes.h" 1 3
@@ -10210,7 +10250,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 10 "./ringbuf.h" 2
+# 8 "./ringbuf.h" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include\\c99/bits/alltypes.h" 1 3
@@ -10363,7 +10403,10 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "./ringbuf.h" 2
+# 9 "./ringbuf.h" 2
+
+
+
 
 
 
@@ -10371,12 +10414,12 @@ char *tempnam(const char *, const char *);
 
 typedef struct RINGBUF_t {
     uint8_t* buf;
-    volatile size_t tail;
-    volatile size_t head;
-    volatile size_t size;
-    volatile size_t cell_size;
+    volatile uint16_t tail;
+    volatile uint16_t head;
+    volatile uint16_t size;
+    volatile uint16_t cell_size;
 } RINGBUF_t;
-# 31 "./ringbuf.h"
+# 32 "./ringbuf.h"
 typedef enum RINGBUF_STATUS {
     RINGBUF_OK,
     RINGBUF_ERR,
@@ -10385,7 +10428,7 @@ typedef enum RINGBUF_STATUS {
     RINGBUF_EMPTY,
 } RINGBUF_STATUS;
 
-RINGBUF_STATUS RingBuf_Init(void* buf, uint16_t size, size_t cellsize, RINGBUF_t* rb);
+RINGBUF_STATUS RingBuf_Init(void* buf, uint16_t size, uint16_t cellsize, RINGBUF_t* rb);
 RINGBUF_STATUS RingBuf_Clear(RINGBUF_t* rb);
 RINGBUF_STATUS RingBuf_Available(uint16_t* len, RINGBUF_t* rb);
 
@@ -10397,105 +10440,28 @@ RINGBUF_STATUS RingBuf_DataRead(void* data, uint16_t len, RINGBUF_t* rb);
 
 
 RINGBUF_STATUS RingBuf_DataWatch(void* data, uint16_t len, RINGBUF_t* rb);
-# 3 "dbio.c" 2
+# 22 "dbio.c" 2
 
 
 
 
 
-RINGBUF_t RXringbuf;
-uint8_t RXbuf[200] = {0};
 
-RINGBUF_t TXringbuf;
-uint8_t TXbuf[200] = {0};
+static RINGBUF_t RXringbuf;
+static uint8_t RXbuf[200] = {0};
 
-uint8_t overrun_errors = 0;
+static RINGBUF_t TXringbuf;
+static uint8_t TXbuf[200] = {0};
 
-void TXbyte_cbk(void)
-{
-  if (TX1IE && TX1IF)
-  {
-    uint16_t buf_len = 0;
-    uint8_t byte;
-    RingBuf_Available(&buf_len, &TXringbuf);
-    if(buf_len) {
-      RingBuf_DataRead((uint8_t*)&byte, 1, &TXringbuf);
-      TXREG = byte;
-    }
-    else PIE1bits.TX1IE = 0;
-  }
-}
+static volatile uint16_t hw_overrun_errors = 0;
+static volatile uint16_t hw_framing_errors = 0;
+static volatile uint16_t rx_dropped_bytes = 0;
 
-void RXbyte_cbk(void)
-{
-  if (RC1IE && RC1IF)
-  {
-    uint8_t byte;
-    if(RCSTAbits.OERR) {
-      RCSTA1bits.CREN = 0;
-      RCSTA1bits.CREN = 1;
-      overrun_errors++;
-    }
-    byte = RCREG;
-    RingBuf_DataPut((uint8_t*)&byte, 1, &RXringbuf);
-  }
-}
 
-void dbio_init(void)
-{
-  RingBuf_Init(RXbuf, 200, 1, &RXringbuf);
-  RingBuf_Init(TXbuf, 200, 1, &TXringbuf);
-  sys_regiter_IRQ_clbk(RXbyte_cbk, 0);
-  sys_regiter_IRQ_clbk(TXbyte_cbk, 0);
-  UART1_Init();
-  PIE1bits.RC1IE = 1;
-}
 
-int16_t dbio_getstring(char* str, uint16_t Nmax, uint16_t timeout)
-{
-  static uint32_t timetmp = 0;
-  static uint16_t buf_len = 0;
-  static uint16_t buf_len_prev = 0;
 
-  if(Nmax > 200) return -1;
 
-  INTCONbits.GIE = 0;
-  RingBuf_Available((uint16_t*)&buf_len, &RXringbuf);
-  INTCONbits.GIE = 1;
-
-  if(buf_len)
-  {
-    if(buf_len_prev != buf_len)
-    {
-      if(buf_len > (Nmax - 1))
-      {
-        INTCONbits.GIE = 0;
-        RingBuf_DataRead(str, Nmax, &RXringbuf);
-        INTCONbits.GIE = 1;
-
-        buf_len_prev = 0;
-        str[(Nmax-1)] = '\0';
-        return (int)Nmax;
-      }
-      buf_len_prev = buf_len;
-      timetmp = get_ms();
-      return 0;
-    }
-    if(((get_ms() - timetmp) > timeout))
-    {
-      buf_len = (buf_len > Nmax) ? Nmax : buf_len;
-      INTCONbits.GIE = 0;
-      RingBuf_DataRead(str, buf_len, &RXringbuf);
-      INTCONbits.GIE = 1;
-      str[buf_len] = '\0';
-      buf_len_prev = 0;
-      return (int)buf_len;
-    }
-  }
-  return -2;
-}
-
-uint16_t dbio_strnlen(const char* str, uint16_t N)
+static uint16_t dbio_strnlen(const char* str, uint16_t N)
 {
   for(uint16_t i = 0; i < N; i++)
   {
@@ -10505,27 +10471,189 @@ uint16_t dbio_strnlen(const char* str, uint16_t N)
   return N;
 }
 
-int16_t dbio_putstring(char* str, uint16_t Nmax)
+
+
+void dbio_tx_isr(void)
 {
-  static uint16_t buf_len = 0;
-  uint16_t str_len;
+  uint16_t buf_len = 0;
   uint8_t byte;
-  INTCONbits.GIE = 0;
+
   RingBuf_Available(&buf_len, &TXringbuf);
-  INTCONbits.GIE = 1;
-  if((buf_len + Nmax + 1) > 200) return -1;
+  if(buf_len && (RingBuf_DataRead(&byte, 1, &TXringbuf) == RINGBUF_OK))
+  {
+    TXREG = byte;
+  }
+  else PIE1bits.TX1IE = 0;
+}
+
+
+void dbio_rx_isr(void)
+{
+  uint8_t byte;
+  uint16_t buf_len = 0;
+
+
+
+
+
+  if(RCSTA1bits.OERR)
+  {
+    (void)RCREG;
+    (void)RCREG;
+    RCSTA1bits.CREN = 0;
+    RCSTA1bits.CREN = 1;
+    hw_overrun_errors++;
+    return;
+  }
+
+
+
+  if(RCSTA1bits.FERR)
+  {
+    (void)RCREG;
+    hw_framing_errors++;
+    return;
+  }
+
+  byte = RCREG;
+
+
+
+
+
+  RingBuf_Available(&buf_len, &RXringbuf);
+  if(buf_len >= (200 - 1))
+  {
+    rx_dropped_bytes++;
+    return;
+  }
+  RingBuf_DataPut(&byte, 1, &RXringbuf);
+}
+
+uint8_t dbio_init(void)
+{
+  if(RingBuf_Init(RXbuf, 200, 1, &RXringbuf) != RINGBUF_OK) return DBIO_INIT_BUF_ERR;
+  if(RingBuf_Init(TXbuf, 200, 1, &TXringbuf) != RINGBUF_OK) return DBIO_INIT_BUF_ERR;
+
+
+  UART1_Init();
+  return DBIO_INIT_OK;
+}
+
+int16_t dbio_getstring(char* str, uint16_t Nmax, uint16_t timeout)
+{
+  static uint32_t timetmp = 0;
+  static uint16_t buf_len_prev = 0;
+  uint16_t buf_len = 0;
+  RINGBUF_STATUS st;
+  uint8_t gie_state;
+
+
+  if((str == ((void*)0)) || (Nmax < 2) || (Nmax > 200)) return DBIO_PARAM_ERR;
+
+  do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+  RingBuf_Available(&buf_len, &RXringbuf);
+  do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+
+  if(buf_len == 0) return DBIO_NO_DATA;
+
+  if(buf_len_prev != buf_len)
+  {
+    if(buf_len > (uint16_t)(Nmax - 1))
+    {
+
+
+      do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+      st = RingBuf_DataRead(str, (uint16_t)(Nmax - 1), &RXringbuf);
+      do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+      if(st != RINGBUF_OK) return DBIO_NO_DATA;
+      str[Nmax - 1] = '\0';
+      buf_len_prev = 0;
+      return (int16_t)(Nmax - 1);
+    }
+
+    buf_len_prev = buf_len;
+    timetmp = get_ms();
+    return DBIO_PENDING;
+  }
+
+  if((get_ms() - timetmp) > timeout)
+  {
+    if(buf_len > (uint16_t)(Nmax - 1)) buf_len = (uint16_t)(Nmax - 1);
+    do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+    st = RingBuf_DataRead(str, buf_len, &RXringbuf);
+    do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+    if(st != RINGBUF_OK) return DBIO_NO_DATA;
+    str[buf_len] = '\0';
+    buf_len_prev = 0;
+    return (int16_t)buf_len;
+  }
+
+
+
+  return DBIO_PENDING;
+}
+
+int16_t dbio_putstring(const char* str, uint16_t Nmax)
+{
+  uint16_t buf_len = 0;
+  uint16_t str_len;
+  uint8_t gie_state;
+
+  if(str == ((void*)0)) return DBIO_PARAM_ERR;
+
+
+
 
   str_len = dbio_strnlen(str, Nmax);
-  INTCONbits.GIE = 0;
-  RingBuf_DataPut(str, str_len, &TXringbuf);
-  INTCONbits.GIE = 1;
-  if(TX1IF)
+  if(str_len == 0) return DBIO_PENDING;
+  if(str_len > (200 - 1)) return DBIO_PARAM_ERR;
+
+  do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+  RingBuf_Available(&buf_len, &TXringbuf);
+  if((uint16_t)(buf_len + str_len) > (200 - 1))
   {
-    INTCONbits.GIE = 0;
-    RingBuf_DataRead(&byte, 1, &TXringbuf);
-    INTCONbits.GIE = 1;
-    TXREG = byte;
-    PIE1bits.TX1IE = 1;
+    do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+    return DBIO_NO_SPACE;
   }
+  RingBuf_DataPut(str, str_len, &TXringbuf);
+  do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+
+
+
+
+
+  PIE1bits.TX1IE = 1;
+
   return (int16_t)str_len;
+}
+
+uint16_t dbio_get_hw_overruns(void)
+{
+  uint16_t val;
+  uint8_t gie_state;
+  do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+  val = hw_overrun_errors;
+  do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+  return val;
+}
+
+uint16_t dbio_get_hw_framing_errors(void)
+{
+  uint16_t val;
+  uint8_t gie_state;
+  do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+  val = hw_framing_errors;
+  do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+  return val;
+}
+
+uint16_t dbio_get_rx_dropped(void)
+{
+  uint16_t val;
+  uint8_t gie_state;
+  do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+  val = rx_dropped_bytes;
+  do { if(gie_state) INTCONbits.GIE = 1; } while(0);
+  return val;
 }

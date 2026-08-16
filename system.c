@@ -1,41 +1,28 @@
 #include "system.h"
 
-typedef void (*IRQ_cbk_t)(void);
-typedef void (*ms_cllbk_t)(void);
+/*
+ * Обработчики прерываний модулей. Список источников намеренно статический:
+ * перебор таблицы указателей на XC8 с -O0 обходился в ~45 тактов на каждый
+ * "чужой" источник, статическая цепочка ниже — в 5 тактов (замер по
+ * дизассемблеру, см. isr_dispatch_notes.md).
+ *
+ * Как добавить источник: объявить его обработчик в заголовке своего модуля,
+ * подключить заголовок здесь и дописать одну строку в соответствующий
+ * обработчик. Проверка пары "разрешение + флаг" остаётся за диспетчером,
+ * внутри обработчика её дублировать не нужно.
+ */
+#include "dbio.h"
+#include "ADC.h"
+#include "USB.h"
 
-IRQ_cbk_t IRQ_clbk_lp[LOPRIO_INTMAX];
-uint8_t IRQ_lpmax = 0;
+typedef void (*ms_clbk_t)(void);
 
-IRQ_cbk_t IRQ_clbk_hp[HIPRIO_INTMAX];
-uint8_t IRQ_hpmax = 0;
-
-ms_cllbk_t ms_clbk[MS_CLBK_MAX];
-uint8_t ms_clbk_max = 0;
-
-uint8_t TMR0L_tmp;
-uint8_t TMR0H_tmp;
 volatile uint32_t timestamp = 0;
 
-uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio)
-{
-  if(IPrio == 0) //low priority interrupt
-  {
-    if(IRQ_lpmax >= LOPRIO_INTMAX) return 1; 
-    IRQ_clbk_lp[IRQ_lpmax] = cbk;
-    IRQ_lpmax++;
-    return 0;
-  }
-  if(IPrio == 1) //high priority interrupt
-  {
-    if(IRQ_hpmax >= HIPRIO_INTMAX) return 2;
-    IRQ_clbk_hp[IRQ_hpmax] = cbk;
-    IRQ_hpmax++;  
-    return 0;  
-  }
-  return 3;
-}
+ms_clbk_t ms_clbk[MS_CLBK_MAX];
+uint8_t ms_clbk_max = 0;
 
-uint8_t sys_regiter_ms_clbk(void (*clbk)(void))
+uint8_t sys_register_ms_clbk(void (*clbk)(void))
 {
   if(ms_clbk_max >= MS_CLBK_MAX) return 1;
   ms_clbk[ms_clbk_max] = clbk;
@@ -45,62 +32,62 @@ uint8_t sys_regiter_ms_clbk(void (*clbk)(void))
 
  void __interrupt(high_priority)  HighInterrupts_handler(void)
 {
-  // Timer0 interrupt
-  if (TMR0IE && TMR0IF)
+  // Тик 1 мс от Timer2. Перезагружать нечего: TMR2 сбрасывается аппаратно по
+  // совпадению с PR2, поэтому период не зависит ни от задержки входа в
+  // прерывание, ни от времени работы обработчика и ms-колбэков.
+  if (PIE1bits.TMR2IE && PIR1bits.TMR2IF)
   {
-    TMR0IF = 0;
-    TMR0H = TMR0H_tmp;
-    TMR0L = TMR0L_tmp;
+    PIR1bits.TMR2IF = 0;
     timestamp++;
     for(uint8_t i = 0; i < ms_clbk_max; i++) ms_clbk[i]();
   }
-  // other hiprio registered interrupts handlers
-  for(int i = 0; i < IRQ_hpmax; i++)
-  {
-    IRQ_clbk_hp[i]();
-  }
-}
- 
-void __interrupt(low_priority)  Interrupts_handler(void)
-{
-  // other loprio registered interrupts handlers
-  for(int i = 0; i < IRQ_lpmax; i++)
-  {
-    IRQ_clbk_lp[i]();
-  }
+  // Высокоприоритетных источников, кроме Timer2, сейчас нет.
+  // Новый добавляется строкой вида:
+  //   if(PIE1bits.XXIE && PIR1bits.XXIF) module_isr();
 }
 
+void __interrupt(low_priority)  Interrupts_handler(void)
+{
+  // Порядок — по убыванию частоты источника: UART на 230400 бод даёт
+  // прерывание раз в ~43 мкс, USB SOF — раз в 1 мс, ADC — раз в 1 мс.
+  if(PIE1bits.RC1IE && PIR1bits.RC1IF) dbio_rx_isr();
+  if(PIE1bits.TX1IE && PIR1bits.TX1IF) dbio_tx_isr();
+  if(PIE1bits.ADIE  && PIR1bits.ADIF)  ADC_isr();
+  if(PIE2bits.USBIE && PIR2bits.USBIF) USB_isr();
+}
+
+/*
+ * Тик 1 мс на Timer2.
+ *
+ * TMR2 сравнивается с PR2 и сбрасывается аппаратно на следующем цикле, поэтому
+ * период равен ровно
+ *     (PR2 + 1) * предделитель * постделитель = 50 * 16 * 15 = 12000
+ * командных циклов = 1.000 мс при F_CYC = 12 МГц, и не зависит ни от задержки
+ * входа в прерывание, ни от длительности обработчика.
+ *
+ * Прежний вариант на Timer0 с перезагрузкой присваиванием давал 12019.6 такта
+ * (+1637 ppm): запись в TMR0 отбрасывает такты, прошедшие с момента
+ * переполнения, и вдобавок обнуляет счёт предделителя (даташит, раздел 12.3).
+ * Замеры на плате — timer_1ms_measurements.md.
+ *
+ * Timer2 после этого занят и не может использоваться как база для CCP/PWM.
+ */
 void sys_mstimer_init(void)
 {
-  T0CONbits.TMR0ON = 0;
-  T0CONbits.T08BIT = 0;   // Timer0 is configured as a 16-bit timer/counter
-  T0CONbits.T0PS = 3;     // 0 -- 1:2 Prescale value
-                          // 1 -- 1:4 Prescale value
-                          // 2 -- 1:8 Prescale value
-                          // 3 -- 1:16 Prescale value
-                          // 4 -- 1:32 Prescale value
-  
-  T0CONbits.T0CS = 0;     // Internal clock (FOSC/4)
-  T0CONbits.PSA = 0;      // Timer0 prescaler is assigned. Timer0 clock input comes from prescaler output.
-  
-  // 48 MHz / 4 = 12 MHz / 4 = 3 MHz (6000 cycles for 1 ms) 
-  // 65536 - 6000 = 59536
-  uint32_t ms_cycles;
-  uint32_t T0_prescaler = 2;
-  for(int i = 0; i < T0CONbits.T0PS; i++) T0_prescaler *= 2;
-  ms_cycles = 65536 - ((F_OSC / 4000) / T0_prescaler);
-  TMR0L_tmp = (uint8_t)(ms_cycles % 256);
-  TMR0H_tmp = (uint8_t)(ms_cycles / 256);
-  
-  TMR0H = TMR0H_tmp;
-  TMR0L = TMR0L_tmp;
-  
+  T2CONbits.TMR2ON = 0;
+  PR2 = 49;                    // (49 + 1) отсчёт до совпадения
+  T2CONbits.T2CKPS = 0b11;     // предделитель:  1x = 1:16
+  T2CONbits.T2OUTPS = 0b1110;  // постделитель: 1110 = 1:15
+  TMR2 = 0;
+
+  PIR1bits.TMR2IF = 0;
+  IPR1bits.TMR2IP = 1;         // высокий приоритет
+  PIE1bits.TMR2IE = 1;
+
   INTCONbits.GIE = 1;
   INTCONbits.PEIE = 1;
-  INTCONbits.T0IE = 1;
-  TMR0IF = 0;
-  
-  T0CONbits.TMR0ON = 1;
+
+  T2CONbits.TMR2ON = 1;
 }
 
 void sys_init(void)

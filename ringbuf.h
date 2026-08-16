@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef RING_BUF_H
 #define RING_BUF_H
 
@@ -12,13 +10,16 @@
 /**
  * @struct RINGBUF_t
  * @brief Ring buffer unit
+ * 
+ * Attention!!! When calling, both in ISR and in the main program, take care to preserve atomicity.
+ * 
  */
 typedef struct RINGBUF_t {
     uint8_t* buf;         ///< Storage of the buffer
-    volatile size_t tail; ///< Place of read point [cells]
-    volatile size_t head; ///< Place of write point [cells]
-    volatile size_t size; ///< Size of buffer [cells]
-    volatile size_t cell_size; ///< Size of one cell [bytes]
+    volatile uint16_t tail; ///< Place of read point [cells]
+    volatile uint16_t head; ///< Place of write point [cells]
+    volatile uint16_t size; ///< Size of buffer [cells]
+    volatile uint16_t cell_size; ///< Size of one cell [bytes]
 } RINGBUF_t;
 
 /**
@@ -36,7 +37,7 @@ typedef enum RINGBUF_STATUS {
     RINGBUF_EMPTY,    ///< Buffer empty
 } RINGBUF_STATUS;
 
-RINGBUF_STATUS RingBuf_Init(void* buf, uint16_t size, size_t cellsize, RINGBUF_t* rb); // Init buf
+RINGBUF_STATUS RingBuf_Init(void* buf, uint16_t size, uint16_t cellsize, RINGBUF_t* rb); // Init buf
 RINGBUF_STATUS RingBuf_Clear(RINGBUF_t* rb);			 	 // Clear buf
 RINGBUF_STATUS RingBuf_Available(uint16_t* len, RINGBUF_t* rb); // Data available
 

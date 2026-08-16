@@ -10123,54 +10123,143 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include/xc.h" 2 3
 # 5 "./system.h" 2
-# 34 "./system.h"
+# 57 "./system.h"
 void sys_init(void);
 
 uint32_t get_ms(void);
 void delay_ms(uint32_t del);
 
-uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
-uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
+uint8_t sys_register_ms_clbk(void (*clbk)(void));
 
 void UART1_Init(void);
 # 2 "system.c" 2
+# 14 "system.c"
+# 1 "./dbio.h" 1
+# 32 "./dbio.h"
+typedef enum DBIO_STATUS {
+    DBIO_PENDING = 0,
 
-typedef void (*IRQ_cbk_t)(void);
-typedef void (*ms_cllbk_t)(void);
+    DBIO_PARAM_ERR = -1,
+    DBIO_NO_SPACE = -1,
+    DBIO_NO_DATA = -2,
+} DBIO_STATUS;
 
-IRQ_cbk_t IRQ_clbk_lp[10];
-uint8_t IRQ_lpmax = 0;
 
-IRQ_cbk_t IRQ_clbk_hp[10];
-uint8_t IRQ_hpmax = 0;
 
-ms_cllbk_t ms_clbk[10];
-uint8_t ms_clbk_max = 0;
 
-uint8_t TMR0L_tmp;
-uint8_t TMR0H_tmp;
+
+typedef enum DBIO_INIT_STATUS {
+    DBIO_INIT_OK = 0,
+    DBIO_INIT_BUF_ERR = 1,
+    DBIO_INIT_CBK_ERR = 2,
+} DBIO_INIT_STATUS;
+
+
+
+
+
+uint8_t dbio_init(void);
+
+
+
+
+
+
+void dbio_rx_isr(void);
+
+
+
+
+
+void dbio_tx_isr(void);
+# 86 "./dbio.h"
+int16_t dbio_getstring(char* str, uint16_t Nmax, uint16_t timeout);
+# 95 "./dbio.h"
+int16_t dbio_putstring(const char* str, uint16_t Nmax);
+
+
+uint16_t dbio_get_hw_overruns(void);
+
+uint16_t dbio_get_hw_framing_errors(void);
+
+uint16_t dbio_get_rx_dropped(void);
+# 15 "system.c" 2
+# 1 "./ADC.h" 1
+# 42 "./ADC.h"
+int16_t ADC_getChan(uint8_t chan);
+
+
+void ADC_start_IT(void);
+
+
+void ADC_stop_IT(void);
+
+
+
+
+
+
+uint8_t ADC_init(void);
+
+
+
+
+
+
+void ADC_isr(void);
+# 16 "system.c" 2
+# 1 "./USB.h" 1
+# 40 "./USB.h"
+void USB_init(void);
+
+
+void USB_deinit(void);
+
+
+
+
+
+
+void USB_isr(void);
+
+
+
+
+
+uint8_t USB_is_configured(void);
+
+
+
+
+
+int16_t USB_kbd_putchar(char c);
+
+
+
+
+
+int16_t USB_kbd_putstring(const char* str, uint16_t Nmax);
+
+
+
+
+
+
+
+int16_t USB_kbd_putkey(uint8_t usage, uint8_t modifiers);
+
+
+uint8_t USB_kbd_getleds(void);
+# 17 "system.c" 2
+
+typedef void (*ms_clbk_t)(void);
+
 volatile uint32_t timestamp = 0;
 
-uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio)
-{
-  if(IPrio == 0)
-  {
-    if(IRQ_lpmax >= 10) return 1;
-    IRQ_clbk_lp[IRQ_lpmax] = cbk;
-    IRQ_lpmax++;
-    return 0;
-  }
-  if(IPrio == 1)
-  {
-    if(IRQ_hpmax >= 10) return 2;
-    IRQ_clbk_hp[IRQ_hpmax] = cbk;
-    IRQ_hpmax++;
-    return 0;
-  }
-  return 3;
-}
+ms_clbk_t ms_clbk[10];
+uint8_t ms_clbk_max = 0;
 
-uint8_t sys_regiter_ms_clbk(void (*clbk)(void))
+uint8_t sys_register_ms_clbk(void (*clbk)(void))
 {
   if(ms_clbk_max >= 10) return 1;
   ms_clbk[ms_clbk_max] = clbk;
@@ -10181,61 +10270,45 @@ uint8_t sys_regiter_ms_clbk(void (*clbk)(void))
  void __attribute__((picinterrupt(("high_priority")))) HighInterrupts_handler(void)
 {
 
-  if (TMR0IE && TMR0IF)
+
+
+  if (PIE1bits.TMR2IE && PIR1bits.TMR2IF)
   {
-    TMR0IF = 0;
-    TMR0H = TMR0H_tmp;
-    TMR0L = TMR0L_tmp;
+    PIR1bits.TMR2IF = 0;
     timestamp++;
     for(uint8_t i = 0; i < ms_clbk_max; i++) ms_clbk[i]();
   }
 
-  for(int i = 0; i < IRQ_hpmax; i++)
-  {
-    IRQ_clbk_hp[i]();
-  }
+
+
 }
 
 void __attribute__((picinterrupt(("low_priority")))) Interrupts_handler(void)
 {
 
-  for(int i = 0; i < IRQ_lpmax; i++)
-  {
-    IRQ_clbk_lp[i]();
-  }
-}
 
+  if(PIE1bits.RC1IE && PIR1bits.RC1IF) dbio_rx_isr();
+  if(PIE1bits.TX1IE && PIR1bits.TX1IF) dbio_tx_isr();
+  if(PIE1bits.ADIE && PIR1bits.ADIF) ADC_isr();
+  if(PIE2bits.USBIE && PIR2bits.USBIF) USB_isr();
+}
+# 75 "system.c"
 void sys_mstimer_init(void)
 {
-  T0CONbits.TMR0ON = 0;
-  T0CONbits.T08BIT = 0;
-  T0CONbits.T0PS = 3;
+  T2CONbits.TMR2ON = 0;
+  PR2 = 49;
+  T2CONbits.T2CKPS = 0b11;
+  T2CONbits.T2OUTPS = 0b1110;
+  TMR2 = 0;
 
-
-
-
-
-  T0CONbits.T0CS = 0;
-  T0CONbits.PSA = 0;
-
-
-
-  uint32_t ms_cycles;
-  uint32_t T0_prescaler = 2;
-  for(int i = 0; i < T0CONbits.T0PS; i++) T0_prescaler *= 2;
-  ms_cycles = 65536 - ((48000000L / 4000) / T0_prescaler);
-  TMR0L_tmp = (uint8_t)(ms_cycles % 256);
-  TMR0H_tmp = (uint8_t)(ms_cycles / 256);
-
-  TMR0H = TMR0H_tmp;
-  TMR0L = TMR0L_tmp;
+  PIR1bits.TMR2IF = 0;
+  IPR1bits.TMR2IP = 1;
+  PIE1bits.TMR2IE = 1;
 
   INTCONbits.GIE = 1;
   INTCONbits.PEIE = 1;
-  INTCONbits.T0IE = 1;
-  TMR0IF = 0;
 
-  T0CONbits.TMR0ON = 1;
+  T2CONbits.TMR2ON = 1;
 }
 
 void sys_init(void)

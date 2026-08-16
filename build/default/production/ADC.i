@@ -10123,52 +10123,69 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v4.00\\pic\\include/xc.h" 2 3
 # 5 "./ADC.h" 2
-# 27 "./ADC.h"
+# 42 "./ADC.h"
 int16_t ADC_getChan(uint8_t chan);
+
 
 void ADC_start_IT(void);
 
+
 void ADC_stop_IT(void);
 
-void ADC_init(void);
+
+
+
+
+
+uint8_t ADC_init(void);
+
+
+
+
+
+
+void ADC_isr(void);
 # 2 "ADC.c" 2
 # 1 "./system.h" 1
-# 34 "./system.h"
+# 57 "./system.h"
 void sys_init(void);
 
 uint32_t get_ms(void);
 void delay_ms(uint32_t del);
 
-uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
-uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
+uint8_t sys_register_ms_clbk(void (*clbk)(void));
 
 void UART1_Init(void);
 # 3 "ADC.c" 2
 
-uint8_t ChanNum[(1 +1 +1 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0)];
-int ChanIndx = 0;
-int16_t ChanValue[16];
+static uint8_t ChanNum[(1 +1 +1 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0)];
+static volatile uint8_t ChanIndx = 0;
 
-void ADC_cplt_cbk(void)
+static volatile int16_t ChanValue[16];
+
+
+static volatile uint8_t adc_running = 0;
+
+
+void ADC_isr(void)
 {
-  if(ADIE && ADIF)
-  {
-    ADIF = 0;
-    ChanValue[ChanNum[ChanIndx++]] = (((int16_t)ADRESH) << 8) | ADRESL;
-    if(ChanIndx >= (1 +1 +1 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0)) {
-      ADIE = 0;
-      ChanIndx = 0;
-    }
-    else {
-      ADCON0bits.CHS = ChanNum[ChanIndx];
-      ADCON0bits.GODONE = 1;
-    }
+  ADIF = 0;
+  ChanValue[ChanNum[ChanIndx++]] = (((int16_t)ADRESH) << 8) | ADRESL;
+  if(ChanIndx >= (1 +1 +1 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0)) {
+    ADIE = 0;
+    ChanIndx = 0;
+  }
+  else {
+    ADCON0bits.CHS = ChanNum[ChanIndx];
+    ADCON0bits.GODONE = 1;
   }
 }
 
-void ADC_ms_cbk(void)
+
+
+static void ADC_ms_cbk(void)
 {
-  if(ChanIndx == 0)
+  if(adc_running && (ChanIndx == 0))
   {
     ADCON0bits.CHS = ChanNum[ChanIndx];
     ADIF = 0;
@@ -10179,32 +10196,47 @@ void ADC_ms_cbk(void)
 
 int16_t ADC_getChan(uint8_t chan)
 {
-  INTCONbits.GIE = 0;
-  int16_t retval = ChanValue[chan];
-  INTCONbits.GIE = 1;
+  int16_t retval;
+  uint8_t gie_state;
+  if(chan >= 16) return -1;
+  do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+  retval = ChanValue[chan];
+  do { if(gie_state) INTCONbits.GIE = 1; } while(0);
   return retval;
 }
 
+
+
 void ADC_start_IT(void)
 {
+  uint8_t gie_state;
+  do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
   ChanIndx = 0;
+  adc_running = 1;
+  ADCON0bits.ADON = 1;
   ADCON0bits.CHS = ChanNum[ChanIndx];
   ADIF = 0;
   ADIE = 1;
   ADCON0bits.GODONE = 1;
+  do { if(gie_state) INTCONbits.GIE = 1; } while(0);
 }
 
 void ADC_stop_IT(void)
 {
+  uint8_t gie_state;
+  do { gie_state = (uint8_t)INTCONbits.GIE; INTCONbits.GIE = 0; } while(0);
+  adc_running = 0;
   ChanIndx = 0;
+  ADCON0bits.GODONE = 0;
   ADCON0bits.ADON = 0;
   ADIF = 0;
   ADIE = 0;
+  do { if(gie_state) INTCONbits.GIE = 1; } while(0);
 }
 
-void ADC_init(void)
+uint8_t ADC_init(void)
 {
-  int chanmax = 0;
+  uint8_t chanmax = 0;
 
   ANCON0 = 0xFF;
   ANCON1 = 0x1F;
@@ -10223,7 +10255,7 @@ void ADC_init(void)
   ChanNum[chanmax++] = 2;
   TRISAbits.TRISA2 = 1;
   ANCON0bits.PCFG2 = 0;
-# 140 "ADC.c"
+# 159 "ADC.c"
   ADCON0bits.VCFG = 0b00;
 
 
@@ -10241,11 +10273,12 @@ void ADC_init(void)
 
 
   ADCON1bits.ACQT = 0b111;
-# 165 "ADC.c"
+# 184 "ADC.c"
   IPR1bits.ADIP = 0;
 
-  sys_regiter_IRQ_clbk(ADC_cplt_cbk, 0);
-  sys_regiter_ms_clbk(ADC_ms_cbk);
+
+  if(sys_register_ms_clbk(ADC_ms_cbk)) return 1;
 
   ADCON0bits.ADON = 1;
+  return 0;
 }

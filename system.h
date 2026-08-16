@@ -9,12 +9,9 @@
 
 #define      delay_cyc_ms(ms)         {volatile uint32_t cycles = (F_CYC * ms) / 1000; while(cycles--);}
 
-#define      LOPRIO_INTMAX            10 
-#define      HIPRIO_INTMAX            10
 #define      MS_CLBK_MAX              10
 
 
-#define      U1_BAUDRATE              230400L
 #define      U1_TxIntEn()             PIE1bits.TX1IE = 1
 #define      U1_RxIntEn()             PIE1bits.RC1IE = 1
 #define      U1_TxIntDis()            PIE1bits.TX1IE = 0
@@ -28,21 +25,46 @@
 #endif
 
 #ifndef	InterruptDis
-#define	InterruptDis()	INTCONbits.GIE = 0	// Interrupts of Hi/Lo Priority or Peripheral interrupts 
+#define	InterruptDis()	INTCONbits.GIE = 0	// Interrupts of Hi/Lo Priority or Peripheral interrupts
 #endif
+
+/*
+ * Nestable critical section. InterruptEn() sets GIE unconditionally, so a
+ * plain InterruptDis()/InterruptEn() pair re-enables interrupts even when the
+ * caller had them disabled. These macros save and restore the previous state.
+ *
+ * Usage:
+ *   CRIT_DECL();
+ *   CRIT_ENTER();
+ *   ... shared data ...
+ *   CRIT_EXIT();
+ *
+ * CRIT_DECL() declares a variable in the caller's scope, so it must not be
+ * wrapped in do{}while(0) like the other two.
+ */
+#define      CRIT_DECL()              uint8_t gie_state
+#define      CRIT_ENTER()             do { gie_state = (uint8_t)INTCONbits.GIE; InterruptDis(); } while(0)
+#define      CRIT_EXIT()              do { if(gie_state) InterruptEn(); } while(0)
+
+/*
+ * ќбработчики прерываний модулей вызываютс€ напр€мую из Interrupts_handler()
+ * в system.c Ч реестра указателей больше нет. „тобы подключить новый источник,
+ * объ€вите его обработчик в заголовке модул€ и допишите строку в system.c.
+ * ѕериодические задачи (раз в 1 мс) по-прежнему регистрируютс€ динамически
+ * через sys_register_ms_clbk().
+ */
 
 void sys_init(void);
 
 uint32_t get_ms(void);
 void delay_ms(uint32_t del);
 
-uint8_t sys_regiter_ms_clbk(void (*clbk)(void));
-uint8_t sys_regiter_IRQ_clbk(void (*cbk)(void), uint8_t IPrio);
+uint8_t sys_register_ms_clbk(void (*clbk)(void));
 
 void UART1_Init(void);
 //void UART1_PutChar(char byte);
 //int16_t UART1_PutStr(char* byte, uint16_t N);
 //char UART1_GetChar(void);
 
-#endif	/* XC_HEADER_TEMPLATE_H */
+#endif	/* SYSTEM_H */
 
